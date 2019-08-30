@@ -1,0 +1,6 @@
+"Learn Python 3 The Hard Way", "Zed Shaw", "Python", "2017", "320", "A"
+"Learn More Python 3 The Hard Way","Zed Shaw", "Python", "2017", "236", "B"
+"Python 3 Object Oriented Programming", "Dusty Phillps", "Python", "2018", "466"
+"Html And Css: Design And Build Websites", "Jon Duckett", "Hrml and Css", "2011", "512"
+"Flask Web Development 2e", "Miquel Grinberg", "Python Flask", "2018", "316"
+"JavaScript For Kids", "Nick Morgan", "JavaScript" , "2014", "338", "B"
