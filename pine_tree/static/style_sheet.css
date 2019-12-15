@@ -1,0 +1,92 @@
+body{
+    font-family: 'Assistant', sans-serif;
+    
+    padding: 0;
+    margin: 0;
+    background-color:  #e7e7e7;
+    background-image: url("trees.jpg")   
+     
+}
+
+.center{ text-align: center}
+.left {width: 100%;
+        text-align: left;
+        opacity: 10;}
+
+
+/* general */
+
+.input {
+    height: 35px;
+    margin-bottom: 5px;
+    width: 385px;
+    display:inline-block;
+    margin-bottom: 10px;
+    padding: 2px 2px 2px 20px;
+    font-family: Arial, Helvetica, sans-serif; 
+    font-size: 20px; 
+    border: 1px solid#817f7f;
+    border-radius: 10px;
+    background-color: #e7e7e7;                   
+        }
+
+
+
+/* Login Signup Page */
+#signup-login {
+    width: 800px;
+    height: 500px;
+    margin-top: 5%;
+    background-color: rgba(231, 231, 231, 0.5);
+    display: inline-block;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+#log-in {width: 45%;
+        height: 100%;
+        float: left;
+        background-color: rgba(249, 245, 244, 0.5);
+        border-radius: 20px 20px 20px 20px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+#sign-up {width: 50%;
+        height: 100%;
+        float: right;
+        ;
+        border-radius: 0px 20px 20px 0px;        
+        }
+
+#first_name {width: 175px;
+        float: left;
+    margin-left: -25px;}
+
+#last_name {width: 175px;
+        float: right;
+        margin-right: 15px;}
+
+       
+#email, #birthday, #birthday_text, #password
+        {margin-left: -25px;
+        float: left;}
+#birthday {margin-top: 10px;}
+
+#birthday_text , #gender_text {margin-bottom: 0px;
+                font-size: 14px;
+                text-shadow:0px 0px 10px rgb(2, 182, 92)}
+
+#signuptext1 {margin: 10px 0px 0px -25px;
+            text-shadow:0px 0px 10px  rgb(2, 182, 92)}
+#signuptext2 {margin: 0px 0px 5px -25px;
+            text-shadow:0px 0px 10px  rgb(2, 182, 92)}
+
+
+#radio {text-align: left; margin-top: 33px; margin-left: -58px; display: inline-block; margin-top: 50px;}
+#male {width: 100px; display: inline-block;}
+#female {width: 120px;  display: inline-block;margin-left: 5px;}
+#other {width: 100px;  display: inline-block;margin-left: 5px;}
+#gtext {margin: 5px 15px 0px 10px; display: inline-block; font-size: 18px;}
+
+
+
