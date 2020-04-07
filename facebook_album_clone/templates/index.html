@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <title>My Album</title>
+        <link rel="stylesheet" href="../static/styles.css">
+    </head>
+    <body>
+        <div class="wrapper">
+            <nav>
+                <h2 class="album-name">Featured Photos</h2>
+                <div class="admin_upload">
+                    <form id="myform" action="{{url_for('add')}}" method="POST" enctype="multipart/form-data">
+
+                                   
+                        <input type="file" name="filename" id="filename" class="inputfile" />
+                        <label for="filename">Select Photo</label>
+                        <input type="submit" class="button_style" value="Add">
+                        
+                        <br>
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                          <ul class=flashes>
+                          {% for message in messages %}
+                            <li>{{ message }}</li>
+                          {% endfor %}
+                          </ul>
+                        {% endif %}
+                        {% endwith %}
+
+                    </form>
+                </div>
+            </nav>
+            <section>
+                <div class="fig-wrapper">
+                    <form action="{{ url_for('forward') }}" method="POST">
+                        <div class="admin_edit">
+                            <div class="edit_remove">
+                                <input type="submit" class="button_style " name="forward" value="delete">
+                                <input type="submit" class="button_style " name="forward" value="up">
+                                <input type="submit" class="button_style " name="forward" value="down">
+                            </div>
+
+                        </div>
+
+                        {% for img in imgs %}
+                            <figure id="{{ img.id }}">                        
+                                <div class="img-wrapper">                           
+                                    <a href=""><img src="{{ img.loc }}"></a>                       
+                                </div>
+                                <input type="radio" name="img" value="{{ img.id }}">                         
+                            </figure>
+                        {% endfor %}
+
+                        <!-- <figure id="02">                        
+                            <div class="img-wrapper">                           
+                                <a href=""><img src="../images/img02.jpg"></a>                        
+                            </div>
+                            <input type="radio" name="img" value="02" checked>                        
+                        </figure> 
+
+                        <figure id="03">                        
+                            <div class="img-wrapper">                           
+                                <a href=""><img src="../images/img03.jpg"></a>                       
+                            </div>
+                            <input type="radio" name="img" value="03">                         
+                        </figure> 
+
+                        <figure id="04">                        
+                            <div class="img-wrapper">                           
+                                <a href=""><img src="../images/img04.jpg"></a>                        
+                            </div>                              
+                            <input type="radio" name="img" value="04">                                             
+                        </figure> 
+
+                        <figure id="05">                        
+                            <div class="img-wrapper">                           
+                                <a href=""><img src="../images/img05.jpg"></a>                        
+                            </div>                              
+                            <input type="radio" name="img" value="05">                                             
+                        </figure> 
+
+                        <figure id="06">                        
+                            <div class="img-wrapper">                           
+                                <a href=""><img src="../images/img06.jpg"></a>                        
+                            </div>                              
+                            <input type="radio" name="img" value="06">                                             
+                        </figure>  -->
+                    </form>                  
+    
+
+
+                </div>
+     
+             
+    
+            </section>
+        </div>
+    </body>
+</html>

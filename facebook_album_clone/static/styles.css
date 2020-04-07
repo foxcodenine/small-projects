@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&family=Comic+Neue&family=Raleway:ital,wght@1,100&display=swap');
+
+body {
+    background-color: #e9ebee;
+    overflow: auto;
+
+    padding: 0;
+    margin: 0;
+
+}
+
+
+.wrapper {
+    margin: 0 auto 0 auto;
+    width: 960px;
+    padding: 0;
+
+}
+section {
+   
+    margin: 0 auto ;
+
+    background-color: #ffffff;
+    width: 960px;
+    /* min-height: 200vh; */
+    border: 1px solid #ccd0d5;   
+    overflow: auto;
+    padding-bottom: 15px;
+}
+
+
+
+.fig-wrapper{
+    margin: 0;
+    padding: 50px 0 0 0;
+}
+figure {
+    padding: 0;
+    margin: 14px 0 0 14px;
+    overflow: hidden;
+    z-index: 1;
+    
+    float: left;
+}
+
+.img-wrapper{
+    height: 200px;
+    overflow: hidden;
+    width: 300px;
+    position: relative;
+}
+figure img {
+    
+    height: 200px;  
+    min-width: 300px;
+ 
+   
+    
+   
+
+}
+figure input {
+
+    margin-top: -20px;
+    position: absolute;   
+    
+
+}
+
+
+/* nav */
+nav {
+    display: block;
+    width: 960px;
+    height: 40px;
+    border: 1px solid #ccd0d5;  
+    border-top: none;
+    background-color: #f5f6f7;
+    position: fixed;
+    text-align: center;
+    padding: 7px 0 0px 0;
+    z-index: 2;
+    
+
+}
+
+
+.album-name {
+    font-family: 'Raleway', sans-serif;
+    font-size: 25px;   
+    margin: 0 auto ;
+    display: inline;
+    position: absolute;
+    
+    
+}
+
+.admin_upload {
+    width: 180px;
+    /* border: 1px solid crimson; */
+    float: right;
+    padding: 5px 12px 0 0;
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+    z-index: -1;
+    
+}
+
+.inputfile + label, .inputfile_submit, #id {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .8em;    
+    color: black;
+    background-color: white;
+    display: inline-block;
+    border: 1px solid #ccd0d5;
+    width: 120px;
+    height: 18px;
+    padding: 3px 0 0 0;
+    margin: 0;
+    border-radius: 15px;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    /* background-color: #a6aaaf; */
+    border: 2px solid #7396c5;
+    color: crimson;
+}
+
+.button_style {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .8em;    
+    color: black;
+    background-color: white; 
+    border: 1px solid #ccd0d5;
+    width: 50px;
+    height: 21px;
+    padding: 1.5px 0 0 0;
+    border-radius: 15px;
+}
+
+
+.inputfile_submit:focus , .button_style:hover {
+    border: 2px solid #7396c5;
+    color: crimson;
+}
+
+.admin_edit {
+    position: fixed;
+    top: 10px;
+    width: 100%;
+    z-index: 3;
+
+    
+}
+
+.edit_remove{
+    position: absolute;
+    margin-left: 12px;   
+    float: left;
+    
+
+}
+
+.flashes{
+    color: crimson;
+    float: right;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .8em;
+}
+
+
+
