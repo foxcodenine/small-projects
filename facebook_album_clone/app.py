@@ -13,7 +13,8 @@ photos = UploadSet('photos', IMAGES)
 
 app.config['DEBUG'] = True
 app.config['SECRET_KEY'] = uuid4().hex
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://F2udETTsO6:*****@remotemysql.com:3306/F2udETTsO6'
+app.config['SQLALCHEMY_DATABASE_URI'] = (
+    'mysql://F2udETTsO6:U7hQzPXXBW@remotemysql.com:3306/F2udETTsO6')
 
 app.config['UPLOADED_PHOTOS_DEST'] = './images'
 
@@ -31,18 +32,12 @@ class PhotoAlbum(db.Model):
     pos = db.Column(db.Integer, nullable=False)
     chk = db.Column(db.Boolean)
 
-
-
-
 # ______________________________________________________________________
 
 @app.route('/', methods=['GET'])
 def index():
 
     images  = PhotoAlbum.query.order_by(PhotoAlbum.pos.desc()).all()
-    for i in images:
-        print('>>>>',i.pos,i.loc)
-
     return render_template('index.html', imgs=images)
 
 # ____________________
@@ -83,17 +78,60 @@ def forward():
         return redirect(url_for('index'))
 
     else:
+        if  'img' not in request.form:
+            flash('No Image Selected')
+            return redirect(url_for('index'))
+
         file_id = request.form['img']
         session['file_id'] = file_id
+        
         
         if request.form['forward'] == 'delete':
             return redirect(url_for('delete'))
         else:
-            print(request.form['forward'])
-            return redirect(url_for('index'))
+            session['action'] = request.form['forward']
+            session['places'] = request.form['plc']
+            return redirect(url_for('move'))
         
+# ____________________
 
-    
+@app.route('/move/')
+def move():
+    places  = session['places']
+    action  = session['action']
+    file_id = session['file_id']
+    print('>>>>>', action, places)
+
+
+    selected_row = PhotoAlbum.query.filter_by(id = file_id).first()  
+
+    if action == 'up': 
+
+        rows_above =   PhotoAlbum.query.filter(
+            PhotoAlbum.pos > selected_row.pos).order_by(
+                PhotoAlbum.pos).limit(places).all()
+        
+        selected_row.pos = int(selected_row.pos) + int(places)
+        db.session.commit()
+      
+        for row in rows_above:            
+            row.pos = int(row.pos) - 1
+            db.session.commit()
+
+
+    if action == 'down':
+        rows_below =   PhotoAlbum.query.filter(
+            PhotoAlbum.pos < selected_row.pos).order_by(
+                PhotoAlbum.pos.desc()).limit(places).all()
+        
+        selected_row.pos = int(selected_row.pos) - int(places)
+        db.session.commit()
+      
+        for row in rows_below:            
+            row.pos = int(row.pos) + 1
+            db.session.commit()
+
+    return redirect(url_for('index'))
 
     
 # ____________________
