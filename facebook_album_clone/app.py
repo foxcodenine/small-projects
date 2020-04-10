@@ -14,7 +14,7 @@ photos = UploadSet('photos', IMAGES)
 app.config['DEBUG'] = True
 app.config['SECRET_KEY'] = uuid4().hex
 app.config['SQLALCHEMY_DATABASE_URI'] = (
-    'mysql://F2udETTsO6:U7hQzPXXBW@remotemysql.com:3306/F2udETTsO6')
+    'mysql://F2udETTsO6:UI7hQzPXXBW@remotemysql.com:3306/F2udETTsO6')
 
 app.config['UPLOADED_PHOTOS_DEST'] = './images'
 
@@ -100,7 +100,7 @@ def move():
     places  = session['places']
     action  = session['action']
     file_id = session['file_id']
-    print('>>>>>', action, places)
+    
 
 
     selected_row = PhotoAlbum.query.filter_by(id = file_id).first()  

@@ -5,6 +5,13 @@
         <link rel="stylesheet" href="../static/styles.css">
     </head>
     <body>
+        <div id="image_model">
+            
+            <div id="image_box">
+                <span id="imageCloseBtn">&times;</span>
+                <img src="#" id="image_display">
+            </div>
+        </div>
         <div class="wrapper">
             <nav>
                 <h2 class="album-name">Featured Photos</h2>
@@ -46,7 +53,7 @@
                         {% for img in imgs %}
                             <figure id="{{ img.id }}">                        
                                 <div class="img-wrapper">                           
-                                    <a href=""><img src="{{ img.loc }}"></a>                       
+                                    <a><img id="$$$" src="{{ img.loc }}"></a>                       
                                 </div>
                                 <input type="radio" name="img" value="{{ img.id }}">                         
                             </figure>
@@ -96,5 +103,6 @@
     
             </section>
         </div>
+        <script src="../static/script.js"></script>
     </body>
 </html>
