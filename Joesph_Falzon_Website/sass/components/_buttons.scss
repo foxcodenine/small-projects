@@ -1,0 +1,31 @@
+.btn {
+    &,
+    &:link,
+    &:visited {
+        font-family: 'Montserrat', sans-serif;
+        font-size: $font-def;
+        letter-spacing: 1px;
+        display: inline-block;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 14px;
+        
+        transition: all 0.2s ease-in-out;
+
+        
+    }
+    &--white {
+        color: $col-blk;
+        background: $col-wht;
+        border: solid 1px $col-wht;
+        opacity: .8;
+
+        &:hover {
+            color: $col-wht;
+            background: transparent;
+            opacity: 1;
+        }
+    }
+}
+
+

@@ -1,0 +1,16 @@
+.half_width {
+    width: 50%;
+    
+    
+
+}
+
+
+
+
+@media screen and (max-width: 900px) {
+    .half_width {
+        text-align: center;
+        width: 100%;
+    }
+}

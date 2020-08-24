@@ -1,0 +1,90 @@
+
+.header {
+    height: 80vh;
+    min-height: 44rem;
+    max-height: 80rem;
+    background-image: linear-gradient(to right bottom, rgba($col-blue-3, .5), rgba($col-red-1, .2) 70%), url('../img/header/hero_3.webp');
+    background-size: cover; 
+    background-position: top;
+    position: relative;
+    overflow: visible; 
+       
+    
+    &__box {
+      
+        max-width: 120rem;
+        width: 100%;             
+        
+        // border: 1px solid red;
+        
+        position: absolute;
+        bottom: 10rem;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0 2rem;        
+        
+    }
+    &__header__main.heading-1 {
+        margin-bottom: 2rem;
+        
+    }
+    &__sub .paragraph{
+        color: $col-wht;
+        font-size: 2rem;
+        font-weight: 300;      
+
+        line-height: 1.2;
+        letter-spacing: 0.8px;
+        text-shadow: 1px 1px 2px rgba($col-blk, $alpha: .9);
+        margin-bottom: 5rem;
+        
+  
+    } 
+
+    &__scroll--down {
+        position: absolute;
+        bottom: 0rem;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: all 0.2s ease-in-out;
+        font-weight: 600;
+
+        &:hover {
+            transform: translate(-50%, 5%);
+            opacity: .7;
+            
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    
+    .header {
+        height: 80vh;
+        min-height: 60rem;
+
+        &__scroll--down {
+            display: none;
+        }
+    
+        &__box {
+            position: absolute;
+            bottom: 40%;
+            // border: orangered 1px solid;
+        }
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    
+    .header {
+       
+    
+        &__box {
+            position: absolute;
+            bottom: 20%;
+            // border: orangered 1px solid;
+        }
+    }
+}
