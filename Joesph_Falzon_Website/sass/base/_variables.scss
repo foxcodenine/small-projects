@@ -1,6 +1,6 @@
 // Grid
-$grid-width: 114rem;
-$gutter-vert: 8rem;
+$grid-width: 128rem;
+$gutter-vert: 2.5rem;
 $gutter-horz: 6rem;
 
 // Font-Size 
@@ -20,5 +20,15 @@ $col-red-1: #ff5554;
 $col-red-2: #b23c3a;
 
 // Shadows 
+
+// Shadow 
+$shadow_1: 0 1.5rem 3rem rgba( $col-blk, .3);
+$shadow_1h: 0 2.5rem 5rem rgba($col-blk, .5);
+
+$shadow_2: 0 3rem 6rem rgba(  $col-blk,  .1);
+$shadow_3: 0 1rem 2rem rgba(  $col-blk,  .1);
+$shadow_4: 0 1rem 2rem rgba(  $col-blk,  .4);
+$shadow_5: 0 1rem 3rem rgba(  $col-blk,  .3);
+$shadow_6: 0 0rem 5rem rgba(  $col-blk,  .5);
 
 // Border-Radius

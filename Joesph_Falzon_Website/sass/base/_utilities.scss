@@ -1,11 +1,6 @@
 .half_width {
-    width: 50%;
-    
-    
-
+    width: 50%;       
 }
-
-
 
 
 @media screen and (max-width: 900px) {
@@ -14,3 +9,33 @@
         width: 100%;
     }
 }
+
+// ________________________________________________________
+
+.u-center-text { text-align: center !important; } 
+
+// ________________________________________________________
+
+.u-margin-bottom-1 {margin-bottom: 1rem !important;}
+
+.u-margin-bottom-2 {margin-bottom: 2rem !important;}
+
+.u-margin-bottom-4 {margin-bottom: 4rem !important;}
+
+.u-margin-bottom-6 {margin-bottom: 6rem !important;}
+
+.u-margin-bottom-8 {margin-bottom: 8rem !important;}
+
+// ________________________________________________________
+
+.u-margin-top-2 {margin-top: 2rem !important;}
+
+.u-margin-top-4 {margin-top: 4rem !important;}
+
+.u-margin-top-6 {margin-top: 6rem !important;}
+
+.u-margin-top-8 {margin-top: 8rem !important;}
+
+.u-margin-top-10 {margin-top: 10rem !important;}
+
+// ________________________________________________________

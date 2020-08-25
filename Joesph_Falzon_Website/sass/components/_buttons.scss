@@ -24,6 +24,12 @@
             color: $col-wht;
             background: transparent;
             opacity: 1;
+            transform: translateY(-3px);
+        }
+        &:active {
+            transform: translateY(-2px);
+            
+            
         }
     }
 }

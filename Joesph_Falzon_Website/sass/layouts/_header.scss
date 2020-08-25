@@ -8,11 +8,12 @@
     background-position: top;
     position: relative;
     overflow: visible; 
+    min-width: 34.6rem;
        
     
     &__box {
       
-        max-width: 120rem;
+        max-width: 118rem;
         width: 100%;             
         
         // border: 1px solid red;
@@ -69,21 +70,24 @@
     
         &__box {
             position: absolute;
-            bottom: 40%;
+            bottom: 20%;
             // border: orangered 1px solid;
+        }
+        &__sub .paragraph {
+            margin-bottom: 12rem;
         }
     }
 }
 
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
     
     .header {
        
     
         &__box {
             position: absolute;
-            bottom: 20%;
+            bottom: 10%;
             // border: orangered 1px solid;
         }
     }
