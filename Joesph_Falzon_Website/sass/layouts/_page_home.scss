@@ -1,11 +1,86 @@
 .main {
-    background-color: rgba($color: $col-blue-1, $alpha: .3);
-    height: 700rem;
+    
+    
     min-width: 34.6rem;
 }
 
 .section-projects {
     padding: 4.5rem 5rem;
+    height: 60rem;
+    background-color: rgba($col-blue-1, .1);
+}
 
+.footer {
+    
+    padding: 3.5rem;
+    background-color: rgba($col-blk, .6);
+
+    .paragraph-2 {
+        color: white;
+        margin: .4rem 0;
+        
+    }
+
+    &__textbox {
+        float: left;
+        width: 80%;
+    }
+    &__logobox {
+        float: right;
+    }
+    &__logo {
+        width: 70px;
+        height: 70px;
+        border: 1px white solid;
+        opacity: .8;
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+    
+    .footer {
+        padding: 3.5rem;
+
+        .paragraph-2 {
+            text-align: left;
+            font-size: 1.2rem;
+            width: 80%;
+            margin: .4rem 0;
+            
+            
+        }
+    }
+}
+@media screen and (max-width: 600px) {    
+    .footer {       
+        
+        &__textbox {       
+            width: 80%;
+        }
+    }
+}
+@media screen and (max-width: 450px) {    
+    .footer {       
+        
+        &__textbox {       
+            width: 60%;
+        }
+    }
+}
+
+.section__profile {
+    padding: 4.5rem 5rem;
+    height: 60rem;
+    background-color: rgba($col-red-1, .4);
+    width: 100%;
+    display: block;
+}
+.section__contact {
+    padding: 4.5rem 5rem;
+    height: 60rem;
+    background-color: rgba($col-blue-1, .1);
+    width: 100%;
+    display: block;
 }
 

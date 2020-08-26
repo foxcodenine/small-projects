@@ -293,12 +293,60 @@ body {
       font-size: 1.6rem; } }
 
 .main {
-  background-color: rgba(191, 204, 237, 0.3);
-  height: 700rem;
   min-width: 34.6rem; }
 
 .section-projects {
-  padding: 4.5rem 5rem; }
+  padding: 4.5rem 5rem;
+  height: 60rem;
+  background-color: rgba(191, 204, 237, 0.1); }
+
+.footer {
+  padding: 3.5rem;
+  background-color: rgba(0, 0, 0, 0.6); }
+  .footer .paragraph-2 {
+    color: white;
+    margin: .4rem 0; }
+  .footer__textbox {
+    float: left;
+    width: 80%; }
+  .footer__logobox {
+    float: right; }
+  .footer__logo {
+    width: 70px;
+    height: 70px;
+    border: 1px white solid;
+    opacity: .8; }
+
+@media screen and (max-width: 900px) {
+  .footer {
+    padding: 3.5rem; }
+    .footer .paragraph-2 {
+      text-align: left;
+      font-size: 1.2rem;
+      width: 80%;
+      margin: .4rem 0; } }
+
+@media screen and (max-width: 600px) {
+  .footer__textbox {
+    width: 80%; } }
+
+@media screen and (max-width: 450px) {
+  .footer__textbox {
+    width: 60%; } }
+
+.section__profile {
+  padding: 4.5rem 5rem;
+  height: 60rem;
+  background-color: rgba(255, 85, 84, 0.4);
+  width: 100%;
+  display: block; }
+
+.section__contact {
+  padding: 4.5rem 5rem;
+  height: 60rem;
+  background-color: rgba(191, 204, 237, 0.1);
+  width: 100%;
+  display: block; }
 
 .btn, .btn:link, .btn:visited {
   font-family: 'Montserrat', sans-serif;
@@ -323,44 +371,15 @@ body {
   .btn--white:active {
     transform: translateY(-2px); }
 
-.card__scroll {
-  overflow-x: scroll;
-  overflow-y: hidden;
-  white-space: nowrap; }
-
-.card__shape {
-  width: 100%;
-  overflow: hidden;
-  color: brown;
-  height: 16.5rem;
-  margin-top: 3rem;
-  transition: all 0.2s ease-in-out; }
-  .card__shape:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3); }
-
-.card__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(70%);
-  outline-offset: 0rem;
-  outline: 3px solid rgba(255, 255, 255, 0.8);
-  transform: scale(1);
-  transition: all 0.2s ease-in-out; }
-
-.card:hover .card__image {
-  filter: grayscale(0);
-  outline-offset: -2rem;
-  transform: scale(1.05); }
-
 .card2__scroll {
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
   color: transparent;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
   scrollbar-width: thin;
-  transition: all 0.1s ease-in-out; }
+  transition: all 0.1s ease-in-out;
+  cursor: grab; }
 
 .card2 {
   display: inline-block;
@@ -399,22 +418,22 @@ body {
   height: 100%;
   object-fit: cover;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
-  filter: grayscale(80%);
+  filter: sepia(70%);
   transition: all 0.2s ease-in-out;
   outline-offset: 0rem;
   outline: 3px solid rgba(255, 255, 255, 0.8); }
 
 .card2:hover .card2__img {
-  filter: grayscale(0);
+  filter: sepia(20%);
   outline-offset: -2rem;
-  transform: scale(1.05);
-  filter: grayscale(0%); }
+  transform: scale(1.05); }
 
 .card2__text {
   font-size: 1.2rem;
   font-family: "open sans";
   display: inline-block;
-  color: black;
+  color: #333333;
+  font-weight: 100;
   white-space: pre-line;
   padding: 0;
   text-align: center;
@@ -432,6 +451,31 @@ body {
   transform: scale(1.01);
   opacity: .9;
   cursor: grab; }
+
+.arrow {
+  position: relative; }
+  .arrow__next, .arrow__prev {
+    position: absolute;
+    bottom: 17.5rem;
+    z-index: 100; }
+    .arrow__next-btn, .arrow__prev-btn {
+      background-color: transparent;
+      border: none;
+      color: #fff;
+      transition: all 0.1s ease;
+      cursor: pointer;
+      transform: scale(1.5);
+      padding: 3px 0px 0 0px; }
+      .arrow__next-btn img, .arrow__prev-btn img {
+        width: 20px; }
+      .arrow__next-btn:hover, .arrow__prev-btn:hover {
+        opacity: .7;
+        background-color: black; }
+  .arrow__next {
+    right: .6rem; }
+  .arrow__prev {
+    left: .6rem;
+    transform: rotate(180deg); }
 
 @media screen and (max-width: 900px) {
   .card2 {
