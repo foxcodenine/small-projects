@@ -46,14 +46,13 @@ body {
 
 .paragraph-2 {
   font-family: 'Open sans', sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   opacity: 0.8;
   font-weight: 300;
   font-style: normal;
   font-stretch: normal;
-  line-height: 1;
+  line-height: 1.4;
   letter-spacing: 0.8px;
-  margin: -.8rem 0 -8.5rem 0;
   color: #333333; }
   .paragraph-2:not(:last-child) {
     margin-bottom: 1rem; }
@@ -186,7 +185,8 @@ body {
   background-position: top;
   position: relative;
   overflow: visible;
-  min-width: 34.6rem; }
+  min-width: 34.6rem;
+  background-attachment: fixed; }
   .header__box {
     max-width: 118rem;
     width: 100%;
@@ -292,13 +292,74 @@ body {
     .navigation__box a:visited {
       font-size: 1.6rem; } }
 
+.profile__left {
+  float: left;
+  width: calc((100% - 3 * 2.5rem) / 4);
+  min-width: 15rem;
+  height: 40rem;
+  background-image: url("../img/profile/pro_1.jpg");
+  background-image: linear-gradient(to right bottom, rgba(16, 65, 181, 0.2), rgba(255, 85, 84, 0.2) 70%), url("../img/profile/pro_1.jpg");
+  filter: sepia(40%);
+  background-size: cover;
+  background-position: center;
+  background-position: top;
+  background-repeat: no-repeat;
+  outline-offset: -0rem;
+  outline: 1px solid rgba(0, 0, 0, 0);
+  transition: all 0.2s ease-in; }
+  .profile__left:hover {
+    filter: sepia(0%);
+    background-image: url("../img/profile/pro_1.jpg");
+    outline-offset: 1rem;
+    outline: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px); }
+
+.profile__right {
+  float: right;
+  width: calc(3 * ((100% - 3 * 2.5rem) / 4) + (2 * 2.5rem));
+  position: relative;
+  height: 100%; }
+  .profile__right .paragraph-2 {
+    text-align: justify; }
+
+@media screen and (max-width: 900px) {
+  .profile__left {
+    width: calc((100% - 2.5rem) / 2);
+    height: 50rem; }
+  .profile__right {
+    width: calc((100% - 2.5rem) / 2); } }
+
+@media screen and (max-width: 600px) {
+  .profile__left {
+    width: calc( 100%); }
+  .profile__left {
+    width: calc( 100%); }
+  .profile__right {
+    width: calc( 100%);
+    margin-top: 5rem; } }
+
 .main {
   min-width: 34.6rem; }
 
 .section-projects {
+  padding: 8rem 5rem 5rem 5rem;
+  background-color: rgba(191, 204, 237, 0.2); }
+  .section-projects .paragraph-2 {
+    margin: -.8rem 0 -8.5rem 0; }
+
+.section__profile {
+  padding: 8rem 5rem 7rem 5rem;
+  background-color: rgba(191, 204, 237, 0);
+  width: 100%;
+  display: block; }
+
+.section__contact {
   padding: 4.5rem 5rem;
   height: 60rem;
-  background-color: rgba(191, 204, 237, 0.1); }
+  background-color: rgba(191, 204, 237, 0.1);
+  width: 100%;
+  display: block; }
 
 .footer {
   padding: 3.5rem;
@@ -334,20 +395,6 @@ body {
   .footer__textbox {
     width: 60%; } }
 
-.section__profile {
-  padding: 4.5rem 5rem;
-  height: 60rem;
-  background-color: rgba(255, 85, 84, 0.4);
-  width: 100%;
-  display: block; }
-
-.section__contact {
-  padding: 4.5rem 5rem;
-  height: 60rem;
-  background-color: rgba(191, 204, 237, 0.1);
-  width: 100%;
-  display: block; }
-
 .btn, .btn:link, .btn:visited {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.6rem;
@@ -371,12 +418,27 @@ body {
   .btn--white:active {
     transform: translateY(-2px); }
 
+.btn--black {
+  color: #fff;
+  background: #000;
+  border: solid 1px #000;
+  opacity: .8;
+  display: block;
+  margin: 0 auto; }
+  .btn--black:hover {
+    color: #000;
+    background: transparent;
+    opacity: 1;
+    transform: translateY(-3px); }
+  .btn--black:active {
+    transform: translateY(-2px); }
+
 .card2__scroll {
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
   color: transparent;
-  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+  scrollbar-color: rgba(0, 0, 0, 0) transparent;
   scrollbar-width: thin;
   transition: all 0.1s ease-in-out;
   cursor: grab; }
@@ -456,7 +518,7 @@ body {
   position: relative; }
   .arrow__next, .arrow__prev {
     position: absolute;
-    bottom: 17.5rem;
+    bottom: 25rem;
     z-index: 100; }
     .arrow__next-btn, .arrow__prev-btn {
       background-color: transparent;

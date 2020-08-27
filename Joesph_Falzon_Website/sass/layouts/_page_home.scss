@@ -5,10 +5,35 @@
 }
 
 .section-projects {
+    
+    padding: 8rem 5rem 5rem 5rem;
+    // height: 60rem;
+    background-color: rgba($col-blue-1, .2);
+
+    & .paragraph-2 {
+        margin: -.8rem 0 -8.5rem 0;
+    }
+}
+
+// _______________________________________________
+
+.section__profile {
+    
+    padding: 8rem 5rem 7rem 5rem;
+    
+    background-color: rgba($col-blue-1, .0);
+    width: 100%;
+    display: block;
+}
+.section__contact {
     padding: 4.5rem 5rem;
     height: 60rem;
     background-color: rgba($col-blue-1, .1);
+    width: 100%;
+    display: block;
 }
+
+// _______________________________________________
 
 .footer {
     
@@ -17,8 +42,7 @@
 
     .paragraph-2 {
         color: white;
-        margin: .4rem 0;
-        
+        margin: .4rem 0;        
     }
 
     &__textbox {
@@ -46,41 +70,25 @@
             text-align: left;
             font-size: 1.2rem;
             width: 80%;
-            margin: .4rem 0;
-            
-            
+            margin: .4rem 0;           
         }
     }
 }
-@media screen and (max-width: 600px) {    
-    .footer {       
-        
+
+@media screen and (max-width: 600px) {   
+
+    .footer {        
         &__textbox {       
             width: 80%;
         }
     }
 }
-@media screen and (max-width: 450px) {    
-    .footer {       
-        
+
+@media screen and (max-width: 450px) {   
+
+    .footer {         
         &__textbox {       
             width: 60%;
         }
     }
 }
-
-.section__profile {
-    padding: 4.5rem 5rem;
-    height: 60rem;
-    background-color: rgba($col-red-1, .4);
-    width: 100%;
-    display: block;
-}
-.section__contact {
-    padding: 4.5rem 5rem;
-    height: 60rem;
-    background-color: rgba($col-blue-1, .1);
-    width: 100%;
-    display: block;
-}
-

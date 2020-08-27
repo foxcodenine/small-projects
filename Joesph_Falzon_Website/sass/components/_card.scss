@@ -8,7 +8,7 @@
         // -ms-overflow-style: none;
         // scrollbar-width: none
         color: transparent;
-        scrollbar-color: rgba($col-blk, .2) transparent;
+        scrollbar-color: rgba($col-blk, .0) transparent;
         scrollbar-width: thin;
         // scroll-behavior: smooth;
         transition: all 0.1s ease-in-out;
@@ -70,7 +70,9 @@
         transition: all 0.2s ease-in-out;
 
         outline-offset: 0rem;
-        outline: 3px solid rgba($col-wht, .8);      
+        outline: 3px solid rgba($col-wht, .8);   
+        
+
     }
 
     &:hover &__img {
@@ -80,7 +82,7 @@
         
         
     }
-
+    
     &__text {
    
         font-size: 1.2rem;
@@ -117,7 +119,7 @@
     &__next,
     &__prev {
         position: absolute;
-        bottom: 17.5rem;
+        bottom: 25rem;
         z-index: 100;
         
         &-btn {
