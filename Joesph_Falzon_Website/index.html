@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="navigation" id="navbar-1">
       <div class="navigation__left">
         <div class="navigation__box"><a href="#">About</a></div>
@@ -25,26 +26,34 @@
       </div>
     </nav></a>
 
+    <!-- Header -->
     <header class="header">   
-    <div class="header__box">
-      <div class="half_width">
-
-        <h1 class="header__main heading-1">Architect Joseph Falzon</h1>
-        <div class="header__sub ">
-          <p class="paragraph">Architect and researcher with
-          multidisciplinary background in innovative
-          technologies for the built environment. </p>
+      <div class="row">
+        <div class="header__box">
+          <div class="half_width">
+    
+            <h1 class="header__main heading-1">Architect Joseph <br>Falzon</h1>
+            <div class="header__sub ">
+              <p class="paragraph">            
+              Bachelor of Architecture and Civil Engineer (Hons); <br>University of Malta <br> <br>
+              LEED AP and WELL AP candidate at Green Building <br>Research Institute (U.S) 
+              WELL Building Institute (U.S.) 
+            </p>
+            </div>
+    
+            <a href="#" class="btn btn--white btn--animated " >Contact us</a>
+          </div>
         </div>
-
-        <a href="#" class="btn btn--white btn--animated " >Contact us</a>
       </div>
-    </div>
 
     <img src="./img/svg/control-scroll-down.svg" class="header__scroll--down">  
      
     </header>
 
+    <!-- Main -->
     <main class="main">
+
+      <!-- Section-projects -->
       <section class="section-projects">
 
         <div class="row">
@@ -56,20 +65,15 @@
               officia maiores reiciendis earum! 
             </p>
           </div>
-        </div>
-
-        
-
+        </div>     
        
-        <div class="row arrow">
+        <div class="row arrow u-margin-top-6">
 
           <div class="arrow__prev"><div class="arrow__prev-btn"><img src="./img/svg/chevron.svg"  alt="back"></i></div></div>
           <div class="arrow__next"><div class="arrow__next-btn"><img src="./img/svg/chevron.svg"  alt="next"></i></div></div>
 
           <div class="card2__scroll">           
-            
-
-
+          
             <div class="card2">
               <div class="card2__box">
                 <div class="card2__shap">
@@ -80,9 +84,7 @@
                 </div>               
               </div>
             </div>
-
-            
-
+           
             <div class="card2">
               <div class="card2__box">
                 <div class="card2__shap">
@@ -206,20 +208,21 @@
   
           </div>
           <br>
-          <div class="row u-margin-top-2" style="text-align: center;" >
+          <div class="row u-margin-top-2 u-margin-bottom-2" style="text-align: center;" >
             <a href="#" class="btn btn--black btn--animated " >All Projects</a>
           </div>
 
         </div> 
 
       </section>
+
+      <!-- Section-profile -->
       <scetion class="section__profile">
         
         <div class="row">
           <div class="profile">
 
-            <div class="profile__left">
-              <!-- <img src="./img/profile/pro_1.jpg" alt="" class="profile__img"> -->
+            <div class="profile__left">              
             </div>
 
             <div class="profile__right">
@@ -242,7 +245,6 @@
                 His firm was awarded competitive, high-end design and build projects to clients of
                 international repute under his leadership.
               </p>
-
               
             </div>
             <br>
@@ -253,37 +255,88 @@
         </div>
         
         <div class="row" style="text-align: center;">
-          <a href="#" class="btn btn--black btn--animated " >Read more</a>
+          <a href="#" class="btn btn--black btn--animated u-margin-top-4" >Read more</a>
+        </div>         
+   
+      </scetion>
+      <!-- Section-Contacts -->
+      <scetion class="section__contact">
+        <div class="row">
+          <div class="contact">
+            <div class="contact__left">
+              
+              <h2 class="heading-2 u-margin-bottom-1" >Contact Us</h2>
+
+              <div class="contact__address">
+                <p class="u-margin-bottom-2">
+                  <i class="fas fa-map-marked-alt"></i> &nbsp; No 35, Ibragg, Swiewi, Triq ix-Xiber Malta &nbsp; | &nbsp; 
+                  <i class="fas fa-envelope"></i></i> &nbsp; joseph.falzon@melita.com &nbsp; | &nbsp;
+                  <i class="fas fa-phone"></i> &nbsp; +356 79 471 000
+                  </p>
+              </div>
+              
+              <div class="row">
+                <div class="col-6">
+                  <input type="text" class="contact__input contact__input--name" placeholder="First Name *" style="font-family: 'Raleway';">
+                </div>
+                <div class="col-6">
+                  <input type="text" class="contact__input contact__input--surname" placeholder="Last Name *" style="font-family: 'Raleway';">
+                </div>      
+              </div>
+
+              <div class="row">
+                <div class="col-12">
+                  <input type="email" class="contact__input contact__input--email" placeholder="Email *" style="font-family: 'Raleway';">
+                </div>
+              </div>
+
+              <div class="row">
+                <textarea name="" id="" cols="30" rows="10"
+                class="contact__input
+                contact__input--textarea"
+                placeholder="Message *"
+                style="font-family: 'Raleway';"></textarea>
+              </div>
+
+            </div>
+
+
+            <div class="contact__right">
+              <div id="map" style="width: 100%; height: 100%;" class="contact__map"></div>
+
+            </div>
+            <div class="contact__btn" >
+              <a href="#" class="btn btn--black btn--animated " >sent message</a>
+            </div>
+          </div>
+ 
+
         </div>
-          
-        
-        
-        
-  
 
       </scetion>
-      <scetion class="section__contact"></scetion>
 
     </main>
-    <footer class="footer">
-      <div class="row">
-       
-          <div class="footer__textbox">
-            <p class="paragraph-2">
-              57/27 MARINA COURT ABATE RIGORD STREET TA’ XBIEX MALTA
-            </p>
-            <p class="paragraph-2">
-              +356 21 320 520 | +356 99 651 053 | GET DIRECTIONS
-            </p>
-          </div>
 
-          <div class="footer__logobox">
-            <img src="./img/logo/logo_jf_200x200.png" alt="" class="footer__logo">
-          </div>
-        
-      </div>
+    <!-- Footer -->
+    <footer class="footer">
+
+          <div class="footer__textbox">
+            <!-- <p class="footer__text"> © 2020 foxcode.io</p>  -->
+            <a href="#" class="footer__icon"> © 2020 foxcode.io  <img width="45px" src="./img/logo/index-removebg-preview(1).png" alt=""></a>
+          </div> 
+
     </footer>
+
     <script src="https://kit.fontawesome.com/fca3aecb10.js" crossorigin="anonymous"></script>
     <script src="./script.js"></script>
+
+
+
+    <script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWNTnx_iqacmfOafneKct65iJ3rnY5B44&callback=initMap">
+    </script>
+  
 </body>
 </html>
+
+<!-- http://www.actn-studio.com/contact/ -->

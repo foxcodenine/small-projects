@@ -5,8 +5,7 @@
   margin: 0;
   box-sizing: inherit; 
   // touch-action: none !important;
-
-
+  
   
 }
 
@@ -14,17 +13,20 @@ html {
     font-size: 62.5%;
 
     // touch-action: none !important;
+    scroll-behavior: smooth;
 
   }
-  
-  
+    
 body {
     box-sizing: border-box;
     padding: .7rem;
-    position: relative;
+    position: relative;       
+    min-width: 36rem;
+}
 
+@media screen and (max-width: 900px) {   
 
-
-    
-    
+  body {
+    padding: .3rem;
+  }
 }

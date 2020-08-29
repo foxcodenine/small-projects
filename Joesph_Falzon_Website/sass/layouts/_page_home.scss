@@ -1,12 +1,10 @@
-.main {
-    
-    
+.main {  
     min-width: 34.6rem;
 }
 
 .section-projects {
     
-    padding: 8rem 5rem 5rem 5rem;
+    padding: 6rem 5rem 5rem 5rem;
     // height: 60rem;
     background-color: rgba($col-blue-1, .2);
 
@@ -15,7 +13,7 @@
     }
 }
 
-// _______________________________________________
+
 
 .section__profile {
     
@@ -25,70 +23,194 @@
     width: 100%;
     display: block;
 }
+
+// _______________________________________________
+
 .section__contact {
-    padding: 4.5rem 5rem;
-    height: 60rem;
-    background-color: rgba($col-blue-1, .1);
+    padding: 8rem 5rem 0rem 5rem;
+    background-color: rgba($col-blue-1, .2);
     width: 100%;
     display: block;
+}
+
+.contact {
+
+    position: relative;
+    
+    &__left {
+        height: 100%;
+        width: calc(3 * ((100% - 3 * #{$gutter-vert}) / 4) + (2 * #{$gutter-vert}));
+        height: 60rem;
+        float: left;
+    }
+    &__right {
+        height: 45.8rem;
+        width: calc((100% - 3 * #{$gutter-vert}) / 4);
+        border: 1px white solid;
+        border-radius: 3px;
+        float: right;
+        
+    }
+    &__input {
+        width: 100%;
+        height: 5rem;
+        background-color: white;
+        border: none;
+        border-radius: 3px;
+        padding: 1rem;
+        font-family: "Raleway" sans-serif;
+        text-transform: lowercase;
+        font-size: 1.2rem;
+        border: 1px rgba($col-blk, .0) solid ;
+        transition: all .2s ease-in;
+
+        &:active, &:focus {
+            border: 1px rgba($col-blk, .6) solid ;
+            outline: none;
+        }
+
+        &--textarea {
+            height: 22.2rem;
+            
+        }       
+    }
+    .fas {
+        opacity: .8;
+    }
+
+
+    &__address {
+        p {
+            font-family: "Montserrat";
+            font-size: 1.4rem;
+            text-align: left;
+            margin-top: .6rem;
+            color: rgba($col-blk, .9);            
+
+        }
+    }  
+    &__btn {
+        text-align: center; 
+        position: relative;
+        bottom: 6.5rem;
+        clear: both;
+    } 
+}
+
+@media screen and (max-width: 1070px) {   
+
+    .contact {
+
+
+        &__address {
+            p {
+                
+                font-size: 1.1rem;   
+            }
+        }
+    }
+}
+@media screen and (max-width: 900px) {   
+
+    .contact {
+
+        &__left {
+            width: calc((100% - #{$gutter-vert}) / 2);
+        }
+        &__right {
+            width: calc((100% - #{$gutter-vert}) / 2);
+        }
+    }
+}
+@media screen and (max-width: 600px) {   
+
+    .contact {
+        height: 110rem;
+        &__left {
+            width: calc( 100% );
+            position: absolute;
+            bottom: 0rem;
+            height: 57.2rem;
+            
+        }
+        &__right {
+            width: calc( 100% );
+            float: left;
+        }
+
+        &__btn {
+            text-align: center; 
+            position: absolute;
+            bottom: 3rem;
+            width: 100%;   
+        }
+        &__address {
+            p {
+                text-align: center;
+                
+    
+            }
+            margin-bottom: 2rem;
+        }
+    }
+}
+@media screen and (max-width: 391px) {   
+
+    .contact {
+        &__btn {
+            bottom: 2.2rem;     
+        }
+    }
 }
 
 // _______________________________________________
 
 .footer {
     
-    padding: 3.5rem;
+    padding: 2rem;
     background-color: rgba($col-blk, .6);
-
-    .paragraph-2 {
-        color: white;
-        margin: .4rem 0;        
-    }
+    width: 100%;
+    
 
     &__textbox {
-        float: left;
-        width: 80%;
+        // border: 1px white solid;
+        text-align: right;
     }
-    &__logobox {
-        float: right;
-    }
-    &__logo {
-        width: 70px;
-        height: 70px;
-        border: 1px white solid;
+
+
+    &__icon {
+        // border: 1px blue solid;
+        display: inline-block;
+        padding: 2px;
+        margin: 0 0 0 0;
         opacity: .8;
+        font-size: 1.3rem;
+        text-decoration: none;
+        font-weight: 300;
+        color: white;
+        font-family: "Montserrat", sans-serif;
+        // border: 1px solid white;
+         img {
+            transform: translateY(6px);
+            opacity: 1;
+         }
     }
+
+
 }
 
 
-@media screen and (max-width: 900px) {
-    
-    .footer {
-        padding: 3.5rem;
 
-        .paragraph-2 {
-            text-align: left;
-            font-size: 1.2rem;
-            width: 80%;
-            margin: .4rem 0;           
-        }
-    }
-}
-
-@media screen and (max-width: 600px) {   
-
-    .footer {        
-        &__textbox {       
-            width: 80%;
-        }
-    }
-}
 
 @media screen and (max-width: 450px) {   
 
     .footer {         
         &__textbox {       
-            width: 60%;
+            text-align: center;
         }
     }
 }
+
+
+
+// _______________________________________________________________________________________________

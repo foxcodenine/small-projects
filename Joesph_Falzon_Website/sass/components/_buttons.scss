@@ -11,10 +11,9 @@
         text-decoration: none;
         padding: 14px;
         
-        transition: all 0.2s ease-in-out;
-
-        
+        transition: all 0.2s ease-in-out;        
     }
+
     &--white {
         color: $col-blk;
         background: $col-wht;
@@ -28,9 +27,7 @@
             transform: translateY(-3px);
         }
         &:active {
-            transform: translateY(-2px);
-            
-            
+            transform: translateY(-2px);            
         }
     }
 
@@ -43,9 +40,6 @@
         display: block;
         margin: 0 auto;
 
-
-
-
         &:hover {
             color: $col-blk;
             background: transparent;
@@ -54,10 +48,8 @@
         }
         &:active {
             transform:  translateY(-2px);
-        }
-               
+        }               
     } 
-
 }
 
 

@@ -1,6 +1,5 @@
 
 .card2 {
-
     &__scroll {
         overflow-x: scroll;
         overflow-y: hidden;
@@ -14,9 +13,9 @@
         transition: all 0.1s ease-in-out;
         cursor: grab;
                 
-        // &::-webkit-scrollbar {
-        //     display: none;
-        // }      
+        &::-webkit-scrollbar {
+            display: none;
+        }      
       }
     
     & {
@@ -70,17 +69,13 @@
         transition: all 0.2s ease-in-out;
 
         outline-offset: 0rem;
-        outline: 3px solid rgba($col-wht, .8);   
-        
-
+        outline: 3px solid rgba($col-wht, .8); 
     }
 
     &:hover &__img {
         filter: sepia(20%);        
         outline-offset: -2rem;
-        transform: scale(1.05);
-        
-        
+        transform: scale(1.05);        
     }
     
     &__text {
@@ -101,9 +96,7 @@
         z-index: -10;
         background-color: transparent;
 
-        p {           
-            margin: 0;
-        }
+        p { margin: 0;}
     }    
 }
 
@@ -156,12 +149,10 @@
     .card2 {
         width: calc((100% - 1 * #{$gutter-vert}) / 2);
     }
-
 }
 
 @media screen and (max-width: 450px) {
     .card2 {
         width: calc((100% - 0 * #{$gutter-vert}) / 1);
     }
-
 }

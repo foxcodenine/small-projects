@@ -114,3 +114,20 @@ btnPrev.addEventListener('click', (e)=>{
       });     
     
 });
+
+// _____________________________________________________________________
+
+// Initialize and add the map
+
+api_key = 'AIzaSyCWNTnx_iqacmfOafneKct65iJ3rnY5B44';
+
+
+function initMap() {
+    // The location of Uluru
+    let uluru = {lat: 35.899, lng: 14.485};
+    // The map, centered at Uluru
+    let map = new google.maps.Map(
+        document.getElementById('map'), {zoom: 16, center: uluru});
+    // The marker, positioned at Uluru
+    let marker = new google.maps.Marker({position: uluru, map: map});
+  }
