@@ -1,0 +1,44 @@
+.btn {
+
+    cursor: pointer;
+    
+    letter-spacing: 1px;
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px;  
+    font-size: 1.6rem;  
+    font-family: $font-display;
+    border: none;
+    border-radius: 0;
+
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        transform: translateY(-3px);
+    }
+
+    &:active {
+        transform: translateY(-2px);
+    }
+
+    &:focus {
+        border-radius: none;
+        outline: none;
+    }
+
+    &--white {
+        background-color: rgba($col-white, .7);
+        border: 1px solid rgba($col-white, .0);
+        color: $col-black;
+
+        &:hover {
+            background-color: transparent;
+            color: $col-white;
+            border: 1px solid $col-white;
+        }
+    }
+
+
+
+}
