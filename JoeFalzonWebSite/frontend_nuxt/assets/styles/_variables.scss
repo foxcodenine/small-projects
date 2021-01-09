@@ -46,39 +46,13 @@ $font-main:    'Open Sans', sans-serif;
 
 // _____________________________________________________________________
 
-$grid-width: 128rem;
 
 
 
-$bp-big:  75em; //1200
-$bp-large:  68.75em; // 1100
-$bp-medium:  56.25em; // 900
+$bp-largest: 75em; //1200
+$bp-large:  68.75em; //1100
+$bp-big:  58.125em; // 930
+$bp-medium:  40em; // 800
 $bp-small:  37.5em; // 600
-$bp-slim:  27.5em; // 440 
-$bp-tiny: 22.5em; // 360
-
-
-@mixin  respond($breakpoint) {
-
-    @if $breakpoint == tiny {
-        @media (max-width: 22.5em) { @content }; //360px
-    }
-    @if $breakpoint == slim{
-        @media (max-width: 27.5em) { @content }; //440px
-    }
-    @if $breakpoint == small{
-        @media (max-width: 37.5em) { @content }; //600px
-    }
-    @if $breakpoint == medium{
-        @media (max-width: 56.25em) { @content }; //900px
-    }
-    @if $breakpoint == large{
-        @media (max-width: 68.75em) { @content }; //1100px
-    }
-    @if $breakpoint == big{
-        @media (max-width: 75em) { @content }; //1200px
-    }    
-    @if $breakpoint == huge {
-        @media (min-width: 112.5em) { @content }; //1800px
-    }
-}
+$bp-smallest:  27.5em;
+$bp-new-small: 22.5em;
