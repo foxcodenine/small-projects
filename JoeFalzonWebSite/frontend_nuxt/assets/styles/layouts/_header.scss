@@ -1,11 +1,14 @@
 .header {
     // border: $col-gray-1 .1rem solid;
     width: 100%;
+    
     height: 90vh;
-    background-image:  linear-gradient(to right bottom, rgba($col-blue-3, .5), rgba($col-red-1, .2) 70%), url('../images/header/hero_1.jpg');
-    background-size: cover; 
-    background-position: top;
-    background-attachment: fixed;
+    min-height: 50rem;
+    max-height: 70rem;
+
+    // background-image saved in mixin: 
+    @include header__cover;
+
     position: relative;
     overflow: visible; 
     
@@ -13,23 +16,35 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
-    
+    padding: 0 5rem 0 5rem; 
 
-    
-    &__grids {
+    @include respond(br_huge) {
+        min-height: 50rem;
+        max-height: 80rem;
+    }
+
+    @include respond(br_medium) {
+        max-height: 100%;
+        height: 99.4vh;
+
+    }
+
+    &__layout {
         // border: $col-gray-1 .1rem solid;
         width: 100%;
-        max-width: 118rem;
-        height: 100%;
-        
+        max-width: $grid-width;
+        height: 100%;        
 
-        display: grid;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
 
-        grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: repeat(6, 1fr);
 
-        grid-gap: 2rem;
+        @include respond(br_medium) {
+            align-items: center;
+
+        }  
     }
     
     &__title {
@@ -39,29 +54,49 @@
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         line-height: 1;
 
-        grid-row: 3 / 4;
-        grid-column:  1 / 12;
-
-        align-self: end;
+        margin-bottom: 1rem;
+        margin-top: 7%;
+        max-width: 50%;  
         
+        @include respond(br_medium) {
+            max-width: 75%;
+            text-align: center;
+            font-size: 5rem;
+        }
+        @include respond(br_small) {
+            max-width: 75%;
+            font-size: 4rem;
+        }
+        @include respond(br_slim) {
+            max-width: 95%;
+            font-size: 4rem;
+        }
+        @include respond(br_tiny) {
+   
+            font-size: 3.5rem;
+        }        
     }
 
     &__text{
         font-weight: 200;
         color: $col-white;
-        font-size: 2rem;
+        font-size: 1.8rem;
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-        // display: none;
-        grid-row: 4 / 5;
-        grid-column:  1 / 12;
+        margin-bottom: 4rem;
+        width: 75%;
 
+        @include respond(br_medium) {
+            text-align: center;
+            width: 95%;
+
+        }
+        @include respond(br_tiny) {
+
+        }
     }
 
     &__btn {
         // display: none !important;
-        grid-row: 5 / 6;
-        grid-column:  1 / 12;
-        align-self: center;
-        justify-self: start;
+
     }
 }

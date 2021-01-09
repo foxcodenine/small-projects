@@ -1,0 +1,39 @@
+https://www.atlassian.com/git/tutorials/saving-changes/gitignore#git-ignore-patterns
+
+**./__pycache__
+__pycache__/
+__resources__/
+**./__resources__/
+
+# npm debugging logs 
+**./npm-debug.log*
+
+# npm project dependencies
+**./node_modules
+./node_modules
+**./node_modules/*
+**./node_modules/
+*/node_modules/*
+**node_modules
+node_modules
+**/node_modules
+*node_modules/*
+./**node_modules/
+./**/node_modules/
+./**node_modules/*
+./**node_modules/**
+
+#OSX folder attributes 
+**.DS_Store
+.DS_Store
+
+# temporary files 
+*.tmp
+**.tmp
+*~
+
+**/config.py
+*/config.py
+**/.env
+**/Pipfile
+**/Pipfile.lock

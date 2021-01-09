@@ -20,6 +20,20 @@
 
 html {
     font-size: 62.5%;
+    
+    scroll-behavior: smooth;
+
+    @include respond(br_big) {
+        font-size:56.25%
+    }  
+  
+    @include respond(br_small) {
+    font-size:50%
+    }
+
+    @include respond(br_huge) {
+    font-size:75%
+    }
 }
 
 body {
@@ -28,10 +42,21 @@ body {
     min-width: 360px;
     font-family: $font-main;
     height: 200vh;
-}
+    padding: .7rem;
+
+    @include respond(br_medium) {
+        padding: .3rem;
+    }
+
+    }
 
 .app {
-    padding: .5rem;
+    // padding: .7rem;
+
+    // @include respond(br_medium) {
+    //     padding: .3rem;
+
+    // }
 }
 
 h1, h2, h3, h4, h5, h6 {

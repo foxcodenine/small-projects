@@ -1,8 +1,20 @@
 {
+  "Display": {
+    "description": "Auto imported from components/Display.vue"
+  },
+  "LazyDisplay": {
+    "description": "Auto imported from components/Display.vue"
+  },
   "Header": {
     "description": "Auto imported from components/Header.vue"
   },
   "LazyHeader": {
     "description": "Auto imported from components/Header.vue"
+  },
+  "NavBar": {
+    "description": "Auto imported from components/NavBar.vue"
+  },
+  "LazyNavBar": {
+    "description": "Auto imported from components/NavBar.vue"
   }
 }

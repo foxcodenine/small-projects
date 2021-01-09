@@ -3,88 +3,86 @@
     position: absolute;
     left: 0;
     top: 55%;
-    transform: translateY(-45%); 
+    transform: translateY(-45%);
 }
 .header {
     height: 90vh;
     // min-height: 44rem;
     min-height: 50rem;
     max-height: 70rem;
-    background-image: linear-gradient(to right bottom, rgba($col-blue-3, .5), rgba($col-red-1, .2) 70%), url('../img/header/hero_3-1200.jpg');
-    background-size: cover; 
-    background-position: top;
+
     position: relative;
-    overflow: visible; 
+    overflow: visible;
     // min-width: 34.6rem;
-    background-attachment: fixed;  
-    padding: 0 5rem 0 5rem;      
-    
+    background-attachment: fixed;
+    padding: 0 5rem 0 5rem;
+
     // 600px 37.5em, 1200px 75em, 1800px 112.5em, 2400px 150em, 3600px 225em,
 
 
     @media  (min-width: 37.5em),
             (min-resolution:192dpi) and (min-width:18.75em) {
-        background-image: 
+        background-image:
             linear-gradient(
-            to right bottom, 
-            rgba($col-blue-3, .5), 
-            rgba($col-red-1, .2) 70%), 
+            to right bottom,
+            rgba($col-blue-3, .5),
+            rgba($col-red-1, .2) 70%),
             url('../img/header/hero_3-1800.jpg'
         );
     }
     @media  (min-width: 75em),
             (min-resolution:192dpi) and (min-width:37.5em) {
-        background-image: 
+        background-image:
             linear-gradient(
-            to right bottom, 
-            rgba($col-blue-3, .5), 
-            rgba($col-red-1, .2) 70%), 
+            to right bottom,
+            rgba($col-blue-3, .5),
+            rgba($col-red-1, .2) 70%),
             url('../img/header/hero_3-2400.jpg'
         );
     }
     @media  (min-width: 150em),
             (min-resolution:192dpi) and (min-width:75em) {
-        background-image: 
+        background-image:
             linear-gradient(
-            to right bottom, 
-            rgba($col-blue-3, .5), 
-            rgba($col-red-1, .2) 70%), 
+            to right bottom,
+            rgba($col-blue-3, .5),
+            rgba($col-red-1, .2) 70%),
             url('../img/header/hero_3-3600.jpg'
         );
     }
 
     &__box {
-      
+
         max-height: 60rem;
         max-width: $grid-width;
         // position: absolute;
         // bottom: 5rem;
         // left: 50%;
-        // transform: translateX(-50%); 
+        // transform: translateX(-50%);
         // border: rgb(110, 110, 29) 1px solid;
         position: relative;
         margin: 0 auto;
         max-height: 70rem;
         height: 90vh;
         min-height: 50rem;
-        
-              
-        
+
+
+
     }
     &__header__main.heading-1 {
         margin-bottom: 2rem;
-        
+
     }
     &__sub .paragraph{
         color: $col-wht;
         font-size: 1.8rem;
-        font-weight: 300;     
+        font-weight: 300;
         line-height: 1.1;
         letter-spacing: 0.8px;
         text-shadow: 1px 1px 2px rgba($col-blk, $alpha: .9);
         margin-bottom: 4rem;
-          
-    } 
+
+    }
 
     &__scroll--down {
         position: absolute;
@@ -96,7 +94,7 @@
 
         &:hover {
             transform: translate(-50%, 5%);
-            opacity: .7;            
+            opacity: .7;
         }
     }
 }
@@ -108,11 +106,11 @@
         position: absolute;
         left: 0;
         top: 45%;
-        transform: translateY(-35%); 
+        transform: translateY(-35%);
     }
-    
+
     .header {
-        
+
         height: 100vh;
         max-height: calc(100vh - 6px);
         min-height: 30rem;
@@ -123,7 +121,7 @@
         }
         &__scroll--down {
             display: none;
-            
+
         }
         &__sub .paragraph{
 
@@ -131,14 +129,14 @@
 
             line-height: 1;
 
-              
-        } 
+
+        }
     }
 }
 
 
 // @media screen and (max-width: 450px) {
-    
+
 //     .header {
 //         height: 100vh;
 //         max-height: calc(100vh - 6px);
@@ -146,7 +144,7 @@
 //         &__box {
 //             height: 100vh;
 //             }
-           
+
 //         &__scroll--down {
 //             display: none;
 //         }
