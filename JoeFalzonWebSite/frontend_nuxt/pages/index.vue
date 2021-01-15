@@ -2,21 +2,21 @@
   <div class="app">
     <NavBar />
     <Header />
-    <Display />
+    <Projects />
   </div>
 </template>
 
 <script>
 import NavBar from "@/components/NavBar";
 import Header from "@/components/Header";
-import Display from "@/components/Display";
+import Projects from "@/components/Projects";
 
 
 export default {
   components: {    
     NavBar,
     Header,
-    Display,
+    Projects,
   }
 }
 

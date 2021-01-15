@@ -42,21 +42,17 @@ body {
     min-width: 360px;
     font-family: $font-main;
     height: 200vh;
-    padding: .7rem;
 
-    @include respond(br_medium) {
-        padding: .3rem;
-    }
 
     }
 
 .app {
-    // padding: .7rem;
+    padding: var(--page-padding-n);
 
-    // @include respond(br_medium) {
-    //     padding: .3rem;
-
-    // }
+    @include respond(br_medium) {
+        padding: var(--page-padding-s);
+    }
+    
 }
 
 h1, h2, h3, h4, h5, h6 {

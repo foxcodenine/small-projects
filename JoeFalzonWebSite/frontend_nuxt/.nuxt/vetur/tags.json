@@ -1,9 +1,9 @@
 {
-  "Display": {
-    "description": "Auto imported from components/Display.vue"
+  "Contacts": {
+    "description": "Auto imported from components/Contacts.vue"
   },
-  "LazyDisplay": {
-    "description": "Auto imported from components/Display.vue"
+  "LazyContacts": {
+    "description": "Auto imported from components/Contacts.vue"
   },
   "Header": {
     "description": "Auto imported from components/Header.vue"
@@ -16,5 +16,17 @@
   },
   "LazyNavBar": {
     "description": "Auto imported from components/NavBar.vue"
+  },
+  "Profile": {
+    "description": "Auto imported from components/Profile.vue"
+  },
+  "LazyProfile": {
+    "description": "Auto imported from components/Profile.vue"
+  },
+  "Projects": {
+    "description": "Auto imported from components/Projects.vue"
+  },
+  "LazyProjects": {
+    "description": "Auto imported from components/Projects.vue"
   }
 }
