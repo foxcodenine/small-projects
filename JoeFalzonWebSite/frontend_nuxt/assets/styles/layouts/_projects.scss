@@ -26,30 +26,38 @@
 
         }  
     }
+    &__title {
+        &--primary {
+            margin-bottom: 1rem;
+
+        }
+        &--text {
+
+        }
+    }
 }
 
 
 .title {
     &__primary {
+        
       font-size: 3.8rem;
       font-family: $font-display;
       font-weight: 200;
       color: $col-black;
       text-transform: uppercase;
-
       transform: translateX(-.3rem);
     }
 
     &__text {
-
+        
         font-family: $font-main;
         font-size: 1.6rem;
         opacity: 0.8;
         font-weight: 300;
         line-height: 1.4;
         letter-spacing: 0.8px;
-        color: #333333;
-        margin-top: 1rem;
+        color: $col-text;
         text-align: justify;
     }
   }
