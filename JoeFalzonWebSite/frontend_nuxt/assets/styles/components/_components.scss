@@ -10,7 +10,8 @@
     font-size: 1.6rem;  
     font-family: $font-display;
     border: none;
-    border-radius: 0;
+    border-radius: $btn-br;
+
 
     transition: all 0.3s ease-in-out;
 
@@ -28,14 +29,27 @@
     }
 
     &--white {
-        background-color: rgba($col-white, .7);
-        border: 1px solid rgba($col-white, .0);
-        color: $col-black;
+        background-color: rgba($btn-bg-light, .7);
+        border: 1px solid rgba($btn-bg-light, .0);
+        color: $btn-bg-dark;
 
         &:hover {
             background-color: transparent;
-            color: $col-white;
-            border: 1px solid $col-white;
+            color: $btn-bg-light;
+            border: 1px solid $btn-bg-light;
+            box-shadow: $shadow-3; 
+        }
+    }
+    &--black {
+        background-color: rgba($btn-bg-dark, .7);
+        border: 1px solid rgba($btn-bg-dark, .0);
+        color: $btn-bg-light;
+
+        &:hover {
+            background-color: transparent;
+            color: $btn-bg-dark;
+            border: 1px solid rgba($btn-bg-dark, .8);
+            box-shadow: $shadow-2; 
         }
     }
 }

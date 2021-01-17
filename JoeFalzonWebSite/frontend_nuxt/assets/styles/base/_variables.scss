@@ -11,14 +11,24 @@ $col-red-1: #ff5554;
 $col-red-2: #b23c3a;
 
 $col-text: #333333;
+
 // _____________________________________________________________________
+
+// font
 
 $font-display: 'Montserrat', sans-serif;
 $font-main:    'Open Sans', sans-serif;
+
 // _____________________________________________________________________
 
 
-$grid-width: 128rem;
+:root {
+    --grid-width: 128rem;
+    --grid-gutter: 2.5rem;
+}
+
+$grid-width: var(--grid-width);
+$grid-gutter: var(--grid-gutter);
 
 // _____________________________________________________________________
 
@@ -26,7 +36,7 @@ $bp-big:  75em; //1200
 $bp-large:  68.75em; // 1100
 $bp-medium:  56.25em; // 900
 $bp-small:  37.5em; // 600
-$bp-slim:  27.5em; // 440 
+$bp-slim:  28.125em; // 450 
 $bp-tiny: 22.5em; // 360
 
 // _____________________________________________________________________
@@ -44,16 +54,34 @@ $bp-tiny: 22.5em; // 360
 
 $bg-col-1: rgba(191, 204, 237, 0.2);
 
+// _____________________________________________________________________
+
 
 // Shadow 
 $shadow_1: 0 1.5rem 3rem rgba( $col-black, .3);
 $shadow_1h: 0 2.5rem 5rem rgba($col-black, .5);
 
 $shadow_2: 0 3rem 6rem rgba(  $col-black,  .1);
-$shadow_3: 0 1rem 2rem rgba(  $col-black,  .1);
+$shadow_3: 0 1rem 1rem rgba(  $col-black,  .1);
 $shadow_4: 0 1rem 2rem rgba(  $col-black,  .4);
 $shadow_5: 0 1rem 3rem rgba(  $col-black,  .3);
 $shadow_6: 0 0rem 5rem rgba(  $col-black,  .5);
+
+$shadow-1: 0 2rem 1.7rem -1.7rem rgba(#000, .8);
+$shadow-2: 0 1rem 1rem rgba(  $col-black,  .1);
+$shadow-3: 0 1rem 1rem rgba(  $col-white,  .1);
+
+// _____________________________________________________________________
+
+// buttons
+
+$btn-br: .3rem;
+$btn-bg-dark: rgb(7, 21, 51);
+$btn-bg-light: #fff;
+
+
+
+// _____________________________________________________________________
 
 
 

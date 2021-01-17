@@ -40,10 +40,8 @@
         align-items: flex-start;
         justify-content: center;
 
-
         @include respond(br_medium) {
             align-items: center;
-
         }  
     }
     

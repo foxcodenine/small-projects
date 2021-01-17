@@ -4,7 +4,7 @@
         @media (max-width: 22.5em) { @content }; //360px
     }
     @if $breakpoint == br_slim{
-        @media (max-width: 27.5em) { @content }; //440px
+        @media (max-width: 28.125em) { @content }; //440px
     }
     @if $breakpoint == br_small{
         @media (max-width: 37.5em) { @content }; //600px
