@@ -10,7 +10,7 @@
     font-size: 1.6rem;  
     font-family: $font-display;
     border: none;
-    border-radius: $btn-br;
+    border-radius: $border-radius;
 
 
     transition: all 0.3s ease-in-out;
@@ -41,7 +41,7 @@
         }
     }
     &--black {
-        background-color: rgba($btn-bg-dark, .7);
+        background-color: rgba($btn-bg-dark, .9);
         border: 1px solid rgba($btn-bg-dark, .0);
         color: $btn-bg-light;
 

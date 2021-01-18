@@ -17,7 +17,7 @@
 
 <script>
 import { sampleProjects } from "@/data/sampleData";
-import { SliderBox } from "./SliderBox";
+import SliderBox from "./SliderBox";
 export default {
     components : {
         SliderBox

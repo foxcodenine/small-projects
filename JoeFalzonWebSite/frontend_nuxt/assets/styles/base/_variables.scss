@@ -21,6 +21,7 @@ $font-main:    'Open Sans', sans-serif;
 
 // _____________________________________________________________________
 
+// grids
 
 :root {
     --grid-width: 128rem;
@@ -67,23 +68,39 @@ $shadow_4: 0 1rem 2rem rgba(  $col-black,  .4);
 $shadow_5: 0 1rem 3rem rgba(  $col-black,  .3);
 $shadow_6: 0 0rem 5rem rgba(  $col-black,  .5);
 
-$shadow-1: 0 2rem 1.7rem -1.7rem rgba(#000, .8);
-$shadow-2: 0 1rem 1rem rgba(  $col-black,  .1);
-$shadow-3: 0 1rem 1rem rgba(  $col-white,  .1);
+$shadow-1: 0 2rem 1.7rem -1.7rem rgba($col-black, .8);
+$shadow-2: 0 1rem 1rem rgba($col-black,  .1);
+$shadow-3: 0 1rem 1rem rgba($col-white,  .1);
+$shadow-4: 0 1rem 3rem rgba($col-black,  .3);
+
+// _____________________________________________________________________
+
+// borders
+
+$border-radius: .3rem;
 
 // _____________________________________________________________________
 
 // buttons
 
-$btn-br: .3rem;
 $btn-bg-dark: rgb(7, 21, 51);
 $btn-bg-light: #fff;
 
 
-
 // _____________________________________________________________________
 
+// images
 
+$_cover_image_url: '../images/header/';
 
+$_cover_image_1200: 'hero_3-1200.jpg';
+$_cover_image_1800: 'hero_3-1800.jpg';
+$_cover_image_2400: 'hero_3-2400.jpg';
+$_cover_image_3600: 'hero_3-3600.jpg';
+$_cover_image_5000: 'hero_3-5000.jpg';
 
+$_profile_image_url: '../../assets/images/profile/';
+$_profile_image: 'pro_1.jpg';
+
+// _____________________________________________________________________
 

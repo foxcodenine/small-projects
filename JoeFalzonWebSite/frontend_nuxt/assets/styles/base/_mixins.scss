@@ -25,17 +25,13 @@
 
 // _____________________________________________________________________
 
-$_cover_image_1200: 'hero_3-1200.jpg';
-$_cover_image_1800: 'hero_3-1800.jpg';
-$_cover_image_2400: 'hero_3-2400.jpg';
-$_cover_image_3600: 'hero_3-3600.jpg';
-$_cover_image_5000: 'hero_3-5000.jpg';
+
 
 @mixin header__cover {
 
     background-image:  
             linear-gradient(to right bottom, rgba($col-blue-3, .5), rgba($col-red-1, .2) 70%), 
-            url('../images/header/' + $_cover_image_1200);
+            url($_cover_image_url + $_cover_image_1200);
     background-size: cover; 
     background-position: top;
     background-attachment: fixed;
@@ -45,14 +41,14 @@ $_cover_image_5000: 'hero_3-5000.jpg';
 
         background-image: 
             linear-gradient(to right bottom, rgba($col-blue-3, .5), rgba($col-red-1, .2) 70%), 
-            url('../images/header/' + $_cover_image_1800);
+            url($_cover_image_url + $_cover_image_1800);
     }
 
     @media  (min-width: 75em), (min-resolution:192dpi) and (min-width:37.5em) {
         
         background-image: 
             linear-gradient(to right bottom, rgba($col-blue-3, .5), rgba($col-red-1, .2) 70%), 
-            url('../images/header/' + $_cover_image_2400);
+            url($_cover_image_url + $_cover_image_2400);
     }
 
     @media  (min-width: 150em),
@@ -60,7 +56,7 @@ $_cover_image_5000: 'hero_3-5000.jpg';
 
         background-image: 
             linear-gradient(to right bottom, rgba($col-blue-3, .5), rgba($col-red-1, .2) 70%), 
-            url('../images/header/' + $_cover_image_3600);
+            url($_cover_image_url + $_cover_image_3600);
     }
 
     @media  (min-width: 225em),
@@ -68,7 +64,7 @@ $_cover_image_5000: 'hero_3-5000.jpg';
 
         background-image: 
             linear-gradient(to right bottom, rgba($col-blue-3, .5), rgba($col-red-1, .2) 70%), 
-            url('../images/header/' + $_cover_image_5000);
+            url($_cover_image_url + $_cover_image_5000);
     }
 
 

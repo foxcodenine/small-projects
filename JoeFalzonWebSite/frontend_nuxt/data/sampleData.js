@@ -8,3 +8,13 @@ export const sampleProjects = [
     {id: '7', pos: 7, imgURL: 'project__7--small.jpg', txt: 'Facere quis officiis error molestias necessitatibus delectus dolor.'},
     {id: '8', pos: 8, imgURL: 'project__8--small.jpg', txt: 'Soluta natus veniam, similique repellendus.'}
 ];
+
+export const sampleProfileText = 
+`Architect and researcher with multidisciplinary background of applied innovative technologies for the built environment. Former member of Parliament of Malta and member of the Parliamentary Assembly of the Council of Europe during which he was elected chair of Committees on Sustainable Development and Heritage and served on governing board in planning and environment authorities.
+
+Academic endeavours including annual participation in Teaching Intensive Research;
+
+Informed (TIRI) conference at UoB, lectures, workshops, and themed papers for peer reviewed conference journals and international political organisations.
+
+His firm was awarded competitive, high-end design and build projects to clients of international repute under his leadership. 
+`

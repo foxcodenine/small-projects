@@ -1,0 +1,76 @@
+.profile {
+
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    &__layout {
+
+        width: 100%;        
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: $grid-gutter;
+        max-width: $grid-width;
+
+    }
+
+    &__left {
+        grid-column: 1 / 2;
+        grid-row:  1 / 2;
+        height: 40rem;
+        z-index: 10; 
+
+        outline-offset: 0rem;
+        outline: 1px solid rgba($col-black, .0);
+
+        background-image: 
+            linear-gradient(to right bottom, rgba($col-blue-3, .2), rgba($col-red-1, .2) 70%), 
+            url('../../assets/images/profile/pro_1.jpg');
+
+        background-size: cover;
+        background-position: center;  
+        background-position: top;  
+        background-repeat: no-repeat;        
+
+        filter: sepia(40%);
+
+        border-radius: $border-radius;
+
+        outline-radius: $border-radius;
+        -webkit-outline-radius: $border-radius;
+        -moz-outline-radius: $border-radius;
+                
+        transition: all .2s ease-in; 
+
+        &:hover {
+            box-shadow: $shadow-4;
+            transform: translateY(-.7rem); 
+            outline-offset: 1rem;
+            outline: 1px solid rgba($col-black, .5);
+            filter: sepia(0%);
+            background-image: url($_profile_image_url + $_profile_image);
+        }
+    }
+
+    &__right {
+        grid-column: 2 / 5;  
+    }
+
+    &__title {
+
+        &--primary {
+            margin-bottom: 2rem;
+        }
+
+        &--text {
+            unicode-bidi: embed;
+            text-align: justify;
+            white-space: pre-line;
+            width: 100%;
+            
+        }
+    }
+}
