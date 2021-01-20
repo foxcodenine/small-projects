@@ -28,5 +28,17 @@
   },
   "LazyProjects": {
     "description": "Auto imported from components/Projects.vue"
+  },
+  "Slider": {
+    "description": "Auto imported from components/slider/Slider.vue"
+  },
+  "LazySlider": {
+    "description": "Auto imported from components/slider/Slider.vue"
+  },
+  "SliderBox": {
+    "description": "Auto imported from components/slider/SliderBox.vue"
+  },
+  "LazySliderBox": {
+    "description": "Auto imported from components/slider/SliderBox.vue"
   }
 }

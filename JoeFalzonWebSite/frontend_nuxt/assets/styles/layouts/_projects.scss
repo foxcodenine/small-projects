@@ -66,10 +66,15 @@
     @include respond(br_slim) {
         grid-auto-columns: 100%;
         
-    }
-    
+    }   
+
     scrollbar-color: rgba(#000, .0) transparent;
     scrollbar-width: thin;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   
     &__box {
   

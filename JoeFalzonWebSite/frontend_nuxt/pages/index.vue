@@ -4,6 +4,7 @@
     <Header />
     <Projects />
     <Profile />
+    <Contacts />
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import NavBar from "@/components/NavBar";
 import Header from "@/components/Header";
 import Projects from "@/components/Projects";
 import Profile from "@/components/Profile";
+import Contacts from "@/components/Contacts";
 
 
 export default {
@@ -19,7 +21,8 @@ export default {
     NavBar,
     Header,
     Projects,
-    Profile
+    Profile,
+    Contacts,
   }
 }
 

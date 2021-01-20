@@ -13,7 +13,7 @@
             <p class="title__text profile__title--text" v-html="titleText"></p>
         </div>
 
-
+        <button class="btn btn--black profile__btn">{{btn_text}}</button>
 
       </div>
   </section>
@@ -28,6 +28,7 @@ export default {
             title: 'Profrssional Background',
             titleText: sampleProfileText,
             profileImage: '_nuxt/assets/images/profile/pro_1.jpg',
+            btn_text: 'Read more'
 
         }
     }

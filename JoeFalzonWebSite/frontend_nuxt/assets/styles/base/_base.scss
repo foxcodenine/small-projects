@@ -34,6 +34,7 @@ html {
     @include respond(br_huge) {
     font-size:75%
     }
+
 }
 
 body {
@@ -42,6 +43,8 @@ body {
     min-width: 360px;
     font-family: $font-main;
     height: 200vh;
+
+
 
 
     }
