@@ -12,3 +12,7 @@ To install sass:
 
 To install axios: 
     $ npm install --save axios
+<!-- --------------------------------------------------------------- -->
+
+To install Nuxt GMaps: 
+    $ nnpm i nuxt-gmaps --save

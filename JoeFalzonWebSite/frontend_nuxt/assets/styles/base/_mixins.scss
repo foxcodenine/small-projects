@@ -9,6 +9,9 @@
     @if $breakpoint == br_small{
         @media (max-width: 37.5em) { @content }; //600px
     }
+    @if $breakpoint == br_small_medium{
+        @media (max-width: 46em) { @content }; //736px
+    }
     @if $breakpoint == br_medium{
         @media (max-width: 56.25em) { @content }; //900px
     }

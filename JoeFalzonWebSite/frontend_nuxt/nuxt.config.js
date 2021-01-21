@@ -33,7 +33,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    ['nuxt-gmaps', {key: process.env.GMAP_API_KEY}]
   ],
   styleResources: {
     scss: [

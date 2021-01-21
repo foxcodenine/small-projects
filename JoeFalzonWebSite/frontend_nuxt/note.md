@@ -20,3 +20,9 @@ Api key name : API_key_Joe_Falzon_Website
 to access api_key go APIs $ Services from side menu and select Credentials
 
 <!-- --------------------------------------------------------------- -->
+
+Nuxt GMaps
+https://www.npmjs.com/package/nuxt-gmaps
+https://codesandbox.io/s/6j6zw48l83?file=/pages/index.vue:635-679
+
+<!-- --------------------------------------------------------------- -->

@@ -12,7 +12,8 @@
     "@nuxtjs/axios": "^5.12.2",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
-    "nuxt": "^2.14.6"
+    "nuxt": "^2.14.6",
+    "nuxt-gmaps": "^1.2.10"
   },
   "devDependencies": {
     "@nuxtjs/style-resources": "^1.0.0",

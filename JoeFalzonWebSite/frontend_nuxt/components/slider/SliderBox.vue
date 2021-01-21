@@ -16,7 +16,7 @@ export default {
     
     props: ['boxID', 'boxURL', 'boxTXT'],
     mounted() {
-        console.log('id: ', this.boxID)
+        // console.log('id: ', this.boxID)
     }
 }
 </script>

@@ -1,7 +1,6 @@
 .contacts {
     background-color: $bg-col-1;
     width: 100%;
-    min-height: 50rem; //<- to remove
 
     display: flex;
     flex-direction: column;
@@ -10,15 +9,10 @@
     padding: 5rem;
 
 
-
-
     &__layout {
+        
         width: 100%;
         max-width: $grid-width;
-
-
-        height: 50rem; //<- to remove
-        border: orangered dashed 1px; //<- to remove
 
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -26,7 +20,6 @@
     }
 
     &__left {
-        background-color: pink;
         grid-column: 1 / 4;
 
         @include respond(br_medium) {
@@ -35,22 +28,175 @@
         @include respond(br_small) {
             grid-column: 1 / -1;  
             grid-row: 2 / 3;
-
-        }
-        
+        }        
     }
 
     &__right {
-        background-color: lemonchiffon;
+
+        background-color: rgba($col-white, 1);
+        border: 1px solid rgba($col-white, 1);
+
+        border-radius: $border-radius;
 
         @include respond(br_medium) {
             grid-column: 3 / 5;
+            min-height: 50rem; 
 
         }
         @include respond(br_small) {
             grid-column: 1 / -1;  
             grid-row: 1 / 2;
+        }
+    }
 
+    &__map {
+        height: 100%;
+        border: 2px black dashed;
+    }
+
+    &__btn {
+        grid-column: 1 / -1;
+        justify-self: center;
+        margin-top: 4rem;
+    }
+}
+// _____________________________________________________________________
+
+.cform {
+
+    & {
+        display: grid;
+        grid-gap: $grid-gutter;
+
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows:  fit-content(100%) repeat(2, 5rem) minmax(20rem, 1fr);
+
+        @include respond(br_small_medium) {
+            grid-template-rows:  fit-content(100%) repeat(3, 5rem) minmax(20rem, 1fr);
+        }
+    }
+
+    // ________________________________________________
+
+    &__info {
+        
+        grid-row: 1 / 2;
+        grid-column: 1 / -1;
+
+        @include respond(br_medium) {
+            text-align: center;
+        }
+    }
+    &__title {
+
+        &--primary {
+
+            @include respond(br_medium) {
+                font-size: 3rem;
+                text-align: center;
+                
+            }
+            @include respond(br_small) {
+                font-size: 2.8rem;
+                margin-top: 2rem;
+                
+            }
+            @include respond(br_slim) {
+                font-size: 2.45rem;
+                
+            }
+        }
+
+        &--text {
+
+            display: inline-block;
+            font-size: 1.4rem;
+            font-family: $font-display;
+            margin-right: .7rem;
+
+            &:first-of-type {
+                margin-left: -.7rem;
+            }
+            
+
+            @include respond(br_medium) {                
+            text-align: center;                
+            } 
+            
+            a, a:link, a:visited {
+                color: $col-text;
+                svg {
+                   
+                    transform: translateY(.5rem);
+                    width: 1rem;           
+                    width: 1.9rem;
+                    height: 1.9rem;
+                    margin-left: .7rem;
+                }
+            }
+        }
+    }
+
+    // ________________________________________________
+
+    &__input {
+
+        width: 100%;
+        background-color: white;
+
+        border: none;
+        border: 1px rgba($col-black, .0) solid ;
+        border-radius: $border-radius;
+
+        padding: 1rem;
+        font-family: 'Raleway', sans-serif;
+        font-size: 1.2rem;        
+
+        transition: all .2s ease-in;
+
+        &:active, &:focus {
+            border: 1px rgba($col-black, .6) solid ;
+            outline: none;
+        }
+
+        &--firstname {
+            grid-row: 2 / 3;
+            grid-column: 1 / 2;
+
+            @include respond(br_small_medium) {
+                grid-column: 1 / -1;    
+            }
+        }
+
+        &--lastname {
+            grid-row: 2 / 3;
+            grid-column: 2 / 3;
+
+            @include respond(br_small_medium) {
+                grid-row: 3 / 4;
+                grid-column: 1 / -1;    
+            }
+            
+        }
+
+        &--email {
+            grid-row: 3 / 4;
+            grid-column: 1 / -1;
+
+            @include respond(br_small_medium) {
+                grid-row: 4 / 5;
+
+            }
+        }
+
+        &--message {
+            grid-row: 4 / 5;
+            grid-column: 1 / -1;
+
+            @include respond(br_small_medium) {
+                grid-row: 5 / 6;
+  
+            }
         }
     }
 }
