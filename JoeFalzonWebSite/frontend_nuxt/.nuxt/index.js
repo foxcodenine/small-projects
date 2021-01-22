@@ -12,9 +12,9 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 /* Plugins */
 
-import nuxt_plugin_plugin_12fa90d9 from 'nuxt_plugin_plugin_12fa90d9' // Source: ./components/plugin.js (mode: 'all')
-import nuxt_plugin_nuxtgooglemaps_65879008 from 'nuxt_plugin_nuxtgooglemaps_65879008' // Source: ./nuxt-google-maps.js (mode: 'all')
-import nuxt_plugin_axios_54d70d22 from 'nuxt_plugin_axios_54d70d22' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_plugin_57b418b7 from 'nuxt_plugin_plugin_57b418b7' // Source: .\\components\\plugin.js (mode: 'all')
+import nuxt_plugin_nuxtgooglemaps_15a7113d from 'nuxt_plugin_nuxtgooglemaps_15a7113d' // Source: .\\nuxt-google-maps.js (mode: 'all')
+import nuxt_plugin_axios_5e79a75a from 'nuxt_plugin_axios_5e79a75a' // Source: .\\axios.js (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -174,16 +174,16 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_plugin_12fa90d9 === 'function') {
-    await nuxt_plugin_plugin_12fa90d9(app.context, inject)
+  if (typeof nuxt_plugin_plugin_57b418b7 === 'function') {
+    await nuxt_plugin_plugin_57b418b7(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_nuxtgooglemaps_65879008 === 'function') {
-    await nuxt_plugin_nuxtgooglemaps_65879008(app.context, inject)
+  if (typeof nuxt_plugin_nuxtgooglemaps_15a7113d === 'function') {
+    await nuxt_plugin_nuxtgooglemaps_15a7113d(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_axios_54d70d22 === 'function') {
-    await nuxt_plugin_axios_54d70d22(app.context, inject)
+  if (typeof nuxt_plugin_axios_5e79a75a === 'function') {
+    await nuxt_plugin_axios_5e79a75a(app.context, inject)
   }
 
   // Lock enablePreview in context
