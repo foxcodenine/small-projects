@@ -26,3 +26,13 @@ https://www.npmjs.com/package/nuxt-gmaps
 https://codesandbox.io/s/6j6zw48l83?file=/pages/index.vue:635-679
 
 <!-- --------------------------------------------------------------- -->
+
+Setting the build and route properties in nuxt.config.js
+
+    build: {
+        publicPath: '/nuxt/',
+        // ...
+    },
+    router: {
+        base: '/002/',
+    },

@@ -2,15 +2,15 @@
   {
     "name": "index copy",
     "path": "/index%20copy",
-    "component": "C:\\\\origin\\\\JoeFalzonWebSite\\\\frontend_nuxt\\\\pages\\\\index copy.vue",
+    "component": "/home/foxcodenine/Desktop/JoeFalzonWebSite/frontend_nuxt/pages/index copy.vue",
     "chunkName": "pages/index copy",
-    "_name": "_d48f3696"
+    "_name": "_4b8b6856"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\origin\\\\JoeFalzonWebSite\\\\frontend_nuxt\\\\pages\\\\index.vue",
+    "component": "/home/foxcodenine/Desktop/JoeFalzonWebSite/frontend_nuxt/pages/index.vue",
     "chunkName": "pages/index",
-    "_name": "_4189c890"
+    "_name": "_51cd7762"
   }
 ]

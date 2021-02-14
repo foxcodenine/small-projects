@@ -1,4 +1,3 @@
-console.log(123123)
 
 function initMap() {
     // The location of Uluru

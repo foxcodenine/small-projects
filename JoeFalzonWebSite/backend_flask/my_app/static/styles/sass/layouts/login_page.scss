@@ -1,0 +1,95 @@
+.login {
+    &__layout {
+        
+
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        align-items: center;
+        // background-color: $col-bg-b;
+
+    }
+
+    &__form {
+        margin-top: 5%;
+        width: 46rem;
+        border: 1px solid $col-gray;
+
+        padding: 4rem 3rem 5rem 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        background-color: #fff;
+        border-radius: $border-radius;
+    }
+}
+
+.myform {
+    &__title {
+        font-family: $font-display;
+        color: rgba($col-black, .9);
+        font-weight: 400;
+        font-size: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    &__group {
+        margin-bottom: 2rem;
+        width: 100%;
+        position: relative;
+    }
+
+    &__input {
+        width: 100%;
+        margin-top: .5rem;
+        border: 1px solid $col-gray;
+        height: 3.5rem;
+        border-radius: $border-radius;
+        color: rgba($col-black, .9);
+        font-family: $font-text;
+
+        padding: 1rem;
+
+        &:focus {
+            background-color: $col-bg-b;
+            border-color: $col-primary;
+            
+        }
+        
+    }
+
+    &__label {
+        text-transform: capitalize;
+        float: left;
+        color: rgba($col-black, .9);
+    }
+
+    &__link,
+    &__link:link,
+    &__link:visited {
+        float: right;
+        text-decoration: none;
+        color: $col-primary;
+
+        &:hover {
+            color: $col-primary-dk;
+        }
+    }
+
+    &__icon {
+        &--toggle-password {
+            position: absolute;
+            bottom: .8rem;
+            right: .8rem;
+            opacity: .7;
+            color: $col-primary;
+        }
+    }
+
+    &__btn {
+        width: 100%;
+
+    }
+}

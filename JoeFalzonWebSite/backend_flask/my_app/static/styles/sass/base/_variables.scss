@@ -1,0 +1,39 @@
+// Colors
+$col-black: #232426;
+$col-white: #fff;
+
+
+$col-primary-lt: #2babac;
+$col-primary: #0a8080;
+$col-primary-dk: #005862;
+
+$col-secondary: #f45d48;
+$col-secondary-lt: #feefe8;
+$col-secondary-dk: #ed533b;
+
+$col-bg-b: #f9f5f2;
+$col-bg-o: #fff2e2;
+$col-bg-p: #fef0e7;
+
+$col-gray: #d4d4d6;
+
+// _____________________________________________________________________
+
+// fonts
+$font-display: 'Poppins', sans-serif; 
+$font-text: 'Source Sans Pro', sans-serif;
+
+// _____________________________________________________________________
+
+// Radius
+$border-radius: .3rem;
+
+// _____________________________________________________________________
+
+
+// Shadows
+$shadow-1: 0 2rem 1.7rem -1.7rem rgba($col-black, .8);
+$shadow-2: 0 1rem 1rem rgba($col-black,  .1);
+$shadow-3: 0 1rem 1rem rgba($col-white,  .1);
+$shadow-4: 0 1rem 3rem rgba($col-black,  .3);
+$shadow-5: 2px 2px 2px rgba($col-black,  .6);

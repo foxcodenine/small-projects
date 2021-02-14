@@ -5,6 +5,7 @@
     <Projects />
     <Profile />
     <Contacts />
+    <Footer />
   </div>
 </template>
 
@@ -14,6 +15,7 @@ import Header from "@/components/Header";
 import Projects from "@/components/Projects";
 import Profile from "@/components/Profile";
 import Contacts from "@/components/Contacts";
+import Footer from "@/components/Footer";
 
 
 export default {
@@ -23,6 +25,7 @@ export default {
     Projects,
     Profile,
     Contacts,
+    Footer,
   }
 }
 

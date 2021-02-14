@@ -1,0 +1,42 @@
+.btn {
+    cursor: pointer;
+    
+    letter-spacing: 1px;
+    display: inline-block;
+    text-transform: capitalize;
+    text-decoration: none;
+    padding: 1rem;  
+    font-size: 1.6rem;  
+    font-family: $font-text;
+    border: none;
+    border-radius: $border-radius;
+
+
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        transform: translateY(-3px);
+    }
+
+    &:active {
+        transform: translateY(-2px);
+    }
+
+    &:focus {
+        border-radius: none;
+        outline: none;
+    }
+
+    &--dark {
+        background-color: rgba($col-primary-dk, .9);
+        border: 1px solid rgba($col-primary-dk, .0);
+        color: #fff;
+
+        &:hover {
+            background-color: transparent;
+            color: $col-primary-dk;
+            border: 1px solid rgba($col-primary-dk, .8);
+            box-shadow: $shadow-2; 
+        }
+    }
+}

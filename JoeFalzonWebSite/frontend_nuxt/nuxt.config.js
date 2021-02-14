@@ -38,7 +38,7 @@ export default {
   ],
   styleResources: {
     scss: [
-      'assets/styles/_variables.scss'
+      'assets/styles/base/_variables.scss'
     ]
   },
 
@@ -47,5 +47,10 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
-  }
+    publicPath: '/nuxt/',
+    // ...
+  },
+  router: {
+    base: '/002/',
+  },
 }
