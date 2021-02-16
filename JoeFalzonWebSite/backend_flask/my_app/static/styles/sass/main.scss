@@ -6,6 +6,11 @@
 @import './base/base';
 
 
+
+@import './layouts/navbar.scss';
+@import './layouts/sidebar.scss';
+@import './layouts/main.scss';
+
 @import './layouts/login_page.scss';
 
 @import './components/buttons';

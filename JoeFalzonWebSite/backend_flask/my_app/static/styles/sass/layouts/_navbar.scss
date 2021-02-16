@@ -1,0 +1,59 @@
+.nav {
+
+    height: 5rem;
+
+    background-color: $col-white;
+    border-bottom: 1px solid $col-gray;
+
+    z-index: 100;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: $shadow-6;
+    
+
+
+    &__layout {
+
+        display: flex;
+        align-items: center;
+        height: 100%;
+        justify-content: space-between;
+    }
+
+    &__logo {
+        font-family: $font-display;
+        margin-left: 2rem;
+        font-size: 2rem;
+        color: $col-primary;
+    }
+
+    &__main {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        justify-content: flex-end;
+        flex: 1;
+        padding-right: 3rem;
+        color: $col-primary;
+
+        a {
+            margin-left: 2rem;
+            color: $col-primary;
+        }
+
+    }
+
+    &__admin {
+
+        display: flex;
+        align-items: center;
+        height: 100%;
+        justify-content: space-evenly;
+        border-left: 1px solid rgba($col-gray, .5);
+        width: 20rem;
+        color: $col-primary;
+    }
+}

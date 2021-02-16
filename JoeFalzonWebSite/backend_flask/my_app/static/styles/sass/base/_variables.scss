@@ -11,11 +11,12 @@ $col-secondary: #f45d48;
 $col-secondary-lt: #feefe8;
 $col-secondary-dk: #ed533b;
 
-$col-bg-b: #f9f5f2;
+$col-bg-b: #f2f8f9;
 $col-bg-o: #fff2e2;
-$col-bg-p: #fef0e7;
+$col-bg-p: #fae7fe;
 
 $col-gray: #d4d4d6;
+$col-gray-lt: #fbfafa;
 
 // _____________________________________________________________________
 
@@ -37,3 +38,4 @@ $shadow-2: 0 1rem 1rem rgba($col-black,  .1);
 $shadow-3: 0 1rem 1rem rgba($col-white,  .1);
 $shadow-4: 0 1rem 3rem rgba($col-black,  .3);
 $shadow-5: 2px 2px 2px rgba($col-black,  .6);
+$shadow-6: 0px 1px 4px rgba($col-primary,  .2);

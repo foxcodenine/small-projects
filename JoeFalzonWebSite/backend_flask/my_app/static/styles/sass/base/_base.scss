@@ -31,9 +31,30 @@ html {
 body {
     font-size: 1.6rem;
     box-sizing: border-box;
+    max-width: 100%;
     min-width: 360px;
     font-family: $font-text;
     font-weight: 400;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $col-white;
+
+
+
+    .body__layout {
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        background-color: $col-white;
+        position: relative;
+        
+    }
 
 }
 
