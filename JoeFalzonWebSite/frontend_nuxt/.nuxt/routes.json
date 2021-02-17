@@ -1,10 +1,10 @@
 [
   {
-    "name": "index copy",
-    "path": "/index%20copy",
-    "component": "/home/foxcodenine/Desktop/JoeFalzonWebSite/frontend_nuxt/pages/index copy.vue",
-    "chunkName": "pages/index copy",
-    "_name": "_4b8b6856"
+    "name": "projects",
+    "path": "/projects",
+    "component": "/home/foxcodenine/Desktop/JoeFalzonWebSite/frontend_nuxt/pages/projects/index.vue",
+    "chunkName": "pages/projects/index",
+    "_name": "_88874260"
   },
   {
     "name": "index",

@@ -5,6 +5,7 @@
     position: fixed;
     top: 0;
     z-index: 100;
+    border-bottom: 1px solid rgba($btn-bg-dark, .0);
 
     transition: all .2s ease;
 
@@ -13,7 +14,12 @@
     }
 
     &__background {
-        background-color: rgba($btn-bg-dark, .5);
+        background-color: rgba($btn-bg-dark, .6);
+        border-bottom: 1px solid rgba($btn-bg-dark, .3);
+    }
+    &__background2 {
+        background-color: rgba($btn-bg-dark, .85);
+        border-bottom: 1px solid rgba($btn-bg-dark, .5);
     }
 
     &__layout {

@@ -7,6 +7,9 @@
     align-items: center;
     height: 100%;
 
+    border-top: 1px solid $bg-col-2;
+    border-bottom: 1px solid $bg-col-2;
+    
     &__layout {
 
         width: 100%;        

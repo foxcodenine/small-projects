@@ -1,0 +1,35 @@
+.categories {
+    width: 100%;    
+    margin-top: 13rem;
+    display: flex;
+    justify-content: center;
+    padding: 0rem 2rem;
+
+
+    &__list {
+        border-top: 1px solid rgba($btn-bg-dark, .9);
+        border-bottom: 1px solid rgba($btn-bg-dark, .9);
+        width: 100%;
+        max-width: $grid-width;
+        height: 3.5rem;
+        align-items: stretch;
+        display: flex;
+
+    }
+
+    &__item {
+        list-style: none;
+        margin-right: 3rem;
+        font-size: 1.7rem;
+        padding-top: .6rem;
+        font-family: $font-display;
+        cursor: pointer;
+    }
+
+    &__selected {
+        border-top: 4px solid rgba($btn-bg-dark, .9);
+        padding-top: .2rem
+    }
+
+
+}
