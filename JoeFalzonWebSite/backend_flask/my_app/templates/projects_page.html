@@ -13,6 +13,9 @@
 </head>
 <body>
     <div class="body__layout">
+
+<!-- --------------------------------------------------------------- -->
+
         <nav class="nav">
             <div class="nav__layout">
 
@@ -23,7 +26,6 @@
                     <a href="" class="nav__link"><i class="far fa-bell"></i></a>
                 </div>
 
-
                 <input type="checkbox" checked class="dropdown--user--toggle">
                 <div class="dropdown dropdown--user">
                     <ul class="dropdown__list">
@@ -32,28 +34,191 @@
                         <li class="dropdown__item"><i class="fas fa-power-off"></i><a href="#">Logout</a></li>
                     </ul>
                 </div> 
+
                 <div class="nav__user">
                     <i class="fas fa-user"></i>
                     <p>Joseph Falzon</p>
                     <i class="fas fa-sort-down mt-tn-n"></i>                    
                 </div>
 
-
-                
             </div>
         </nav>
+<!-- --------------------------------------------------------------- -->
     
-        <aside class="sidebar">
-            <div class="sidebar__layout">
-                test sidebar
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar__layout" id="sidebar">
+                <!-- <button class="sidebar__button"><i class="fas fa-arrow-right"></i></button> -->
+                <button class="sidebar__btn" ><i id="sidebar__btn" class="fas fa-angle-double-right"></i></button>
+                <ul class="sidebar__menu sidebar__off" id="sidebar__menu">
+                    <li class="sidebar__item"><a href="#"><i class="fas fa-home"></i>Dashbord</a></li>
+                    <li class="sidebar__item"><a href="#"><i class="fas fa-user-friends"></i>Clients</a></li>
+                    <li class="sidebar__item"><a href="#"><i class="fas fa-border-all"></i>All Projects</a></li>
+                    <li class="sidebar__item"><a href="#"><i class="fas fa-plus"></i>Add Project</a></li>
+                    <li class="sidebar__item"><a href="#"><i class="fas fa-puzzle-piece"></i>Categories</a></li>
+                    <li class="sidebar__item"><a href="#"><i class="fas fa-wave-square"></i>Status</a></li>
+                    <li class="sidebar__item"><a href="#"><i class="far fa-calendar-check"></i>Year</a></li>
+                </ul>
+                
             </div>
         </aside>
-    
-        <main class="main">
+
+<!-- --------------------------------------------------------------- -->
+        <main class="main" id="main">
             <div class="main__layouts">
-                test main
+                
+                <div class="projects">
+                    <div class="projects__row">
+                        <div class="projects__item projects__item--header projects__item--header--checkbox"><input type="checkbox"></div>
+                        <div class="projects__item projects__item--header projects__item--header--id">id</div>
+                        <div class="projects__item projects__item--header projects__item--header--title">title</div>
+                        <div class="projects__item projects__item--header projects__item--header--location">location</div>
+                        <div class="projects__item projects__item--header projects__item--header--category">category</div>
+                        <div class="projects__item projects__item--header projects__item--header--image">image</div>
+                        <div class="projects__item projects__item--header projects__item--header--status">status</div>
+                        <div class="projects__item projects__item--header projects__item--header--year">year</div>
+                        <div class="projects__item projects__item--header projects__item--header--delete">delete</div>
+                        <div class="projects__item projects__item--header projects__item--header--edit">edit</div>
+                        
+                        <div class="projects__item projects__item--checkbox"><input type="checkbox"></div>
+                        <div class="projects__item projects__item--id">1</div>
+                        <div class="projects__item projects__item--title">Sirens</div>
+                        <div class="projects__item projects__item--location">Birzebbuga</div>
+                        <div class="projects__item projects__item--category">Residential</div>
+                        <div class="projects__item projects__item--image"><img src="../static/images/test_images/elephant.jpg" alt=""></div>
+                        <div class="projects__item projects__item--status">Complete</div>
+                        <div class="projects__item projects__item--year">2021</div>
+                        <div class="projects__item projects__item--delete">delete</div>
+                        <div class="projects__item projects__item--edit">edit</div>
+                        
+                        <div class="projects__item projects__item--checkbox"><input type="checkbox"></div>
+                        <div class="projects__item projects__item--id">2</div>
+                        <div class="projects__item projects__item--title">RS2</div>
+                        <div class="projects__item projects__item--location">Qormi</div>
+                        <div class="projects__item projects__item--category">Commercial</div>
+                        <div class="projects__item projects__item--image"><img src="../static/images/test_images/whale.jpg" alt=""></div>
+                        <div class="projects__item projects__item--status">in-progers</div>
+                        <div class="projects__item projects__item--year">2017</div>
+                        <div class="projects__item projects__item--delete">delete</div>
+                        <div class="projects__item projects__item--edit">edit</div>
+                        
+                        <div class="projects__item projects__item--checkbox"><input type="checkbox"></div>
+                        <div class="projects__item projects__item--id">3</div>
+                        <div class="projects__item projects__item--title">Sirens</div>
+                        <div class="projects__item projects__item--location">Siggiewi</div>
+                        <div class="projects__item projects__item--category">Education</div>
+                        <div class="projects__item projects__item--image"><img src="../static/images/test_images/llama.jpg" alt=""></div>
+                        <div class="projects__item projects__item--status">Complete</div>
+                        <div class="projects__item projects__item--year">2019</div>
+                        <div class="projects__item projects__item--delete">delete</div>
+                        <div class="projects__item projects__item--edit">edit</div>
+                        
+                        <div class="projects__item projects__item--checkbox"><input type="checkbox"></div>
+                        <div class="projects__item projects__item--id">4</div>
+                        <div class="projects__item projects__item--title">Sirens</div>
+                        <div class="projects__item projects__item--location">Valleta</div>
+                        <div class="projects__item projects__item--category">Offices</div>
+                        <div class="projects__item projects__item--image"><img src="../static/images/test_images/frog.jpg" alt=""></div>
+                        <div class="projects__item projects__item--status">in-progers</div>
+                        <div class="projects__item projects__item--year">2021</div>
+                        <div class="projects__item projects__item--delete">delete</div>
+                        <div class="projects__item projects__item--edit">edit</div>
+                        
+                        <div class="projects__item projects__item--checkbox"><input type="checkbox"></div>
+                        <div class="projects__item projects__item--id">1</div>
+                        <div class="projects__item projects__item--title">Sirens</div>
+                        <div class="projects__item projects__item--location">Birzebbuga</div>
+                        <div class="projects__item projects__item--category">Residential</div>
+                        <div class="projects__item projects__item--image"><img src="../static/images/test_images/elephant.jpg" alt=""></div>
+                        <div class="projects__item projects__item--status">Complete</div>
+                        <div class="projects__item projects__item--year">2021</div>
+                        <div class="projects__item projects__item--delete">delete</div>
+                        <div class="projects__item projects__item--edit">edit</div>
+                        
+                        <div class="projects__item projects__item--checkbox"><input type="checkbox"></div>
+                        <div class="projects__item projects__item--id">2</div>
+                        <div class="projects__item projects__item--title">RS2</div>
+                        <div class="projects__item projects__item--location">Qormi</div>
+                        <div class="projects__item projects__item--category">Commercial</div>
+                        <div class="projects__item projects__item--image"><img src="../static/images/test_images/whale.jpg" alt=""></div>
+                        <div class="projects__item projects__item--status">in-progers</div>
+                        <div class="projects__item projects__item--year">2017</div>
+                        <div class="projects__item projects__item--delete">delete</div>
+                        <div class="projects__item projects__item--edit">edit</div>
+                        
+                        <div class="projects__item projects__item--checkbox"><input type="checkbox"></div>
+                        <div class="projects__item projects__item--id">3</div>
+                        <div class="projects__item projects__item--title">Sirens</div>
+                        <div class="projects__item projects__item--location">Siggiewi</div>
+                        <div class="projects__item projects__item--category">Education</div>
+                        <div class="projects__item projects__item--image"><img src="../static/images/test_images/llama.jpg" alt=""></div>
+                        <div class="projects__item projects__item--status">Complete</div>
+                        <div class="projects__item projects__item--year">2019</div>
+                        <div class="projects__item projects__item--delete">delete</div>
+                        <div class="projects__item projects__item--edit">edit</div>
+                        
+                        <div class="projects__item projects__item--checkbox"><input type="checkbox"></div>
+                        <div class="projects__item projects__item--id">4</div>
+                        <div class="projects__item projects__item--title">Sirens</div>
+                        <div class="projects__item projects__item--location">Valleta</div>
+                        <div class="projects__item projects__item--category">Offices</div>
+                        <div class="projects__item projects__item--image"><img src="../static/images/test_images/frog.jpg" alt=""></div>
+                        <div class="projects__item projects__item--status">in-progers</div>
+                        <div class="projects__item projects__item--year">2021</div>
+                        <div class="projects__item projects__item--delete">delete</div>
+                        <div class="projects__item projects__item--edit">edit</div>
+                        
+                        <div class="projects__item projects__item--checkbox"><input type="checkbox"></div>
+                        <div class="projects__item projects__item--id">1</div>
+                        <div class="projects__item projects__item--title">Sirens</div>
+                        <div class="projects__item projects__item--location">Birzebbuga</div>
+                        <div class="projects__item projects__item--category">Residential</div>
+                        <div class="projects__item projects__item--image"><img src="../static/images/test_images/elephant.jpg" alt=""></div>
+                        <div class="projects__item projects__item--status">Complete</div>
+                        <div class="projects__item projects__item--year">2021</div>
+                        <div class="projects__item projects__item--delete">delete</div>
+                        <div class="projects__item projects__item--edit">edit</div>
+                        
+                        <div class="projects__item projects__item--checkbox"><input type="checkbox"></div>
+                        <div class="projects__item projects__item--id">2</div>
+                        <div class="projects__item projects__item--title">RS2</div>
+                        <div class="projects__item projects__item--location">Qormi</div>
+                        <div class="projects__item projects__item--category">Commercial</div>
+                        <div class="projects__item projects__item--image"><img src="../static/images/test_images/whale.jpg" alt=""></div>
+                        <div class="projects__item projects__item--status">in-progers</div>
+                        <div class="projects__item projects__item--year">2017</div>
+                        <div class="projects__item projects__item--delete">delete</div>
+                        <div class="projects__item projects__item--edit">edit</div>
+                        
+                        <div class="projects__item projects__item--checkbox"><input type="checkbox"></div>
+                        <div class="projects__item projects__item--id">3</div>
+                        <div class="projects__item projects__item--title">Sirens</div>
+                        <div class="projects__item projects__item--location">Siggiewi</div>
+                        <div class="projects__item projects__item--category">Education</div>
+                        <div class="projects__item projects__item--image"><img src="../static/images/test_images/llama.jpg" alt=""></div>
+                        <div class="projects__item projects__item--status">Complete</div>
+                        <div class="projects__item projects__item--year">2019</div>
+                        <div class="projects__item projects__item--delete">delete</div>
+                        <div class="projects__item projects__item--edit">edit</div>
+                        
+                        <div class="projects__item projects__item--checkbox"><input type="checkbox"></div>
+                        <div class="projects__item projects__item--id">4</div>
+                        <div class="projects__item projects__item--title">Sirens</div>
+                        <div class="projects__item projects__item--location">Valleta</div>
+                        <div class="projects__item projects__item--category">Offices</div>
+                        <div class="projects__item projects__item--image"><img src="../static/images/test_images/frog.jpg" alt=""></div>
+                        <div class="projects__item projects__item--status">in-progers</div>
+                        <div class="projects__item projects__item--year">2021</div>
+                        <div class="projects__item projects__item--delete">delete</div>
+                        <div class="projects__item projects__item--edit">edit</div>
+
+                    </div>
+                </div>
+
             </div>
         </main>
     </div>
+    <footer class="footer">
+        <script src="../static/script/script.js"></script>
+    </footer>
 </body>
 </html>

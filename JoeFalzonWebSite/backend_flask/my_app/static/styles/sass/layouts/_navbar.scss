@@ -40,10 +40,20 @@
         color: $col-white;
 
         a {
-            margin-left: 2rem;
+            margin-left: 1rem;
             color: $col-white;
         }
 
+    }
+    &__link:link, &__link:visited {
+        color: $col-white;
+        padding: .3rem .7rem;
+        width: 3rem;
+        &:hover {            
+            background-color: rgba($col-white, .1);
+            border: 1px rgba($col-bg-y, .5) solid;
+            border-radius: 2rem;     
+        }
     }
 
     &__user {

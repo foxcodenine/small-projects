@@ -1,0 +1,56 @@
+
+.projects {
+
+    &__row {
+    
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: 4rem repeat(9, minmax(max-content, 1fr));
+    grid-template-rows: 5rem;
+    align-items: center;
+    grid-auto-rows: 7rem;
+    justify-items: stretch;
+    text-align: center;            
+    
+    }
+    
+    &__item {
+        color: $col-black;
+        border-bottom: 1px solid $col-gray;
+        height: 100%; 
+        padding-left: 1rem;        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &--header {
+            text-transform: capitalize;
+            font-family: $font-display;
+            font-size: 1.7rem;
+            font-weight: 400;
+            border-bottom: 2px solid $col-black;
+            
+        }
+        
+        
+        &--image {
+            overflow: hidden;            
+            max-width: 20rem;
+            text-align: center;            
+            height: 100%;
+            padding-top: 0rem;            
+
+            img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                padding: .8rem 0;
+                
+                
+                
+            }
+        }
+    }
+}

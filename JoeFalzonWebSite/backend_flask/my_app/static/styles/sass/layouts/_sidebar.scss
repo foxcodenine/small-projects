@@ -1,11 +1,99 @@
 .sidebar {
     border-right: 1px solid rgba($col-gray, .5);
     height: 100%;
-    min-height: 100vh;
-    width: 40rem;
+    width: 100%;
     background-color: $col-bg-b;
+    padding: 10rem 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
     position: relative;
 
-    margin: 0 0 0 0 ;
-    padding: 8rem 2rem 1rem 2rem;
+
+
+    &__btn {
+               
+        cursor: pointer;
+        border: none;
+        width: 3rem;
+        height: 3rem;   
+        align-items: center;
+        background-color: transparent;
+
+        position: absolute;
+        top: 6rem;
+        right: 1rem;
+     
+        i {
+            font-size: 2.5rem;
+       
+            color: $col-primary-lt;
+            font-weight: 300;
+
+            transition: all .1s ease-in-out;
+
+            &:hover {
+                color: $col-primary;
+            }        
+            &:active {
+                color: $col-primary;
+            }        
+            &:focus {
+                color: $col-primary;
+            }            
+        }
+    }
+}
+
+.sidebar {
+    &__menu {
+        // border: 1px solid blue;
+    }
+    &__item {
+
+        cursor: pointer;
+        padding:  1rem 1rem;
+        align-items: flex-start; 
+        font-size: 1.6rem;
+        font-family: $font-display;         
+        font-weight: 400;
+        list-style: none;
+        border: 1px solid $col-bg-b;
+        margin: 0 1rem;
+        transition: all .1s;
+        border-top: 1px solid $col-primary-lt;
+
+        &:last-child {
+            border-bottom: 1px solid $col-primary-lt;
+        }
+
+
+
+        a:link, a:visited {
+            color: rgba($col-black, .9);
+            text-decoration: none;
+
+            display: grid;
+            grid-template-columns: 3.5rem 1fr ;
+            align-items: center;
+        }
+
+        i {
+            margin-right: 1.5rem;
+            font-weight: 400;
+            font-size: 1.8rem;
+        }
+
+        &:hover {            
+           
+            background-color: rgba($col-bg-y, .5);
+      
+        }
+    }
+
+    &__off {
+        display: none;
+    }
 }

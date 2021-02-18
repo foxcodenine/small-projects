@@ -42,19 +42,19 @@ body {
     align-items: center;
     background-color: $col-white;
 
-
+    
 
     .body__layout {
-        display: flex;
-
-        justify-content: center;
-        align-items: center;
-
+        display: grid;
+        grid-template-columns: var(--sidebar-width) 1fr;
         width: 100%;
         background-color: $col-white;
-        position: relative;
-        
+        position: relative;        
     }
 
+}
+
+:root {
+    --sidebar-width: 5rem;
 }
 
