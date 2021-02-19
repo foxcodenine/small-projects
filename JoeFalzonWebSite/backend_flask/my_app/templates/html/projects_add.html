@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="stylesheet" type="text/css" href="../../static/styles/css/style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
+    <!-- <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/decoupled-document/ckeditor.js"></script> -->
+    <!-- <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/balloon-block/ckeditor.js"></script> -->
+    <!-- <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/inline/ckeditor.js"></script> -->
+
+
+    <title>All Projects</title>
+</head>
+<body>
+    <div class="body__layout">
+
+<!-- --------------------------------------------------------------- -->
+
+        <nav class="nav">
+            <div class="nav__layout">
+
+                <div class="nav__logo">myAdmin</div>
+
+                <div class="nav__main">
+                    <a href="" class="nav__link"><i class="fas fa-comment"></i></a>
+                    <a href="" class="nav__link"><i class="far fa-bell"></i></a>
+                </div>
+
+                <input type="checkbox" checked class="dropdown--user--toggle">
+                <div class="dropdown dropdown--user">
+                    <ul class="dropdown__list">
+                        <li class="dropdown__item"><i class="fas fa-cog"></i></i><a href="#">Settings</a></li>
+                        <li class="dropdown__item"><i class="far fa-user"></i><a href="#">Profile</a></li>
+                        <li class="dropdown__item"><i class="fas fa-power-off"></i><a href="#">Logout</a></li>
+                    </ul>
+                </div> 
+
+                <div class="nav__user">
+                    <i class="fas fa-user"></i>
+                    <p>Joseph Falzon</p>
+                    <i class="fas fa-sort-down mt-tn-n"></i>                    
+                </div>
+
+            </div>
+        </nav>
+<!-- --------------------------------------------------------------- -->
+    
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar__layout" id="sidebar">
+                <!-- <button class="sidebar__button"><i class="fas fa-arrow-right"></i></button> -->
+                <button class="sidebar__btn" ><i id="sidebar__btn" class="fas fa-angle-double-right"></i></button>
+                <ul class="sidebar__menu sidebar__off" id="sidebar__menu">
+                    <li class="sidebar__item"><a href="#"><i class="fas fa-home"></i>Dashbord</a></li>
+                    <li class="sidebar__item"><a href="#"><i class="fas fa-user-friends"></i>Clients</a></li>
+                    <li class="sidebar__item"><a href="#"><i class="fas fa-border-all"></i>All Projects</a></li>
+                    <li class="sidebar__item"><a href="#"><i class="fas fa-plus"></i>Add Project</a></li>
+                    <li class="sidebar__item"><a href="#"><i class="fas fa-puzzle-piece"></i>Categories</a></li>
+                    <li class="sidebar__item"><a href="#"><i class="fas fa-wave-square"></i>Status</a></li>
+                    <li class="sidebar__item"><a href="#"><i class="far fa-calendar-check"></i>Year</a></li>
+                </ul>
+                
+            </div>
+        </aside>
+
+<!-- --------------------------------------------------------------- -->
+        <main class="main" id="main">
+            <div class="main__layouts">
+                
+                <div class="addin">
+                    <!-- <div class="addin__layout"> -->
+            
+                        
+            
+                        <form action="#" method="POST" class="myform addin__layout addin__form" enctype="multipart/form-data">
+            
+                            <h2 class="myform__title addin__title">add new project</h2>
+            
+                            <div class="myform__group addin__group--name">
+                                <label for="project_name" class="myform__label">project name</label>
+                                <input type="text" name="project_name" class="myform__input">                    
+                            </div>
+
+                            <div class="myform__group addin__group--address">
+                                <label for="address" class="myform__label">address</label>
+                                <input type="text" name="address" class="myform__input">                    
+                            </div>  
+
+                            <div class="myform__group addin__group--client">
+                                <label for="client" class="myform__label">client</label>
+                                <input type="text" name="client" class="myform__input">                    
+                            </div>
+            
+                            <div class="myform__group addin__group--email">
+                                <label for="email" class="myform__label">email</label>
+                                <input type="email" name="email" class="myform__input">                    
+                            </div>
+ 
+                            <div class="myform__group addin__group--phone">
+                                <label for="phone" class="myform__label">phone</label>
+                                <input type="email" name="phone" class="myform__input">                    
+                            </div>
+            
+                            <div class="myform__group addin__group--locality">
+                                <label for="locality" class="myform__label">locality</label>
+                                <input type="text" name="locality" class="myform__input">                    
+                            </div>
+
+                            <div class="myform__group addin__group--pa">
+                                <label for="pa-number" class="myform__label">PA number</label>
+                                <input type="text" name="pa-number" class="myform__input">                    
+                            </div>
+            
+                            <div class="myform__group addin__group--ref">
+                                <label for="ref-number" class="myform__label">ref number</label>
+                                <input type="text" name="ref-number" class="myform__input">                    
+                            </div>            
+            
+                            <div class="myform__group addin__group--category">
+                                <label for="category" class="myform__label">category</label>
+                                <input type="text" name="category" class="myform__input">                    
+                            </div>
+            
+                            <div class="myform__group addin__group--status">
+                                <label for="status" class="myform__label">status</label>
+                                <input type="text" name="status" class="myform__input">                    
+                            </div>
+
+                                        
+                            <div class="myform__group addin__group--images">
+                                <label for="images" class="myform__label myform__label--images">images</label>
+                                <input type="file" name="file" class="myform__input myform__input--images" multiple>                    
+                            </div> 
+
+                            <div class="myform__group addin__group--date">
+                                <label for="date" class="myform__label">date</label>
+                                <input type="date" name="date" class="myform__input">                    
+                            </div>
+
+
+                            <div class="myform__group addin__group--content">
+                                <label for="content" class="myform__label">content</label>
+                                
+                                <textarea id="editor_body" class="myform__input myform__input--content" name=content"  cols="30" rows="10"></textarea>                    
+                            </div> 
+                            
+           
+                            <button class="btn btn--dark myform__btn addin__btn" type="submit">Add project</button>
+            
+                        </form>
+            
+                    <!-- </div> -->
+                </div>
+
+
+            </div>
+        </main>
+<!-- --------------------------------------------------------------- -->
+    </div>
+    <footer class="footer">
+        <script src="../../static/script/script.js"></script>
+    </footer>
+</body>
+</html>

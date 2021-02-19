@@ -1,20 +1,16 @@
 .sidebar {
     border-right: 1px solid rgba($col-gray, .5);
-    height: 100%;
     width: 100%;
     background-color: $col-bg-b;
-    padding: 10rem 1rem;
+    padding: 10rem 1rem 1rem 1rem;
 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: stretch;
+
     position: relative;
 
-
-
-    &__btn {
-               
+    &__btn {               
         cursor: pointer;
         border: none;
         width: 3rem;
@@ -69,10 +65,8 @@
             border-bottom: 1px solid $col-primary-lt;
         }
 
-
-
         a:link, a:visited {
-            color: rgba($col-black, .9);
+            color: rgba($col-black, .8);
             text-decoration: none;
 
             display: grid;
@@ -86,10 +80,8 @@
             font-size: 1.8rem;
         }
 
-        &:hover {            
-           
-            background-color: rgba($col-bg-y, .5);
-      
+        &:hover {          
+            background-color: rgba($col-bg-y, .5);      
         }
     }
 

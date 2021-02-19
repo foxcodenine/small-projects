@@ -1,0 +1,42 @@
+.ck-editor{
+    transform: translateY(.7rem);
+    margin-bottom: 6rem !important;
+}
+// .ck-editor-main{
+    
+// }
+
+.ck  {     
+    
+    &-focused {
+        background-color: $col-bg-y !important;
+        border-color: $col-primary !important;
+    }
+
+    p {
+        border-radius: 0 0 $border-radius $border-radius  !important;
+        box-shadow: none !important;
+        margin-left: 2rem;
+    }
+    ul, ol {
+        margin-left: 2rem;
+    }
+}
+.ck-editor__editable_inline {
+    height: 20rem !important;
+}
+.ck-toolbar {
+    
+    width: 100% !important; 
+    border-radius: $border-radius $border-radius 0 0 !important;
+
+}
+.ck-toolbar_grouping {
+    background-color: transparent !important;
+    background-color: $col-bg-y !important;
+    
+}
+.ck-rounded-corners {
+    border-radius: 0 0 $border-radius $border-radius  !important;
+}
+

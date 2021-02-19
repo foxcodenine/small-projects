@@ -11,8 +11,13 @@
 @import './layouts/sidebar.scss';
 @import './layouts/main.scss';
 
-@import './layouts/login_page.scss';
 @import './layouts/projects.scss';
 
 @import './components/buttons';
 @import './components/checkbox';
+@import './components/myform';
+@import './components/WYSIWYG';
+
+
+@import './pages/login';
+@import './pages/addin';

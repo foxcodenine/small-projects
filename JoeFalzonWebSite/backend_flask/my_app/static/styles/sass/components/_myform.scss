@@ -1,0 +1,108 @@
+
+
+.myform {
+    &__title {
+        font-family: $font-display;
+        color: rgba($col-black, .9);
+        font-weight: 400;
+        font-size: 3rem;
+        margin-bottom: 3rem;
+        text-transform: capitalize;
+    }
+
+    &__group {
+        margin-bottom: 2rem;
+        width: 100%;
+        position: relative;
+    }
+
+    &__input {
+        width: 100%;
+        margin-top: .5rem;
+        border: 1px solid $col-gray;
+        height: 3.5rem;
+        border-radius: $border-radius;
+        color: rgba($col-black, .9);
+        font-family: $font-text;
+
+        padding: 1rem;
+
+        &:focus {
+            background-color: $col-bg-y;
+            border-color: $col-primary;
+            
+        }
+        // &--content {
+        //     // height: 15rem !important;
+        // }
+
+        &--images{
+
+            margin: .7rem 0 0 0 ;
+            padding: 0;
+
+            &::-webkit-file-upload-button {
+                height: 100%;
+                border: 1px solid $col-primary;
+                color: $col-white;
+                background-color: $col-primary;
+                border-radius: $border-radius 0 0 $border-radius;
+                cursor: pointer;
+                width: 11rem;
+                
+                &:hover {
+                    background-color: $col-primary-dk; 
+                    outline: none;  
+                }
+            }
+            &::file-selector-button {
+                height: 100%;
+                border: 1px solid $col-primary;
+                color: $col-white;
+                background-color: $col-primary;
+                border-radius: $border-radius 0 0 $border-radius;
+                cursor: pointer;
+                width: 11rem;
+                
+                &:hover {
+                    background-color: $col-primary-dk; 
+                    outline: none;   
+                }                
+            }
+        }
+        
+    }
+
+    &__label {
+        text-transform: capitalize;
+        float: left;
+        color: rgba($col-black, .9);
+    }
+
+    &__link,
+    &__link:link,
+    &__link:visited {
+        float: right;
+        text-decoration: none;
+        color: $col-primary;
+
+        &:hover {
+            color: $col-primary-dk;
+        }
+    }
+
+    &__icon {
+        &--toggle-password {
+            position: absolute;
+            bottom: .8rem;
+            right: .8rem;
+            opacity: .7;
+            color: $col-primary;
+        }
+    }
+
+    &__btn {
+        width: 100%;
+    }
+}
+

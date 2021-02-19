@@ -47,11 +47,17 @@
     }
     &__link:link, &__link:visited {
         color: $col-white;
-        padding: .3rem .7rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
         width: 3rem;
+        height: 3rem;
+
+        text-decoration: none;
         &:hover {            
-            background-color: rgba($col-white, .1);
-            border: 1px rgba($col-bg-y, .5) solid;
+            background-color: rgba($col-bg-y, .4);
             border-radius: 2rem;     
         }
     }
@@ -102,8 +108,7 @@
             height: 100rem;
             opacity: 5;
             cursor: pointer;
-            z-index: 12;
-            
+            z-index: 12;           
 
         }
     }    

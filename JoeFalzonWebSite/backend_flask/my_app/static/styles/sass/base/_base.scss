@@ -40,21 +40,23 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: $col-white;
-
-    
+    background-color: $col-white;    
 
     .body__layout {
         display: grid;
         grid-template-columns: var(--sidebar-width) 1fr;
         width: 100%;
         background-color: $col-white;
-        position: relative;        
+        position: relative;
+        // align-items: stretch;  
+        height: 100%;
+        // border: red solid 1px;      
     }
 
 }
 
 :root {
     --sidebar-width: 5rem;
+ 
 }
 

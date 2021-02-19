@@ -1,0 +1,31 @@
+.login {
+    &__layout {      
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+
+    }
+
+    &__form {
+        margin-top: 10vh;
+        width: 46rem;
+        border: 1px solid $col-gray;
+
+        padding: 4rem 3rem 5rem 3rem;
+
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: center;
+        // align-items: flex-start;
+        
+        background-color: #fff;
+        border-radius: $border-radius;
+    }
+}
+
+
+
+
+
