@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    body layout
+{% endblock %}
+
+{% block body %}
+
+<div class="body__layout">
+
+<!-- --------------------------------------------------------------- -->
+
+<nav class="nav">
+    <div class="nav__layout">
+
+        <div class="nav__logo">myAdmin</div>
+
+        <div class="nav__main">
+            <a href="" class="nav__link"><i class="fas fa-comment"></i></a>
+            <a href="" class="nav__link"><i class="far fa-bell"></i></a>
+        </div>
+
+        <input type="checkbox" checked class="dropdown--user--toggle">
+        <div class="dropdown dropdown--user">
+            <ul class="dropdown__list">
+                <li class="dropdown__item"><i class="fas fa-cog"></i></i><a href="#">Settings</a></li>
+                <li class="dropdown__item"><i class="far fa-user"></i><a href="#">Profile</a></li>
+                <li class="dropdown__item"><i class="fas fa-power-off"></i><a href="#">Logout</a></li>
+            </ul>
+        </div> 
+
+        <div class="nav__user">
+            <i class="fas fa-user"></i>
+            <p>Joseph Falzon</p>
+            <i class="fas fa-sort-down mt-tn-n"></i>                    
+        </div>
+
+    </div>
+</nav>
+
+<!-- --------------------------------------------------------------- -->
+
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar__layout" id="sidebar">
+        
+        <button class="sidebar__btn" ><i id="sidebar__btn" class="fas fa-angle-double-right"></i></button>
+        <ul class="sidebar__menu sidebar__off" id="sidebar__menu">
+            <li class="sidebar__item"><a href="#"><i class="fas fa-home"></i>Dashbord</a></li>
+            <li class="sidebar__item"><a href="#"><i class="fas fa-user-friends"></i>Clients</a></li>
+            <li class="sidebar__item"><a href="{{ url_for('my_clients.add_client') }}"><i class="fas fa-plus"></i>Add New Client</a></li>
+            <li class="sidebar__item"><a href="{{ url_for('my_projects.all_projects') }}"><i class="fas fa-border-all"></i>Projects</a></li>
+            <li class="sidebar__item"><a href="{{ url_for('my_projects.add_project') }}"><i class="fas fa-plus"></i>Add New Project</a></li>
+            <li class="sidebar__item"><a href="#"><i class="fas fa-puzzle-piece"></i>Categories</a></li>
+            <li class="sidebar__item"><a href="#"><i class="fas fa-wave-square"></i>Status</a></li>
+            <li class="sidebar__item"><a href="#"><i class="far fa-calendar-check"></i>Year</a></li>
+        </ul>
+        
+    </div>
+</aside>
+
+<!-- --------------------------------------------------------------- -->
+
+<main class="main" id="main">
+    <div class="main__layouts">
+        
+        {% block main %}{% endblock %}    
+
+    </div>
+</main>
+
+</div>
+
+<!-- --------------------------------------------------------------- -->
+
+{% endblock %}

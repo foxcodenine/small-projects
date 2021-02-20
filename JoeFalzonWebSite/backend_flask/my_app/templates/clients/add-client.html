@@ -1,0 +1,76 @@
+{% extends 'main.html' %}
+
+
+{% block title %} Add Client {% endblock %}
+
+{% block main %}                
+<div class="addin">           
+    <form action="#" method="POST" class="myform addin__layout addin__form" enctype="multipart/form-data">
+
+        <h2 class="myform__title addin__title">add client</h2>
+
+        <div class="myform__group addin__group--title">
+            <label for="title" class="myform__label">title</label>
+            <input type="text" name="title" class="myform__input">                    
+        </div>
+
+        <div class="myform__group addin__group--firstname">
+            <label for="firstname" class="myform__label">firstname</label>
+            <input type="text" name="firstname" class="myform__input">                    
+        </div>
+
+        <div class="myform__group addin__group--lastname">
+            <label for="lastname" class="myform__label">lastname</label>
+            <input type="text" name="lastname" class="myform__input">                    
+        </div>
+
+        <div class="myform__group addin__group--company">
+            <label for="company" class="myform__label">company</label>
+            <input type="text" name="company" class="myform__input">                    
+        </div>
+
+        <div class="myform__group addin__group--file">
+            <label for="file" class="myform__label">file number</label>
+            <input type="text" name="file" class="myform__input">                    
+        </div>
+
+        <div class="myform__group addin__group--phone">
+            <label for="phone" class="myform__label">phone</label>
+            <input type="text" name="phone" class="myform__input">                    
+        </div>
+
+        <div class="myform__group addin__group--mobile">
+            <label for="mobile" class="myform__label">mobile</label>
+            <input type="text" name="mobile" class="myform__input">                    
+        </div>
+
+        <div class="myform__group addin__group--email">
+            <label for="email" class="myform__label">email</label>
+            <input type="text" name="email" class="myform__input">                    
+        </div>
+
+        <div class="myform__group addin__group--street">
+            <label for="street" class="myform__label">street address</label>
+            <input type="text" name="street" class="myform__input">                    
+        </div>
+
+        <div class="myform__group addin__group--city">
+            <label for="city" class="myform__label">city</label>
+            <input type="text" name="city" class="myform__input">                    
+        </div>
+
+        <div class="myform__group addin__group--country">
+            <label for="country" class="myform__label">country</label>
+            <input type="text" name="country" class="myform__input">                    
+        </div>
+
+        <div class="myform__group addin__group--postcode">
+            <label for="postcode" class="myform__label">postcode</label>
+            <input type="text" name="postcode" class="myform__input">                    
+        </div>
+
+        <button class="btn btn--dark myform__btn addin__btn mt-lg" type="submit">add client</button>
+
+    </form>
+</div>
+{% endblock %}

@@ -23,14 +23,11 @@ document.onreadystatechange = function () {                    // <- (A)
             } )
             .catch( error => {
                 console.log( error );
-            } );
-
-            
+            } );            
         } 
         // ------------------------------------------------------------- 
         passwordDisplayToggle();
         sidebarOpenClose()
- 
         
     }
 }
@@ -78,19 +75,17 @@ function sidebarOpenClose() {
         sidebar.addEventListener('click', (e)=>{
 
             if (!e.target.closest('.sidebar__item')) {
-
             
                 sidebarBtn.classList.toggle('fa-angle-double-right');
                 sidebarBtn.classList.toggle('fa-angle-double-left');
 
                 sidebarMenu.classList.toggle('sidebar__off')
 
-
                 const sidebarWidth = allElements.getPropertyValue('--sidebar-width');
-                if (sidebarWidth == '20rem') {
+                if (sidebarWidth == '22rem') {
                     allElements.setProperty('--sidebar-width', '5rem');
                 }else {
-                    allElements.setProperty('--sidebar-width', '20rem');
+                    allElements.setProperty('--sidebar-width', '22rem');
                 }
             }
         });
@@ -103,7 +98,7 @@ function sidebarOpenClose() {
 
 
             const sidebarWidth = allElements.getPropertyValue('--sidebar-width');
-            if (sidebarWidth == '20rem') {
+            if (sidebarWidth == '22rem') {
                 allElements.setProperty('--sidebar-width', '5rem');
                 sidebarMenu.classList.add('sidebar__off')
             }

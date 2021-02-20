@@ -14,6 +14,7 @@
         margin-bottom: 2rem;
         width: 100%;
         position: relative;
+        @include respond(br_small_medium) {grid-column: 1 / 5 !important;}
     }
 
     &__input {
@@ -24,8 +25,11 @@
         border-radius: $border-radius;
         color: rgba($col-black, .9);
         font-family: $font-text;
-
         padding: 1rem;
+
+        &--date {
+            padding: 0rem .8rem;
+        }
 
         &:focus {
             background-color: $col-bg-y;
@@ -38,7 +42,7 @@
 
         &--images{
 
-            margin: .7rem 0 0 0 ;
+            margin: .5rem 0 0 0 ;
             padding: 0;
 
             &::-webkit-file-upload-button {
