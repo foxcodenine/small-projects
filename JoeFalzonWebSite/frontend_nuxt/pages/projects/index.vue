@@ -63,13 +63,24 @@
 <script>
 import { sampleProjects } from "@/data/sampleData";
 export default {
+    scrollToTop: true,
     data() {
         return {
             selectedCat: 1,
             baseUrl: '@/assets/images/projects/',
             projectsArray: sampleProjects,
         }
-    }
+    } ,
+    methods: {
+        
+    },
+    mounted() {
+        setTimeout(() => {
+            window.scrollTo(0, 0);
+        }, 50);
+        
+
+        }
 }
 </script>
 

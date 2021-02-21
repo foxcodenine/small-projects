@@ -23,11 +23,29 @@
         justify-content: space-between;
     }
 
-    &__logo {
-        font-family: $font-display;
+    &__logo:visited, &__logo:link, &__logo {
+
+        cursor: pointer;
+
+        display: flex;
+        align-items: center;
+        font-family: 'Nunito', $font-display;
         margin-left: 2rem;
-        font-size: 2rem;
+        font-size: 2.5rem;
         color: $col-white;
+        opacity: .9;
+        font-weight: 500;
+        // text-shadow: 0 0 1px black;
+        
+
+        img {
+            width: 2.6rem;
+            height: 2.6rem;
+            margin-right: .6rem;
+            opacity: 1;
+            margin-top: .2rem;
+            text-shadow: 0 0 1px black;
+        }
     }
 
     &__main {

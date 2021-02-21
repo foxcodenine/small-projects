@@ -34,7 +34,8 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
-    ['nuxt-gmaps', {key: process.env.GMAP_API_KEY}]
+    ['nuxt-gmaps', {key: process.env.GMAP_API_KEY}],
+    'vue-scrollto/nuxt'
   ],
   styleResources: {
     scss: [

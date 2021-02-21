@@ -6,7 +6,7 @@
 
       <Slider />
 
-      <button class="btn btn--black projects__btn">{{btn_text}}</button>
+      <button @click="redirectTo('projects')" class="btn btn--black projects__btn">{{btn_text}}</button>
     </div>
 
   </section>
@@ -30,6 +30,12 @@ export default {
   components: {
     Slider
   },
+  methods: {
+    redirectTo(i) {
+      window.scrollTo(0, 0);
+      this.$router.replace(i)
+    }
+  }
 
 }
 </script>

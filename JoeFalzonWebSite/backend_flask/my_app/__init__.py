@@ -1,9 +1,11 @@
 
 # ______________________________________________________________________
 
-from flask import Flask, redirect, render_template, request, url_for, Blueprint
+from flask import Flask, redirect, render_template, request, url_for, Blueprint, jsonify, make_response, send_from_directory
 from flask_cors import CORS, cross_origin
+from werkzeug.exceptions import HTTPException
 import socket
+import os
 
 
 # ______________________________________________________________________
@@ -55,3 +57,43 @@ def info():
     """
 
     return markup
+
+@app.route('/error_page')
+def error_page():
+    return render_template('error.html')
+
+
+@app.errorhandler(HTTPException)
+def http_error_handler(e):
+    error_body = jsonify({
+        'code': e.code,
+        'name': e.name,
+        'description': e.description
+    })
+
+    r = make_response(
+        render_template(
+            'error.html', code=e.code, name=e.name, description=e.description)
+        )
+
+    # r.headers['Content-Type'] = 'application/json'                    # <- (A)
+    r.headers['Content-Type'] = 'text/html; charset=UTF-8'              # <- (B)
+    r.headers['Code'] = e.code
+    r.headers['Error'] = e.name
+    
+    r.headers.set('Description', e.description)                         # <- (C)
+    
+    return r
+
+    # 'A' used for api, 'B' used to display html and text
+    # 'C' alternative way to add headers
+
+
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(
+                os.path.join(app.root_path, 'static/images'),
+                'my_admin_primary.png',
+                mimetype='image/vnd.microsoft.icon'
+    )

@@ -1,9 +1,9 @@
 <template>
     <nav class="nav" id="nav">
         <div class="nav__layout">
-            <h3 class="nav__link">{{admin}}</h3>
+            <h3 class="nav__logo" @click="redirectTo('/')">{{admin}}</h3>
             <a href="#" class="nav__link">About</a>
-            <a href="#" class="nav__link">Projects</a>
+            <a class="nav__link" @click="redirectTo('projects')" >Projects</a>
             <a href="#" class="nav__link">Press</a>
             
             <div class="nav__link"><div class="vertical-line"></div></div>
@@ -25,11 +25,13 @@ export default {
         return {
             iconLocation,
             iconFacebook,
-            admin: ''
+            admin: 'Jf'
         }
     },
     methods: {
-
+        redirectTo(i) {
+            this.$router.push(i)
+        }
     },
     mounted() {
         
@@ -38,14 +40,14 @@ export default {
         window.document.addEventListener('scroll', ()=> {
             const {scrollTop} = document.documentElement;
             
-            if (scrollTop > 50) {   
+            if (document.getElementById('nav') && scrollTop > 50) {   
                 document.getElementById('nav').classList.add('nav__background')
             } 
         });
         window.document.addEventListener('scroll', ()=> {
             const {scrollTop} = document.documentElement;
             
-            if (scrollTop <= 50) {
+            if (document.getElementById('nav') && scrollTop <= 50) {
                 document.getElementById('nav').classList.remove('nav__background')
             } 
         });
