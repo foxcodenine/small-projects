@@ -597,6 +597,12 @@ body {
     grid-column: 4 / 5; }
   .addin__group--content {
     grid-column: 1 / 5; }
+  .addin__group--email {
+    grid-column: 1 / 3; }
+  .addin__group--street {
+    grid-column: 3 / 5; }
+  .addin__group--city {
+    grid-column: 1 / 3; }
   .addin__btn {
     grid-column: 1 / 5; }
 

@@ -8,6 +8,10 @@ import socket
 import os
 
 
+from flask_sqlalchemy import SQLAlchemy
+from flask_bcrypt import Bcrypt
+from flask_mail import Mail
+
 # ______________________________________________________________________
 
 def create_app():
@@ -20,8 +24,12 @@ def create_app():
     return app 
 
 
-app = create_app()
+app    = create_app()
+db     = SQLAlchemy(app)
+bcrypt = Bcrypt(app)
+mail   = Mail(app)
 CORS(app)
+
 
 
 
@@ -35,6 +43,8 @@ from my_app.modules.views._projects import my_projects
 app.register_blueprint(my_admin)
 app.register_blueprint(my_clients)
 app.register_blueprint(my_projects)
+
+from my_app.modules.database import JFW_Clients
 
 
 # ______________________________________________________________________
