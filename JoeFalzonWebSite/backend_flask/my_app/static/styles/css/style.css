@@ -440,6 +440,12 @@ body {
   margin-bottom: 3rem;
   text-transform: capitalize; }
 
+.myform__error {
+  color: crimson;
+  font-size: 1.5rem;
+  margin-left: .8rem;
+  float: right; }
+
 .myform__group {
   margin-bottom: 2rem;
   width: 100%;
@@ -456,9 +462,14 @@ body {
   border-radius: 0.3rem;
   color: rgba(27, 38, 49, 0.9);
   font-family: "Source Sans Pro", sans-serif;
-  padding: 1rem; }
+  padding: 1rem;
+  background-color: #fff; }
   .myform__input--date {
     padding: 0rem .8rem; }
+  .myform__input--select, .myform__input--title {
+    padding: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none; }
   .myform__input:focus {
     background-color: #fdffe6;
     border-color: #5D6D7E; }

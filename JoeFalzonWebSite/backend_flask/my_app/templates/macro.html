@@ -1,0 +1,9 @@
+{% macro render_field(field, submitted) %}
+
+    {{ field.label( class="myform__label" ) }}
+    {% if field.errors and submitted %} 
+        <span class="myform__error">{% for error in field.errors %} {{error}} {% endfor %}</span>
+    {% endif %}
+    {{ field( class="myform__input" )}} 
+
+{% endmacro %}

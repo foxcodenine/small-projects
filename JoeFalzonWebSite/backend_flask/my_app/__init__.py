@@ -12,6 +12,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_mail import Mail
 
+from flask_wtf.csrf import CSRFProtect
+
 # ______________________________________________________________________
 
 def create_app():
@@ -28,6 +30,7 @@ app    = create_app()
 db     = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 mail   = Mail(app)
+csrf = CSRFProtect(app)
 CORS(app)
 
 
@@ -63,6 +66,7 @@ def info():
         <p>Debug: <b>{app.debug}</b></p>
         <p>Testing: <b>{app.testing}</b></p>
         <p>Secret Key: <b>{app.config['SECRET_KEY'][::-2]}</b></p>
+        <p>Secret Key: <b>{app.config['WTF_CSRF_SECRET_KEY'][::-2]}</b></p>
     
     """
 

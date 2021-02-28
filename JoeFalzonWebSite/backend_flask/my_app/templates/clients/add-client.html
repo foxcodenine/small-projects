@@ -1,79 +1,72 @@
 {% extends 'main.html' %}
-
+{% from "macro.html" import render_field %}
 
 {% block title %}{% endblock %}
 
 {% block main %}                
 <div class="addin">           
-    <form action="#" method="POST" class="myform addin__layout addin__form" enctype="multipart/form-data">
+    <form   action="{{url_for('my_clients.add_client')}}" method="POST" 
+            class="myform addin__layout addin__form" 
+            enctype="multipart/form-data" novalidate>
 
         <h2 class="myform__title addin__title">add client</h2>
 
+
+         {{ form.csrf_token }}
+
         <div class="myform__group addin__group--title">
-            <label for="title" class="myform__label">title</label>
-            <input type="text" name="title" class="myform__input">                    
+            {{ form.title.label( class="myform__label" ) }}
+            {{ form.title( class="myform__input myform__input--title" )}}                              
         </div>
 
         <div class="myform__group addin__group--firstname">
-            <label for="firstname" class="myform__label">firstname</label>
-            <input type="text" name="firstname" class="myform__input">                    
+            {{ render_field(form.firstname, submitted) }}                            
         </div>
 
-        <div class="myform__group addin__group--lastname">
-            <label for="lastname" class="myform__label">lastname</label>
-            <input type="text" name="lastname" class="myform__input">                    
+       <div class="myform__group addin__group--lastname">  
+            {{ render_field(form.lastname, submitted) }}                                 
         </div>
-        
-        <div class="myform__group addin__group--idcard">
-            <label for="idcard" class="myform__label">identity card</label>
-            <input type="text" name="idcard" class="myform__input">                    
+
+        <div class="myform__group addin__group--id_card">
+            {{ render_field(form.id_card, submitted) }}                
         </div>
 
         <div class="myform__group addin__group--company">
-            <label for="company" class="myform__label">company</label>
-            <input type="text" name="company" class="myform__input">                    
+            {{ render_field(form.company, submitted) }}                              
         </div>
-
-        <div class="myform__group addin__group--file">
-            <label for="file" class="myform__label">file number</label>
-            <input type="text" name="file" class="myform__input">                    
+        
+        <div class="myform__group addin__group--filenumber">
+            {{ render_field(form.filenumber, submitted) }}                              
         </div>
-
+        
         <div class="myform__group addin__group--phone">
-            <label for="phone" class="myform__label">phone</label>
-            <input type="text" name="phone" class="myform__input">                    
+            {{ render_field(form.phone, submitted) }}                              
         </div>
 
         <div class="myform__group addin__group--mobile">
-            <label for="mobile" class="myform__label">mobile</label>
-            <input type="text" name="mobile" class="myform__input">                    
+            {{ render_field(form.mobile, submitted) }}                             
         </div>
 
         <div class="myform__group addin__group--email">
-            <label for="email" class="myform__label">email</label>
-            <input type="text" name="email" class="myform__input">                    
+            {{ render_field(form.email, submitted) }}                             
         </div>
 
         <div class="myform__group addin__group--street">
-            <label for="street" class="myform__label">street address</label>
-            <input type="text" name="street" class="myform__input">                    
+            {{ render_field(form.street, submitted) }}                              
         </div>
 
         <div class="myform__group addin__group--city">
-            <label for="city" class="myform__label">city</label>
-            <input type="text" name="city" class="myform__input">                    
+            {{ render_field(form.city, submitted) }}                             
         </div>
 
         <div class="myform__group addin__group--country">
-            <label for="country" class="myform__label">country</label>
-            <input type="text" name="country" class="myform__input">                    
+            {{ render_field(form.country, submitted) }}                              
         </div>
 
         <div class="myform__group addin__group--postcode">
-            <label for="postcode" class="myform__label">postcode</label>
-            <input type="text" name="postcode" class="myform__input">                    
+            {{ render_field(form.postcode, submitted) }}                             
         </div>
-
+        
         <button class="btn btn--dark myform__btn addin__btn mt-lg" type="submit">add client</button>
 
     </form>
