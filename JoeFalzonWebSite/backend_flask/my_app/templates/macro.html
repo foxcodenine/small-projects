@@ -1,9 +1,15 @@
-{% macro render_field(field, submitted) %}
+{% macro render_field(field, fieldname, submitted) %}
 
+{% set inputclasses = "myform__input " + "myform__input--" ~ fieldname %}
+{% set groupclasses = "myform__group " + "addin__group--"  ~ fieldname %}
+
+<div class="{{groupclasses}}">
     {{ field.label( class="myform__label" ) }}
     {% if field.errors and submitted %} 
         <span class="myform__error">{% for error in field.errors %} {{error}} {% endfor %}</span>
     {% endif %}
-    {{ field( class="myform__input" )}} 
+
+    {{ field( class=inputclasses )}} 
+</div>
 
 {% endmacro %}

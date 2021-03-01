@@ -47,7 +47,7 @@ app.register_blueprint(my_admin)
 app.register_blueprint(my_clients)
 app.register_blueprint(my_projects)
 
-from my_app.modules.database import JFW_Clients
+from my_app.modules.database import JFW_Clients, JFW_Users
 
 
 # ______________________________________________________________________
@@ -94,8 +94,8 @@ def http_error_handler(e):
     r.headers['Content-Type'] = 'text/html; charset=UTF-8'              # <- (B)
     r.headers['Code'] = e.code
     r.headers['Error'] = e.name
-    
-    r.headers.set('Description', e.description)                         # <- (C)
+        
+    #r.headers.set('Description', e.description)                         # <- (C)
     
     return r
 

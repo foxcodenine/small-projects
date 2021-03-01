@@ -19,3 +19,5 @@ class ClientForm(FlaskForm):
     country     = StringField('country', validators=[DataRequired()])
     postcode    = StringField('postcode')
 
+class SignInForm(FlaskForm):
+    pass

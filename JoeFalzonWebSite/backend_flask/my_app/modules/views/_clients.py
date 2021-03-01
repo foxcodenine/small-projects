@@ -3,8 +3,6 @@ from flask import Blueprint, render_template, redirect, request, url_for, jsonif
 
 from my_app.modules.forms import ClientForm
 
-
-
 # ______________________________________________________________________
 
 
@@ -21,17 +19,27 @@ def add_client():
         submitted = True
     form = ClientForm() 
     print(form.validate())
-    if form.validate_on_submit():
-
-        
+    if form.validate_on_submit():        
 
         title = form.title.data
         firstname = form.firstname.data
         lastname = form.lastname.data
         id_card = form.id_card.data
         company = form.company.data
+        filenumber = form.filenumber.data
+        phone = form.phone.data
+        mobile = form.mobile.data
+        email = form.email.data
+        street = form.street.data
+        city = form.city.data
+        country = form.country.data
+        postcode = form.postcode.data
 
-        test = f"{title} - {firstname} - {lastname} - {id_card} - {company}"
+        test = f"""
+            {title} <br> {firstname} <br> {lastname} <br> {id_card} <br> 
+            {company} <br> {filenumber} <br> {phone} <br> {mobile} <br> 
+            {email} <br> {street} <br> {city} <br> {country} <br> {postcode}
+            """
 
         return f"<h4>{test}</h4>"
 

@@ -8,10 +8,10 @@
     <div class="login__layout">
         
 
-        <form action="#" method="POST" class="myform login__form">
+        <form action="{{ url_for('my_admin.sign_in') }}" method="POST" class="myform login__form" role="form">
 
             <h2 class="myform__title">Welcome to myAdmin</h2>
-
+            {{ form.csrf_token }}
             <div class="myform__group myform__group--1">
                 <label for="email" class="myform__label">email</label>
                 <input type="text" name="email" class="myform__input">                    
@@ -27,7 +27,7 @@
             </div>
 
             <label class="checkbox mb-lg">Remember this device
-                <input type="checkbox" checked="checked">
+                <input type="checkbox" name="remember" checked="checked">
                 <span class="checkmark"></span>
             </label>
 
