@@ -2,6 +2,7 @@ from my_app import app
 from flask import Blueprint, render_template, redirect, request, url_for, jsonify, session
 
 from my_app.modules.forms import ClientForm
+from flask_login import login_required
 
 # ______________________________________________________________________
 
@@ -12,13 +13,12 @@ my_clients = Blueprint('my_clients', __name__, url_prefix='/clients')
 # ______________________________________________________________________
 
 @my_clients.route('/add', methods=['POST', 'GET'])
+@login_required
 def add_client():
 
-    submitted = False
-    if request.method == 'POST':
-        submitted = True
+
     form = ClientForm() 
-    print(form.validate())
+   
     if form.validate_on_submit():        
 
         title = form.title.data
@@ -44,6 +44,6 @@ def add_client():
         return f"<h4>{test}</h4>"
 
 
-    return render_template('clients/add-client.html', form=form, submitted=submitted)
+    return render_template('clients/add-client.html', form=form)
 
 # _____________________________

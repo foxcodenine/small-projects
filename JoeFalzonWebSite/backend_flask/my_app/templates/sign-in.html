@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% from "macro.html" import render_error_message %}
+
 {% block title %}{% endblock %}
 
 {% block body %}
@@ -8,30 +10,53 @@
     <div class="login__layout">
         
 
-        <form action="{{ url_for('my_admin.sign_in') }}" method="POST" class="myform login__form" role="form">
+        <form action="{{ url_for('my_admin.sign_in') }}" method="POST" class="myform login__form" role="form" novalidate>
 
             <h2 class="myform__title">Welcome to myAdmin</h2>
             {{ form.csrf_token }}
             <div class="myform__group myform__group--1">
-                <label for="email" class="myform__label">email</label>
-                <input type="text" name="email" class="myform__input">                    
+                {{ form.email.label(class="myform__label") }}  
+                {{ render_error_message(form.email) }}
+                {{ form.email(class="myform__input") }}                  
             </div>
 
             <div class="myform__group myform__group--2">
-                <label for="password" class="myform__label">password</label>
+                {{ form.password.label(class="myform__label") }}
+
                 <a href="#" class="myform__link">Forgot your password?</a>
-                <input type="password" name="password" class="myform__input" id="password-field">  
+
+                
+
+                {{ form.password(class="myform__input", id="password-field", type="password") }} 
+                {{ render_error_message(form.password) }}
 
                 <span toggle="#password-field"  id="toggle-password"
                 class="fa fa-fw fa-eye-slash myform__icon--toggle-password"></span>
             </div>
 
-            <label class="checkbox mb-lg">Remember this device
-                <input type="checkbox" name="remember" checked="checked">
+            <label class="checkbox mb-lg">        
+                {{ form.remember.label() }}                
+                {{ form.remember(checked="checked") }}
                 <span class="checkmark"></span>
             </label>
 
-            <button class="btn btn--dark myform__btn" >sign in</button>
+            {{ form.submit(class="btn btn--dark myform__btn", value="sign in") }}
+
+            <!-- --------------------------------------------------- -->
+
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+        
+                    <ul class="myform__flash">
+                    {% for message in messages %}
+                        <li class="mt-sm">{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+        
+                {% endif %}
+            {% endwith %}
+
+            <!-- --------------------------------------------------- -->
 
         </form>
 

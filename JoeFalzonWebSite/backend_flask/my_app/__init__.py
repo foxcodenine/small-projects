@@ -14,6 +14,11 @@ from flask_mail import Mail
 
 from flask_wtf.csrf import CSRFProtect
 
+from flask_login import LoginManager, UserMixin, login_user, login_required, \
+                        logout_user, current_user, fresh_login_required
+
+from itsdangerous.url_safe import URLSafeSerializer, URLSafeTimedSerializer
+
 # ______________________________________________________________________
 
 def create_app():
@@ -33,14 +38,15 @@ mail   = Mail(app)
 csrf = CSRFProtect(app)
 CORS(app)
 
+lodin_manager = LoginManager(app)
+lodin_manager.login_view = 'my_admin.sign_in';
 
-
-
+serializer = URLSafeSerializer(app.secret_key)
 
 # ______________________________________________________________________
-from my_app.modules.views._my_admin import my_admin
-from my_app.modules.views._clients import my_clients
-from my_app.modules.views._projects import my_projects
+from my_app.modules.views.views_admin import my_admin
+from my_app.modules.views.views_clients import my_clients
+from my_app.modules.views.views_projects import my_projects
 
 
 app.register_blueprint(my_admin)
@@ -48,6 +54,8 @@ app.register_blueprint(my_clients)
 app.register_blueprint(my_projects)
 
 from my_app.modules.database import JFW_Clients, JFW_Users
+
+
 
 
 # ______________________________________________________________________

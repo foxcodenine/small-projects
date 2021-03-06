@@ -18,6 +18,13 @@
 
     }
 
+    &__flash {
+        color: crimson;
+        font-size: 1.5rem;
+        list-style: none;
+
+    }
+
     &__group {
         margin-bottom: 2rem;
         width: 100%;
@@ -104,6 +111,7 @@
         float: right;
         text-decoration: none;
         color: $col-primary;
+        margin-left: .8rem;
 
         &:hover {
             color: $col-primary-dk;

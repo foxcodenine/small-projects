@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SelectField, DateField, IntegerField, DateTimeField
+from wtforms import StringField, SelectField, DateField, IntegerField, DateTimeField, BooleanField, SubmitField
 from wtforms.validators import Optional, DataRequired, Email
 
 
@@ -18,6 +18,10 @@ class ClientForm(FlaskForm):
     city        = StringField('city', validators=[DataRequired()])
     country     = StringField('country', validators=[DataRequired()])
     postcode    = StringField('postcode')
+    submit = SubmitField()
 
 class SignInForm(FlaskForm):
-    pass
+    email = StringField('email', validators=[DataRequired(), Email()])
+    password = StringField('password', validators=[DataRequired()])
+    remember = BooleanField('Remember this device')
+    submit = SubmitField()

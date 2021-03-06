@@ -13,33 +13,35 @@
 
         {{ form.csrf_token }}
        
-        {{ render_field(form.title, 'title', submitted) }}
+        {{ render_field(form.title, 'title') }}
         
-        {{ render_field(form.firstname, 'firstname', submitted) }}                            
+        {{ render_field(form.firstname, 'firstname') }}                            
         
-        {{ render_field(form.lastname, 'lastname', submitted) }}                            
+        {{ render_field(form.lastname, 'lastname') }}                            
         
-        {{ render_field(form.id_card, 'id_card', submitted) }}                            
+        {{ render_field(form.id_card, 'id_card') }}                            
         
-        {{ render_field(form.company, 'company', submitted) }}                            
+        {{ render_field(form.company, 'company') }}                            
         
-        {{ render_field(form.filenumber, 'filenumber', submitted) }}                            
+        {{ render_field(form.filenumber, 'filenumber') }}                            
         
-        {{ render_field(form.phone, 'phone', submitted) }}                            
+        {{ render_field(form.phone, 'phone') }}                            
         
-        {{ render_field(form.mobile, 'mobile', submitted) }}                            
+        {{ render_field(form.mobile, 'mobile') }}                            
         
-        {{ render_field(form.email, 'email', submitted) }}                            
+        {{ render_field(form.email, 'email') }}                            
         
-        {{ render_field(form.street, 'street', submitted) }}                            
+        {{ render_field(form.street, 'street') }}                            
         
-        {{ render_field(form.city, 'city', submitted) }}                            
+        {{ render_field(form.city, 'city') }}                            
         
-        {{ render_field(form.country, 'country', submitted) }}                            
+        {{ render_field(form.country, 'country') }}                            
         
-        {{ render_field(form.postcode, 'postcode', submitted) }}                            
+        {{ render_field(form.postcode, 'postcode') }}  
         
-        <button class="btn btn--dark myform__btn addin__btn mt-lg" type="submit">add client</button>
+        {{ form.submit(class="btn btn--dark myform__btn addin__btn mt-lg", value="add client") }}
+        
+        
 
     </form>
 </div>

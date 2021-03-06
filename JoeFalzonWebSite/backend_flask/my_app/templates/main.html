@@ -20,12 +20,13 @@
             <a href="" class="nav__link"><i class="far fa-bell"></i></a>
         </div>
 
-        <input type="checkbox" checked class="dropdown--user--toggle">
+        <input type="checkbox" checked class="dropdown--user--toggle" id="user-dropdown">
         <div class="dropdown dropdown--user">
             <ul class="dropdown__list">
                 <li class="dropdown__item"><i class="fas fa-cog"></i></i><a href="#">Settings</a></li>
                 <li class="dropdown__item"><i class="far fa-user"></i><a href="#">Profile</a></li>
-                <li class="dropdown__item"><i class="fas fa-power-off"></i><a href="#">Logout</a></li>
+                <li class="dropdown__item"><i class="fas fa-power-off"></i><a href="{{url_for('my_admin.sign_out')}}">Logout</a></li>
+                <li class="dropdown__item"><i class="fas fa-power-off"></i><a href="{{url_for('my_admin.sign_in')}}">Sign-in</a></li>
             </ul>
         </div> 
 

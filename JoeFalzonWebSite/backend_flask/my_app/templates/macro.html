@@ -1,11 +1,14 @@
-{% macro render_field(field, fieldname, submitted) %}
+
+<!-- --------------------------------------------------------------- -->
+
+{% macro render_field(field, fieldname) %}
 
 {% set inputclasses = "myform__input " + "myform__input--" ~ fieldname %}
 {% set groupclasses = "myform__group " + "addin__group--"  ~ fieldname %}
 
 <div class="{{groupclasses}}">
     {{ field.label( class="myform__label" ) }}
-    {% if field.errors and submitted %} 
+    {% if field.errors %} 
         <span class="myform__error">{% for error in field.errors %} {{error}} {% endfor %}</span>
     {% endif %}
 
@@ -13,3 +16,17 @@
 </div>
 
 {% endmacro %}
+
+<!-- --------------------------------------------------------------- -->
+
+{% macro render_error_message(field) %}
+
+    {% if field.errors %}
+    <span class="myform__error">{% for error in field.errors %} {{error}} {% endfor %}</span>
+    {% endif %}
+
+{% endmacro %}
+
+<!-- --------------------------------------------------------------- -->
+
+

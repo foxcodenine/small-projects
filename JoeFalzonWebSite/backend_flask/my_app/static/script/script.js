@@ -5,32 +5,44 @@
 document.onreadystatechange = function () {                    // <- (A)
     if (document.readyState == "interactive") {                // <- (A)
         // Initialize your application or run some code.
-
-        // ---- Editor function ----------------------------------------
-        if (document.querySelector('#editor_body')) {
-            // https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/configuration.html
-            // https://ckeditor.com/docs/ckeditor5/latest/builds/guides/quick-start.html
-            ClassicEditor
-            .create( document.querySelector( '#editor_body' ), {
-                toolbar: [ 'heading', '|', 'bold', 'italic','bulletedList', 'numberedList', 'blockQuote','|','undo', 'redo' ],
-                heading: {
-                    options: [
-                        { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-                        { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
-                        { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
-                    ]
-                }
-            } )
-            .catch( error => {
-                console.log( error );
-            } );            
-        } 
-        // ------------------------------------------------------------- 
+        
         passwordDisplayToggle();
-        sidebarOpenClose()
+        sidebarOpenClose();
+        closeUserDropdown();
+        wysiwyg();
         
     }
 }
+
+
+
+// _____________________________________________________________________
+// _____________________________________________________________________
+// Editor function 
+
+function wysiwyg() {
+
+
+    if (document.querySelector('#editor_body')) {
+        // https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/configuration.html
+        // https://ckeditor.com/docs/ckeditor5/latest/builds/guides/quick-start.html
+        ClassicEditor
+        .create( document.querySelector( '#editor_body' ), {
+            toolbar: [ 'heading', '|', 'bold', 'italic','bulletedList', 'numberedList', 'blockQuote','|','undo', 'redo' ],
+            heading: {
+                options: [
+                    { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                    { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                    { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
+                ]
+            }
+        } )
+        .catch( error => {
+            console.log( error );
+        } );            
+    } 
+}
+
 
 // _____________________________________________________________________
 // Password Display Toggle 
@@ -104,5 +116,16 @@ function sidebarOpenClose() {
             }
         }
     })
+}
+// _____________________________________________________________________
+// Close user dropdown and clicking in main section
+function closeUserDropdown() {
+    const userDropDown =  document.querySelector('#user-dropdown');
+
+    document.addEventListener('click', (e)=>{
+        if (e.target.closest(".main") ||e.target.closest(".sidebar")) {
+            userDropDown.checked = true;
+        }
+    });   
 }
 // _____________________________________________________________________
