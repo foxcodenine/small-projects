@@ -47,7 +47,7 @@
         <button class="sidebar__btn" ><i id="sidebar__btn" class="fas fa-angle-double-right"></i></button>
         <ul class="sidebar__menu sidebar__off" id="sidebar__menu">
             <li class="sidebar__item"><a href="#"><i class="fas fa-home"></i>Dashbord</a></li>
-            <li class="sidebar__item"><a href="#"><i class="fas fa-user-friends"></i>Clients</a></li>
+            <li class="sidebar__item"><a href="{{ url_for('my_clients.all_clients') }}"><i class="fas fa-user-friends"></i>Clients</a></li>
             <li class="sidebar__item"><a href="{{ url_for('my_clients.add_client') }}"><i class="fas fa-plus"></i>Add New Client</a></li>
             <li class="sidebar__item"><a href="{{ url_for('my_projects.all_projects') }}"><i class="fas fa-border-all"></i>Projects</a></li>
             <li class="sidebar__item"><a href="{{ url_for('my_projects.add_project') }}"><i class="fas fa-plus"></i>Add New Project</a></li>

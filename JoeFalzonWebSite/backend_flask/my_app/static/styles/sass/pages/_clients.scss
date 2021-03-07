@@ -1,0 +1,55 @@
+.clients {
+
+    &__row {
+    
+        width: 100%;
+        min-width: 150rem;
+        height: 100%;
+
+        display: grid;
+        grid-template-columns: .5fr .5fr repeat(5, minmax(max-content, 1fr)) repeat(2, minmax(max-content, 2fr)) minmax(max-content, 1fr) minmax(max-content, 2fr) minmax(max-content, 2fr);
+        grid-template-rows: 4rem;
+        align-items: center;
+        grid-auto-rows: 4rem;
+        justify-items: stretch;
+        text-align: center;  
+        
+        &:not(:first-of-type) {
+            &:hover {
+                background-color: $col-bg-b;
+            }
+        }
+    }
+
+    &__shadow {
+        background-color: $col-bg-g;
+        background-color: rgba($col-bg-b, .3);
+    }
+
+    &__item {
+
+        color: $col-black;
+        border-left: 1px solid $col-gray;
+        border-bottom: 1px solid $col-black;
+        height: 100%; 
+        padding-left: 1rem;        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+
+        &--header {
+            text-transform: capitalize;
+            font-family: $font-display;
+            font-size: 1.5rem;
+            font-weight: 400;
+            border-bottom: 2px solid $col-black;            
+        }
+
+        &--checkbox, &--header--checkbox {
+            border-left: none;
+        }
+
+    }
+
+}

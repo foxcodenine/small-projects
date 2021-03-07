@@ -26,6 +26,32 @@ class JFW_Clients(db.Model):
     city        = db.Column(db.String(255), nullable=False)
     country     = db.Column(db.String(100), nullable=False)
     postcode    = db.Column(db.String(50))
+    registered  = db.Column(db.DateTime, nullable=False)
+
+
+    def __init__(self, title, firstname, lastname, id_card, street, city, 
+        country, postcode=None, company=None, filenumber=None, 
+        phone=None, mobile=None, email=None ):
+
+        self.title = title
+        self.firstname = firstname
+        self.lastname = lastname
+        self.id_card = id_card
+        self.company = company
+        self.filenumber = filenumber
+        self.phone = phone
+        self.mobile = mobile
+        self.email = email
+        self.street = street
+        self.city = city
+        self.country = country
+        self.postcode = postcode
+        self.registered = datetime.utcnow()
+
+        
+        
+
+# ____________________________
 
 
 class JFW_Users(UserMixin, db.Model):
@@ -37,8 +63,7 @@ class JFW_Users(UserMixin, db.Model):
     login1 = db.Column(db.DateTime)
     login2 = db.Column(db.DateTime)
     login3 = db.Column(db.DateTime)
-    session_token = db.Column(db.String(255), unique=True)
-    
+    session_token = db.Column(db.String(255), unique=True)    
 
     def __init__ (self, email, password):
         self.email = email

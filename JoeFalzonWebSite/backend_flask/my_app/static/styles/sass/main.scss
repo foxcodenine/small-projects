@@ -11,7 +11,7 @@
 @import './layouts/sidebar.scss';
 @import './layouts/main.scss';
 
-@import './layouts/projects.scss';
+
 
 @import './components/buttons';
 @import './components/checkbox';
@@ -22,3 +22,5 @@
 @import './pages/login';
 @import './pages/addin_projects_and_clients';
 @import './pages/_error.scss';
+@import './pages/projects.scss';
+@import './pages/_clients.scss';

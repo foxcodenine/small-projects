@@ -5,7 +5,7 @@ from wtforms.validators import Optional, DataRequired, Email
 
 class ClientForm(FlaskForm):
 
-    title       = SelectField('title', choices=[('mr', 'Mr'), ('ms', 'Ms'), ('mx', 'Mx')])
+    title       = SelectField('title', choices=[('Mr', 'Mr'), ('Ms', 'Ms'), ('Mx', 'Mx')])
     firstname   = StringField('firstname', validators=[DataRequired()])
     lastname    = StringField('lastname', validators=[DataRequired()])
     id_card     = StringField('identity card', validators=[DataRequired()])
@@ -18,7 +18,7 @@ class ClientForm(FlaskForm):
     city        = StringField('city', validators=[DataRequired()])
     country     = StringField('country', validators=[DataRequired()])
     postcode    = StringField('postcode')
-    submit = SubmitField()
+    submit      = SubmitField()
 
 class SignInForm(FlaskForm):
     email = StringField('email', validators=[DataRequired(), Email()])
