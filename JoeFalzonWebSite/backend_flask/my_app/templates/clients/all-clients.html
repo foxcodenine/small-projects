@@ -3,144 +3,74 @@
 
 {% block title %}{% endblock %}
 
-{% block main %}                
+{% block main %}  
+
+<div class="form-nav">
+    <ul class="form-nav__list">
+        <li class="form-nav__item">List 4</li>
+        <li class="form-nav__item">Create</li>
+        <li class="form-nav__item">Export</li>
+        <li class="form-nav__item">Delete</li>
+    </ul>
+</div>
                 
 <div class="clients">
     <div class="clients__row">
-        <div class="clients__item clients__item--header clients__item--header--checkbox"><input type="checkbox"></div>
-        <div class="clients__item clients__item--header clients__item--header--firstname">id</div>
-        <div class="clients__item clients__item--header clients__item--header--firstname">name</div>
-        <div class="clients__item clients__item--header clients__item--header--lastname">surname</div>
-        <div class="clients__item clients__item--header clients__item--header--id_card">ID number</div>
-        <div class="clients__item clients__item--header clients__item--header--company">company</div>
-        <div class="clients__item clients__item--header clients__item--header--filenumber">filenumber</div>
-        <div class="clients__item clients__item--header clients__item--header--contact">contact</div>
-        <div class="clients__item clients__item--header clients__item--header--email">email</div>
-        <div class="clients__item clients__item--header clients__item--header--city">city</div>
-        <div class="clients__item clients__item--header clients__item--header--street">street</div>
-        <div class="clients__item clients__item--header clients__item--header--registerd">registerd</div>
-    </div>
+        <div class="clients__item clients__item--header clients__item--header--checkbox"
+        ><input type="checkbox"></div>
+        <div class="clients__item"></div>
+        <div class="clients__item clients__item--header clients__item--header--id"
+        ><a href="?sort=id&dirc=ASC">id</a><i class="fas"></i></div>
 
-    <div class="clients__row clients__shadow">
-        <div class="clients__item clients__item--checkbox"><input type="checkbox"></div>
-        <div class="clients__item clients__item--id">1</div>
-        <div class="clients__item clients__item--firstname">Christopher</div>
-        <div class="clients__item clients__item--lastname">Farrugia</div>
-        <div class="clients__item clients__item--id_card">397884m</div>
-        <div class="clients__item clients__item--company">foxcode.io</div>
-        <div class="clients__item clients__item--filenumber">123</div>
-        <div class="clients__item clients__item--contact">21658563 / 79310212</div>
-        <div class="clients__item clients__item--email">chris12aug@yahoo.com</div>
-        <div class="clients__item clients__item--city">Birzebbuga</div>
-        <div class="clients__item clients__item--street">61 'Koala'. St Edward</div>
-        <div class="clients__item clients__item--registerd">12-08-2012 8:55:10</div>
-    </div>
-    <div class="clients__row">
-        <div class="clients__item clients__item--checkbox"><input type="checkbox"></div>
-        <div class="clients__item clients__item--id">2</div>
-        <div class="clients__item clients__item--firstname">C</div>
-        <div class="clients__item clients__item--lastname">Farrugia</div>
-        <div class="clients__item clients__item--id_card">397884m</div>
-        <div class="clients__item clients__item--company">foxcode.io</div>
-        <div class="clients__item clients__item--filenumber">123</div>
-        <div class="clients__item clients__item--contact">21658563 / 79310212</div>
-        <div class="clients__item clients__item--email"></div>
-        <div class="clients__item clients__item--city">Birzebbuga</div>
-        <div class="clients__item clients__item--street">61 'Koala'. St Edward</div>
-        <div class="clients__item clients__item--registerd">12-08-2012 8:55:10</div>
+        <div class="clients__item clients__item--header clients__item--header--firstname"
+        ><a href="?sort=firstname&dirc=ASC">name</a><i class="fas"></i></div>
+
+        <div class="clients__item clients__item--header clients__item--header--lastname"
+        ><a href="?sort=lastname&dirc=ASC">surname</a><i class="fas"></i></div>
+
+        <div class="clients__item clients__item--header clients__item--header--id_card"
+        ><a href="?sort=id_card&dirc=ASC">ID number</a><i class="fas"></i></div>
+
+        <div class="clients__item clients__item--header clients__item--header--company"
+        ><a href="?sort=company&dirc=ASC">company</a><i class="fas"></i></div>
+
+        <div class="clients__item clients__item--header clients__item--header--filenumber"
+        ><a href="?sort=filenumber&dirc=ASC">filenumber</a><i class="fas"></i></div>
+
+        <div class="clients__item clients__item--header clients__item--header--contact"
+        >contact</div>
+
+        <div class="clients__item clients__item--header clients__item--header--email"
+        ><a href="?sort=email&dirc=ASC">email</a><i class="fas"></i></div>
+
+        <div class="clients__item clients__item--header clients__item--header--city"
+        ><a href="?sort=city&dirc=ASC">city</a><i class="fas"></i></div>
+
+        <div class="clients__item clients__item--header clients__item--header--street"
+        ><a href="?sort=street&dirc=ASC">street</a><i class="fas"></i></div>
+
+        <div class="clients__item clients__item--header clients__item--header--registerd"
+        ><a href="?sort=id&dirc=ASC">registerd</a><i class="fas"></i></div>
 
     </div>
-<!-- 
-        <div class="bg_shade1 clients__item clients__item--checkbox"><input type="checkbox"></div>
-        <div class="bg_shade1 clients__item clients__item--id">1</div>
-        <div class="bg_shade1 clients__item clients__item--firstname">Christopher</div>
-        <div class="bg_shade1 clients__item clients__item--lastname">Farrugia</div>
-        <div class="bg_shade1 clients__item clients__item--id_card">397884m</div>
-        <div class="bg_shade1 clients__item clients__item--company">foxcode.io</div>
-        <div class="bg_shade1 clients__item clients__item--filenumber">123</div>
-        <div class="bg_shade1 clients__item clients__item--contact">21658563 / 79310212</div>
-        <div class="bg_shade1 clients__item clients__item--email">chris12aug@yahoo.com</div>
-        <div class="bg_shade1 clients__item clients__item--city">Birzebbuga</div>
-        <div class="bg_shade1 clients__item clients__item--street">61 'Koala'. St Edward</div>
-        <div class="bg_shade1 clients__item clients__item--registerd">12-08-2012 8:55:10</div>
 
+    {% for c in clients %}
+    <div class="{{c._class}}">
         <div class="clients__item clients__item--checkbox"><input type="checkbox"></div>
-        <div class="clients__item clients__item--id">2</div>
-        <div class="clients__item clients__item--firstname">Christopher</div>
-        <div class="clients__item clients__item--lastname">Farrugia</div>
-        <div class="clients__item clients__item--id_card">397884m</div>
-        <div class="clients__item clients__item--company">foxcode.io</div>
-        <div class="clients__item clients__item--filenumber">123</div>
-        <div class="clients__item clients__item--contact">21658563 / 79310212</div>
-        <div class="clients__item clients__item--email">chris12aug@yahoo.com</div>
-        <div class="clients__item clients__item--city">Birzebbuga</div>
-        <div class="clients__item clients__item--street">61 'Koala'. St Edward</div>
-        <div class="clients__item clients__item--registerd">12-08-2012 8:55:10</div>
-
-        <div class="bg_shade1 clients__item clients__item--checkbox"><input type="checkbox"></div>
-        <div class="bg_shade1 clients__item clients__item--id">1</div>
-        <div class="bg_shade1 clients__item clients__item--firstname">Christopher</div>
-        <div class="bg_shade1 clients__item clients__item--lastname">Farrugia</div>
-        <div class="bg_shade1 clients__item clients__item--id_card">397884m</div>
-        <div class="bg_shade1 clients__item clients__item--company">foxcode.io</div>
-        <div class="bg_shade1 clients__item clients__item--filenumber">123</div>
-        <div class="bg_shade1 clients__item clients__item--contact">21658563 / 79310212</div>
-        <div class="bg_shade1 clients__item clients__item--email">chris12aug@yahoo.com</div>
-        <div class="bg_shade1 clients__item clients__item--city">Birzebbuga</div>
-        <div class="bg_shade1 clients__item clients__item--street">61 'Koala'. St Edward</div>
-        <div class="bg_shade1 clients__item clients__item--registerd">12-08-2012 8:55:10</div>
-
-        <div class="clients__item clients__item--checkbox"><input type="checkbox"></div>
-        <div class="clients__item clients__item--id">2</div>
-        <div class="clients__item clients__item--firstname">Christopher</div>
-        <div class="clients__item clients__item--lastname">Farrugia</div>
-        <div class="clients__item clients__item--id_card">397884m</div>
-        <div class="clients__item clients__item--company">foxcode.io</div>
-        <div class="clients__item clients__item--filenumber">123</div>
-        <div class="clients__item clients__item--contact">21658563 / 79310212</div>
-        <div class="clients__item clients__item--email">chris12aug@yahoo.com</div>
-        <div class="clients__item clients__item--city">Birzebbuga</div>
-        <div class="clients__item clients__item--street">61 'Koala'. St Edward</div>
-        <div class="clients__item clients__item--registerd">12-08-2012 8:55:10</div>
-
-        <div class="bg_shade1 clients__item clients__item--checkbox"><input type="checkbox"></div>
-        <div class="bg_shade1 clients__item clients__item--id">1</div>
-        <div class="bg_shade1 clients__item clients__item--firstname">Christopher</div>
-        <div class="bg_shade1 clients__item clients__item--lastname">Farrugia</div>
-        <div class="bg_shade1 clients__item clients__item--id_card">397884m</div>
-        <div class="bg_shade1 clients__item clients__item--company">foxcode.io</div>
-        <div class="bg_shade1 clients__item clients__item--filenumber">123</div>
-        <div class="bg_shade1 clients__item clients__item--contact">21658563 / 79310212</div>
-        <div class="bg_shade1 clients__item clients__item--email">chris12aug@yahoo.com</div>
-        <div class="bg_shade1 clients__item clients__item--city">Birzebbuga</div>
-        <div class="bg_shade1 clients__item clients__item--street">61 'Koala'. St Edward</div>
-        <div class="bg_shade1 clients__item clients__item--registerd">12-08-2012 8:55:10</div>
-
-        <div class="clients__item clients__item--checkbox"><input type="checkbox"></div>
-        <div class="clients__item clients__item--id">2</div>
-        <div class="clients__item clients__item--firstname">Christopher</div>
-        <div class="clients__item clients__item--lastname">Farrugia</div>
-        <div class="clients__item clients__item--id_card">397884m</div>
-        <div class="clients__item clients__item--company">foxcode.io</div>
-        <div class="clients__item clients__item--filenumber">123</div>
-        <div class="clients__item clients__item--contact">21658563 / 79310212</div>
-        <div class="clients__item clients__item--email">chris12aug@yahoo.com</div>
-        <div class="clients__item clients__item--city">Birzebbuga</div>
-        <div class="clients__item clients__item--street">61 'Koala'. St Edward</div>
-        <div class="clients__item clients__item--registerd">12-08-2012 8:55:10</div> -->
-        
-        
-        <!-- <div class="clients__item clients__item--checkbox"><input type="checkbox"></div>
-        <div class="clients__item clients__item--id">1</div>
-        <div class="clients__item clients__item--name">Sirens</div>
-        <div class="clients__item clients__item--locality">Birzebbuga</div>
-        <div class="clients__item clients__item--category">Residential</div>
-        <div class="clients__item clients__item--image"><img src="../../static/images/test_images/elephant.jpg" alt=""></div>
-        <div class="clients__item clients__item--status">Complete</div>
-        <div class="clients__item clients__item--year">2021</div>
-        <div class="clients__item clients__item--delete">delete</div>
-        <div class="clients__item clients__item--edit">edit</div> -->
-        
+        <div class="clients__item clients__item--delete"><i class="fas fa-pencil-alt"></i><i class="fas fa-trash"></i><i class="fas fa-eye"></i></div>
+        <div class="clients__item clients__item--id">{{c.id}}</div>
+        <div class="clients__item clients__item--firstname">{{c.firstname}}</div>
+        <div class="clients__item clients__item--lastname">{{c.lastname}}</div>
+        <div class="clients__item clients__item--id_card">{{c.id_card}}</div>
+        <div class="clients__item clients__item--company">{{c.company}}</div>
+        <div class="clients__item clients__item--filenumber">{{c.filenumber}}</div>
+        <div class="clients__item clients__item--contact">{{c.phone}}/{{c.mobile}}</div>
+        <div class="clients__item clients__item--email">{{c.email}}</div>
+        <div class="clients__item clients__item--city">{{c.city}}</div>
+        <div class="clients__item clients__item--street">{{c.street}}</div>
+        <div class="clients__item clients__item--registerd">{{c.registered}}</div>
+    </div>
+    {% endfor %}        
 
 
     

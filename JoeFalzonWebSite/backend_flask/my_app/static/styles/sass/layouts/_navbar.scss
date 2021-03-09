@@ -2,8 +2,8 @@
 
     height: 5rem;
 
-    background-color: $col-primary;
-    border-bottom: 1px solid $col-primary-dk;
+    background-color: rgba($col-primary-dk, 1);
+    border-bottom: 1px solid $col-black;
 
     z-index: 100;
 

@@ -4,15 +4,23 @@
     
         width: 100%;
         min-width: 150rem;
-        height: 100%;
-
+        height: 100%;        
         display: grid;
-        grid-template-columns: .5fr .5fr repeat(5, minmax(max-content, 1fr)) repeat(2, minmax(max-content, 2fr)) minmax(max-content, 1fr) minmax(max-content, 2fr) minmax(max-content, 2fr);
+        grid-template-columns: 3rem 7.4rem 5rem repeat(5, 12rem) 15rem 18rem minmax(max-content, 1fr) minmax(max-content, 2fr) minmax(max-content, 2fr);
         grid-template-rows: 4rem;
         align-items: center;
-        grid-auto-rows: 4rem;
         justify-items: stretch;
-        text-align: center;  
+        text-align: start;  
+        z-index: 100;   
+
+        &:not(:last-of-type) {
+            border-bottom: 1px solid $col-black;
+        }
+
+        &:first-of-type {
+            border-bottom: 2px solid $col-black;
+        }
+        
         
         &:not(:first-of-type) {
             &:hover {
@@ -21,35 +29,142 @@
         }
     }
 
-    &__shadow {
+    &__shade {
         background-color: $col-bg-g;
         background-color: rgba($col-bg-b, .3);
+        
     }
 
     &__item {
-
+        
+        overflow: auto;
+        
         color: $col-black;
         border-left: 1px solid $col-gray;
-        border-bottom: 1px solid $col-black;
+
         height: 100%; 
-        padding-left: 1rem;        
+        padding: 0 0 0 1rem;        
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         font-size: 1.4rem;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        scrollbar-width: none;  /* Firefox */
+        -ms-overflow-style: none;  /* IE and Edge */
+
+        &--id {
+            justify-content: center;
+            padding: 0;
+        }
+
+        i {
+            font-size: 1.2rem;
+            margin: 0 .3rem;
+            cursor: pointer;
+            &:hover {
+                color: $col-red;
+            }
+        }
+
 
         &--header {
             text-transform: capitalize;
             font-family: $font-display;
-            font-size: 1.5rem;
-            font-weight: 400;
-            border-bottom: 2px solid $col-black;            
+            font-size: 1.6rem;
+            font-weight: 400; 
+            color: $col-blue;   
+            // font-weight: 600;        
+  
+
+            &--id{
+                display: flex;
+                justify-content: center;
+                padding: 0;
+            }
+            
+            a, a:visited, a:link {
+                text-decoration: none; 
+                color: $col-blue;
+
+                &:hover {
+                    color: $col-red;
+                    & ~ i {
+                        color: $col-red;
+                    }                    
+                }
+            }
+
+            i.fa-chevron-down , i.fa-chevron-up {
+                margin-left: .8rem;
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
         }
 
         &--checkbox, &--header--checkbox {
             border-left: none;
+            
         }
 
     }
-
 }
+
+.form-nav {
+    
+    &__list{
+        display: flex;
+        list-style: none;
+        margin-bottom: 2rem;
+        font-size: 1.7rem;
+        font-family: $font-display;
+        border: 1px $col-primary-dk solid;
+        border-radius: $border-radius;        
+        width: max-content;        
+    }
+    &__item {
+        
+        margin: 0 auto;
+        padding: .3rem 1.5rem;
+        text-justify: center;
+        display: inline-block;
+        
+        &:first-of-type {
+            color: $col-primary-dk;
+        }
+
+        &:not(:first-of-type){
+            color: $col-blue;
+            border-left: 1px $col-primary-dk solid;
+            cursor: pointer;
+            &:hover {
+                color: $col-red; 
+            }
+        }
+
+    }
+    &__option  {
+        color: $col-blue;
+        border: none;
+        font-size: 1.7rem;
+        background-color: transparent;
+
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        &::-ms-expand  {
+            display: none;
+        }
+        &:hover {
+            color: $col-red; 
+        }
+
+        option {
+            color: $col-blue;
+        }
+
+
+    }
+}
+

@@ -5,7 +5,9 @@ from my_app.modules.forms import ClientForm
 from my_app.modules.database import JFW_Clients
 from flask_login import login_required
 
-from datetime import datetime
+from datetime import datetime, timezone, tzinfo
+
+from sqlalchemy import asc, desc
 
 # ______________________________________________________________________
 
@@ -55,7 +57,7 @@ def add_client():
             {email} <br> {street} <br> {city} <br> {country} <br> {postcode}
             """
 
-        return f"<h4>{test}</h4>"
+        return redirect(url_for('my_clients.all_clients'))
 
 
     return render_template('clients/add-client.html', form=form)
@@ -63,5 +65,44 @@ def add_client():
 # _____________________________
 
 @my_clients.route('all-clients')
+@login_required
 def all_clients():
-    return render_template('clients/all-clients.html')
+
+    # ---- sorting table when click row header --------------------
+    
+    sort_column = 'id'
+    sort_dir = 'DESC'
+
+    if len(request.args) >= 2:
+        sort_column = request.args['sort']
+        sort_dir = request.args['dirc']
+    
+    if sort_dir == 'ASC':
+        sort = asc(sort_column)
+    else:
+        sort = desc(sort_column)     
+
+
+    # ---- geting list of clients from db -------------------------
+
+    clients = JFW_Clients.query.order_by(sort).all()
+
+
+    # ---- looping clients ----------------------------------------
+
+    # i is use to add 'clients__shade' class on each alternating row
+    i = 1 
+
+    for c in clients:
+        i = i * -1
+        if i < 0:
+            c._class = 'clients__row clients__shade'
+        else:
+            c._class = 'clients__row'
+
+        # changing date format
+        c.registered = c.registered.strftime('%d-%B-%Y | %X')
+
+    # ------------------------------------------------------------
+
+    return render_template('clients/all-clients.html', clients=clients)
