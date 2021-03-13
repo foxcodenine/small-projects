@@ -1,0 +1,42 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+psycopg2-binary = "*"
+flask = "*"
+python-dotenv = "*"
+ccy = "*"
+cryptography = "*"
+requests = "*"
+flask-cors = "*"
+flask-bcrypt = "*"
+pymysql = "*"
+flask-mail = "*"
+flask-sqlalchemy = "*"
+pyjwt = "==1.7.1"
+boto3 = "*"
+flask-wtf = "*"
+email-validator = "*"
+flask-login = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.7"
+##############################################################
+# werkzeug==0.15.6
+# if flask-mail gives error when installin werkzeug uninstall werkzeug and install werkzeug==0.15.6
+##############################################################
+# pyjwt==1.7.1
+# pyjwt later version didn't work properly 
+##############################################################
+# psycopg2
+# if Pipenv fails to install psycopg2
+# try:
+# sudo apt-get install libpq-dev
+# if it still fails to install, install psycopg2-binary instead:
+# 1st do:    pipenv run pip install psycopg2-binary
+# and then:  pipenv install psycopg2-binary
+##############################################################

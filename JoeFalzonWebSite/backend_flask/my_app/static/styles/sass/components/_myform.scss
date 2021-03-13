@@ -25,12 +25,14 @@
 
     }
 
+
     &__group {
         margin-bottom: 2rem;
         width: 100%;
         position: relative;
         @include respond(br_small_medium) {grid-column: 1 / 5 !important;}
     }
+
 
     &__input {
         width: 100%;
@@ -61,6 +63,10 @@
         // &--content {
         //     // height: 15rem !important;
         // }
+
+        &--title {
+            padding-left: .9rem;
+        }
 
         &--images{
 

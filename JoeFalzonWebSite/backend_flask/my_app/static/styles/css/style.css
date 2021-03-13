@@ -77,6 +77,15 @@
 .mb-hg-n {
   margin-top: -8rem !important; }
 
+.ta-c {
+  text-align: center; }
+
+.ta-l {
+  text-align: left; }
+
+.ta-r {
+  text-align: right; }
+
 .bg_shade1 {
   background-color: #f2f2f2; }
 
@@ -125,6 +134,18 @@ body {
   width: 100%;
   height: 100%; }
 
+.flash {
+  border-radius: 0.3rem;
+  padding: .3rem;
+  color: #283747; }
+  .flash__container {
+    height: 3.5rem;
+    grid-column: 1 / -1; }
+  .flash--success {
+    background-color: rgba(34, 153, 84, 0.3); }
+  .flash--warning {
+    background-color: rgba(249, 231, 159, 0.4); }
+
 .nav {
   height: 5rem;
   background-color: #283747;
@@ -155,8 +176,7 @@ body {
       height: 2.6rem;
       margin-right: .6rem;
       opacity: 1;
-      margin-top: .2rem;
-      text-shadow: 0 0 1px black; }
+      margin-top: .2rem; }
   .nav__main {
     display: flex;
     align-items: center;
@@ -177,8 +197,7 @@ body {
     height: 3rem;
     text-decoration: none; }
     .nav__link:link:hover, .nav__link:visited:hover {
-      background-color: rgba(253, 255, 230, 0.4);
-      border-radius: 2rem; }
+      color: #F1948A; }
   .nav__user {
     display: flex;
     align-items: center;
@@ -444,6 +463,8 @@ body {
   .myform__input:focus {
     background-color: #fdffe6;
     border-color: #5D6D7E; }
+  .myform__input--title {
+    padding-left: .9rem; }
   .myform__input--images {
     margin: .5rem 0 0 0;
     padding: 0; }
@@ -746,25 +767,28 @@ body {
   .clients__item--id {
     justify-content: center;
     padding: 0; }
-  .clients__item i {
-    font-size: 1.2rem;
-    margin: 0 .3rem;
-    cursor: pointer; }
-    .clients__item i:hover {
-      color: #E74C3C; }
+  .clients__item a:link, .clients__item a:visited {
+    color: #283747; }
+    .clients__item a:link i, .clients__item a:visited i {
+      font-size: 1.2rem;
+      margin: 0 .3rem;
+      cursor: pointer;
+      transition: .1 all !important; }
+      .clients__item a:link i:hover, .clients__item a:visited i:hover {
+        color: #E74C3C; }
   .clients__item--header {
     text-transform: capitalize;
     font-family: "Poppins", sans-serif;
     font-size: 1.6rem;
     font-weight: 400;
-    color: #1677f2; }
+    color: #2471A3; }
     .clients__item--header--id {
       display: flex;
       justify-content: center;
       padding: 0; }
     .clients__item--header a, .clients__item--header a:visited, .clients__item--header a:link {
       text-decoration: none;
-      color: #1677f2; }
+      color: #2471A3; }
       .clients__item--header a:hover, .clients__item--header a:visited:hover, .clients__item--header a:link:hover {
         color: #E74C3C; }
         .clients__item--header a:hover ~ i, .clients__item--header a:visited:hover ~ i, .clients__item--header a:link:hover ~ i {
@@ -780,7 +804,7 @@ body {
   display: flex;
   list-style: none;
   margin-bottom: 2rem;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   font-family: "Poppins", sans-serif;
   border: 1px #283747 solid;
   border-radius: 0.3rem;
@@ -788,20 +812,37 @@ body {
 
 .form-nav__item {
   margin: 0 auto;
-  padding: .3rem 1.5rem;
+  padding: .2rem 1.3rem;
   text-justify: center;
   display: inline-block; }
+  .form-nav__item--create, .form-nav__item--export {
+    background-color: #1ABC9C;
+    transition: all .2s; }
+    .form-nav__item--create a:link, .form-nav__item--create a:visited, .form-nav__item--export a:link, .form-nav__item--export a:visited {
+      color: #fff;
+      text-decoration: none; }
+    .form-nav__item--create:hover, .form-nav__item--export:hover {
+      background-color: #117864; }
+  .form-nav__item--delete {
+    background-color: #F1948A;
+    transition: all .2s; }
+    .form-nav__item--delete button {
+      cursor: pointer;
+      color: #fff;
+      border: none;
+      background-color: transparent;
+      font-size: 1.6rem;
+      font-family: "Poppins", sans-serif; }
+    .form-nav__item--delete:hover {
+      background-color: #E74C3C; }
   .form-nav__item:first-of-type {
     color: #283747; }
   .form-nav__item:not(:first-of-type) {
-    color: #1677f2;
     border-left: 1px #283747 solid;
     cursor: pointer; }
-    .form-nav__item:not(:first-of-type):hover {
-      color: #E74C3C; }
 
 .form-nav__option {
-  color: #1677f2;
+  color: #2471A3;
   border: none;
   font-size: 1.7rem;
   background-color: transparent;
@@ -812,4 +853,4 @@ body {
   .form-nav__option:hover {
     color: #E74C3C; }
   .form-nav__option option {
-    color: #1677f2; }
+    color: #2471A3; }

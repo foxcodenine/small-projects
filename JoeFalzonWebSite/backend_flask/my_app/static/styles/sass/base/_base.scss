@@ -5,6 +5,7 @@
     margin: 0;
     padding:0;
     outline: none;
+    
 
 }
 
@@ -64,3 +65,20 @@ body {
     height: 100%;
 }
 
+
+.flash {    
+    border-radius:  $border-radius;
+    padding: .3rem;
+    color: $col-primary-dk;
+
+    &__container {
+        height: 3.5rem;
+        grid-column: 1 / -1;
+    }
+    &--success {        
+        background-color: rgba($col-green, .3);
+    }
+    &--warning {        
+        background-color: rgba($col-yellow, .4);
+    }
+}

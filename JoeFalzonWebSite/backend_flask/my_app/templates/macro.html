@@ -1,10 +1,11 @@
 
 <!-- --------------------------------------------------------------- -->
 
-{% macro render_field(field, fieldname) %}
+{% macro render_field(field, fieldname, edit) %}
 
 {% set inputclasses = "myform__input " + "myform__input--" ~ fieldname %}
 {% set groupclasses = "myform__group " + "addin__group--"  ~ fieldname %}
+
 
 <div class="{{groupclasses}}">
     {{ field.label( class="myform__label" ) }}
@@ -12,7 +13,7 @@
         <span class="myform__error">{% for error in field.errors %} {{error}} {% endfor %}</span>
     {% endif %}
 
-    {{ field( class=inputclasses )}} 
+    {{ field( class=inputclasses, value=edit)}} 
 </div>
 
 {% endmacro %}

@@ -5,19 +5,24 @@
 
 {% block main %}  
 
+
+<form action="{{url_for('my_clients.delete_clients')}}" method="POST">
+    {{ form.csrf_token }}
 <div class="form-nav">
     <ul class="form-nav__list">
-        <li class="form-nav__item">List 4</li>
-        <li class="form-nav__item">Create</li>
-        <li class="form-nav__item">Export</li>
-        <li class="form-nav__item">Delete</li>
+        <li class="form-nav__item">List {{clients|count}}</li>
+        <li class="form-nav__item form-nav__item--create"><a href="{{url_for('my_clients.add_client')}}">Create</a></li>
+        <li class="form-nav__item form-nav__item--export"><a href="#">Export</a></li>
+        <li class="form-nav__item form-nav__item--delete"><button type="submit">Delete</button></li>
     </ul>
 </div>
+
+{% include 'flash-message.html' %}
                 
 <div class="clients">
     <div class="clients__row">
         <div class="clients__item clients__item--header clients__item--header--checkbox"
-        ><input type="checkbox"></div>
+        ><input type="checkbox" id="client-checkbox-all"></div>
         <div class="clients__item"></div>
         <div class="clients__item clients__item--header clients__item--header--id"
         ><a href="?sort=id&dirc=ASC">id</a><i class="fas"></i></div>
@@ -56,8 +61,16 @@
 
     {% for c in clients %}
     <div class="{{c._class}}">
-        <div class="clients__item clients__item--checkbox"><input type="checkbox"></div>
-        <div class="clients__item clients__item--delete"><i class="fas fa-pencil-alt"></i><i class="fas fa-trash"></i><i class="fas fa-eye"></i></div>
+        <div class="clients__item clients__item--checkbox" >
+            <input type="checkbox" id="client-checkbox" name="checkBoxList" value="{{c.id}}">
+        </div>
+
+        <div class="clients__item clients__item--delete">
+            <a href="{{url_for('my_clients.edit_client', id=c.id)}}"><i class="fas fa-pencil-alt"></i></a>
+            <a href="{{url_for('my_clients.delete_client', id=c.id)}}"><i class="fas fa-trash"></i></a>
+            <a href="#"><i class="fas fa-eye"></i></a>
+        </div>
+
         <div class="clients__item clients__item--id">{{c.id}}</div>
         <div class="clients__item clients__item--firstname">{{c.firstname}}</div>
         <div class="clients__item clients__item--lastname">{{c.lastname}}</div>
@@ -70,10 +83,11 @@
         <div class="clients__item clients__item--street">{{c.street}}</div>
         <div class="clients__item clients__item--registerd">{{c.registered}}</div>
     </div>
-    {% endfor %}        
-
-
+    {% endfor %}  
+    
+   
     
 </div>
+</form>
 
 {% endblock %}

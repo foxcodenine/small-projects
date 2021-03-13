@@ -35,7 +35,11 @@
         color: $col-white;
         opacity: .9;
         font-weight: 500;
-        // text-shadow: 0 0 1px black;
+
+
+        &:hover {
+            // color: $col-red-lt;
+        }
         
 
         img {
@@ -44,7 +48,7 @@
             margin-right: .6rem;
             opacity: 1;
             margin-top: .2rem;
-            text-shadow: 0 0 1px black;
+        
         }
     }
 
@@ -75,8 +79,9 @@
 
         text-decoration: none;
         &:hover {            
-            background-color: rgba($col-bg-y, .4);
-            border-radius: 2rem;     
+            // background-color: rgba($col-bg-y, .4);
+            // border-radius: 2rem;    
+            color: $col-red-lt; 
         }
     }
 

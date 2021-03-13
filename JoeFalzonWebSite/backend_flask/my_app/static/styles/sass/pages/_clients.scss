@@ -59,12 +59,16 @@
             padding: 0;
         }
 
-        i {
-            font-size: 1.2rem;
-            margin: 0 .3rem;
-            cursor: pointer;
-            &:hover {
-                color: $col-red;
+        a:link, a:visited {
+            color: $col-primary-dk;
+            i {
+                font-size: 1.2rem;
+                margin: 0 .3rem;
+                cursor: pointer;
+                transition: .1 all !important;
+                &:hover {
+                    color: $col-red;
+                }
             }
         }
 
@@ -75,8 +79,7 @@
             font-size: 1.6rem;
             font-weight: 400; 
             color: $col-blue;   
-            // font-weight: 600;        
-  
+ 
 
             &--id{
                 display: flex;
@@ -117,30 +120,62 @@
         display: flex;
         list-style: none;
         margin-bottom: 2rem;
-        font-size: 1.7rem;
+        font-size: 1.6rem;
         font-family: $font-display;
         border: 1px $col-primary-dk solid;
         border-radius: $border-radius;        
-        width: max-content;        
+        width: max-content; 
+        
+
     }
     &__item {
         
         margin: 0 auto;
-        padding: .3rem 1.5rem;
+        padding: .2rem 1.3rem;
         text-justify: center;
         display: inline-block;
         
+
+        &--create, &--export {            
+            background-color: $col-aqua;
+            transition: all .2s;
+
+            a:link, a:visited {
+                color: $col-white;
+                text-decoration: none;
+            }
+            &:hover {
+                background-color: $col-aqua-dk; 
+            }
+        }
+
+        &--delete {
+            background-color: $col-red-lt;
+            transition: all .2s;
+
+            button {
+                cursor: pointer;
+                color: $col-white;
+                border: none;
+                background-color: transparent;
+                font-size: 1.6rem;
+                font-family: $font-display;
+            }
+            &:hover {
+                background-color: $col-red; 
+            }
+        }
+        
         &:first-of-type {
             color: $col-primary-dk;
+
         }
 
         &:not(:first-of-type){
-            color: $col-blue;
+            
             border-left: 1px $col-primary-dk solid;
             cursor: pointer;
-            &:hover {
-                color: $col-red; 
-            }
+
         }
 
     }

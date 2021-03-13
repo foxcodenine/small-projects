@@ -30,8 +30,8 @@ class JFW_Clients(db.Model):
 
 
     def __init__(self, title, firstname, lastname, id_card, street, city, 
-        country, postcode=None, company=None, filenumber=None, 
-        phone=None, mobile=None, email=None ):
+        country, postcode=None, company=None, filenumber=0, 
+        phone=0, mobile=0, email=None ):
 
         self.title = title
         self.firstname = firstname

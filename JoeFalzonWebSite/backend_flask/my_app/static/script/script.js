@@ -12,67 +12,11 @@ document.onreadystatechange = function () {                    // <- (A)
         wysiwyg();
         sortTable();
         sortTableArrow();
+        clientCheckBox();
         
     }
 }
 
-function sortTable() {
-    const tableHeaders = document.querySelectorAll('.clients__item--header');
-
-    // console.log(tableHeaders);
-
-    tableHeaders.forEach(th => {
-        
-        
-        th.addEventListener('click', (e)=>{
-            // e.preventDefault()
-            let a = th.childNodes[0];  
-           
-            if (th.childNodes.length >= 2) {
-
-                
-
-                let link = a.getAttribute('href');            
-                
-                if (link.endsWith('ASC') && window.location.search.endsWith('ASC') ) {
-                    link = link.replace('ASC', 'DESC');                              
-                } else {
-                    link = link.replace('DESC', 'ASC');                
-                }
-                a.href = link;
-            }
-        })
-    });
-}
-
-function sortTableArrow() {
-    // i.classList.add('fa-chevron-down');
-    // i.classList.add('fa-chevron-up');
-    
-    let params = '?sort=id&dirc=DESC'
-    
-    if (window.location.search) {
-        params = window.location.search;
-    }
-    let [sort, dirc] = params.split('&');
-    sort = sort.split('=')[1]
-    dirc = dirc.split('=')[1]
-
-    element = document.querySelector('.clients__item--header--' + sort)
-
-    if(element) {
-
-    
-        if (dirc == 'DESC') {
-            element.childNodes[1].classList.add('fa-chevron-down')
-        } else {
-            element.childNodes[1].classList.add('fa-chevron-up')
-        }
-    }
-    
-
-
-}
 
 // _____________________________________________________________________
 // _____________________________________________________________________
@@ -187,3 +131,83 @@ function closeUserDropdown() {
     });   
 }
 // _____________________________________________________________________
+// Sort table when clicking a header row item (clients)
+
+function sortTable() {
+    const tableHeaders = document.querySelectorAll('.clients__item--header');
+
+    // console.log(tableHeaders);
+
+    tableHeaders.forEach(th => {
+        
+        
+        th.addEventListener('click', (e)=>{
+            // e.preventDefault()
+            let a = th.childNodes[0];  
+           
+            if (th.childNodes.length >= 2) {
+
+                
+
+                let link = a.getAttribute('href');            
+                
+                if (link.endsWith('ASC') && window.location.search.endsWith('ASC') ) {
+                    link = link.replace('ASC', 'DESC');                              
+                } else {
+                    link = link.replace('DESC', 'ASC');                
+                }
+                a.href = link;
+            }
+        })
+    });
+}
+
+// _____________________________________________________________________
+// Add arrow when sorting table by clicking a header row item  (clients)
+
+function sortTableArrow() {
+    // i.classList.add('fa-chevron-down');
+    // i.classList.add('fa-chevron-up');
+    
+    let params = '?sort=id&dirc=DESC'
+    
+    if (window.location.search) {
+        params = window.location.search;
+    }
+    let [sort, dirc] = params.split('&');
+    sort = sort.split('=')[1]
+    dirc = dirc.split('=')[1]
+
+    element = document.querySelector('.clients__item--header--' + sort)
+
+    if(element) {
+
+    
+        if (dirc == 'DESC') {
+            element.childNodes[1].classList.add('fa-chevron-down')
+        } else {
+            element.childNodes[1].classList.add('fa-chevron-up')
+        }
+    }
+}
+
+// _____________________________________________________________________
+
+function clientCheckBox() {
+    const clientCheckBoxAll = document.querySelector('#client-checkbox-all');
+
+    if (clientCheckBoxAll) {
+        clientCheckBoxAll.addEventListener('click', (e)=>{
+
+            const allBoxes = document.querySelectorAll('#client-checkbox');
+
+            allBoxes.forEach(el => {
+                el.checked = e.target.checked
+            });
+        })
+    }
+}
+
+// _____________________________________________________________________
+
+
