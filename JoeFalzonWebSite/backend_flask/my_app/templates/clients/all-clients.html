@@ -13,7 +13,7 @@
         <li class="form-nav__item">List {{clients|count}}</li>
         <li class="form-nav__item form-nav__item--create"><a href="{{url_for('my_clients.add_client')}}">Create</a></li>
         <li class="form-nav__item form-nav__item--export"><a href="#">Export</a></li>
-        <li class="form-nav__item form-nav__item--delete"><button type="submit">Delete</button></li>
+        <li class="form-nav__item form-nav__item--delete delete-btn"><button type="submit">Delete</button></li>
     </ul>
 </div>
 
@@ -62,12 +62,12 @@
     {% for c in clients %}
     <div class="{{c._class}}">
         <div class="clients__item clients__item--checkbox" >
-            <input type="checkbox" id="client-checkbox" name="checkBoxList" value="{{c.id}}">
+            <input class="client-checkbox" type="checkbox"  name="checkBoxList" value="{{c.id}}">
         </div>
 
         <div class="clients__item clients__item--delete">
             <a href="{{url_for('my_clients.edit_client', id=c.id)}}"><i class="fas fa-pencil-alt"></i></a>
-            <a href="{{url_for('my_clients.delete_client', id=c.id)}}"><i class="fas fa-trash"></i></a>
+            <a href="{{url_for('my_clients.delete_client', id=c.id)}}"><i class="fas fa-trash delete-btn"></i></a>
             <a href="#"><i class="fas fa-eye"></i></a>
         </div>
 

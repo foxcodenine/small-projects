@@ -1,11 +1,14 @@
 ### Connect to AWS server
 
-    $ sudo ssh -i "deploy_web_apps.pem" ubuntu@ec2-54-93-189-85.eu-central-1.compute.amazonaws.com
+    $ sudo ssh -i "deploy_web_apps.pem" ubuntu@ec2-54-93-231-128.eu-central-1.compute.amazonaws.com
 
-### Load dist folder to AWS server
+### Load dist folder to AWS server (FrontEnd)
 
-    $ sudo scp -i ./deploy_web_apps.pem -r /home/foxcodenine/Desktop/JoeFalzonWebSite/frontend_nuxt/dist ubuntu@ec2-54-93-189-85.eu-central-1.compute.amazonaws.com:/var/www/projects/002_jf_website/
+    $ sudo scp -i ./deploy_web_apps.pem -r /home/foxcodenine/Desktop/JoeFalzonWebSite/frontend_nuxt/dist ubuntu@ec2-54-93-231-128.eu-central-1.compute.amazonaws.com:/var/www/projects/002_jf_website/
 
+### Load dist folder to AWS server (BackEnd)
+
+    $ sudo scp -i ./deploy_web_apps.pem -r /home/foxcodenine/Desktop/JoeFalzonWebSite/backend_flask ubuntu@ec2-54-93-231-128.eu-central-1.compute.amazonaws.com:/var/www/projects/002_jf_website/
 
 
 
@@ -43,6 +46,11 @@ ServerName foxcode.io
             Options +Indexes
         </Directory>
 
+        WSGIScriptAlias /admin/002 /var/www/projects/002_jf_website/backend_flask/flaskapp.wsgi
+        <Directory /var/www/projects/002_jf_website/backend_flask>
+            Order allow,deny
+            Allow from all
+        </Directory>
 
         ErrorLog ${APACHE_LOG_DIR}/error.log
         LogLevel warn

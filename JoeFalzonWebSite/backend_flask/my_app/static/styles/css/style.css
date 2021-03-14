@@ -465,6 +465,8 @@ body {
     border-color: #5D6D7E; }
   .myform__input--title {
     padding-left: .9rem; }
+  .myform__input--status, .myform__input--category {
+    padding: 0 0 0 .5rem; }
   .myform__input--images {
     margin: .5rem 0 0 0;
     padding: 0; }
@@ -544,6 +546,30 @@ body {
 .ck-rounded-corners {
   border-radius: 0 0 0.3rem 0.3rem !important; }
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative; }
+  select::-ms-expand {
+    display: none; }
+
+.addin__group--status, .addin__group--category, .addin__group--title {
+  position: relative; }
+  .addin__group--status::after, .addin__group--category::after, .addin__group--title::after {
+    content: '';
+    border-style: solid;
+    border-width: 0.1rem 0.1rem 0 0;
+    border-color: #283747;
+    display: inline-block;
+    position: absolute;
+    top: 3.7rem;
+    right: 1.6rem;
+    transform: rotate(135deg);
+    vertical-align: top;
+    width: .8rem;
+    height: .8rem; }
+
 .login__layout {
   height: 100vh;
   display: flex;
@@ -576,7 +602,7 @@ body {
     border-radius: 0.3rem; }
   .addin__title {
     grid-column: 1 / 5; }
-  .addin__group--project-name {
+  .addin__group--name {
     grid-column: 1 / 5; }
   .addin__group--address {
     grid-column: 1 / 4; }

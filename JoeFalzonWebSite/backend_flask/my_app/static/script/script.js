@@ -13,6 +13,7 @@ document.onreadystatechange = function () {                    // <- (A)
         sortTable();
         sortTableArrow();
         clientCheckBox();
+        deleteConfirmation();
         
     }
 }
@@ -199,7 +200,7 @@ function clientCheckBox() {
     if (clientCheckBoxAll) {
         clientCheckBoxAll.addEventListener('click', (e)=>{
 
-            const allBoxes = document.querySelectorAll('#client-checkbox');
+            const allBoxes = document.querySelectorAll('.client-checkbox');
 
             allBoxes.forEach(el => {
                 el.checked = e.target.checked
@@ -210,4 +211,24 @@ function clientCheckBox() {
 
 // _____________________________________________________________________
 
+function deleteConfirmation() {
 
+    deleteButtons = document.querySelectorAll('.delete-btn');
+
+    deleteButtons.forEach(btn => {
+        btn.addEventListener('click', (e)=>{
+            
+
+            if (confirm('Are you sure you want to delete this?')) {
+                return true
+            } else {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                // Do nothing!
+                return false                
+            }
+
+            
+        });
+    });
+}

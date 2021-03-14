@@ -1,4 +1,5 @@
 {% extends 'main.html' %}
+{% from "macro.html" import render_field %}
 
 
 {% block title %}{% endblock %}
@@ -9,64 +10,34 @@
             
         <h2 class="myform__title addin__title">add new project</h2>
 
-        <div class="myform__group addin__group--project-name">
-            <label for="project_name" class="myform__label">project name</label>
-            <input type="text" name="project_name" class="myform__input">                    
-        </div>
+        {{ form.csrf_token }} 
 
-        <div class="myform__group addin__group--address">
-            <label for="address" class="myform__label">address</label>
-            <input type="text" name="address" class="myform__input">                    
-        </div>  
+        {{ render_field(form.name, 'name') }}
 
-        <div class="myform__group addin__group--locality">
-            <label for="locality" class="myform__label">locality</label>
-            <input type="text" name="locality" class="myform__input">                    
-        </div>
+        {{ render_field(form.address, 'address') }}
 
-        <div class="myform__group addin__group--client-ref">
-            <label for="client-ref" class="myform__label">client ref</label>
-            <input type="text" name="client-ref" class="myform__input">                    
-        </div>
+        {{ render_field(form.locality, 'locality') }}
 
-        <div class="myform__group addin__group--ref">
-            <label for="ref-number" class="myform__label">ref number</label>
-            <input type="text" name="ref-number" class="myform__input">                    
-        </div>  
+        {{ render_field(form.ref_client, 'ref_client') }}
 
-        <div class="myform__group addin__group--pa">
-            <label for="pa-number" class="myform__label">PA number</label>
-            <input type="text" name="pa-number" class="myform__input">                    
-        </div>
+        {{ render_field(form.ref_number, 'ref_number') }}
 
-        <div class="myform__group addin__group--status">
-            <label for="status" class="myform__label">status</label>
-            <input type="text" name="status" class="myform__input">                    
-        </div>
+        {{ render_field(form.pa_number, 'pa_number') }}
 
-        <div class="myform__group addin__group--images">
-            <label for="images" class="myform__label myform__label--images">images</label>
-            <input type="file" name="file" class="myform__input myform__input--images" multiple>                    
-        </div>           
+        {{ render_field(form.status, 'status') }}
 
-        <div class="myform__group addin__group--category">
-            <label for="category" class="myform__label">category</label>
-            <input type="text" name="category" class="myform__input">                    
-        </div>     
+        {{ render_field(form.images, 'images') }}
 
-        <div class="myform__group addin__group--date">
-            <label for="date" class="myform__label">date</label>
-            <input type="date" name="date" class="myform__input myform__input--date">                    
-        </div>
+        {{ render_field(form.category, 'category') }}
 
-        <div class="myform__group addin__group--content">
-            <label for="content" class="myform__label">content</label>
-            
-            <textarea id="editor_body" class="myform__input myform__input--content" name=content"  cols="30" rows="10"></textarea>                    
+        {{ render_field(form.date, 'date') }}
+
+        <div class="myform__group addin__group--content">            
+            {{ form.content.label(for="content", class="myform__label") }}                 
+            {{ form.content(id="editor_body", class="myform__input myform__input--content", cols="30", rows="10") }}             
         </div> 
         
-
-        <button class="btn btn--dark myform__btn addin__btn" type="submit">Add project</button>
+        {{ form.submit(class="btn btn--dark myform__btn addin__btn", value="add project") }}         
 
     </form>
 </div>

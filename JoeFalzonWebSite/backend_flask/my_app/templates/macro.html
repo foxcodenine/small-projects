@@ -8,7 +8,12 @@
 
 
 <div class="{{groupclasses}}">
-    {{ field.label( class="myform__label" ) }}
+    {{ field.label( class="myform__label", for=fieldname)  }} 
+
+    {% if fieldname in ['name', 'address', 'locality', 'firstname', 'lastname', 'id_card', 'street', 'city', 'country'] %}
+    <span style="color: crimson;">&nbsp;*<span>
+    {% endif %}
+    
     {% if field.errors %} 
         <span class="myform__error">{% for error in field.errors %} {{error}} {% endfor %}</span>
     {% endif %}

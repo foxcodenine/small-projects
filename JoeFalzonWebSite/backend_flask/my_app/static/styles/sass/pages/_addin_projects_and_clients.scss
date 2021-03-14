@@ -28,7 +28,7 @@
 
     &__group {
 
-        &--project-name{
+        &--name{
             grid-column: 1 / 5;             
         }
 
@@ -58,7 +58,7 @@
         }
 
         &--category {
-            grid-column: 3 / 4; 
+            grid-column: 3 / 4;       
         }
 
         &--images {

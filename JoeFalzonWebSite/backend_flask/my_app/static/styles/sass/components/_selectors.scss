@@ -1,0 +1,38 @@
+select {
+    // this will target all 'select' and remove default arrow
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    position: relative;
+
+    &::-ms-expand {
+        display: none;
+    }
+}
+
+
+.addin__group {
+    // this will target all 'select parrent div' and add a custom 'Chavron arrow'
+    &--status, &--category, &--title {
+        position: relative;
+
+        &::after {
+            content: '';
+            border-style: solid;
+            border-width: 0.1rem 0.1rem 0 0;
+            border-color: $col-primary-dk;
+            
+            display: inline-block;            
+            
+            position: absolute;
+            top: 3.7rem;
+            right: 1.6rem;
+
+            transform: rotate(135deg);
+            vertical-align: top;
+            width: .8rem;
+            height: .8rem;
+        }
+    }
+}

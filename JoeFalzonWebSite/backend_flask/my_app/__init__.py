@@ -53,7 +53,7 @@ app.register_blueprint(my_admin)
 app.register_blueprint(my_clients)
 app.register_blueprint(my_projects)
 
-from my_app.modules.database import JFW_Clients, JFW_Users
+from my_app.modules.database import JFW_Clients, JFW_Users, JFW_Status, JFW_Categories
 
 
 

@@ -3,6 +3,9 @@ from flask import Blueprint, render_template, redirect, request, url_for, jsonif
 
 from flask_login import login_required
 
+from my_app.modules.forms import ProjectForm
+from my_app.modules.database import JFW_Categories, JFW_Status
+
 # ______________________________________________________________________
 
 
@@ -33,7 +36,17 @@ def all_projects():
 @login_required
 def add_project():
 
-    return render_template('projects/add-project.html')
+    status = JFW_Status.query.all()
+    categories = JFW_Categories.query.all()
+
+    status = [s.status for s in status]
+    categories = [c.category for c in categories]
+
+    form = ProjectForm(status_options=status, category_options=categories)
+
+
+
+    return render_template('projects/add-project.html', form=form)
 
 # _____________________________
 

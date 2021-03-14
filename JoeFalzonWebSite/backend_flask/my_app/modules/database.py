@@ -4,10 +4,7 @@ from datetime import datetime, timedelta
 
 from flask_login import UserMixin
 
-
 # ______________________________________________________________________
-
-
 
 class JFW_Clients(db.Model):
     __tablename__ = 'jfw_clients'
@@ -28,6 +25,7 @@ class JFW_Clients(db.Model):
     postcode    = db.Column(db.String(50))
     registered  = db.Column(db.DateTime, nullable=False)
 
+# ______________________________________________________________________
 
     def __init__(self, title, firstname, lastname, id_card, street, city, 
         country, postcode=None, company=None, filenumber=0, 
@@ -46,16 +44,13 @@ class JFW_Clients(db.Model):
         self.city = city
         self.country = country
         self.postcode = postcode
-        self.registered = datetime.utcnow()
+        self.registered = datetime.utcnow()       
 
-        
-        
-
-# ____________________________
+# ______________________________________________________________________
 
 
 class JFW_Users(UserMixin, db.Model):
-    __tablename__ = 'jft_users'
+    __tablename__ = 'jfw_users'
 
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
@@ -75,8 +70,7 @@ class JFW_Users(UserMixin, db.Model):
         return self.session_token
     
     def update_session_token(self):
-        self.session_token = serializer.dumps([self.email, str(self.password), self.login1.strftime('%c')])
-        
+        self.session_token = serializer.dumps([self.email, str(self.password), self.login1.strftime('%c')])        
 
     def hash_password(self, password):
         return bcrypt.generate_password_hash(password)
@@ -89,7 +83,24 @@ class JFW_Users(UserMixin, db.Model):
         self.login2 = self.login1
         self.login1 = datetime.utcnow()
 
+# ______________________________________________________________________
 
+class JFW_Status(db.Model):
+    __tablename__ = 'jfw_status'
+    id = db.Column(db.Integer, primary_key=True)
+    status = db.Column(db.String(50), nullable=False, unique=True)
 
+    def __init__(self, status):
+        self.status = status
 
+# ______________________________________________________________________
 
+class JFW_Categories(db.Model):
+    __tablename__ = 'jfw_categories'
+    id = db.Column(db.Integer, primary_key=True)
+    category = db.Column(db.String(50), nullable=False, unique=True)
+
+    def __init__(self, category):
+        self.category = category
+
+# ______________________________________________________________________
