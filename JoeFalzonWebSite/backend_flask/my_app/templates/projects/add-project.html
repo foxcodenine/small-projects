@@ -6,14 +6,16 @@
 
 {% block main %}                
 <div class="addin">           
-    <form action="#" method="POST" class="myform addin__layout addin__form" enctype="multipart/form-data">
+    <form action="{{url_for('my_projects.add_project')}}" method="POST" 
+          class="myform addin__layout addin__form" 
+          enctype="multipart/form-data" novalidate role="form">
             
         <h2 class="myform__title addin__title">add new project</h2>
 
         {{ form.csrf_token }} 
 
         {{ render_field(form.name, 'name') }}
-
+    
         {{ render_field(form.address, 'address') }}
 
         {{ render_field(form.locality, 'locality') }}
@@ -24,9 +26,11 @@
 
         {{ render_field(form.pa_number, 'pa_number') }}
 
-        {{ render_field(form.status, 'status') }}
+        
 
         {{ render_field(form.images, 'images') }}
+
+        {{ render_field(form.status, 'status') }}
 
         {{ render_field(form.category, 'category') }}
 
@@ -36,7 +40,7 @@
             {{ form.content.label(for="content", class="myform__label") }}                 
             {{ form.content(id="editor_body", class="myform__input myform__input--content", cols="30", rows="10") }}             
         </div> 
-        
+      
         {{ form.submit(class="btn btn--dark myform__btn addin__btn", value="add project") }}         
 
     </form>

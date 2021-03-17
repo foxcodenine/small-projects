@@ -465,7 +465,7 @@ body {
     border-color: #5D6D7E; }
   .myform__input--title {
     padding-left: .9rem; }
-  .myform__input--status, .myform__input--category {
+  .myform__input--status, .myform__input--category, .myform__input--ref_client {
     padding: 0 0 0 .5rem; }
   .myform__input--images {
     margin: .5rem 0 0 0;
@@ -554,9 +554,9 @@ select {
   select::-ms-expand {
     display: none; }
 
-.addin__group--status, .addin__group--category, .addin__group--title {
+.addin__group--status, .addin__group--category, .addin__group--title, .addin__group--ref_client {
   position: relative; }
-  .addin__group--status::after, .addin__group--category::after, .addin__group--title::after {
+  .addin__group--status::after, .addin__group--category::after, .addin__group--title::after, .addin__group--ref_client::after {
     content: '';
     border-style: solid;
     border-width: 0.1rem 0.1rem 0 0;
@@ -614,17 +614,13 @@ select {
     grid-column: 2 / 3; }
   .addin__group--pa {
     grid-column: 3 / 4; }
-  .addin__group--status {
-    grid-column: 4 / 5; }
+  .addin__group--ref_client {
+    grid-column: 1 / 3; }
   .addin__group--category {
     grid-column: 3 / 4; }
-  .addin__group--images {
-    grid-column: 1 / 3; }
-    @media (max-width: 46em) {
-      .addin__group--images {
-        grid-row: 11 / 12 !important; } }
-  .addin__group--date {
-    grid-column: 4 / 5; }
+  @media (max-width: 46em) {
+    .addin__group--images {
+      grid-row: 11 / 12 !important; } }
   .addin__group--content {
     grid-column: 1 / 5; }
   .addin__group--email {

@@ -36,8 +36,6 @@ def sign_in():
 
 
     if form.validate_on_submit():
-        email = request.form['email']
-        password = request.form['password']
 
         email = form.email.data 
         password = form.password.data

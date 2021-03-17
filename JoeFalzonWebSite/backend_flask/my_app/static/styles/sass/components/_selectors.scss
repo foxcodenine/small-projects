@@ -14,7 +14,7 @@ select {
 
 .addin__group {
     // this will target all 'select parrent div' and add a custom 'Chavron arrow'
-    &--status, &--category, &--title {
+    &--status, &--category, &--title, &--ref_client {
         position: relative;
 
         &::after {

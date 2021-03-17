@@ -7,6 +7,8 @@ from wtforms.validators import Optional, DataRequired, Email
 
 from wtforms.fields.html5 import DateField
 
+
+
 # ______________________________________________________________________
 
 class ClientForm(FlaskForm):
@@ -44,26 +46,35 @@ class DeleteAllForm(FlaskForm):
 class ProjectForm(FlaskForm):
     name = StringField(u'project name', validators=[DataRequired()])
     address = StringField(u'address', validators=[DataRequired()])
-    locality = StringField(u'locality', validators=[DataRequired()])
-    ref_client = IntegerField(u'ref client', validators=[Optional()])
+    locality = StringField(u'locality', validators=[DataRequired()])    
     ref_number = IntegerField(u'ref no', validators=[Optional()])
     pa_number = StringField(u'PA no', validators=[Optional()])
 
+    ref_client = SelectField(u'ref client', choices=[], validators=[Optional()])
     status = SelectField(u'status', choices=[], validators=[Optional()])
     category = SelectField(u'category', choices=[], validators=[Optional()])
 
-    images = MultipleFileField(u'images', render_kw={'multiple': True}, validators=[Optional()])
+    images = MultipleFileField(
+        u'images', render_kw={'multiple': True}, validators=[Optional()]
+    )
 
-    date = DateField(u'date', validators=[Optional()],  format='%m/%d/%Y')
+    date = DateField(u'date', validators=[Optional()])
 
     content = TextAreaField(u'content', validators=[Optional()])
 
     submit = SubmitField()
 
 
-    def __init__(self, status_options=None, category_options=None):
+    def __init__(
+        self, ref_client_options=None, status_options=None, 
+        category_options=None
+    ):
+
         super().__init__() # calls the base initialisation and then...
+
+        if ref_client_options:
+            self.ref_client.choices  = [(' ', '')] + [(r['key'], r['value']) for r in ref_client_options]
         if status_options:
-            self.status.choices  = [(o, o) for o in status_options]
+            self.status.choices      = [(' ', '')] + [(o, o) for o in status_options]
         if category_options:
-            self.category.choices  = [(c, c) for c in category_options]
+            self.category.choices    = [(' ', '')] + [(c, c) for c in category_options]
