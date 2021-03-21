@@ -50,9 +50,9 @@ class ProjectForm(FlaskForm):
     ref_number = IntegerField(u'ref no', validators=[Optional()])
     pa_number = StringField(u'PA no', validators=[Optional()])
 
-    ref_client = SelectField(u'ref client', choices=[], validators=[Optional()])
-    status = SelectField(u'status', choices=[], validators=[Optional()])
-    category = SelectField(u'category', choices=[], validators=[Optional()])
+    ref_client = SelectField(u'ref client', choices=[], coerce=int, validators=[Optional()])
+    status = SelectField(u'status', choices=[], coerce=int, validators=[Optional()])
+    category = SelectField(u'category', choices=[], coerce=int, validators=[Optional()])
 
     images = MultipleFileField(
         u'images', render_kw={'multiple': True}, validators=[Optional()]
@@ -73,8 +73,8 @@ class ProjectForm(FlaskForm):
         super().__init__() # calls the base initialisation and then...
 
         if ref_client_options:
-            self.ref_client.choices  = [(' ', '')] + [(r['key'], r['value']) for r in ref_client_options]
+            self.ref_client.choices  = [(0, '')] + [(r['key'], r['value']) for r in ref_client_options]
         if status_options:
-            self.status.choices      = [(' ', '')] + [(o, o) for o in status_options]
+            self.status.choices      = [(0, '')] + [(o['key'], o['value']) for o in status_options]
         if category_options:
-            self.category.choices    = [(' ', '')] + [(c, c) for c in category_options]
+            self.category.choices    = [(0, '')] + [(c['key'], c['value']) for c in category_options]

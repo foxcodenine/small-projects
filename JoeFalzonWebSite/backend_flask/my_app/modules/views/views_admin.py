@@ -54,6 +54,7 @@ def sign_in():
             signin_user.user_sign_in()
             signin_user.update_session_token()
             db.session.commit()
+ 
             login_user(signin_user, remember=remember)
             
             if 'next' in session:

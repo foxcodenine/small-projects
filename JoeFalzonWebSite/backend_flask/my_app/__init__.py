@@ -6,7 +6,7 @@ from flask_cors import CORS, cross_origin
 from werkzeug.exceptions import HTTPException
 import socket
 import os
-
+import boto3
 
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
@@ -18,6 +18,7 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, \
                         logout_user, current_user, fresh_login_required
 
 from itsdangerous.url_safe import URLSafeSerializer, URLSafeTimedSerializer
+
 
 # ______________________________________________________________________
 
@@ -43,7 +44,17 @@ lodin_manager.login_view = 'my_admin.sign_in';
 
 serializer = URLSafeSerializer(app.secret_key)
 
+
 # ______________________________________________________________________
+# Setting up boto3
+
+s3_client = boto3.client('s3')
+s3_resource = boto3.resource('s3')
+
+# Note. to access the client directly via the resource
+# s3_resource.meta.client
+# ______________________________________________________________________
+
 from my_app.modules.views.views_admin import my_admin
 from my_app.modules.views.views_clients import my_clients
 from my_app.modules.views.views_projects import my_projects
@@ -53,10 +64,7 @@ app.register_blueprint(my_admin)
 app.register_blueprint(my_clients)
 app.register_blueprint(my_projects)
 
-from my_app.modules.database import JFW_Clients, JFW_Users, JFW_Status, JFW_Categories
-
-
-
+from my_app.modules.database import JFW_Clients, JFW_Users, JFW_Status, JFW_Categories, JFW_Projects
 
 # ______________________________________________________________________
 
