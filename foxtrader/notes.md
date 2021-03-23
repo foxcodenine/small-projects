@@ -79,6 +79,43 @@ Binance API
 https://github.com/mrjbq7/ta-lib
 
 
+TA-Lib : Technical Analysis Library
+https://ta-lib.org/
 
 
+to install:
 
+    on Linux 1st install  depandences:
+
+    Download ta-lib-0.4.0-src.tar.gz from
+    https://sourceforge.net/projects/ta-lib/files/ta-lib/0.4.0/ta-lib-0.4.0-src.tar.gz/download?use_mirror=deac-ams
+    and:
+
+        $ tar -xzf ta-lib-0.4.0-src.tar.gz
+        $ cd ta-lib/
+        $ ./configure --prefix=/usr
+        $ make
+        $ sudo make install
+
+    then install pacage:
+
+        $ sudo pipenv install TA-Lib
+
+
+    to test it open python and import talib:
+
+        $ pipen run python
+        import talib
+
+    install numpy:
+        $ sudo pipenv install numpy
+        
+
+    (video 3min)
+<!-- --------------------------------------------------------------- -->
+
+python requirements.txt
+
+python-binance
+TA-Lib
+numpy
