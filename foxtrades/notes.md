@@ -76,20 +76,26 @@ Binance API
 
 ### ta-lib python
 
+download package from:
+https://pypi.org/project/TA-Lib/0.4.19/#modal-close
+
+ta-lib Homepage:
 https://github.com/mrjbq7/ta-lib
 
 
 TA-Lib : Technical Analysis Library
-https://ta-lib.org/
+https://ta-lib.org/  
 
 
 to install:
 
-    on Linux 1st install  depandences:
+ ---------------------------------------------------
 
     Download ta-lib-0.4.0-src.tar.gz from
     https://sourceforge.net/projects/ta-lib/files/ta-lib/0.4.0/ta-lib-0.4.0-src.tar.gz/download?use_mirror=deac-ams
     and:
+
+	on Linux Ubuntu:
 
         $ tar -xzf ta-lib-0.4.0-src.tar.gz
         $ cd ta-lib/
@@ -111,7 +117,58 @@ to install:
         $ sudo pipenv install numpy
         
 
-    (video 3min)
+ ---------------------------------------------------
+
+	on Linux Ubuntu (not working try this instead):
+
+	>> https://www.youtube.com/watch?v=AlFSxXP_d9M
+
+        $ tar -xzf ta-lib-0.4.0-src.tar.gz
+        $ cd ta-lib/
+        $ ./configure 
+        $ make
+        $ sudo make install
+
+    on Linux 1st install  depandences:
+---------------------------------------------------
+	or try this:
+	https://joelzhang.medium.com/install-ta-lib-in-python-3-7-51219acacafb 
+
+	or
+	https://stackoverflow.com/questions/10279829/installing-glib-in-non-standard-prefix-fails
+ ---------------------------------------------------
+
+	on windows:
+	download .whl file from:
+
+ 	https://www.lfd.uci.edu/~gohlke/pythonlibs/#ta-lib
+
+			TA-Lib: a wrapper for the TA-LIB Technical Analysis Library.
+			TA_Lib‑0.4.19‑cp39‑cp39‑win_amd64.whl
+			TA_Lib‑0.4.19‑cp39‑cp39‑win32.whl
+			TA_Lib‑0.4.19‑cp38‑cp38‑win_amd64.whl
+			TA_Lib‑0.4.19‑cp38‑cp38‑win32.whl
+			TA_Lib‑0.4.19‑cp37‑cp37m‑win_amd64.whl
+			TA_Lib‑0.4.19‑cp37‑cp37m‑win32.whl
+			TA_Lib‑0.4.19‑cp36‑cp36m‑win_amd64.whl
+			TA_Lib‑0.4.19‑cp36‑cp36m‑win32.whl
+			TA_Lib‑0.4.17‑cp35‑cp35m‑win_amd64.whl
+			TA_Lib‑0.4.17‑cp35‑cp35m‑win32.whl
+			TA_Lib‑0.4.17‑cp34‑cp34m‑win_amd64.whl
+			TA_Lib‑0.4.17‑cp34‑cp34m‑win32.whl
+			TA_Lib‑0.4.17‑cp27‑cp27m‑win_amd64.whl
+			TA_Lib‑0.4.17‑cp27‑cp27m‑win32.whl
+
+	One should note that you should download the file keeping your Python version and Windows architecture (32 bit or 64 bit) in mind. E.g. Since we have the python version 3.7 installed and 64 bit Windows 7 system, we will download the file, “TA_Lib‑0.4.17‑cp37‑cp37m‑win_amd64.whl”.
+
+	As you might have guessed “cp37” implies Python version 3.7 and “win_amd64” implies Windows 64 bit operating system.
+
+ mv file in your directory and install will pepenv
+	
+	>> pipenv install TA_Lib‑0.4.19‑cp37‑cp37m‑win32.whl
+
+check if it works by open python and import talib
+
 <!-- --------------------------------------------------------------- -->
 
 python requirements.txt
@@ -119,3 +176,10 @@ python requirements.txt
 python-binance
 TA-Lib
 numpy
+
+
+How to keep processes running over SSH without being connected - using GNU screen
+https://www.youtube.com/watch?v=3S3I9lT6eKE
+https://www.youtube.com/watch?v=I4xVn6Io5Nw
+https://nikolak.com/deploying-python-code-to-vps/ 
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-screen-on-an-ubuntu-cloud-server

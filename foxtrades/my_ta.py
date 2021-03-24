@@ -43,9 +43,22 @@ def my_ema_list (data, window):
         c_ema = (d - p_ema) * multiplier + p_ema
         p_ema = c_ema
 
-        ema.append(round(c_ema, 2))
+        ema.append(round(c_ema, 3))
 
     return(ema)
+
+# ______________________________________________________________________
+
+
+def sma(data, window):
+    data = data[(window * -1) : ]
+    sma = sum(data) / window
+
+    return sma
+
+
+
+
 # ______________________________________________________________________
 
 
@@ -64,11 +77,56 @@ print(my_ema_list(my_data_2, 10))
 
 lll('C') # -------------------------------------------------------------
 
-cc = exp_moving_average_list(my_data_2, 10)
-print(cc)
+# cc = exp_moving_average_list(my_data_2, 10)
+# print(cc)
 
-lll('D') # -------------------------------------------------------------
+# lll('D') # -------------------------------------------------------------
 
-print(my_ema_list(my_data_3, 5))
+# print(my_ema_list(my_data_3, 5))
 
 
+
+
+# lll('E') # -------------------------------------------------------------
+
+# print(simple_moving_avrage_list(my_data_1, 2))
+
+# lll('F') # -------------------------------------------------------------
+
+# print(sma(my_data_1, 2))
+
+# lll('F') # -------------------------------------------------------------
+
+
+
+def ema(current, ema_list, window):
+    #  return current ema
+    
+    multiplier = (2 / (window + 1))
+    p_ema = ema_list[-1]
+
+    return round((current - p_ema) * multiplier + p_ema, 3)  
+
+
+
+ema_list = my_ema_list(my_data_2[0:-1], 10)
+current = my_data_2[-1]
+
+print(ema(current, ema_list, 10))
+
+lll('G') # -------------------------------------------------------------
+
+ema_list = []
+window = 10
+
+data_list = my_data_2[window:]
+
+if len(ema_list) < 1:
+    sma = sum(my_data_2[0: window]) / window
+    ema_list.append(sma)
+
+for current in data_list:
+    c_ema = ema(current, ema_list, window)
+    ema_list.append(c_ema)
+
+print(ema_list)
