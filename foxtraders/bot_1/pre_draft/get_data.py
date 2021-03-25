@@ -27,7 +27,6 @@ candlestick_writer = csv.writer(csvfile, delimiter=',')
 
 for c in candles:
     print(c)
-
     candlestick_writer.writerow(c)
 
 print('Length ->', len(candles))
