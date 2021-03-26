@@ -1,15 +1,19 @@
 #!/usr/bin/python3.9
 # ______________________________________________________________________
 '''Imports'''
-import os
-
+import os, socket
 
 # ______________________________________________________________________
 '''Selecting envierment'''
 
-# my_env = 'production'
-my_env = 'home'
-# my_env = 'work'
+hostname = socket.gethostname()
+
+if hostname == 'Luke_Desktop':
+    my_env = 'work'
+elif hostname == 'foxcodenine':
+    my_env = 'work'
+else:
+    my_env = 'production'
 
 # ______________________________________________________________________
 '''Selecting venv dir & project dir'''
@@ -26,7 +30,6 @@ else:
 
 # ______________________________________________________________________
 '''Loading venv & .env'''
-
 
 
 with open(activate_this) as file_:
