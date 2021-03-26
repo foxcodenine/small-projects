@@ -46,3 +46,32 @@ https://github.com/binance/binance-spot-api-docs/blob/master/web-socket-streams.
                     "B": "123456"   // Ignore
                 }
                 }
+
+
+<!-- --------------------------------------------------------------- -->
+hostname : ubuntu-s-1vcpu-2gb-intel-fra1-01
+ipv4 : 167.172.163.199
+
+<!-- --------------------------------------------------------------- -->
+How to Connect to your Droplet with OpenSSH
+
+ssh root@167.172.163.199 
+
+or 
+
+ssh -i /home/foxcodenine/digitalocean/digitalOcean.txt root@167.172.163.199
+
+<!-- --------------------------------------------------------------- -->
+$ sudo scp -i /home/foxcodenine/digitalocean/digitalOcean.txt -r /home/foxcodenine/Desktop/foxtraders/bot_1 root@167.172.163.199:/home/foxtraders
+
+Detach from a screen
+Ctrl+a Ctrl+d
+
+Resume a screen
+$ screen -r 30608
+
+Resume screen, says I am already attached
+$ screen -r -d 30608
+
+Kill detached screen session [closed]
+$ screen -X -S 30608 quit

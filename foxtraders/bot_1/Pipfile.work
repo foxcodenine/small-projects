@@ -1,17 +1,18 @@
 [[source]]
+name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
-name = "pypi"
+
+[dev-packages]
 
 [packages]
 python-dotenv = "*"
 numpy = "*"
 python-binance = "*"
 websocket-client = "*"
-sqlalchemy = "*"
-pymysql = "*"
-
-[dev-packages]
 
 [requires]
-python_version = "3.9"
+python_version = "3.7"
+
+
+# python-dotenv numpy python-binance websocket-client

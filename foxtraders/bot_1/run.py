@@ -10,8 +10,8 @@ hostname = socket.gethostname()
 
 if hostname == 'Luke_Desktop':
     my_env = 'work'
-elif hostname == 'foxcodenine':
-    my_env = 'work'
+elif hostname == 'foxcodenine-NC-V3-571G-73638':
+    my_env = 'home'
 else:
     my_env = 'production'
 
@@ -25,8 +25,8 @@ elif my_env == 'work':
     activate_this  = r'C:\Users\chris.GPC\.virtualenvs\bot_1-ZpvTSjAf\Scripts\activate_this.py'
     project_folder = r'C:\origin\foxtraders\bot_1'
 else:
-    activate_this  = ''
-    project_folder = ''
+    activate_this  = '/root/.local/share/virtualenvs/bot_1-FUXvTGGx/bin/activate_this.py'
+    project_folder = '/home/foxtraders/bot_1'
 
 # ______________________________________________________________________
 '''Loading venv & .env'''

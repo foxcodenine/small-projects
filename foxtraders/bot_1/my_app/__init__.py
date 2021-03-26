@@ -19,7 +19,9 @@ def set_app_config():
 
 
 app = set_app_config()
-
+# ______________________________________________________________________
+from my_app.database import Fxt_Data, Session
+session = Session()
 # ______________________________________________________________________
 # Global Variables
 
@@ -64,15 +66,15 @@ cur_sma = smas_list[-1]
 
 
 
-
-print(timestamps_list[-1], closes_list[-1])
-
 # ______________________________________________________________________
 def print_current():
     print('EMA -> ', round(cur_ema, 5), '|  SMA -> ', round(cur_sma, 5), '| close -> ', round(cur_close, 5))
 
 print_current()
-
+new_candle = Fxt_Data(price=cur_close, ema144=cur_ema, sma36=cur_sma)
+session.add(new_candle)
+session.query(Fxt_Data).filter(Fxt_Data.new == 'False').delete(synchronize_session=False)
+session.commit()
 # ______________________________________________________________________
 # Binance socket
 
@@ -120,21 +122,34 @@ def on_message(ws, message):
             cur_ema = ta.current_ema(cur_close, emas_list[-2], ema_window)
             emas_list[-1] = cur_ema
 
+            cur_sma = ta.current_sma(closes_list, sma_window)   
+
         else:
             print('>>>>>>>> new candle')
 
               
 
             closes_list = np.append(closes_list, float(cur_close))                  # append cur_close to closes_list list
-            timestamps_list = np.append(timestamps_list, float(cur_timestamp))      # append cur_timestamp to timestamps_list list
+            timestamps_list = np.append(timestamps_list, cur_timestamp)             # append cur_timestamp to timestamps_list list
 
             cur_ema = ta.current_ema(cur_close, emas_list[-1], ema_window)  
             emas_list = np.append(emas_list, float(cur_ema))       
             
+            cur_sma = ta.current_sma(closes_list, sma_window)   
+
+            
+            new_candle = Fxt_Data(price=cur_close, ema144=cur_ema, sma36=cur_sma, new='True')
+            session.add(new_candle)
+            session.query(Fxt_Data).filter(Fxt_Data.new == 'False').delete(synchronize_session=False)
+            session.commit()
+
+            
+
+
         
         # _________________________
 
-        cur_sma = ta.current_sma(closes_list, sma_window)   
+        
 
         print_current()
         # _________________________
