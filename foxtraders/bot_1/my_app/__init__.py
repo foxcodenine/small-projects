@@ -1,6 +1,6 @@
 # ______________________________________________________________________
 # Imports
-import os, config, websocket, json
+import os, config, websocket, json, time
 import numpy as np
 from binance.client import Client
 from my_app import ta_function as ta
@@ -44,40 +44,19 @@ symbol          = "adausdt"
 sma_window      = 36
 ema_window      = 144
 
+# test_error = 0 # <--
 # ______________________________________________________________________
 # Connect to Binance accout
 
 client = Client(api_key=app.api_key, api_secret=app.api_secret)
 
 # ______________________________________________________________________
-# Retrive Historical Data
-
-result = client.get_klines(symbol=symbol.upper(), interval=Client.KLINE_INTERVAL_1HOUR)
-
-closes_list = np.array([float(r[4]) for r in result])                   # <- historical closes
-timestamps_list = np.array([r[0] for r in result])                      # <- historical timestamps
-emas_list = ta.exp_moving_average_list(closes_list, ema_window)         # <- historical emas
-smas_list = ta.simple_moving_avrage_list(closes_list, sma_window)       # <- historical smas
-
-cur_close     = closes_list[-1]
-cur_timestamp = timestamps_list[-1]
-cur_ema = emas_list[-1]
-cur_sma = smas_list[-1]
-
-
-
-# ______________________________________________________________________
+# print function
 def print_current():
-    print('EMA -> ', round(cur_ema, 5), '|  SMA -> ', round(cur_sma, 5), '| close -> ', round(cur_close, 5))
+    print('EMA -> ', cur_ema, '|  SMA -> ', cur_sma, '| close -> ', cur_close)
 
-print_current()
-new_candle = Fxt_Data(price=cur_close, ema144=cur_ema, sma36=cur_sma)
-session.add(new_candle)
-session.query(Fxt_Data).filter(Fxt_Data.new == 'False').delete(synchronize_session=False)
-session.commit()
 # ______________________________________________________________________
 # Binance socket
-
 
 base_endpoint = "wss://stream.binance.com:9443"
 
@@ -88,20 +67,49 @@ socket_address = f"{base_endpoint}/ws/{symbol}@kline_{kline_length}"
 # ____________________________________
 
 def on_open(ws):
+
     print('Socket-Open')
+    # global test_error # <--
+    # test_error = 0 # <--
 
-def on_close(ws):
-    print('Socket-Close')
+    # _______________________
+    # Retrive Historical Data
 
-def on_error(ws, error):
-    print(error)
-
-def on_message(ws, message):
-
-    try:
+    global closes_list, timestamps_list, emas_list, smas_list
+    global cur_close, cur_timestamp, cur_ema, cur_sma
     
+    result = client.get_klines(symbol=symbol.upper(), interval=Client.KLINE_INTERVAL_1HOUR)
+
+    closes_list = np.array([float(r[4]) for r in result])                   # <- historical closes
+    timestamps_list = np.array([r[0] for r in result])                      # <- historical timestamps
+    emas_list = ta.exp_moving_average_list(closes_list, ema_window)         # <- historical emas
+    smas_list = ta.simple_moving_avrage_list(closes_list, sma_window)       # <- historical smas
+
+    cur_close     = closes_list[-1]
+    cur_timestamp = timestamps_list[-1]
+    cur_ema = emas_list[-1]
+    cur_sma = smas_list[-1]
+
+    print_current()
+    # ________________________________
+    # save to db
+    new_candle = Fxt_Data(price=cur_close, ema144=cur_ema, sma36=cur_sma, new='start_app')
+    session.add(new_candle)
+    session.commit()
+
+# ______________________________________________________________________
+# ______________________________________________________________________
+def on_message(ws, message):    
+
+    try:    
         global closes_list, timestamps_list, emas_list
         global cur_close, cur_timestamp, cur_sma , cur_ema
+
+        # global test_error # <--
+        # test_error += 1 #<--
+        # if test_error > 3: # <--
+        #     raise ValueError('text_error > 3') # <--
+
         
         # _________________________
 
@@ -113,52 +121,58 @@ def on_message(ws, message):
 
         if cur_timestamp == timestamps_list[-1]:
             
-            print('>> same candle')
+            print('___ Same Candle ___ ')
 
             closes_list[-1] = cur_close                                 # replacing closes_list[-1] with cur_close 
-
-            # print(type(cur_close),type(emas_list[-2]),type(ema_window),)
-            
+           
             cur_ema = ta.current_ema(cur_close, emas_list[-2], ema_window)
             emas_list[-1] = cur_ema
 
             cur_sma = ta.current_sma(closes_list, sma_window)   
 
         else:
-            print('>>>>>>>> new candle')
-
+            print('___ New Candle ___ New Candle ___ New Candle ___')
               
 
-            closes_list = np.append(closes_list, float(cur_close))                  # append cur_close to closes_list list
-            timestamps_list = np.append(timestamps_list, cur_timestamp)             # append cur_timestamp to timestamps_list list
+            closes_list = np.append(closes_list, float(cur_close))              # append cur_close to closes_list list
+            timestamps_list = np.append(timestamps_list, cur_timestamp)         # append cur_timestamp to timestamps_list list
 
             cur_ema = ta.current_ema(cur_close, emas_list[-1], ema_window)  
             emas_list = np.append(emas_list, float(cur_ema))       
             
-            cur_sma = ta.current_sma(closes_list, sma_window)   
+            cur_sma = ta.current_sma(closes_list, sma_window)  
 
-            
+
+            # __________________________________________________________
+            # save to db
+            # session.query(Fxt_Data).filter(Fxt_Data.new == 'False').delete(synchronize_session=False)
             new_candle = Fxt_Data(price=cur_close, ema144=cur_ema, sma36=cur_sma, new='True')
-            session.add(new_candle)
-            session.query(Fxt_Data).filter(Fxt_Data.new == 'False').delete(synchronize_session=False)
-            session.commit()
-
-            
-
-
-        
-        # _________________________
-
-        
-
+            session.add(new_candle)            
+            session.commit()  
+            # __________________________________________________________                   
+        # ______________________________________________________________
+        # Buy selling code
         print_current()
-        # _________________________
+        # ______________________________________________________________
 
     except Exception as e:
-        print(e)
-
+        print('error ->', e)
+        ws.close()          # stop loop
+        time.sleep(900)     # what 30min
+        ws.run_forever()    # restart loop
    
-# ____________________________________
+# ______________________________________________________________________
+# ______________________________________________________________________
+   
+
+def on_close(ws):
+    print('Socket-Close')
+
+def on_error(ws, error):
+    print('Socket-Error')
+    print(error)
+# ______________________________________________________________________
+# ______________________________________________________________________
 
 ws = websocket.WebSocketApp(
     socket_address, 
@@ -167,7 +181,6 @@ ws = websocket.WebSocketApp(
     on_message=on_message,
     on_error=on_error
 )
-
 ws.run_forever()
 
 

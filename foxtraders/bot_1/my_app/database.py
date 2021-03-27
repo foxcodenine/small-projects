@@ -23,8 +23,13 @@ class Fxt_Data(Base):
     price = Column(Float, nullable=False)
     ema144 = Column(Float, nullable=False)
     sma36 = Column(Float, nullable=False)
-    new =   Column(String(10), default='False')
+    new =   Column(String(10))
 
+    def __init__(self, price, ema144, sma36, new='False'):
+        self.price = price
+        self.ema144 = ema144
+        self.sma36 = sma36
+        self.new = new
 
 # ______________________________________________________________________
 Base.metadata.create_all(engine)

@@ -60,6 +60,7 @@ ssh root@167.172.163.199
 or 
 
 ssh -i /home/foxcodenine/digitalocean/digitalOcean.txt root@167.172.163.199
+ssh -i /g/digitalocean/digitalOcean.txt root@167.172.163.199
 
 <!-- --------------------------------------------------------------- -->
 $ sudo scp -i /home/foxcodenine/digitalocean/digitalOcean.txt -r /home/foxcodenine/Desktop/foxtraders/bot_1 root@167.172.163.199:/home/foxtraders
@@ -75,3 +76,28 @@ $ screen -r -d 30608
 
 Kill detached screen session [closed]
 $ screen -X -S 30608 quit
+
+
+<!-- --------------------------------------------------------------- -->
+
+### MySql
+
+Show all users
+mysql> SELECT User,Host FROM mysql.user;
+
+Create new user
+mysql> CREATE USER superman@localhost IDENTIFIED BY 'red_and_blue_12';
+
+To Grant permissions to a user.
+mysql> GRANT ALL PRIVILEGES ON * . * TO superman@localhost;
+
+<!-- -------------- -->
+Delete user
+mysql> DROP USER newuser@localhost;
+
+To update host:
+mysql> UPDATE mysql.user SET host="localhost" WHERE user="admin";
+
+<!-- --------------------------------------------------------------- -->
+
+
