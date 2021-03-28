@@ -1,5 +1,5 @@
 from my_app import app
-from sqlalchemy import create_engine, Column, DateTime, String, Numeric, Integer, func, DECIMAL, Float
+from sqlalchemy import create_engine, Column, DateTime, String, Numeric, Integer, func, DECIMAL, Float, Text
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
@@ -19,17 +19,46 @@ class Fxt_Data(Base):
 
     id = Column(Integer, primary_key=True)
     candle = Column(DateTime, default=func.now())
-
-    price = Column(Float, nullable=False)
+    price  = Column(Float, nullable=False)
     ema144 = Column(Float, nullable=False)
-    sma36 = Column(Float, nullable=False)
-    new =   Column(String(10))
+    sma36  = Column(Float, nullable=False)
+    status = Column(String(50))
 
-    def __init__(self, price, ema144, sma36, new='False'):
+    def __init__(self, price, ema144, sma36, status='null'):
         self.price = price
         self.ema144 = ema144
         self.sma36 = sma36
-        self.new = new
+        self.status = status
+
+# ____________________
+
+
+class Fxt_Action(Base):
+    __tablename__ = 'fxt_action'
+
+    id = Column(Integer, primary_key=True)
+
+    timedate = Column(DateTime, default=func.now())
+    action   = Column(String(255))
+    price    = Column(Float, nullable=False)
+
+    def __init__(self, action, price):
+        self.action = action
+        self.price  = price
+
+# ____________________
+
+
+class Fxt_Error(Base):
+    __tablename__ = 'fxt_error'
+
+    id = Column(Integer, primary_key=True)
+
+    timedate = Column(DateTime, default=func.now())
+    error   = Column(Text)
+
+    def __init__(self, error):
+        self.error = error  
 
 # ______________________________________________________________________
 Base.metadata.create_all(engine)
