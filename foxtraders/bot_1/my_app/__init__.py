@@ -40,10 +40,10 @@ cur_timestamp   = None
 cur_ema         = None
 cur_sma         = None
 
-buy_price       = None
+buy_price       = 0
 sell_timestamp  = None
 rebuy_count     = 0
-rebuy_max       = 4
+rebuy_max       = 5
 
 
 symbol1         = "ada"
@@ -66,6 +66,12 @@ trade_qty       = 300
 
 kline_length ="1h" # <-- also need to update in Resalt @ Retrive Historical Data
                    #     look for "# <- (AAA)"
+
+# __________________________
+# Moving Stop Loss
+msl             = 0
+msl_on          = True
+msl_per         = 0.95
 
 # test_error = 0 # <--
 # ______________________________________________________________________
@@ -166,7 +172,7 @@ def on_message(ws, message):
         global closes_list, timestamps_list, emas_list
         global cur_close, cur_timestamp, cur_sma , cur_ema
         global in_position, sell_conditions, buy_conditions
-        global sell_percentage, sell_timestamp, rebuy_count, buy_price
+        global sell_percentage, sell_timestamp, rebuy_count, buy_price, msl
 
         # global test_error # <--
         # test_error += 1 #<--
@@ -205,6 +211,9 @@ def on_message(ws, message):
             
             cur_sma = ta.current_sma(closes_list, sma_window)  
 
+            if cur_close * msl_per > msl:                               # updating the moving stop loss
+                msl = cur_close * msl_per
+
 
             # __________________________________________________________
             # save to db
@@ -232,16 +241,23 @@ def on_message(ws, message):
             
             else:
                 if buy_price and cur_close/buy_price > sell_in_profit:
-                    # ACTION SELL PRICE > 
+                    # ACTION SELL (PRICE % OVER BUY)
                     message = binance_order(action='sell', qty=trade_qty, sym1=symbol1, sym2=symbol2, price=cur_close)
                     save_to_fxt_action(f'sell_+{round((sell_in_profit-1)*100,1)}% {message}', cur_close)
                     in_position = False
                     sell_conditions = False
                 
                 elif cur_close/cur_sma > over_sma and cur_sma > cur_ema:
-                    # ACTION SELL
+                    # ACTION SELL (PRICE % OVER SMA)
                     message = binance_order(action='sell', qty=trade_qty, sym1=symbol1, sym2=symbol2, price=cur_close)
                     save_to_fxt_action(f'sell_+{round((over_sma - 1) * 100, 1)}%_over_sma {message}', cur_close)
+                    in_position = False
+                    sell_conditions = False
+                
+                elif msl_on and msl > cur_close and cur_close > cur_ema and cur_close > buy_price:
+                    # ACTION SELL (PRICE UNDER MSL) 
+                    message = binance_order(action='sell', qty=trade_qty, sym1=symbol1, sym2=symbol2, price=cur_close)
+                    save_to_fxt_action('sell_price_under_msl', cur_close)
                     in_position = False
                     sell_conditions = False
 
@@ -251,7 +267,7 @@ def on_message(ws, message):
                     sell_conditions = True
                 
                 elif cur_close < cur_sma and sell_conditions == True and cur_sma/cur_ema > sell_percentage:
-                    # ACTION SELL 
+                    # ACTION SELL (PRICE UNDER SMA) 
                     message = binance_order(action='sell', qty=trade_qty, sym1=symbol1, sym2=symbol2, price=cur_close)
                     save_to_fxt_action(f'sell_{round((sell_percentage - 1) * 100, 1)}%_sma_to_ema {message}', cur_close)
                     in_position = False
@@ -271,17 +287,18 @@ def on_message(ws, message):
                 buy_conditions  = True
 
             elif cur_close > (cur_ema * 1.006) and buy_conditions == True:
-                # ACTION BUY
+                # ACTION BUY (PRICE OVER EMA)
                 message = binance_order(action='buy', qty=trade_qty, sym1=symbol1, sym2=symbol2, price=cur_close)
-                save_to_fxt_action(f'buy{message}', cur_close)
+                save_to_fxt_action(f'buy {message}', cur_close)
                 in_position = True
                 buy_conditions  = False
                 sell_conditions = False
                 rebuy_count = 0
                 buy_price = cur_close
+                msl = 0
             
-            elif cur_sma > cur_ema and sell_timestamp == cur_timestamp and rebuy_count <= rebuy_max and cur_close > cur_sma * 1.006:
-                # ACTION RE_BUY
+            elif cur_sma > cur_ema and sell_timestamp == cur_timestamp and rebuy_count <= rebuy_max and cur_close > (cur_sma * 1.006):
+                # ACTION RE_BUY (PRICE RE-OVER SMA)
                 message = binance_order(action='buy', qty=trade_qty, sym1=symbol1, sym2=symbol2, price=cur_close)
                 save_to_fxt_action(f'rebuy {message}', cur_close)
                 rebuy_count += 1
