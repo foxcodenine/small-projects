@@ -4,12 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-python-dotenv = "*"
-numpy = "*"
+flask = "*"
 python-binance = "*"
-websocket-client = "*"
-sqlalchemy = "*"
-pymysql = "*"
 
 [dev-packages]
 
