@@ -51,8 +51,9 @@ cur_sma         = None
 
 kline_length ="1h" # <-- also need to update in Resalt @ Retrive Historical Data
                    #     look for "# <- (AAA)"
-buy_price       = 0
+
 sell_timestamp  = None
+msl             = 0 # (current moving stoploss, will be adjusted automaticaly)
 
 # ______________________________________
 # On Open Variables
@@ -60,6 +61,8 @@ sell_timestamp  = None
 symbol1         = "ada"
 symbol2         = "usdt"
 symbol          = symbol1 + symbol2
+
+buy_price       = 0
 
 in_position     = False
 sell_conditions = False
@@ -92,14 +95,14 @@ over_sma        = 1.175
 
 buy_gap         = 1.006
 
+rebuy_gap       = 1.006
 rebuy_count     = 0
 rebuy_max       = 5
-rebuy_gap       = 1.006
+
 
 # ______________________________________
 # Moving Stop Loss
 
-msl             = 0
 msl_on          = True
 msl_per         = 0.95
 
@@ -159,12 +162,17 @@ def binance_order(action, qty, sym1, sym2, price):
     # __________________________________
 
     except BinanceAPIException as e:
+        print('Binance API Exception >->')
         print( f'{action.upper()} ERROR | Binance Error -> {e}')
         return f'{action.upper()} ERROR | Binance Error -> {e}'
 
 # ______________________________________________________________________
 def loading_settings():
     global sell_qty, buy_qty, sma_window, ema_window, sma_offset, ema_offset 
+    global sell_percentage, sell_in_profit, over_sma, msl_on, msl_per
+    global buy_gap, rebuy_gap, rebuy_count, rebuy_max
+
+    print('Loading Settings >->')
 
     sell_qty   =  float(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'sell_qty').first().value)
     buy_qty    =  float(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'buy_qty').first().value)
@@ -174,6 +182,27 @@ def loading_settings():
 
     sma_offset =  float(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'sma_offset').first().value)
     ema_offset =  float(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'ema_offset').first().value)
+
+    sell_percentage = float(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'sell_percentage').first().value)
+    sell_in_profit  = float(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'sell_in_profit').first().value)
+    over_sma        = float(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'over_sma').first().value)
+
+    buy_gap = float(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'buy_gap').first().value)
+
+    rebuy_gap   = float(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'rebuy_gap').first().value)
+    rebuy_count = int(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'rebuy_count').first().value)
+    rebuy_max   = int(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'rebuy_max').first().value)
+
+    msl_on =  bool(int(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'msl_on').first().value))
+    msl_per = float(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'msl_per').first().value)
+
+# buy_gap         = 1.006
+
+# rebuy_gap       = 1.006
+# rebuy_count     = 0
+# rebuy_max       = 5
+
+
 # ______________________________________________________________________
 # Binance socket
 
@@ -181,6 +210,8 @@ def loading_settings():
 symbol1 =  session.query(Fxt_Settings).filter(Fxt_Settings.name == 'symbol1').first().value
 symbol2 =  session.query(Fxt_Settings).filter(Fxt_Settings.name == 'symbol2').first().value
 symbol = symbol1 + symbol2
+
+buy_price = float(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'buy_price').first().value)
 
 in_position =      bool(int(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'in_position').first().value))
 sell_conditions =  bool(int(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'sell_conditions').first().value))
@@ -198,7 +229,7 @@ socket_address = f"{base_endpoint}/ws/{symbol}@kline_{kline_length}"
 
 def on_open(ws):
 
-    print('Socket-Open')
+    print('Socket-Open >->')
     # global test_error # <--
     # test_error = 0 # <--
 
@@ -320,7 +351,7 @@ def on_message(ws, message):
             
             else:
                 if buy_price and cur_close/buy_price > sell_in_profit:
-                    # ACTION SELL (PRICE % OVER BUY)
+                    # ACTION SELL (PRICE % OVER BUY) (Test Ok)
                     message = binance_order(action='sell', qty=sell_qty, sym1=symbol1, sym2=symbol2, price=cur_close)
                     save_to_fxt_action(f'sell_+{round((sell_in_profit-1)*100,1)}% {message}', cur_close)
                     in_position = False
@@ -341,12 +372,12 @@ def on_message(ws, message):
                     sell_conditions = False
 
                 elif cur_close > (cur_sma + sma_offset) and sell_conditions == False:
-                    # SELL CONDITIONS ON
+                    # SELL CONDITIONS ON (Test Ok)
                     save_to_fxt_action('sell_condition_on', cur_close)
                     sell_conditions = True
                 
                 elif cur_close < (cur_sma + sma_offset) and sell_conditions == True and (cur_sma + sma_offset)/(cur_ema + ema_offset) > sell_percentage:
-                    # ACTION SELL (PRICE UNDER SMA) 
+                    # ACTION SELL (PRICE UNDER SMA) (Test Ok)
                     message = binance_order(action='sell', qty=sell_qty, sym1=symbol1, sym2=symbol2, price=cur_close)
                     save_to_fxt_action(f'sell_{round((sell_percentage - 1) * 100, 1)}%_sma_to_ema {message}', cur_close)
                     in_position = False
@@ -361,12 +392,12 @@ def on_message(ws, message):
         if not in_position:
 
             if cur_close < (cur_ema + ema_offset) and buy_conditions == False:
-                # RESET BUY CONDITIONS
+                # RESET BUY CONDITIONS (Test Ok)
                 save_to_fxt_action('reset_buy_condition', cur_close)
                 buy_conditions  = True
 
             elif cur_close > ((cur_ema + ema_offset) * buy_gap ) and buy_conditions == True:
-                # ACTION BUY (PRICE OVER EMA)
+                # ACTION BUY (PRICE OVER EMA) (Test Ok)
                 message = binance_order(action='buy', qty=buy_qty, sym1=symbol1, sym2=symbol2, price=cur_close)
                 save_to_fxt_action(f'buy {message}', cur_close)
                 in_position = True
@@ -389,7 +420,7 @@ def on_message(ws, message):
 
     except Exception as e:
 
-        print('error ->', e)
+        print('Exception-Error >->', e)
         ws.close()                      # <- stop loop
 
         new_error = Fxt_Error(error=e)  # <- save to db
@@ -403,10 +434,10 @@ def on_message(ws, message):
 ########################################################################
    
 def on_close(ws):
-    print('Socket-Close')
+    print('Socket-Close >->')
 
 def on_error(ws, error):
-    print('Socket-Error')
+    print('Socket-Error >->')
     print(error)
 # ______________________________________________________________________
 # ______________________________________________________________________
