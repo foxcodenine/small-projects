@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <title>Login Page</title>
+</head>
+<body>
+
+    <div class="login">
+        <div class="login__layout">
+
+            
+
+            <form action="{{ url_for('signin') }}" method="POST" class="myform login__form">
+
+                <h2 class="myform__title">Welcome to foxtrade</h2>
+                {{ form.csrf_token }}
+                <div class="myform__group myform__group--1">
+                    {{ form.email.label(class="myform__label") }}  
+                    {{ form.email(class="myform__input") }} 
+                </div>
+
+                <div class="myform__group myform__group--2">
+                    {{ form.password.label(class="myform__label") }}
+                    {{ form.password(class="myform__input", id="password-field", type="password") }}
+
+                    <span toggle="#password-field"  id="toggle-password"
+                    class="fa fa-fw fa-eye-slash myform__icon--toggle-password"></span>
+                </div>
+
+                {{ form.submit(class="btn btn--dark myform__btn", value="sign in") }}
+
+            </form>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <script src="../static/script.js"></script>
+    </footer>
+</body>
+</html>

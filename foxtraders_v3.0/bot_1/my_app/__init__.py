@@ -8,6 +8,8 @@ from my_app import ta_function as ta
 from binance.enums import SIDE_BUY, SIDE_SELL, ORDER_TYPE_MARKET
 from binance.exceptions import BinanceAPIException
 
+from datetime import datetime
+
 # ______________________________________________________________________
 # App Configurations
 
@@ -24,7 +26,7 @@ def set_app_config():
 app = set_app_config()
 # ______________________________________________________________________
 from my_app.database import Session, Fxt_Data, Fxt_Action, Fxt_Error
-from _settings import Fxt_Settings
+from _settings import Fxt_Settings, Fxt_Current
 session = Session()
 
 ########################################################################
@@ -53,8 +55,9 @@ kline_length ="1h" # <-- also need to update in Resalt @ Retrive Historical Data
                    #     look for "# <- (AAA)"
 
 sell_timestamp  = None
-msl             = 0 # (current moving stoploss, will be adjusted automaticaly)
-
+cur_msl             = 0 # (current moving stoploss, will be adjusted automaticaly)
+cur_trail           = 0
+target_reached      = False
 # ______________________________________
 # On Open Variables
 
@@ -87,7 +90,7 @@ ema_offset      = 0
 # Selling Variables
 
 sell_percentage = 1.08
-sell_in_profit  = 1.35
+sell_target  = 1.35
 over_sma        = 1.175
 
 # ______________________________________
@@ -105,6 +108,13 @@ rebuy_max       = 5
 
 msl_on          = True
 msl_per         = 0.95
+
+
+# ______________________________________
+# Trailing
+
+trailing_on = False
+trailing_per = 0.98
 
 # ______________________________________
 # test_error = 0 # <--
@@ -169,8 +179,8 @@ def binance_order(action, qty, sym1, sym2, price):
 # ______________________________________________________________________
 def loading_settings():
     global sell_qty, buy_qty, sma_window, ema_window, sma_offset, ema_offset 
-    global sell_percentage, sell_in_profit, over_sma, msl_on, msl_per
-    global buy_gap, rebuy_gap, rebuy_count, rebuy_max
+    global sell_percentage, sell_target, over_sma, msl_on, msl_per
+    global buy_gap, rebuy_gap, rebuy_count, rebuy_max, trailing_on, trailing_per
 
     print('Loading Settings >->')
 
@@ -184,7 +194,7 @@ def loading_settings():
     ema_offset =  float(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'ema_offset').first().value)
 
     sell_percentage = float(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'sell_percentage').first().value)
-    sell_in_profit  = float(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'sell_in_profit').first().value)
+    sell_target  = float(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'sell_target').first().value)
     over_sma        = float(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'over_sma').first().value)
 
     buy_gap = float(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'buy_gap').first().value)
@@ -196,12 +206,38 @@ def loading_settings():
     msl_on =  bool(int(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'msl_on').first().value))
     msl_per = float(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'msl_per').first().value)
 
-# buy_gap         = 1.006
+    trailing_on =  bool(int(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'trailing_on').first().value))
+    trailing_per = float(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'trailing_per').first().value)
+# ______________________________________________________________________
 
-# rebuy_gap       = 1.006
-# rebuy_count     = 0
-# rebuy_max       = 5
+def upload_settings(code):
+    
+    session.query(Fxt_Current).filter(
+        Fxt_Current.name == 'in_position'
+    ).update({'value': int(in_position)}, synchronize_session=False)
 
+    session.query(Fxt_Current).filter(
+        Fxt_Current.name == 'buy_price'
+    ).update({'value': buy_price}, synchronize_session=False)
+
+    session.query(Fxt_Current).filter(
+        Fxt_Current.name == 'sell_conditions'
+    ).update({'value': int(sell_conditions)}, synchronize_session=False)
+
+    session.query(Fxt_Current).filter(
+        Fxt_Current.name == 'buy_conditions'
+    ).update({'value': int(buy_conditions)}, synchronize_session=False)
+    session.commit()
+
+    session.query(Fxt_Current).filter(
+        Fxt_Current.name == 'datetime'
+    ).update({'value': f'{datetime.utcnow()}'}, synchronize_session=False)
+    session.commit()
+
+    session.query(Fxt_Current).filter(
+        Fxt_Current.name == 'code'
+    ).update({'value': code}, synchronize_session=False)
+    session.commit()
 
 # ______________________________________________________________________
 # Binance socket
@@ -262,6 +298,8 @@ def on_open(ws):
     session.add(new_candle)
     session.commit()
 
+    upload_settings('OPEN')
+
 
 ########################################################################
 ########################################################################
@@ -273,7 +311,8 @@ def on_message(ws, message):
         global closes_list, timestamps_list, emas_list
         global cur_close, cur_timestamp, cur_sma , cur_ema
         global in_position, sell_conditions, buy_conditions
-        global sell_percentage, sell_timestamp, rebuy_count, buy_price, msl
+        global sell_percentage, sell_timestamp, rebuy_count, buy_price, cur_msl
+        global cur_trail, target_reached
         
 
         # _________________________
@@ -296,19 +335,26 @@ def on_message(ws, message):
             
             print('___ Same Candle ___ ')
 
-            print(f'<-{sell_qty}-> <-{buy_qty}->') # <- <-
-
-            closes_list[-1] = cur_close                                         # replacing closes_list[-1] with cur_close 
+            
+            closes_list[-1] = cur_close                                 # replacing closes_list[-1] with cur_close 
            
             cur_ema = ta.current_ema(cur_close, emas_list[-2], ema_window)
             emas_list[-1] = cur_ema
 
-            cur_sma = ta.current_sma(closes_list, sma_window)   
+            cur_sma = ta.current_sma(closes_list, sma_window) 
+
+            if cur_close * msl_per > cur_msl:                           # updating the moving stop loss value
+                cur_msl = cur_close * msl_per 
+
+            if cur_close * trailing_per > cur_trail:                    # updating the traling value
+                cur_trail = cur_close * trailing_per
 
         else:
             print('___ New Candle ___ New Candle ___ New Candle ___')
-              
+
+            print(sell_percentage)  
             loading_settings()
+            print(sell_percentage)  
             
             closes_list = np.append(closes_list, float(cur_close))              # append cur_close to closes_list list
             timestamps_list = np.append(timestamps_list, cur_timestamp)         # append cur_timestamp to timestamps_list list
@@ -318,9 +364,11 @@ def on_message(ws, message):
             
             cur_sma = ta.current_sma(closes_list, sma_window)  
 
-            if cur_close * msl_per > msl:                               # updating the moving stop loss
-                msl = cur_close * msl_per
+            if cur_close * msl_per > cur_msl:                           # updating the moving stop loss
+                cur_msl = cur_close * msl_per
 
+            if cur_close * trailing_per > cur_trail:                    # updating the traling value
+                cur_trail = cur_close * trailing_per
 
             # __________________________________________________________
             # save to db
@@ -340,6 +388,7 @@ def on_message(ws, message):
         if in_position:
 
             if cur_close < (cur_ema + ema_offset):
+                print('AAA')
                 # ACTION STOP LOSS
                 # binance_order(action, qty, sym1, sym2, cur_close)
                 message = binance_order(action='sell', qty=sell_qty, sym1=symbol1, sym2=symbol2, price=cur_close)
@@ -347,56 +396,91 @@ def on_message(ws, message):
                 in_position = False
                 sell_conditions = False
                 buy_conditions  = True
+                upload_settings('AAA')
             
             
             else:
-                if buy_price and cur_close/buy_price > sell_in_profit:
-                    # ACTION SELL (PRICE % OVER BUY) (Test Ok)
+                if buy_price and cur_close/buy_price > sell_target:
+                    print('BBB')
+
+                    if not trailing_on:
+                        print('CCC')
+                        # ACTION SELL (TARGET REACHED) (Test Ok)
+                        message = binance_order(action='sell', qty=sell_qty, sym1=symbol1, sym2=symbol2, price=cur_close)
+                        save_to_fxt_action(f'sell_target_reached_+{round((sell_target-1)*100,1)}% {message}', cur_close)
+                        in_position = False
+                        sell_conditions = False 
+                        upload_settings('CCC')
+
+                    elif not target_reached:
+                        print('DDD')
+                        target_reached = True
+                        upload_settings('DDD')
+
+                elif target_reached and cur_close < cur_trail:
+                    print('EEE')
+                    # ACTION SELL (TARGET REACHED TRAILING) 
                     message = binance_order(action='sell', qty=sell_qty, sym1=symbol1, sym2=symbol2, price=cur_close)
-                    save_to_fxt_action(f'sell_+{round((sell_in_profit-1)*100,1)}% {message}', cur_close)
+                    save_to_fxt_action(f'sell_traling_+{round((sell_target-1)*100,1)}%_{round((trailing_per-1)*100,1)}% {message}', cur_close)
                     in_position = False
                     sell_conditions = False
+                    target_reached = False
+                    upload_settings('EEE')
                 
                 elif cur_close/(cur_sma + sma_offset) > over_sma and (cur_sma + sma_offset) > (cur_ema + ema_offset):
-                    # ACTION SELL (PRICE % OVER SMA)
+                    print('FFF')
+                    # ACTION SELL (PRICE % OVER SMA)                
                     message = binance_order(action='sell', qty=sell_qty, sym1=symbol1, sym2=symbol2, price=cur_close)
                     save_to_fxt_action(f'sell_+{round((over_sma - 1) * 100, 1)}%_over_sma {message}', cur_close)
                     in_position = False
                     sell_conditions = False
+                    upload_settings('FFF')
+
                 
-                elif msl_on and msl > cur_close and cur_close > (cur_ema + ema_offset) and cur_close > buy_price:
+                elif msl_on and cur_close < cur_msl and cur_close > (cur_ema + ema_offset) and cur_close > buy_price:
+                    print('GGG')
                     # ACTION SELL (PRICE UNDER MSL) 
                     message = binance_order(action='sell', qty=sell_qty, sym1=symbol1, sym2=symbol2, price=cur_close)
                     save_to_fxt_action('sell_price_under_msl', cur_close)
                     in_position = False
                     sell_conditions = False
+                    upload_settings('GGG')
 
                 elif cur_close > (cur_sma + sma_offset) and sell_conditions == False:
+                    print('HHH')
                     # SELL CONDITIONS ON (Test Ok)
                     save_to_fxt_action('sell_condition_on', cur_close)
                     sell_conditions = True
+                    upload_settings('HHH')
                 
                 elif cur_close < (cur_sma + sma_offset) and sell_conditions == True and (cur_sma + sma_offset)/(cur_ema + ema_offset) > sell_percentage:
+                    print('III')
                     # ACTION SELL (PRICE UNDER SMA) (Test Ok)
                     message = binance_order(action='sell', qty=sell_qty, sym1=symbol1, sym2=symbol2, price=cur_close)
                     save_to_fxt_action(f'sell_{round((sell_percentage - 1) * 100, 1)}%_sma_to_ema {message}', cur_close)
                     in_position = False
                     sell_conditions = False
                     sell_timestamp = cur_timestamp
+                    upload_settings('III')
 
                 elif cur_close < (cur_sma + sma_offset) and sell_conditions == True:
+                    print('JJJ')
                     # SELL CONDITIONS OFF
                     save_to_fxt_action('sell_condition_off', cur_close)
                     sell_conditions = False
+                    upload_settings('JJJ')
         
         if not in_position:
 
             if cur_close < (cur_ema + ema_offset) and buy_conditions == False:
+                print('KKK')
                 # RESET BUY CONDITIONS (Test Ok)
                 save_to_fxt_action('reset_buy_condition', cur_close)
                 buy_conditions  = True
+                upload_settings('KKK')
 
             elif cur_close > ((cur_ema + ema_offset) * buy_gap ) and buy_conditions == True:
+                print('LLL')
                 # ACTION BUY (PRICE OVER EMA) (Test Ok)
                 message = binance_order(action='buy', qty=buy_qty, sym1=symbol1, sym2=symbol2, price=cur_close)
                 save_to_fxt_action(f'buy {message}', cur_close)
@@ -405,9 +489,13 @@ def on_message(ws, message):
                 sell_conditions = False
                 rebuy_count = 0
                 buy_price = cur_close
-                msl = 0
+                cur_msl = 0
+                cur_trail = 0
+                target_reached = False
+                upload_settings('LLL')
             
             elif (cur_sma + sma_offset) > (cur_ema + ema_offset) and sell_timestamp == cur_timestamp and rebuy_count <= rebuy_max and cur_close > ((cur_sma + sma_offset) * rebuy_gap):
+                print('MMM')
                 # ACTION RE_BUY (PRICE RE-OVER SMA)
                 message = binance_order(action='buy', qty=buy_qty, sym1=symbol1, sym2=symbol2, price=cur_close)
                 save_to_fxt_action(f'rebuy {message}', cur_close)
@@ -415,6 +503,7 @@ def on_message(ws, message):
                 in_position = True
                 buy_conditions  = False
                 sell_conditions = True
+                upload_settings('MMM')
 
         # ______________________________________________________________
 
@@ -423,11 +512,11 @@ def on_message(ws, message):
         print('Exception-Error >->', e)
         ws.close()                      # <- stop loop
 
-        new_error = Fxt_Error(error=e)  # <- save to db
+        new_error = Fxt_Error(error=f'Exception-Error >-> {e}')  # <- save to db
         session.add(new_error)
         session.commit()
 
-        time.sleep(900)                 # <- what 30min
+        time.sleep(900)                 # <- wait 30min
         ws.run_forever()                # <- restart loop
    
 ########################################################################
@@ -439,6 +528,16 @@ def on_close(ws):
 def on_error(ws, error):
     print('Socket-Error >->')
     print(error)
+
+    print(datetime.utcnow())
+
+    new_error = Fxt_Error(error=f'Socket-Error >-> {error}')  # <- save to db
+    session.add(new_error)
+    session.commit()
+    
+    ws.close() 
+    time.sleep(900)
+    ws.run_forever()
 # ______________________________________________________________________
 # ______________________________________________________________________
 

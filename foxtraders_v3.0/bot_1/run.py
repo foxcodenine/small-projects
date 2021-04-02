@@ -19,7 +19,7 @@ else:
 '''Selecting venv dir & project dir'''
 
 if my_env   == 'home':
-    activate_this  = '/home/foxcodenine/.local/share/virtualenvs/bot_1-r5DZ6mnM/bin/activate_this.py'
+    activate_this  = '/home/foxcodenine/.local/share/virtualenvs/bot_1-ed9ImTCi/bin/activate_this.py'
     project_folder = '/home/foxcodenine/Desktop/foxtraders/bot_1'
 elif my_env == 'work':
     activate_this  = r'C:\Users\chris.GPC\.virtualenvs\bot_1-ZpvTSjAf\Scripts\activate_this.py'

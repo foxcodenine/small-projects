@@ -19,7 +19,7 @@ else:
 '''Selecting venv dir & project dir'''
 
 if my_env   == 'home':
-    activate_this  = '/home/foxcodenine/.local/share/virtualenvs/bot_1-r5DZ6mnM/bin/activate_this.py'
+    activate_this  = '/home/foxcodenine/.local/share/virtualenvs/bot_1-ed9ImTCi/bin/activate_this.py'
     project_folder = '/home/foxcodenine/Desktop/foxtraders/bot_1'
 elif my_env == 'work':
     activate_this  = r'C:\Users\chris.GPC\.virtualenvs\bot_1-ZpvTSjAf\Scripts\activate_this.py'
@@ -38,10 +38,18 @@ with open(activate_this) as file_:
 from dotenv import load_dotenv
 
 load_dotenv(os.path.join(project_folder, '.env'), override=True)
-os.environ['MY_ENV'] = my_env
+
+if my_env == 'home' or my_env == 'work':
+    os.environ['FLASK_ENV'] = 'development'
+else:
+    os.environ['FLASK_ENV'] = 'production'
+
+os.environ['MY_FLASK_ENV'] = my_env
 
 # ______________________________________________________________________
 '''Starting app'''
 
 if __name__ == '__main__':
-    import my_app
+    from my_web import app
+    
+    app.run(host='0.0.0.0', port=5559)
