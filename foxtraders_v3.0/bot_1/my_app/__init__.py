@@ -36,17 +36,24 @@ session = Session()
 # Historical Data (numpy.array)
 
 closes_list     = None
+highs_list      = None
+lows_list       = None
 timestamps_list = None
 emas_list       = None
 smas_list       = None
+atr_list        = None
 
 # ______________________________________
 # Current data 
 
 cur_close       = None
+cur_high        = None
+cur_low         = None
 cur_timestamp   = None
 cur_ema         = None
 cur_sma         = None
+cur_atr         = None
+
 
 # ______________________________________
 # Non Adjustable Variables
@@ -96,11 +103,14 @@ over_sma        = 1.175
 # ______________________________________
 # Buying Variables
 
-buy_gap         = 1.006
-
-rebuy_gap       = 1.006
+buy_gap         = 1.00
+rebuy_gap       = 1.00
 rebuy_count     = 0
 rebuy_max       = 5
+
+
+atr_window      = 14
+atr_multi       = 2    
 
 
 # ______________________________________
@@ -130,7 +140,19 @@ client = Client(api_key=app.api_key, api_secret=app.api_secret)
 # ______________________________________________________________________
 # Helper functions
 def print_currents():
-    print('EMA -> ', cur_ema, '|  SMA -> ', cur_sma, '| close -> ', cur_close)
+    
+    print(
+        symbol,
+        ' price:',  round(cur_close, 5),
+        ' ema:',    round(cur_ema, 5),
+        ' sma:',    round(cur_sma, 5),
+        ' atr:',    round(cur_atr, 5),
+        ' spl:',    round(cur_ema + ema_offset - (cur_atr * atr_multi), 5),
+        ' msl:',    round(cur_msl, 5),
+        ' trail:',  round(cur_trail, 5),
+        ' target reached:', target_reached
+
+    )
 
 # _____________________________
 
@@ -178,9 +200,10 @@ def binance_order(action, qty, sym1, sym2, price):
 
 # ______________________________________________________________________
 def loading_settings():
-    global sell_qty, buy_qty, sma_window, ema_window, sma_offset, ema_offset 
+    global sell_qty, buy_qty, sma_window, ema_window,  sma_offset, ema_offset 
     global sell_percentage, sell_target, over_sma, msl_on, msl_per
     global buy_gap, rebuy_gap, rebuy_count, rebuy_max, trailing_on, trailing_per
+    global atr_window, atr_multi
 
     print('Loading Settings >->')
 
@@ -189,6 +212,8 @@ def loading_settings():
 
     sma_window =  int(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'sma_window').first().value)
     ema_window =  int(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'ema_window').first().value)
+    atr_window =  int(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'atr_window').first().value)
+    atr_multi =   float(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'atr_multi').first().value)
 
     sma_offset =  float(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'sma_offset').first().value)
     ema_offset =  float(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'ema_offset').first().value)
@@ -198,7 +223,6 @@ def loading_settings():
     over_sma        = float(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'over_sma').first().value)
 
     buy_gap = float(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'buy_gap').first().value)
-
     rebuy_gap   = float(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'rebuy_gap').first().value)
     rebuy_count = int(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'rebuy_count').first().value)
     rebuy_max   = int(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'rebuy_max').first().value)
@@ -272,8 +296,9 @@ def on_open(ws):
     # _______________________
     # Retrive Historical Data
 
-    global closes_list, timestamps_list, emas_list, smas_list
-    global cur_close, cur_timestamp, cur_ema, cur_sma
+    global closes_list, timestamps_list, emas_list, smas_list, lows_list, highs_list
+    global cur_close, cur_timestamp, cur_ema, cur_sma, cur_low, cur_high, cur_atr
+    global atr_list, cur_atr
        
     
     loading_settings()
@@ -282,19 +307,29 @@ def on_open(ws):
     result = client.get_klines(symbol=symbol.upper(), interval=Client.KLINE_INTERVAL_1HOUR) # <- (AAA)
 
     closes_list = np.array([float(r[4]) for r in result])                   # <- historical closes
+    lows_list = np.array([float(r[3]) for r in result])                     # <- historical lows
+    highs_list = np.array([float(r[2]) for r in result])                    # <- historical highs
     timestamps_list = np.array([r[0] for r in result])                      # <- historical timestamps
     emas_list = ta.exp_moving_average_list(closes_list, ema_window)         # <- historical emas
     smas_list = ta.simple_moving_avrage_list(closes_list, sma_window)       # <- historical smas
 
     cur_close     = closes_list[-1]
+    cur_high      = highs_list[-1]
+    cur_low       = lows_list[-1]
     cur_timestamp = timestamps_list[-1]
     cur_ema = emas_list[-1]
     cur_sma = smas_list[-1]
 
+
+    atr_list = ta.average_true_range_list(closes_list, lows_list, highs_list, atr_window)
+    cur_atr = atr_list[-1]
+
+
+
     print_currents()
     # ________________________________
     # save to db
-    new_candle = Fxt_Data(price=cur_close, ema=cur_ema, sma=cur_sma, status='start_app')
+    new_candle = Fxt_Data(price=cur_close, ema=cur_ema, sma=cur_sma, atr=cur_atr,  status='start_app')
     session.add(new_candle)
     session.commit()
 
@@ -308,11 +343,12 @@ def on_open(ws):
 def on_message(ws, message): 
 
     try:    
-        global closes_list, timestamps_list, emas_list
-        global cur_close, cur_timestamp, cur_sma , cur_ema
+        global closes_list, timestamps_list, emas_list, lows_list, highs_list
+        global cur_close, cur_timestamp, cur_sma , cur_ema, cur_low, cur_high
         global in_position, sell_conditions, buy_conditions
         global sell_percentage, sell_timestamp, rebuy_count, buy_price, cur_msl
         global cur_trail, target_reached
+        global atr_list, cur_atr
         
 
         # _________________________
@@ -327,6 +363,8 @@ def on_message(ws, message):
 
         cur_timestamp   = json.loads(message)['k']['t']
         cur_close = float(json.loads(message)['k']['c'])
+        cur_low   = float(json.loads(message)['k']['l'])
+        cur_high  = float(json.loads(message)['k']['h'])
 
         # _________________________
 
@@ -337,6 +375,9 @@ def on_message(ws, message):
 
             
             closes_list[-1] = cur_close                                 # replacing closes_list[-1] with cur_close 
+            lows_list[-1] = cur_low
+            highs_list[-1] = cur_high
+            
            
             cur_ema = ta.current_ema(cur_close, emas_list[-2], ema_window)
             emas_list[-1] = cur_ema
@@ -349,14 +390,16 @@ def on_message(ws, message):
             if cur_close * trailing_per > cur_trail:                    # updating the traling value
                 cur_trail = cur_close * trailing_per
 
+
+
         else:
             print('___ New Candle ___ New Candle ___ New Candle ___')
 
-            print(sell_percentage)  
             loading_settings()
-            print(sell_percentage)  
-            
+    
             closes_list = np.append(closes_list, float(cur_close))              # append cur_close to closes_list list
+            lows_list = np.append(lows_list, float(cur_low))                    
+            highs_list = np.append(highs_list, float(cur_high))                 
             timestamps_list = np.append(timestamps_list, cur_timestamp)         # append cur_timestamp to timestamps_list list
 
             cur_ema = ta.current_ema(cur_close, emas_list[-1], ema_window)  
@@ -370,10 +413,17 @@ def on_message(ws, message):
             if cur_close * trailing_per > cur_trail:                    # updating the traling value
                 cur_trail = cur_close * trailing_per
 
+            cur_atr = ta.average_true_range(
+                closes_list[-2], lows_list[-2], highs_list[-2], 
+                cur_close, cur_low, cur_high, 
+                atr_list[-1], atr_window
+            )
+            atr_list.append(cur_atr)
+
             # __________________________________________________________
             # save to db
             # session.query(Fxt_Data).filter(Fxt_Data.new == 'False').delete(synchronize_session=False)
-            new_candle = Fxt_Data(price=cur_close, ema=cur_ema, sma=cur_sma, status='new_candle')
+            new_candle = Fxt_Data(price=cur_close, ema=cur_ema, sma=cur_sma, atr=cur_atr, status='new_candle')
             session.add(new_candle)            
             session.commit()  
             # __________________________________________________________                   
@@ -387,7 +437,7 @@ def on_message(ws, message):
 
         if in_position:
 
-            if cur_close < (cur_ema + ema_offset):
+            if cur_close < (cur_ema + ema_offset - (cur_atr * atr_multi)):
                 print('AAA')
                 # ACTION STOP LOSS
                 # binance_order(action, qty, sym1, sym2, cur_close)
@@ -400,7 +450,7 @@ def on_message(ws, message):
             
             
             else:
-                if buy_price and cur_close/buy_price > sell_target:
+                if buy_price and cur_close/buy_price > sell_target and target_reached == False:
                     print('BBB')
 
                     if not trailing_on:
@@ -415,6 +465,7 @@ def on_message(ws, message):
                     elif not target_reached:
                         print('DDD')
                         target_reached = True
+                        save_to_fxt_action('target_reached', cur_close)
                         upload_settings('DDD')
 
                 elif target_reached and cur_close < cur_trail:
@@ -494,7 +545,7 @@ def on_message(ws, message):
                 target_reached = False
                 upload_settings('LLL')
             
-            elif (cur_sma + sma_offset) > (cur_ema + ema_offset) and sell_timestamp == cur_timestamp and rebuy_count <= rebuy_max and cur_close > ((cur_sma + sma_offset) * rebuy_gap):
+            elif (cur_sma + sma_offset) > (cur_ema + ema_offset) and sell_timestamp == cur_timestamp and rebuy_count < rebuy_max and cur_close > ((cur_sma + sma_offset) * rebuy_gap):
                 print('MMM')
                 # ACTION RE_BUY (PRICE RE-OVER SMA)
                 message = binance_order(action='buy', qty=buy_qty, sym1=symbol1, sym2=symbol2, price=cur_close)

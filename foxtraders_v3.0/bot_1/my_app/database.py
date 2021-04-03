@@ -22,12 +22,14 @@ class Fxt_Data(Base):
     price  = Column(Float, nullable=False)
     ema  = Column(Float, nullable=False)
     sma  = Column(Float, nullable=False)
+    atr  = Column(Float, nullable=False)
     status = Column(String(50))
 
-    def __init__(self, price, ema, sma, status='null'):
+    def __init__(self, price, ema, sma, atr, status='null'):
         self.price = price
         self.ema = ema
         self.sma = sma
+        self.atr = atr
         self.status = status
 
 # ____________________
