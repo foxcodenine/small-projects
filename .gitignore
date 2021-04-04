@@ -1,5 +1,7 @@
 https://www.atlassian.com/git/tutorials/saving-changes/gitignore#git-ignore-patterns
 
+https://www.atlassian.com/git/tutorials/saving-changes/gitignore#git-ignore-patterns
+
 **./__pycache__
 __pycache__/
 __resources__/
@@ -37,3 +39,35 @@ node_modules
 **/.env
 **/Pipfile
 **/Pipfile.lock
+
+
+# vendor folder
+**./vendor
+./vendor
+**./vendor/*
+**./vendor/
+*/vendor/*
+**vendor
+vendor
+**/vendor
+*vendor/*
+./**vendor/
+./**/vendor/
+./**vendor/*
+./**vendor/**
+
+
+# .aws folder
+**./.aws
+./.aws
+**./.aws/*
+**./.aws/
+*/.aws/*
+**.aws
+.aws
+**/.aws
+*.aws/*
+./**.aws/
+./**/.aws/
+./**.aws/*
+./**.aws/**
