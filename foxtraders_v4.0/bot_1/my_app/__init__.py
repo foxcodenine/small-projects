@@ -64,6 +64,7 @@ kline_length ="1h" # <-- also need to update in Resalt @ Retrive Historical Data
 sell_timestamp  = None
 cur_msl             = 0 # (current moving stoploss, will be adjusted automaticaly)
 cur_trail           = 0
+cur_atl             = 0
 target_reached      = False
 # ______________________________________
 # On Open Variables
@@ -298,7 +299,7 @@ def on_open(ws):
 
     global closes_list, timestamps_list, emas_list, smas_list, lows_list, highs_list
     global cur_close, cur_timestamp, cur_ema, cur_sma, cur_low, cur_high, cur_atr
-    global atr_list, cur_atr
+    global atr_list, cur_atr, cur_atl
        
     
     loading_settings()
@@ -323,6 +324,7 @@ def on_open(ws):
 
     atr_list = ta.average_true_range_list(closes_list, lows_list, highs_list, atr_window)
     cur_atr = atr_list[-1]
+    cur_atl = cur_ema
 
 
 
@@ -348,7 +350,7 @@ def on_message(ws, message):
         global in_position, sell_conditions, buy_conditions
         global sell_percentage, sell_timestamp, rebuy_count, buy_price, cur_msl
         global cur_trail, target_reached
-        global atr_list, cur_atr
+        global atr_list, cur_atr, cur_atl
         
 
         # _________________________
@@ -389,6 +391,9 @@ def on_message(ws, message):
 
             if cur_close * trailing_per > cur_trail:                    # updating the traling value
                 cur_trail = cur_close * trailing_per
+            
+            if cur_close < cur_atl:
+                cur_atl == cur_close
 
 
 
@@ -441,12 +446,12 @@ def on_message(ws, message):
                 print('AAA')
                 # ACTION STOP LOSS
                 # binance_order(action, qty, sym1, sym2, cur_close)
-                message = binance_order(action='sell', qty=sell_qty, sym1=symbol1, sym2=symbol2, price=cur_close)
-                save_to_fxt_action(f'stop_loss {message}', cur_close)
-                in_position = False
-                sell_conditions = False
-                buy_conditions  = True
-                upload_settings('AAA')
+#                message = binance_order(action='sell', qty=sell_qty, sym1=symbol1, sym2=symbol2, price=cur_close)
+#                save_to_fxt_action(f'stop_loss {message}', cur_close)
+#                in_position = False
+#                sell_conditions = False
+#                buy_conditions  = True
+#                upload_settings('AAA')
             
             
             else:
@@ -529,6 +534,23 @@ def on_message(ws, message):
                 save_to_fxt_action('reset_buy_condition', cur_close)
                 buy_conditions  = True
                 upload_settings('KKK')
+                cur_atl == cur_ema
+            
+            elif buy_conditions and cur_atl/cur_ema < 0.9865 and cur_close/cur_ema < 0.99 and cur_close/cur_atl > 1.0035:
+                print('ZZZ')
+                # ACTION BUY (BUY PRICE UNDER EMA) 
+                message = binance_order(action='buy', qty=buy_qty, sym1=symbol1, sym2=symbol2, price=cur_close)
+                save_to_fxt_action(f'buy price under {(cur_close/cur_ema - 1) * 100}% {message}', cur_close)
+                in_position = True
+                buy_conditions  = False
+                sell_conditions = False
+                rebuy_count = 0
+                buy_price = cur_close
+                cur_msl = 0
+                cur_trail = 0
+                target_reached = False
+                upload_settings('ZZZ')
+
 
             elif cur_close > ((cur_ema + ema_offset) * buy_gap ) and buy_conditions == True:
                 print('LLL')

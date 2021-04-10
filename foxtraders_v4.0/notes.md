@@ -81,14 +81,9 @@ ssh -i /g/digitalocean/digitalOcean.txt root@167.172.163.199
 
 <!-- --------------------------------------------------------------- -->
 bot_1
-$ sudo scp -i /home/foxcodenine/digitalocean/digitalOcean.txt -r /home/foxcodenine/Desktop/foxtraders_v3.0/bot_1 root@167.172.163.199:/home/foxtraders
+$ sudo scp -i /home/foxcodenine/digitalocean/digitalOcean.txt -r /home/foxcodenine/Desktop/foxtraders_v4/bot_1/my_app/__init__.py root@167.172.163.199:/home/foxtraders/bot_1/my_app
 
-bot_2
-$ sudo scp -i /home/foxcodenine/digitalocean/digitalOcean.txt -r /home/foxcodenine/Desktop/foxtraders_v3.0/bot_2 root@167.172.163.199:/home/foxtraders
 
-bot_3
-$ sudo scp -i /home/foxcodenine/digitalocean/digitalOcean.txt -r /home/foxcodenine/Desktop/foxtraders_v3.0/bot_3 root@167.172.163.199:/home/foxtraders
-scp -i /home/foxcodenine/digitalocean/digitalOcean.txt -r /home/foxcodenine/Desktop/foxtraders_v3.0/bot_3/my_app/__init__.py root@167.172.163.199:/home/foxtraders
 
 
 https://linuxize.com/post/how-to-use-linux-screen/
