@@ -536,7 +536,7 @@ def on_message(ws, message):
                 upload_settings('KKK')
                 cur_atl == cur_ema
             
-            elif buy_conditions and cur_atl/cur_ema < 0.989 and cur_close/cur_ema < 0.995 and cur_close/cur_atl > 1.005:
+            elif buy_conditions and cur_atl/cur_ema < 0.9865 and cur_close/cur_ema < 0.99 and cur_close/cur_atl > 1.0035:
                 print('ZZZ')
                 # ACTION BUY (BUY PRICE UNDER EMA) 
                 message = binance_order(action='buy', qty=buy_qty, sym1=symbol1, sym2=symbol2, price=cur_close)
