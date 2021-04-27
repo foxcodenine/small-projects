@@ -27,24 +27,31 @@ Base = declarative_base()
 
 # ______________________________________________________________________
 
-class Fxt_Settings(Base):
-    __tablename__ = 'fxt_settings'
+class Fxt_Parameters(Base):
+    __tablename__ = 'fxt_parameters'
 
     id          = Column(Integer, primary_key=True)
     name        = Column(String(50), unique=True, nullable=False)
     active      = Column(Integer, nullable=False)
-    sell_target = Column(Float, nullable=False)
     amount      = Column(Float, nullable=False)
-    trail       = Column(Float, nullable=False)
+    sell_target = Column(Float, nullable=False)    
+    sell_trail  = Column(Float, nullable=False)
+    buy_target  = Column(Float, nullable=False)    
+    buy_trail   = Column(Float, nullable=False)
     symbol      = Column(String(50))
     
 
-    def __init__(self, name, active=0, sell_target=0.00, amount=0.00, trail=0.0):
+    def __init__(
+        self, name, active=0, amount=0.00, sell_target=0.00, sell_trail=0.0,
+        buy_target=0.00, buy_trail=0.00
+    ):
         self.name        = name
         self.active      = active
-        self.sell_target = sell_target
         self.amount      = amount
-        self.trail       = trail
+        self.sell_target = sell_target        
+        self.sell_trail  = sell_trail
+        self.buy_target  = buy_target        
+        self.buy_trail   = buy_trail
         self.symbol = os.getenv('SYMBOL1') + ' ' +os.getenv('SYMBOL2')
 
 # ____________________

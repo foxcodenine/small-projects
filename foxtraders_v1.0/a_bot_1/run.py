@@ -23,7 +23,7 @@ if my_env   == 'home':
     project_folder = '/home/foxcodenine/Desktop/foxtraders_v1.0/a_bot_1'
 elif my_env == 'work':
     activate_this  = r'C:\Users\chris.GPC\.virtualenvs\bot_1-ZpvTSjAf\Scripts\activate_this.py' # <- update this
-    project_folder = r'C:\origin\foxtraders\bot_1' # <- update this
+    project_folder = r'C:\origin\foxtraders_v1.0\a_bot_1' # <- update this
 else:
     activate_this  = '/root/.local/share/virtualenvs/bot_1-FUXvTGGx/bin/activate_this.py' # <- update this
     project_folder = '/home/foxtraders/bot_1' # <- update this
@@ -45,4 +45,6 @@ os.environ['MY_ENV'] = my_env
 # Starting app
 
 if __name__ == '__main__':
-    import my_app
+    import my_app as app
+
+    app.ws.run_forever()

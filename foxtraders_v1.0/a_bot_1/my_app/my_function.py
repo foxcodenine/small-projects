@@ -5,7 +5,7 @@ from my_app import p_1, p_2, p_3, client
 from binance.enums import SIDE_BUY, SIDE_SELL, ORDER_TYPE_MARKET
 from binance.exceptions import BinanceAPIException
 
-from my_app.database import Fxt_Settings, Fxt_Current, Fxt_Current, Session
+from my_app.database import Fxt_Parameters, Fxt_Current, Fxt_Current, Session
 session = Session()
 
 
@@ -16,7 +16,7 @@ session = Session()
 def import_settings(p):
     global p_1, p_2, p_3
 
-    s = session.query(Fxt_Settings).filter(Fxt_Settings.name == p).first()
+    s = session.query(Fxt_Parameters).filter(Fxt_Parameters.name == p).first()
 
     if   hasattr(s, 'name') and p == 'P1':
         i = p_1
@@ -27,10 +27,13 @@ def import_settings(p):
     else:
         i = {}
 
-    i['active'] = bool(s.active)
-    i['sell_target'] = round(float(s.sell_target) * (1 + float(s.trail) / 100), 6)
+    i['active'] = bool(int(s.active))
+
     i['amount'] = float(s.amount)
-    i['trail']  = 1 - float(s.trail) / 100
+
+    i['sell_target'] = round(float(s.sell_target) * (1 + float(s.sell_trail) / 100), 6)    
+
+    i['sell_trail']  = 1 - float(s.sell_trail) / 100
 
 
 # ______________________________________________________________________
@@ -39,10 +42,10 @@ def import_settings(p):
 
 def deactivate(p):
     global p_1, p_2, p_3
-    s = session.query(Fxt_Settings).filter(Fxt_Settings.name == p).first()
+    s = session.query(Fxt_Parameters).filter(Fxt_Parameters.name == p).first()
 
-    session.query(Fxt_Settings).filter(
-        Fxt_Settings.name == p
+    session.query(Fxt_Parameters).filter(
+        Fxt_Parameters.name == p
     ).update({'active': 0}, synchronize_session=False)
 
     if   hasattr(s, 'name') and p == 'P1':
@@ -53,6 +56,27 @@ def deactivate(p):
         session.commit()
     elif hasattr(s, 'name') and p == 'P3':
         p_3['active'] = False
+        session.commit()
+    else:
+        pass   
+
+
+def activate(p):
+    global p_1, p_2, p_3
+    s = session.query(Fxt_Parameters).filter(Fxt_Parameters.name == p).first()
+
+    session.query(Fxt_Parameters).filter(
+        Fxt_Parameters.name == p
+    ).update({'active': 1}, synchronize_session=False)
+
+    if   hasattr(s, 'name') and p == 'P1':
+        p_1['active'] = True
+        session.commit()
+    elif hasattr(s, 'name') and p == 'P2':
+        p_2['active'] = True
+        session.commit()
+    elif hasattr(s, 'name') and p == 'P3':
+        p_3['active'] = True
         session.commit()
     else:
         pass   
@@ -103,3 +127,5 @@ def binance_order(action, qty, sym1, sym2, price):
 
 
 # ______________________________________________________________________
+
+
