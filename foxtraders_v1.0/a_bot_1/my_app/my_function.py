@@ -1,19 +1,18 @@
 import os
 
 from my_app import p_1, p_2, p_3, client
+from my_app import app_mode, symbol1, symbol2, symbol, restart_time
 
 from binance.enums import SIDE_BUY, SIDE_SELL, ORDER_TYPE_MARKET
 from binance.exceptions import BinanceAPIException
 
-from my_app.database import Fxt_Parameters, Fxt_Current, Fxt_Current, Session
+from my_app.database import Fxt_Parameters, Fxt_Action, Session
 session = Session()
 
 
 # ______________________________________________________________________
 
-
-
-def import_settings(p):
+def import_parameters(p):
     global p_1, p_2, p_3
 
     s = session.query(Fxt_Parameters).filter(Fxt_Parameters.name == p).first()
@@ -35,13 +34,32 @@ def import_settings(p):
 
     i['sell_trail']  = 1 - float(s.sell_trail) / 100
 
+    i['buy_target'] = round(float(s.buy_target) * (1 - float(s.sell_trail) / 100), 6) 
+
+    i['buy_trail']  = 1 + float(s.buy_trail) / 100
+
+    i['target_reached'] = bool(int(s.target_reached))
 
 # ______________________________________________________________________
 
 
+# def import_settings():
+#     # global app_mode, symbol1, symbol2, symbol, restart_time
+
+#     app_mode = session.query(Fxt_Settings).filter(Fxt_Settings.name == mode).first().value
+#     symbol1 = session.query(Fxt_Settings).filter(Fxt_Settings.name == symbol1).first().value.upper()
+#     symbol2 = session.query(Fxt_Settings).filter(Fxt_Settings.name == symbol2).first().value.upper()
+#     symbol = symbol1 + symbol2
+
+#     pass
+
+# ______________________________________________________________________
+
 
 def deactivate(p):
     global p_1, p_2, p_3
+    p = p['name']
+    
     s = session.query(Fxt_Parameters).filter(Fxt_Parameters.name == p).first()
 
     session.query(Fxt_Parameters).filter(
@@ -60,9 +78,12 @@ def deactivate(p):
     else:
         pass   
 
+# ______________________________________________________________________
 
 def activate(p):
     global p_1, p_2, p_3
+    p = p['name']
+
     s = session.query(Fxt_Parameters).filter(Fxt_Parameters.name == p).first()
 
     session.query(Fxt_Parameters).filter(
@@ -81,11 +102,34 @@ def activate(p):
     else:
         pass   
 
-
-
 # ______________________________________________________________________
 
+def target_reached(p):
+    global p_1, p_2, p_3
+    p = p['name']
 
+    s = session.query(Fxt_Parameters).filter(Fxt_Parameters.name == p).first()    
+
+    session.query(Fxt_Parameters).filter(
+        Fxt_Parameters.name == p
+    ).update({'target_reached': 1}, synchronize_session=False)
+
+    if   hasattr(s, 'name') and p == 'P1':
+        print(1)
+        p_1['target_reached'] = True
+        session.commit()
+    elif hasattr(s, 'name') and p == 'P2':
+        print(2)
+        p_2['target_reached'] = True
+        session.commit()
+    elif hasattr(s, 'name') and p == 'P3':
+        print(2)
+        p_3['target_reached'] = True
+        session.commit()
+    else:
+        print('pass') 
+        pass
+# ______________________________________________________________________
 
 def binance_order(action, qty, sym1, sym2, price):
 
@@ -101,11 +145,11 @@ def binance_order(action, qty, sym1, sym2, price):
 
     if action == 'buy':
         side = SIDE_BUY
-        message =  f'BUY {sym1} {qty} for {sym2} {round(price * qty, 4)}'
+        message =  f'BUY ORDER {sym1} {qty} for {sym2} {round(price * qty, 4)}'
 
     if action == 'sell':
         side = SIDE_SELL
-        message = f'SELL {sym1} {qty} for {sym2} {round(price * qty, 4)}'
+        message = f'SELL ORDER {sym1} {qty} for {sym2} {round(price * qty, 4)}'
     
     symbol = f'{sym1}{sym2}'.upper()
     # __________________________________
@@ -116,16 +160,25 @@ def binance_order(action, qty, sym1, sym2, price):
             type = ORDER_TYPE_MARKET,
             quantity = qty
         )        
-        print('\n',f'Placed {action} order!!') 
+        print(message) 
         return message
     # __________________________________
 
     except BinanceAPIException as e:
         print('Binance API Exception >->')
-        print( f'{action.upper()} ERROR | Binance Error -> {e}')
-        return f'{action.upper()} ERROR | Binance Error -> {e}'
+
+        message = f'{action.upper()} ERROR | BINANCE ERROR -> {e}'
+
+        print(message)
+        return message
 
 
 # ______________________________________________________________________
+
+def log_action(message):
+        new_action = Fxt_Action(action=message)
+        session.add(new_action)
+        session.commit()
+
 
 

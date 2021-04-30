@@ -6,6 +6,8 @@ from pprint import pprint
 from binance.client import Client
 import time
 
+from pymysql.err import ProgrammingError
+
 # ______________________________________________________________________
 # Global Variables
 
@@ -22,7 +24,7 @@ client = Client(api_key, api_secret)
 # ______________________________________________________________________
 # Database
 
-from my_app.database import Fxt_Parameters, Fxt_Current, Fxt_Error, Session
+from my_app.database import Fxt_Parameters, Fxt_Action, Fxt_Error, Session
 session = Session()
 
 # ______________________________________________________________________
@@ -31,7 +33,7 @@ session = Session()
 from my_app import my_function as myf
 
 
-def exception_error(code, error):
+def log_error(code, error):
 
     print(f'Exception-Error-{code} >-> {error}')
     ws.close()                      # <- stop loop
@@ -43,7 +45,8 @@ def exception_error(code, error):
     time.sleep(restart_time)        # <- wait 5min
     ws.run_forever()                # <- restart loop
 
-
+# from my_app.condition.buying  import buying_conditions
+from my_app.conditions import selling
 
 
 # ______________________________________________________________________
@@ -58,14 +61,14 @@ socket_address = f"{base_endpoint}/ws/{symbol.lower()}@kline_{kline_length}"
 
 def on_open(ws):
     try: 
-        print('Socket-Open >->')
+        print('Socket-Open >->')        
 
-        myf.import_settings('P1')
-        myf.import_settings('P2')
-        myf.import_settings('P3')
+        myf.import_parameters('P1')
+        myf.import_parameters('P2')
+        myf.import_parameters('P3')
 
-    except Exception as e:
-        print(e)
+    except Exception as e:           
+            log_error('On-Open', e)
     
 # ________________________________
 
@@ -74,44 +77,74 @@ def on_message(ws, message):
     global cur_timestamp, cur_close, cur_atl, cur_ath
     global p_1, p_2, p_3
     try: 
-
+    # __________________________________________________________________
+    # Fetch Data
 
         message = json.loads(message)        
-        cur_close     = message['k']['c']  
-        # print('>->', cur_timestamp, cur_close)
+        cur_close = float(message['k']['c'] ) 
+        
+    # __________________________________________________________________
+    # Updating All time High and Low
 
+        if not cur_ath:
+            cur_ath = cur_close
+        elif cur_close > cur_ath:
+            cur_ath = cur_close
+
+        if not cur_atl:
+            cur_atl = cur_close 
+        elif cur_close < cur_atl:
+            cur_atl = cur_close
+
+        print(f'Close: {cur_close}, ATH: {cur_ath}, ATL: {cur_atl}')
 
         if cur_timestamp == message['k']['t']:
-            print('___ Same Candle ___ ')
+            # print('___ Same Candle ___ ')
+            pass
 
         else:
             print('___ New Candle ___ New Candle ___ New Candle ___')
             cur_timestamp = message['k']['t']
 
-            myf.import_settings('P1')
-            myf.import_settings('P2')
-            myf.import_settings('P3')
+            myf.import_parameters('P1')
+            myf.import_parameters('P2')
+            myf.import_parameters('P3')
 
+    # __________________________________________________________________
+    # Conditions:
+    
+        if app_mode == 'sell':
+            selling(p_1, cur_close, cur_ath)
+            selling(p_2, cur_close, cur_ath)
+            selling(p_3, cur_close, cur_ath)
+
+        # if app_mode == 'buy':
+        #     buying_conditions()
+
+    # __________________________________________________________________
 
     except Exception as e:
-        exception_error('On-Message', e)
+        log_error('On-Message', e)
         
 # ________________________________
 
 def on_close(ws):
     try: 
+        
         print('Socket-Close >->')
     except Exception as e:
-        exception_error('On-Close', e)
+        
+        log_error('On-Close', e)
     
 # ________________________________
 
 
 def on_error(ws, error):
     try: 
-        exception_error('Socket-Error', error)
+        log_error('Socket-Error', error)
+
     except Exception as e:
-        exception_error('On-Error', e)
+        log_error('On-Error', e)
 
 # ________________________________
 

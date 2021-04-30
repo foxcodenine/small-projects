@@ -38,12 +38,13 @@ class Fxt_Parameters(Base):
     sell_trail  = Column(Float, nullable=False)
     buy_target  = Column(Float, nullable=False)    
     buy_trail   = Column(Float, nullable=False)
+    target_reached = Column(Integer, nullable=False)
     symbol      = Column(String(50))
     
 
     def __init__(
         self, name, active=0, amount=0.00, sell_target=0.00, sell_trail=0.0,
-        buy_target=0.00, buy_trail=0.00
+        buy_target=0.00, buy_trail=0.00, target_reached=0
     ):
         self.name        = name
         self.active      = active
@@ -52,20 +53,36 @@ class Fxt_Parameters(Base):
         self.sell_trail  = sell_trail
         self.buy_target  = buy_target        
         self.buy_trail   = buy_trail
+        self.target_reached = target_reached
         self.symbol = os.getenv('SYMBOL1') + ' ' +os.getenv('SYMBOL2')
 
 # ____________________
 
-class Fxt_Current(Base):
-    __tablename__ = 'fxt_current'
 
-    id = Column(Integer, primary_key=True)    
+class Fxt_Settings(Base):
+    __tablename__ = 'fxt_settings'
+
+    id = Column(Integer, primary_key=True)
     name = Column(String(50), unique=True)
-    value = Column(String(50), unique=False)
+    value = Column(String(50))
+    info = Column(String(255))
 
-    def __init__(self, name, value):
+    def __init__(self, name, value, info=None):
         self.name = name
         self.value = value
+        self.info = info
+
+# ____________________
+
+class Fxt_Action(Base):
+    __tablename__ = 'fxt_action'
+
+    id = Column(Integer, primary_key=True)    
+    action = Column(String(100), unique=False)
+
+    def __init__(self, action):
+        self.action = action
+
 # ____________________
 
 class Fxt_Error(Base):
@@ -80,7 +97,7 @@ class Fxt_Error(Base):
         self.error = error  
 
 # ______________________________________________________________________
-Base.metadata.create_all(engine)
+
 
 
 
