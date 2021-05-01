@@ -45,6 +45,6 @@ os.environ['MY_ENV'] = my_env
 # Starting app
 
 if __name__ == '__main__':
-    import my_app as app
+    from my_app import app
 
     app.ws.run_forever()

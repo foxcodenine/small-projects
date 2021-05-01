@@ -1,5 +1,4 @@
 import os
-
 # ______________________________________________________________________
 
 app_mode        = os.getenv('MODE').lower()
@@ -16,62 +15,29 @@ cur_ath         = None
 
 cur_timestamp      = ''
 
+# ______________________________________________________________________
 
-p_1 = {
-    'name': 'P1',
-    'active': True,
-    'amount': 1000,
+class Postion():
 
-    'sell_target': 0,
-    'sell_trail': 0.99,
+    def __init__(self, name):
 
-    'buy_target': 0,
-    'buy_trail': 0.99,
+        self.name = name
+        self.active = False
+        self.amount = 0 
+        self.sell_target = 0
+        self.sell_trail = 0
+        self.sell_target = 0
+        self.buy_trail = 0
+        self.target_reached = False
 
-    'target_reached': False,    
-    
-    'sell_price': 0,
-    'buy_price': 0,
 
-    'timestamp': ''
-}
+p_1 = Postion('P1')
+p_2 = Postion('P2')
+p_3 = Postion('P3')
+p_4 = Postion('P4')
+p_5 = Postion('P5')
 
-p_2 = {
-    'name': 'P2',
-    'active': True,
-    'amount': 1000,
+# ______________________________________________________________________
 
-    'sell_target': 0,
-    'sell_trail': 0.99,
-
-    'buy_target': 0,
-    'buy_trail': 0.99,
-
-    'target_reached': False,    
-    
-    'sell_price': 0,
-    'buy_price': 0,
-
-    'timestamp': ''
-}
-
-p_3 = {
-    'name': 'P3',
-    'active': True,
-    'amount': 1000,
-
-    'sell_target': 0,
-    'sell_trail': 0.99,
-
-    'buy_target': 0,
-    'buy_trail': 0.99,
-
-    'target_reached': False,    
-    
-    'sell_price': 0,
-    'buy_price': 0,
-
-    'timestamp': ''
-}
 
 
