@@ -78,7 +78,7 @@ class Fxt_Action(Base):
     __tablename__ = 'fxt_action'
 
     id = Column(Integer, primary_key=True)    
-    action = Column(String(100), unique=False)
+    action = Column(Text, unique=False)
 
     def __init__(self, action):
         self.action = action

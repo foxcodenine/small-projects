@@ -27,6 +27,9 @@ client = Client(api_key, api_secret)
 from my_app.database import Fxt_Parameters, Fxt_Action, Fxt_Error, Fxt_Settings, Session
 session = Session()
 
+
+
+
 # ______________________________________________________________________
 # Functions
 
@@ -46,10 +49,8 @@ def log_error(code, error):
 # ________________________________
 
 
-def import_parameters(p):
+def import_parameters(p):    
     
-    global p_1, p_2, p_3, p_4, p_5
-
     s = session.query(Fxt_Parameters).filter(Fxt_Parameters.name == p.name).first()
     p.active = bool(int(s.active))
     p.amount = float(s.amount)
@@ -59,6 +60,8 @@ def import_parameters(p):
     p.buy_target = round(float(s.buy_target) * (1 - float(s.buy_trail) / 100), 6) 
     p.buy_trail  = 1 + float(s.buy_trail) / 100
     p.target_reached = bool(int(s.target_reached)) 
+
+    return p
 
 # ________________________________
 
@@ -75,6 +78,53 @@ def import_settings():
 
 # ________________________________
 
+def deactivate(p):
+    global p_1, p_2, p_3, p_4, p_5
+        
+    s = session.query(Fxt_Parameters).filter(Fxt_Parameters.name == p.name).first()
+
+    session.query(Fxt_Parameters).filter(
+        Fxt_Parameters.name == p.name
+    ).update({'active': 0}, synchronize_session=False)
+
+    if   hasattr(s, 'name') and p.name == s.name:
+        p.active = False
+        session.commit()
+
+
+# ______________________________________________________________________
+
+def activate(p):
+    global p_1, p_2, p_3, p_4, p_5
+    
+    s = session.query(Fxt_Parameters).filter(Fxt_Parameters.name == p.name).first()
+
+    session.query(Fxt_Parameters).filter(
+        Fxt_Parameters.name == p.name
+    ).update({'active': 1}, synchronize_session=False)
+
+    if   hasattr(s, 'name') and p.name == s.name:
+        p.active = True
+        session.commit()
+ 
+# ______________________________________________________________________
+
+def target_reached_update(p):
+    global p_1, p_2, p_3, p_4, p_5
+    
+
+    s = session.query(Fxt_Parameters).filter(Fxt_Parameters.name == p.name).first()    
+
+    session.query(Fxt_Parameters).filter(
+        Fxt_Parameters.name == p.name
+    ).update({'target_reached': 1}, synchronize_session=False)
+
+    if   hasattr(s, 'name') and p.name == s.name:
+        p.target_reached = True
+        session.commit()
+
+# ________________________________
+
 from my_app import my_function as myf
 from my_app.conditions import conditions_function   
 
@@ -84,7 +134,6 @@ from my_app.conditions import conditions_function
 
 import_settings()
 
-
 # ______________________________________________________________________
 # Binance socket
 
@@ -92,7 +141,6 @@ base_endpoint = os.getenv('BINANCE_BASE_ENDPOINT')
 kline_length  = os.getenv('KLINE_LENGTH')
 
 socket_address = f"{base_endpoint}/ws/{symbol.lower()}@kline_{kline_length}"
-
 
 # ______________________________________________________________________
 
@@ -108,7 +156,6 @@ def on_open(ws):
             log_error('On-Open', e)
     
 # ________________________________
-
 
 def on_message(ws, message):
     global cur_timestamp, cur_close, cur_atl, cur_ath
@@ -143,21 +190,21 @@ def on_message(ws, message):
             print('___ New Candle ___ New Candle ___ New Candle ___')
             cur_timestamp = message['k']['t']
             
-            import_parameters(p_1)
-            import_parameters(p_2)
-            import_parameters(p_3)
-            import_parameters(p_4)
-            import_parameters(p_5)
+            p_1 = import_parameters(p_1)
+            p_2 = import_parameters(p_2)
+            p_3 = import_parameters(p_3)
+            p_4 = import_parameters(p_4)
+            p_5 = import_parameters(p_5)
 
 
     # __________________________________________________________________
     # Conditions:    
         
-        conditions_function(p_1, cur_close, cur_ath, cur_atl, app_mode)
-        conditions_function(p_2, cur_close, cur_ath, cur_atl, app_mode)
-        conditions_function(p_3, cur_close, cur_ath, cur_atl, app_mode)
-        conditions_function(p_4, cur_close, cur_ath, cur_atl, app_mode)
-        conditions_function(p_5, cur_close, cur_ath, cur_atl, app_mode)
+        conditions_function(p_1, cur_close, cur_ath, cur_atl, app_mode, symbol1, symbol2)
+        conditions_function(p_2, cur_close, cur_ath, cur_atl, app_mode, symbol1, symbol2)
+        conditions_function(p_3, cur_close, cur_ath, cur_atl, app_mode, symbol1, symbol2)
+        conditions_function(p_4, cur_close, cur_ath, cur_atl, app_mode, symbol1, symbol2)
+        conditions_function(p_5, cur_close, cur_ath, cur_atl, app_mode, symbol1, symbol2)
 
     # __________________________________________________________________
 
@@ -194,7 +241,6 @@ ws = websocket.WebSocketApp(
     on_message=on_message,
     on_error=on_error
 )
-
 
 # ______________________________________________________________________
 

@@ -18,15 +18,17 @@ else:
 # ______________________________________________________________________
 # Selecting venv dir & project dir
 
+bot_folder = 'a_bot_1'
+
 if my_env   == 'home':
     activate_this  = '/home/foxcodenine/.local/share/virtualenvs/foxtraders_v1.0--KjnT4ep/bin/activate_this.py'
-    project_folder = '/home/foxcodenine/Desktop/foxtraders_v1.0/a_bot_1'
+    project_folder = '/home/foxcodenine/Desktop/foxtraders_v1.0/' + bot_folder
 elif my_env == 'work':
     activate_this  = r'C:\Users\chris.GPC\.virtualenvs\bot_1-ZpvTSjAf\Scripts\activate_this.py' # <- update this
-    project_folder = r'C:\origin\foxtraders_v1.0\a_bot_1' # <- update this
+    project_folder = r'C:\origin\foxtraders_v1.0\{}'.format(bot_folder)  # <- update this
 else:
-    activate_this  = '/root/.local/share/virtualenvs/bot_1-FUXvTGGx/bin/activate_this.py' # <- update this
-    project_folder = '/home/foxtraders/bot_1' # <- update this
+    activate_this  = '/root/.local/share/virtualenvs/foxtraders_v1.0-Y7_9xkkg/bin/activate_this.py' # <- update this
+    project_folder = '/home/foxtraders_v1.0/' + bot_folder # <- update this
 
 
 # ______________________________________________________________________
