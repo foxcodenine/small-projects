@@ -1,6 +1,8 @@
 <template>
     <div class="slider" >
 
+        <div class="slider__arrow slider__arrow--left"><img src="@/assets/images/svg/chevron.svg" alt=""></div>
+        <div class="slider__arrow slider__arrow--right"><img src="@/assets/images/svg/chevron.svg" alt=""></div>
         <SliderBox 
             v-for="(p, index) in projectsArray" 
             :key='index'
@@ -24,7 +26,7 @@ export default {
     },
     data() {
         return {
-            baseUrl: '@/assets/images/projects/',
+            // baseUrl: '@/assets/images/projects/',
             projectsArray: sampleProjects,
         }
     },
@@ -37,46 +39,86 @@ export default {
     // _________________________________________________
 
     function mySliderFunction() {
-    
-      const slider = document.querySelector('.slider');
 
-      let isDown = false;
-      let startX;
-      let scrollLeft;
+      
+        // ___________ Slide Drag:
+        const slider = document.querySelector('.slider');
 
-      slider.addEventListener('mousedown', (e) => {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
 
-          event.preventDefault();
+        slider.addEventListener('mousedown', (e) => {
 
-          isDown = true;
-          // slider.classList.add('active');
-          startX = e.pageX - slider.offsetLeft;
-          scrollLeft = slider.scrollLeft;
-      });
+            event.preventDefault();
 
-      slider.addEventListener('mouseleave', () => {
-          isDown = false;
-          // slider.classList.remove('active');
+            isDown = true;
+            // slider.classList.add('active');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
 
-      });
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            // slider.classList.remove('active');
 
-      slider.addEventListener('mouseup', () => {
-          isDown = false;
-          // slider.classList.remove('active');
+        });
 
-      });
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            // slider.classList.remove('active');
 
-      slider.addEventListener('mousemove', (e) => {
+        });
 
-          event.preventDefault();
-          if(!isDown) return;        
+        slider.addEventListener('mousemove', (e) => {
 
-          const x = e.pageX - slider.offsetLeft;       
+            event.preventDefault();
+            if(!isDown) return;        
 
-          const walk = x - startX;
+            const x = e.pageX - slider.offsetLeft;       
 
-          slider.scrollLeft = (scrollLeft - walk) * 1;
-      });
+            const walk = x - startX;
+
+            slider.scrollLeft = (scrollLeft - walk) * 1;
+        });
+
+        // ___________ Slide Right:
+        const arrowRight = document.querySelector('.slider__arrow--right');
+
+        arrowRight.addEventListener('click', (e)=>{
+
+            console.log(slider.scrollLeft + slider.clientWidth);
+
+            console.log(slider.clientWidth);
+            console.log(slider.scrollLeft);
+
+
+            slider.scroll({
+                top: 0,
+                left: slider.scrollLeft + slider.clientWidth + 50 ,
+                behavior: 'smooth'
+            });
+
+        });
+        // ___________ Slide Left:
+        const arrowLeft = document.querySelector('.slider__arrow--left');
+
+        arrowLeft.addEventListener('click', (e)=>{
+
+            console.log(slider.scrollLeft + slider.clientWidth);
+
+            console.log(slider.clientWidth);
+            console.log(slider.scrollLeft);
+
+
+            slider.scroll({
+                top: 0,
+                left: (slider.clientWidth - slider.scrollLeft + 50 ) * -1,
+                behavior: 'smooth'
+            });
+
+        });
+        
     }
     // _________________________________________________
 

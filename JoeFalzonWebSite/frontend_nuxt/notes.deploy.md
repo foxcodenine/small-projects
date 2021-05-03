@@ -1,15 +1,21 @@
 ### Connect to AWS server
 
-    $ sudo ssh -i "deploy_web_apps.pem" ubuntu@ec2-54-93-231-128.eu-central-1.compute.amazonaws.com
+    $ sudo ssh -i "fox-rs2-keys.pem" ubuntu@ec2-52-57-144-235.eu-central-1.compute.amazonaws.com
 
 ### Load dist folder to AWS server (FrontEnd)
 
-    $ sudo scp -i ./deploy_web_apps.pem -r /home/foxcodenine/Desktop/JoeFalzonWebSite/frontend_nuxt/dist ubuntu@ec2-54-93-231-128.eu-central-1.compute.amazonaws.com:/var/www/projects/002_jf_website/
+    $ sudo scp -i ./fox-rs2-keys.pem -r /home/foxcodenine/Desktop/JoeFalzonWebSite/frontend_nuxt/dist ubuntu@ec2-52-57-144-235.eu-central-1.compute.amazonaws.com:/var/www/projects/002_jf_website/
+
+
 
 ### Load dist folder to AWS server (BackEnd)
 
-    $ sudo scp -i ./deploy_web_apps.pem -r /home/foxcodenine/Desktop/JoeFalzonWebSite/backend_flask ubuntu@ec2-54-93-231-128.eu-central-1.compute.amazonaws.com:/var/www/projects/002_jf_website/
+    $ sudo scp -i ./fox-rs2-keys.pem -r /home/foxcodenine/Desktop/JoeFalzonWebSite/backend_flask/* ubuntu@ec2-52-57-144-235.eu-central-1.compute.amazonaws.com:/var/www/projects/002_jf_website/backend_flask/
 
+
+
+
+    
 
 
 <VirtualHost *:80>

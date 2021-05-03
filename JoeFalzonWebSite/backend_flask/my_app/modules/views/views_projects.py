@@ -101,7 +101,7 @@ def add_project():
             if img.filename == '':
                 break
 
-            image_name = f'JFW_Projects_Images{new_project.id}/{img.filename}'
+            image_name = f'projects_images/id_{new_project.id}/{img.filename}'
 
             # print(img)
             # print(repr(img.filename))
@@ -114,7 +114,7 @@ def add_project():
 
         # _____________________________
 
-        # db.session.commit()
+        db.session.commit()
         # _____________________________
 
 
