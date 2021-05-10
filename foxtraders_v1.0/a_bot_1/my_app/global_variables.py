@@ -26,7 +26,7 @@ class Postion():
         self.amount = 0 
         self.sell_target = 0
         self.sell_trail = 0
-        self.sell_target = 0
+        self.buy_target = 0
         self.buy_trail = 0
         self.target_reached = False
 

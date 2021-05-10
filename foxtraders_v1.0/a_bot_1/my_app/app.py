@@ -8,6 +8,7 @@ import time
 
 from pymysql.err import ProgrammingError
 
+
 # ______________________________________________________________________
 # Global Variables
 
@@ -75,6 +76,7 @@ def import_settings():
     restart_time = int(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'restart_time').first().value.upper())
     
     print(app_mode, symbol)
+    
 
 # ________________________________
 
@@ -195,6 +197,7 @@ def on_message(ws, message):
             p_3 = import_parameters(p_3)
             p_4 = import_parameters(p_4)
             p_5 = import_parameters(p_5)
+            session.close()
 
 
     # __________________________________________________________________
@@ -245,3 +248,4 @@ ws = websocket.WebSocketApp(
 # ______________________________________________________________________
 
 
+ws.run_forever()
