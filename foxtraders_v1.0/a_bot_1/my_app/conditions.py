@@ -9,12 +9,12 @@ from my_app.app import import_settings, deactivate, target_reached_update
 
 
 def conditions_function(position, close, ath, atl, app_mode, symbol1, symbol2):
-
-    if app_mode == 'sell':    
+    
+    if app_mode.lower() == 'sell':       
         if position.active:
             sell_function(position, close,  ath, app_mode, symbol1, symbol2)
 
-    if app_mode == 'buy':
+    if app_mode.lower() == 'buy':
         if position.active:
             buy_function(position, close, atl, app_mode, symbol1, symbol2)
 
@@ -26,6 +26,7 @@ def buy_function(position, close,  ath, app_mode, symbol1, symbol2):
     target = position.buy_target
     trail  = position.buy_trail    
     amount = position.amount
+    co = position.counterorder
     
 
     if close <= target and not position.target_reached:
@@ -51,7 +52,7 @@ def buy_function(position, close,  ath, app_mode, symbol1, symbol2):
         print(message)
         myf.log_action(message)
 
-        message = myf.binance_order(app_mode, amount, symbol1, symbol2, close)
+        message = myf.binance_order(app_mode, amount, symbol1, symbol2, close, co)
         print(message)
         myf.log_action(message)    
     
@@ -65,6 +66,7 @@ def sell_function(position, close,  ath, app_mode, symbol1, symbol2):
     trail  = position.sell_trail
     dt = datetime.utcnow().strftime('%c')
     amount = position.amount
+    co = position.counterorder
 
 
     if close >= target and not position.target_reached:
@@ -87,7 +89,7 @@ def sell_function(position, close,  ath, app_mode, symbol1, symbol2):
         print(message)
         myf.log_action(message)
 
-        message = myf.binance_order(app_mode, amount, symbol1, symbol2, close)
+        message = myf.binance_order(app_mode, amount, symbol1, symbol2, close, co)
         print(message)
         myf.log_action(message)    
     

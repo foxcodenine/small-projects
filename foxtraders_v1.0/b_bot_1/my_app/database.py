@@ -2,6 +2,8 @@ from sqlalchemy import create_engine, Column, DateTime, String, Numeric, Integer
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
+from datetime import datetime
+
 import os
 # ______________________________________________________________________
 # import db_address
@@ -59,11 +61,12 @@ class Fxt_Action(Base):
     __tablename__ = 'fxt_action'
 
     id = Column(Integer, primary_key=True)   
-    timedate = Column(DateTime, default=func.now()) 
+    timedate = Column(DateTime) 
     action = Column(Text, unique=False)
 
     def __init__(self, action):
         self.action = action
+        self.timedate = datetime.utcnow()
 
 # ______________________________________________________________________
 
@@ -71,10 +74,11 @@ class Fxt_Error(Base):
     __tablename__ = 'fxt_error'
 
     id = Column(Integer, primary_key=True)
-    timedate = Column(DateTime, default=func.now())
+    timedate = Column(DateTime)
     error   = Column(Text)
 
     def __init__(self, error):
         self.error = error  
+        self.timedate = datetime.utcnow()
 
 # ______________________________________________________________________

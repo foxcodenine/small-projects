@@ -1,6 +1,12 @@
+import numpy as np
+from sqlalchemy.sql.sqltypes import Float
 import my_app.config as cfg 
+
 from my_app.database import Session, Fxt_Action, Fxt_Error, Fxt_Parameters, Fxt_Settings
 
+from my_app import ta_functions as ta
+
+import json
 
 # ______________________________________________________________________
 
@@ -16,16 +22,18 @@ def import_settings():
     cfg.symbol = cfg.symbol1 + cfg.symbol2
     cfg.restart_time = int(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'restart_time').first().value.upper())
 
-    print('\nUpdate Settings >>', cfg.symbol)
+    print('\nUpdate-Settings >->', cfg.symbol)
 
     session.close()
+
+
 
 def import_parameters():
     
     cfg.in_position = bool(int(session.query(Fxt_Parameters).filter(Fxt_Parameters.name == 'in_position').first().value))
     cfg.sell_conditions = bool(int(session.query(Fxt_Parameters).filter(Fxt_Parameters.name == 'sell_conditions').first().value))
     cfg.buy_conditions  = bool(int(session.query(Fxt_Parameters).filter(Fxt_Parameters.name == 'buy_conditions').first().value))
-    cfg.target_reached  = bool(int(session.query(Fxt_Parameters).filter(Fxt_Parameters.name == 'target_reached').first().value))
+    # cfg.target_reached  = bool(int(session.query(Fxt_Parameters).filter(Fxt_Parameters.name == 'target_reached').first().value))
 
     cur_buy_price = (session.query(Fxt_Parameters).filter(Fxt_Parameters.name == 'cur_buy_price').first().value)
 
@@ -46,5 +54,106 @@ def import_parameters():
     cfg.msl_on = bool(int(session.query(Fxt_Parameters).filter(Fxt_Parameters.name == 'msl_on').first().value))
     cfg.msl_per = 1 - (float(session.query(Fxt_Parameters).filter(Fxt_Parameters.name == 'msl_per').first().value) / 100)
 
-    print('\nUpdate Parameters >>')
-    session.close() 
+    print('\nUpdate-Parameters >->')
+    session.close()
+    
+    if not cfg.sma_window or not cfg.ema_window:
+        raise ValueError("ValueError update ema & sma values")
+
+
+
+# ______________________________________________________________________
+
+
+def process_historical_data(results):
+    cfg.closes_list = np.array([float(r[4]) for r in results])                   
+    cfg.lows_list = np.array([float(r[3]) for r in results])                  
+    cfg.highs_list = np.array([float(r[2]) for r in results])  
+    cfg.timestamps_list = np.array([r[0] for r in results])
+
+
+    cfg.ema_list = ta.ema_list(cfg.closes_list, cfg.ema_window)         
+    cfg.sma_list = ta.sma_list(cfg.closes_list, cfg.sma_window) 
+
+    cfg.cur_timestamp = cfg.timestamps_list[-1]
+
+    cfg.cur_close = cfg.closes_list[-1]
+    cfg.cur_high  = cfg.highs_list[-1]
+    cfg.cur_low   = cfg.lows_list[-1]
+    
+    cfg.cur_ema = cfg.ema_list[-1]
+    cfg.cur_sma = cfg.sma_list[-1]
+
+    cfg.cur_atl = cfg.cur_close
+    cfg.cur_ath = cfg.cur_close
+
+    print('\nFetch-Historical-Data >->')
+
+
+def process_message(message):
+        message = json.loads(message)
+        cfg.cur_timestamp = message['k']['t']
+        cfg.cur_close = float(message['k']['c'])
+        cfg.cur_low   = float(message['k']['l'])
+        cfg.cur_high  = float(message['k']['h'])
+        
+# ______________________________________________________________________
+
+def print_current():
+    message = f'\n PRICE: {cfg.cur_close}, ATL: {cfg.cur_atl}, ATH: {cfg.cur_ath}'
+    print(message)
+    
+    def rd(v, dp=4):
+        return round(v, dp)
+
+    if cfg.in_position:
+        print(f'...{cfg.sell_conditions} TG: {rd(cfg.sell_target * cfg.cur_buy_price)}')
+
+    if not cfg.in_position:
+        print(f'...{cfg.buy_conditions} {cfg.ma_type}: {rd(cfg.cur_ma)}')
+
+# ______________________________________________________________________
+
+def ma_current():
+    if cfg.ma_type.upper() == 'EMA':
+        cfg.cur_ma = cfg.cur_ema + cfg.ma_offset
+    elif cfg.ma_type.upper() == 'SMA':
+        cfg.cur_ma = cfg.cur_sma + cfg.ma_offset
+    else:
+        raise ValueError("ValueError moving averages type")
+
+# ______________________________________________________________________
+
+def log_parameters():
+
+    # cfg.in_position = not cfg.in_position
+    # cfg.sell_conditions = not cfg.sell_conditions
+    # cfg.buy_conditions = not cfg.buy_conditions
+    # cfg.target_reached = not cfg.target_reached
+    # cfg.cur_buy_price = cfg.cur_close
+
+
+
+    session.query(Fxt_Parameters).filter(
+        Fxt_Parameters.name == 'in_position'
+    ).update({'value': int(cfg.in_position)}, synchronize_session=False)
+
+    session.query(Fxt_Parameters).filter(
+        Fxt_Parameters.name == 'sell_conditions'
+    ).update({'value': int(cfg.sell_conditions)}, synchronize_session=False)
+
+    session.query(Fxt_Parameters).filter(
+        Fxt_Parameters.name == 'buy_conditions'
+    ).update({'value': int(cfg.buy_conditions)}, synchronize_session=False)
+
+    # session.query(Fxt_Parameters).filter(
+    #     Fxt_Parameters.name == 'target_reached'
+    # ).update({'value': int(cfg.target_reached)}, synchronize_session=False)
+
+    session.query(Fxt_Parameters).filter(
+        Fxt_Parameters.name == 'cur_buy_price'
+    ).update({'value': float(cfg.cur_buy_price)}, synchronize_session=False)
+
+    session.commit()
+
+# ______________________________________________________________________

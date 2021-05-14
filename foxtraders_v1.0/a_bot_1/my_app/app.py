@@ -29,22 +29,20 @@ from my_app.database import Fxt_Parameters, Fxt_Action, Fxt_Error, Fxt_Settings,
 session = Session()
 
 
-
-
 # ______________________________________________________________________
 # Functions
 
 def log_error(code, error):
 
     print(f'Exception-Error-{code} >-> {error}')
-    ws.close()                      # <- stop loop
+    ws.close()                      
 
-    new_error = Fxt_Error(error=f'Exception-Error-{code} >-> {error}')  # <- save to db
+    new_error = Fxt_Error(error=f'Exception-Error-{code} >-> {error}')  
     session.add(new_error)
     session.commit()
 
-    time.sleep(restart_time)        # <- wait 5min
-    ws.run_forever()                # <- restart loop
+    time.sleep(restart_time)        
+    ws.run_forever()                
 
 
 # ________________________________
@@ -60,7 +58,9 @@ def import_parameters(p):
 
     p.buy_target = round(float(s.buy_target) * (1 - float(s.buy_trail) / 100), 6) 
     p.buy_trail  = 1 + float(s.buy_trail) / 100
-    p.target_reached = bool(int(s.target_reached)) 
+    p.target_reached = bool(int(s.target_reached))
+    p.counterorder = bool(int(s.counterorder))
+
 
     return p
 
@@ -75,6 +75,7 @@ def import_settings():
     symbol = symbol1 + symbol2
     restart_time = int(session.query(Fxt_Settings).filter(Fxt_Settings.name == 'restart_time').first().value.upper())
     
+    session.close()    
     print(app_mode, symbol)
     
 
@@ -105,7 +106,7 @@ def activate(p):
         Fxt_Parameters.name == p.name
     ).update({'active': 1}, synchronize_session=False)
 
-    if   hasattr(s, 'name') and p.name == s.name:
+    if hasattr(s, 'name') and p.name == s.name:
         p.active = True
         session.commit()
  
@@ -180,9 +181,9 @@ def on_message(ws, message):
         if not cur_atl:
             cur_atl = cur_close 
         elif cur_close < cur_atl:
-            cur_atl = cur_close
+            cur_atl = cur_close 
 
-        print(f'Close: {cur_close}, ATH: {cur_ath}, ATL: {cur_atl}')
+        print(f'{app_mode.upper()} {symbol} | Close: {cur_close}, ATH: {cur_ath}, ATL: {cur_atl} ')
 
         if cur_timestamp == message['k']['t']:
             # print('___ Same Candle ___ ')
@@ -199,9 +200,9 @@ def on_message(ws, message):
             p_5 = import_parameters(p_5)
             session.close()
 
-
     # __________________________________________________________________
-    # Conditions:    
+    # Conditions:  
+    #   
         
         conditions_function(p_1, cur_close, cur_ath, cur_atl, app_mode, symbol1, symbol2)
         conditions_function(p_2, cur_close, cur_ath, cur_atl, app_mode, symbol1, symbol2)
@@ -249,3 +250,21 @@ ws = websocket.WebSocketApp(
 
 
 ws.run_forever()
+
+
+order_made = {
+    'symbol': 'ADAEUR', 
+    'orderId': 108715428, 
+    'orderListId': -1, 
+    'clientOrderId': 'myKEsPO8m1inAZ4jV1a62Z', 
+    'transactTime': 1620885596573, 
+    'price': '0.00000000', 
+    'origQty': '7.74000000', 
+    'executedQty': '7.74000000', 
+    'cummulativeQuoteQty': '10.99621800', 
+    'status': 'FILLED', 
+    'timeInForce': 'GTC', 
+    'type': 'MARKET', 
+    'side': 'BUY', 
+    'fills': [{'price': '1.42070000', 'qty': '7.74000000', 'commission': '0.00001592', 'commissionAsset': 'BNB', 'tradeId': 9004666}]
+}

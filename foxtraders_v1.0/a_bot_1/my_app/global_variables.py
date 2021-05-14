@@ -29,6 +29,7 @@ class Postion():
         self.buy_target = 0
         self.buy_trail = 0
         self.target_reached = False
+        self.counterorder = False
 
 
 p_1 = Postion('P1')

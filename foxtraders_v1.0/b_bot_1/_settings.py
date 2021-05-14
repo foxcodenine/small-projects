@@ -49,7 +49,7 @@ if __name__ == '__main__':
         Fxt_Parameters('in_position', 0 , '0 => False, 1 = True'),
         Fxt_Parameters('sell_conditions', 0, '0 => False, 1 = True'),
         Fxt_Parameters('buy_conditions', 0, '0 => False, 1 = True'),
-        Fxt_Parameters('target_reached', 0, '0 => False, 1 = True')
+        # Fxt_Parameters('target_reached', 0, '0 => False, 1 = True')
     ])
 
     session.add(Fxt_Parameters('--------------------', '--------------------', '--------------------'))

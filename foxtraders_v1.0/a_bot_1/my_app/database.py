@@ -40,7 +40,7 @@ class Fxt_Parameters(Base):
     buy_trail   = Column(Float, nullable=False)
     target_reached = Column(Integer, nullable=False)
     symbol      = Column(String(50))
-    
+    counterorder = Column(Integer, nullable=False)
 
     def __init__(
         self, name, active=0, amount=0.00, sell_target=0.00, sell_trail=0.0,
@@ -55,6 +55,7 @@ class Fxt_Parameters(Base):
         self.buy_trail   = buy_trail
         self.target_reached = target_reached
         self.symbol = os.getenv('SYMBOL1') + ' ' +os.getenv('SYMBOL2')
+        self.counterorder = 0
 
 # ____________________
 

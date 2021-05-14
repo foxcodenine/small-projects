@@ -96,7 +96,7 @@ __init__
 $ sudo scp -i /home/foxcodenine/digitalocean/digitalOcean.txt -r /home/foxcodenine/Desktop/foxtraders_v4.0/bot_1/my_app/__init__.py root@167.172.163.199:/home/foxtraders/bot_1/my_app
 
 a_bot_1
-$ sudo scp -i /home/foxcodenine/digitalocean/digitalOcean.txt -r /home/foxcodenine/Desktop/foxtraders_v1.0/bot_1/ root@167.172.163.199:/home/foxtraders_v1.0
+$ sudo scp -i /home/foxcodenine/digitalocean/digitalOcean.txt -r /home/foxcodenine/Desktop/foxtraders_v1.0/a_bot_1/ root@167.172.163.199:/home/foxtraders_v1.0
 
 https://linuxize.com/post/how-to-use-linux-screen/
 
