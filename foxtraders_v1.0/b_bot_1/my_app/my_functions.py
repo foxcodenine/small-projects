@@ -90,6 +90,8 @@ def process_historical_data(results):
     print('\nFetch-Historical-Data >->')
 
 
+
+
 def process_message(message):
         message = json.loads(message)
         cfg.cur_timestamp = message['k']['t']
@@ -115,10 +117,11 @@ def print_current():
 # ______________________________________________________________________
 
 def ma_current():
+    print(cfg.ma_offset)
     if cfg.ma_type.upper() == 'EMA':
-        cfg.cur_ma = cfg.cur_ema + cfg.ma_offset
+        cfg.cur_ma = cfg.cur_ema * cfg.ma_offset
     elif cfg.ma_type.upper() == 'SMA':
-        cfg.cur_ma = cfg.cur_sma + cfg.ma_offset
+        cfg.cur_ma = cfg.cur_sma * cfg.ma_offset
     else:
         raise ValueError("ValueError moving averages type")
 
@@ -131,8 +134,6 @@ def log_parameters():
     # cfg.buy_conditions = not cfg.buy_conditions
     # cfg.target_reached = not cfg.target_reached
     # cfg.cur_buy_price = cfg.cur_close
-
-
 
     session.query(Fxt_Parameters).filter(
         Fxt_Parameters.name == 'in_position'
@@ -150,10 +151,25 @@ def log_parameters():
     #     Fxt_Parameters.name == 'target_reached'
     # ).update({'value': int(cfg.target_reached)}, synchronize_session=False)
 
+    if cfg.cur_buy_price :
+        value = float(cfg.cur_buy_price)
+    else:
+        value = None
+        
     session.query(Fxt_Parameters).filter(
         Fxt_Parameters.name == 'cur_buy_price'
-    ).update({'value': float(cfg.cur_buy_price)}, synchronize_session=False)
+    ).update({'value': value}, synchronize_session=False)
 
     session.commit()
+
+# ______________________________________________________________________
+
+def log_action(price, action):
+    
+    new_action = Fxt_Action( price=price, action=action)
+    
+    session.add(new_action)
+    session.commit()
+    
 
 # ______________________________________________________________________

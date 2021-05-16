@@ -8,7 +8,7 @@ import time
 
 from pymysql.err import ProgrammingError
 
-
+# rm -r __pycache__/ my_app/__pycache__/
 # ______________________________________________________________________
 # Global Variables
 

@@ -62,10 +62,12 @@ class Fxt_Action(Base):
 
     id = Column(Integer, primary_key=True)   
     timedate = Column(DateTime) 
+    price = Column(Float, nullable=False)
     action = Column(Text, unique=False)
 
-    def __init__(self, action):
+    def __init__(self, price, action):
         self.action = action
+        self.price = price
         self.timedate = datetime.utcnow()
 
 # ______________________________________________________________________
