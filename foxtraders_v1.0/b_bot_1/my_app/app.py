@@ -79,8 +79,6 @@ def on_open(ws):
 
 def on_message(ws, message):
 
-    print(1)
-
     try:           
         myf.process_message(message)       
         # ______________________________________
@@ -94,14 +92,12 @@ def on_message(ws, message):
         
         # ______________________________________
 
-        print(2)
         if cfg.cur_timestamp == cfg.timestamps_list[-1]:
 
             # update prices lists (changing last result)
             cfg.closes_list[-1] = cfg.cur_close                                 
             cfg.lows_list[-1] = cfg.cur_low
             cfg.highs_list[-1] = cfg.cur_high
-            print(3)
             
             # update moving averages (changing last result)
             cfg.cur_ema = ta.ema_current(cfg.cur_close, cfg.ema_list[-2], cfg.ema_window)

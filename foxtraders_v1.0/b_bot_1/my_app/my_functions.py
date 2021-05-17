@@ -6,7 +6,7 @@ from my_app.database import Session, Fxt_Action, Fxt_Error, Fxt_Parameters, Fxt_
 
 from my_app import ta_functions as ta
 
-import json
+import json, sys
 
 # ______________________________________________________________________
 
@@ -109,15 +109,15 @@ def print_current():
         return round(v, dp)
 
     if cfg.in_position:
-        print(f'...{cfg.sell_conditions} TG: {rd(cfg.sell_target * cfg.cur_buy_price)}')
+        print(f'in_pos|sell_conditions {cfg.sell_conditions} TG: {rd(cfg.sell_target * cfg.cur_buy_price)}')
 
     if not cfg.in_position:
-        print(f'...{cfg.buy_conditions} {cfg.ma_type}: {rd(cfg.cur_ma)}')
+        print(f'not_in_pos|buy_conditions {cfg.buy_conditions} {cfg.ma_type}: {rd(cfg.cur_ma)}')
 
 # ______________________________________________________________________
 
 def ma_current():
-    print(cfg.ma_offset)
+    
     if cfg.ma_type.upper() == 'EMA':
         cfg.cur_ma = cfg.cur_ema * cfg.ma_offset
     elif cfg.ma_type.upper() == 'SMA':
@@ -164,12 +164,85 @@ def log_parameters():
 
 # ______________________________________________________________________
 
-def log_action(price, action):
+def log_action(action):
     
-    new_action = Fxt_Action( price=price, action=action)
-    
+    new_action = Fxt_Action( price=cfg.cur_close, action=action)    
     session.add(new_action)
     session.commit()
     
 
 # ______________________________________________________________________
+
+
+
+
+def binance_order(action):
+    # __________________________________
+    try:
+
+        if os.getenv('MY_ENV') != 'production':
+
+            message = 'Bot in {} test mode!'.format(action)
+            print(message)
+            return message 
+    # __________________________________
+
+        sym1  = cfg.symbol1
+        sym2  = cfg.symbol2
+        symbol = f'{sym1}{sym2}'.upper()
+
+        price = float(cfg.cur_close)    
+        action = action.lower()
+    
+    # # __________________________________
+
+        if action == 'buy':
+            qty  = float(cfg.buy_qty)
+            side = SIDE_BUY
+            message =  f'BUY ORDER {sym1} {qty} for {sym2} {round(price * qty, 4)}'
+
+        if action == 'sell':
+            qty  = float(cfg.sell_qty)
+            side = SIDE_SELL
+            message = f'SELL ORDER {sym1} {qty} for {sym2} {round(price * qty, 4)}'
+    
+    # # __________________________________
+    
+        order = client.create_order(
+            symbol = symbol,
+            side = side,
+            type = ORDER_TYPE_MARKET,
+            quantity = qty
+        ) 
+        
+    # # __________________________________
+
+        pprice = 0
+        qqty = 0
+
+        for f in order['fills']:
+            pprice += float(f['price'])
+            qqty += float(f['qty'])
+
+        pprice = pprice / len(order['fills'])
+
+        if action == 'buy':
+            message =  f'BUY ORDER {sym1} {qqty} for {sym2} {round(pprice * qqty, 4)}'
+            cfg.cur_buy_price = pprice
+
+        if action == 'sell':
+            message = f'SELL ORDER {sym1} {qqty} for {sym2} {round(pprice * qqty, 4)}'
+            cfg.cur_buy_price = None
+        # ______________________________________________________________
+
+        print('\n', message) 
+        return message
+
+    except BinanceAPIException as e:        
+
+        message = f'{action.upper()} ERROR | BINANCE ERROR -> {e}'
+        log_action(action=message)
+
+        print('Binance API Exception >->')
+        print(message)
+        sys.exit(message)
