@@ -111,9 +111,7 @@ class JFW_Categories(db.Model):
     projects = db.relationship('JFW_Projects', backref='category',  lazy='dynamic')
 
     def __init__(self, category):
-        self.category = category
-
-    
+        self.category = category   
 
 
 # ______________________________________________________________________
@@ -138,6 +136,8 @@ class JFW_Projects(db.Model):
     content = db.Column(db.Text)
     published = db.Column(db.String(20))
 
+    images = db.relationship('JFW_Images', backref='project',  lazy='dynamic')
+
     def __repr__(self):
         return "<{} - {}>".format(self.id, self.name)
 
@@ -160,3 +160,22 @@ class JFW_Projects(db.Model):
 
 
         
+class JFW_Images(db.Model):
+    __tablename__ = 'jfw_images'
+
+    id = db.Column(db.Integer, primary_key=True)
+    use = db.Column(db.String(50), nullable=True)
+    project_id = db.Column(db.Integer(), db.ForeignKey('jfw_projects.id'))
+    url = db.Column(db.String(255), nullable=False, index=True)
+    thumbnail = db.Column(db.String(50), nullable=True)
+
+    def __init__(self, url, use=None, project_id=None, thumbnail=None):
+        self.url = url
+        self.use = use
+        self.project_id = project_id
+        self.thumbnail = thumbnail
+
+    def __repr__(self):
+        return "<{}>".format(self.url)
+    def __str__(self):
+        return "{}".format(self.url)

@@ -38,10 +38,11 @@
         margin-left: 2rem;
         color: $col-white;
         font-family: 'Simonetta', Courier, monospace;
+        font-family: $font-display;
         font-size: 3rem;
         font-weight: 300;
         border: 1px solid $col-white;
-        padding: 0.2rem 1.3rem;
+        padding: 0.2rem .9rem;
         cursor: pointer;
         transition: all .1s ease-in;
 

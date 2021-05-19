@@ -64,7 +64,10 @@ app.register_blueprint(my_admin)
 app.register_blueprint(my_clients)
 app.register_blueprint(my_projects)
 
-from my_app.modules.database import JFW_Clients, JFW_Users, JFW_Status, JFW_Categories, JFW_Projects
+from my_app.modules.database import db, JFW_Clients, JFW_Users, JFW_Status, JFW_Categories, JFW_Projects, JFW_Images
+
+db.create_all()
+db.session.commit()
 
 # ______________________________________________________________________
 

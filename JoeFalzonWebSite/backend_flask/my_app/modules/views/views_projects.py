@@ -4,7 +4,7 @@ from flask import Blueprint, render_template, redirect, request, url_for, jsonif
 from flask_login import login_required
 
 from my_app.modules.forms import ProjectForm
-from my_app.modules.database import JFW_Categories, JFW_Status, JFW_Clients, JFW_Projects
+from my_app.modules.database import JFW_Categories, JFW_Status, JFW_Clients, JFW_Projects, JFW_Images
 
 import datetime
 import os
@@ -17,7 +17,9 @@ my_projects = Blueprint('my_projects', __name__, url_prefix='/projects')
 # ______________________________________________________________________
 # ______________________________________________________________________
 
-
+@app.template_filter('strftime')
+def datetime_format(value, format="%H:%M %d-%m-%y"):
+    return value.strftime(format)
 
 @my_projects.route('/')
 @login_required
@@ -32,10 +34,11 @@ def dashbord():
 @login_required
 def all_projects():
 
-    return render_template('projects/all-projects.html')
+    projects = JFW_Projects.query.all()
+
+    return render_template('projects/all-projects.html', projects=projects)
 
 # ______________________________________________________________________
-
 
 @my_projects.route('/add/', methods=['GET', 'POST'])
 @login_required
@@ -95,6 +98,7 @@ def add_project():
 
         my_bucket_name = os.getenv('my_bucket_name')
         
+        image_count = 0
         
         for img in form.images.data:
 
@@ -110,7 +114,23 @@ def add_project():
                 Body = img,
                 Key =  image_name,
                 ACL =  'public-read'
-        )
+            )            
+
+            image_url = f'https://foxcode-project-002.s3.eu-central-1.amazonaws.com/projects_images/id_{new_project.id}/{img.filename}'
+
+
+            if not image_count:
+                thumbnail = 'thumbnail'
+            else:
+                thumbnail = ''
+            
+            image_count += 1
+
+            new_image = JFW_Images(
+                url=image_url, use='project_image', 
+                project_id=new_project.id, thumbnail=thumbnail
+            )
+            db.session.add(new_image)
 
         # _____________________________
 
@@ -123,7 +143,10 @@ def add_project():
         all_projects = JFW_Projects.query.all()
 
         for p in all_projects:
-            markup += f'{p} <br>'
+            for i in p.images:
+                print(i)
+                markup += f'{i} <br>'
+                
 
         return markup
         # _____________________________
