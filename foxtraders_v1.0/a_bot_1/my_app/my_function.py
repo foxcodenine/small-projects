@@ -54,9 +54,26 @@ def binance_order(action, qty, sym1, sym2, price, counterorder):
 
         # ______________________________________________________________
         if counterorder:
-            
+
             pprice = 0
             qqty = 0
+
+
+            if sym1 == 'ADA':
+                decimal_point = 2
+            elif sym1 == 'VET':
+                decimal_point = 1
+            elif sym1 == 'DOT':
+                decimal_point = 3
+            elif sym1 == 'ETH':
+                decimal_point = 5
+            elif sym1 == 'BTC':
+                decimal_point = 5
+            elif sym1 == 'LINK':
+                decimal_point = 3
+            else:
+                decimal_point = 4            
+
 
             for f in order['fills']:
                 pprice += float(f['price'])
@@ -68,11 +85,12 @@ def binance_order(action, qty, sym1, sym2, price, counterorder):
                 base_crypto = qqty * pprice
                 side = SIDE_BUY
                 pprice = round(pprice * 0.75, 4)
-                qqty = round(base_crypto / pprice * 0.99, 2)
+                qqty = round(base_crypto / pprice * 0.99, decimal_point)
 
             else:
                 side = SIDE_SELL
-                pprice = round(pprice * 1.25, 4)                  
+                pprice = round(pprice * 1.25, 4)   
+                qqty = round(qqty, decimal_point)               
                               
 
             counter_order = client.create_order(

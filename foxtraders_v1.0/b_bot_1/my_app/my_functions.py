@@ -193,18 +193,35 @@ def binance_order(action):
 
         price = float(cfg.cur_close)    
         action = action.lower()
+
+    # # __________________________________
+
+        if sym1 == 'ADA':
+            decimal_point = 2
+        elif sym1 == 'VET':
+            decimal_point = 1
+        elif sym1 == 'DOT':
+            decimal_point = 3
+        elif sym1 == 'ETH':
+            decimal_point = 5
+        elif sym1 == 'BTC':
+            decimal_point = 5
+        elif sym1 == 'LINK':
+            decimal_point = 3
+        else:
+            decimal_point = 4
     
     # # __________________________________
 
         if action == 'buy':
-            qty  = float(cfg.buy_qty)
+            qty  = round(float(cfg.buy_qty), decimal_point)
             side = SIDE_BUY
-            message =  f'BUY ORDER {sym1} {qty} for {sym2} {round(price * qty, 4)}'
+            message =  f'<buy order> {sym1} {qty} for {sym2} {round(price * qty, 4)}'
 
         if action == 'sell':
-            qty  = float(cfg.sell_qty)
+            qty  = round(float(cfg.sell_qty), decimal_point)
             side = SIDE_SELL
-            message = f'SELL ORDER {sym1} {qty} for {sym2} {round(price * qty, 4)}'
+            message = f'<sell order> {sym1} {qty} for {sym2} {round(price * qty, 4)}'
     
     # # __________________________________
     
