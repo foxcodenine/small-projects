@@ -207,6 +207,19 @@ function clientCheckBox() {
             });
         })
     }
+
+    const projectCheckBoxAll = document.querySelector('#project-checkbox-all');
+
+    if (projectCheckBoxAll) {
+        projectCheckBoxAll.addEventListener('click', (e)=>{
+
+            const allBoxes = document.querySelectorAll('.project-checkbox');
+
+            allBoxes.forEach(el => {
+                el.checked = e.target.checked
+            });
+        })
+    }
 }
 
 // _____________________________________________________________________

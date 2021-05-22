@@ -3,36 +3,53 @@
 
 {% block title %}{% endblock %}
 
-{% block main %}                
+{% block main %}     
+
+{% include 'flash-message.html' %}
                 
 <div class="projects">
     <div class="projects__row">
-        <div class="projects__item projects__item--header projects__item--header--checkbox"><input type="checkbox"></div>
-        <div class="projects__item projects__item--header projects__item--header--id">id</div>
-        <div class="projects__item projects__item--header projects__item--header--name">name</div>
-        <div class="projects__item projects__item--header projects__item--header--locality">locality</div>
-        <div class="projects__item projects__item--header projects__item--header--category">category</div>
+
+        <div class="projects__item projects__item--header projects__item--header--checkbox">
+            <input type="checkbox"  id="project-checkbox-all">
+        </div>
+
+        <div class="projects__item projects__item--header projects__item--header--delete"></div>
+        <div class="projects__item projects__item--header projects__item--header--id"><a href="#">id</a></div>
+        <div class="projects__item projects__item--header projects__item--header--name"><a href="#">name</a></div>
+        <div class="projects__item projects__item--header projects__item--header--locality"><a href="#">locality</a></div>
+        <div class="projects__item projects__item--header projects__item--header--category"><a href="#">category</a></div>
         <div class="projects__item projects__item--header projects__item--header--image">image</div>
-        <div class="projects__item projects__item--header projects__item--header--status">status</div>
-        <div class="projects__item projects__item--header projects__item--header--year">year</div>
-        <div class="projects__item projects__item--header projects__item--header--delete">delete</div>
-        <div class="projects__item projects__item--header projects__item--header--edit">edit</div>
+        <div class="projects__item projects__item--header projects__item--header--status"><a href="#">status</a></div>
+        <div class="projects__item projects__item--header projects__item--header--year"><a href="#">year</a></div>
+    </div>
+
         
        
-        {% for p in projects %}
-        <div class="projects__item projects__item--checkbox"><input type="checkbox"></div>
+    {% for p in projects %}
+    <div class="{{p._class}}" >
+
+        <div class="projects__item  projects__item--checkbox">
+            <input class="project-checkbox" type="checkbox"  name="checkBoxList" value="{{p.id}}">
+        </div>
+
+        <div class="projects__item projects__item--delete clients__item">
+            <a href="#"><i class="fas fa-pencil-alt"></i></a>
+            <a href="{{url_for('my_projects.delete_project', id=p.id)}}"><i class="fas fa-trash delete-btn"></i></a>
+            <a href="#"><i class="fas fa-eye"></i></a>
+        </div>
         <div class="projects__item projects__item--id">{{p.id}}</div>
         <div class="projects__item projects__item--name">{{p.name}}</div>
         <div class="projects__item projects__item--locality">{{p.locality}}</div>
         <div class="projects__item projects__item--category">{% if p.category_id %}{{p.category.category}}{% endif %}</div>
-        <div class="projects__item projects__item--image"><img src="{{p.images.filter_by(thumbnail = 'thumbnail').first()}}" alt=""></div>
+        <div class="projects__item projects__item--image"><img src="{{p.images.filter_by(thumbnail = 'thumbnail').first() | chk_img}}" alt=""></div>
         <div class="projects__item projects__item--status">{% if p.status_id %}{{p.status.status}}{% endif %}</div>
         <div class="projects__item projects__item--year">{{p.date|strftime("%B %Y")}}</div>
-        <div class="projects__item projects__item--delete">delete</div>
-        <div class="projects__item projects__item--edit">edit</div>
-        {% endfor %}
-
     </div>
+    {% endfor %}
+
+
+    
 </div>
 
 {% endblock %}

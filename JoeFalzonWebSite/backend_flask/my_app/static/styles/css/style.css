@@ -711,42 +711,73 @@ select {
     padding-right: 15px;
     padding-top: 110px; } }
 
+.projects__shade {
+  background-color: #f2f2f2;
+  background-color: rgba(214, 219, 223, 0.3); }
+
 .projects__row {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: 4rem repeat(9, minmax(max-content, 1fr));
+  grid-template-columns: 4rem 7.5rem 5rem repeat(6, minmax(10rem, 1fr));
   grid-template-rows: 5rem;
   align-items: center;
   grid-auto-rows: 7rem;
   justify-items: stretch;
   text-align: center; }
+  .projects__row:not(:last-of-type) {
+    border-bottom: 1px solid #1B2631; }
+  .projects__row:first-of-type {
+    border-bottom: 2px solid #1B2631; }
+  .projects__row:not(:first-of-type):hover {
+    background-color: #D6DBDF; }
 
 .projects__item {
+  overflow: auto;
   color: #1B2631;
-  border-bottom: 1px solid #d4d4d6;
+  border-left: 1px solid #d4d4d6;
   height: 100%;
-  padding-left: 1rem;
+  padding: 0 0 0 1rem;
   display: flex;
   align-items: center;
-  justify-content: center; }
+  justify-content: flex-start;
+  font-size: 1.4rem;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */ }
+  .projects__item::-webkit-scrollbar {
+    display: none; }
+  .projects__item a, .projects__item a:visited, .projects__item a:link {
+    text-decoration: none;
+    color: #2471A3; }
+    .projects__item a:hover, .projects__item a:visited:hover, .projects__item a:link:hover {
+      color: #E74C3C; }
+      .projects__item a:hover ~ i, .projects__item a:visited:hover ~ i, .projects__item a:link:hover ~ i {
+        color: #E74C3C; }
+  .projects__item--checkbox {
+    border: none; }
   .projects__item--header {
     text-transform: capitalize;
     font-family: "Poppins", sans-serif;
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     font-weight: 400;
-    border-bottom: 2px solid #1B2631; }
+    color: #2471A3; }
+    .projects__item--header--checkbox {
+      border: none; }
   .projects__item--image {
     overflow: hidden;
-    max-width: 20rem;
     text-align: center;
     height: 100%;
-    padding-top: 0rem; }
+    width: 100%;
+    padding: 0 .5rem 0 .5rem;
+    align-items: center;
+    justify-content: center; }
     .projects__item--image img {
       object-fit: cover;
       width: 100%;
       height: 100%;
-      padding: .8rem 0; }
+      padding: .4rem 0; }
 
 .clients__row {
   width: 100%;

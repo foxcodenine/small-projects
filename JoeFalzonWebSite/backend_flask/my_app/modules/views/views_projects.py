@@ -1,5 +1,5 @@
 from my_app import app, db, s3_resource, s3_client
-from flask import Blueprint, render_template, redirect, request, url_for, jsonify, session
+from flask import Blueprint, render_template, redirect, request, url_for, jsonify, session, flash
 
 from flask_login import login_required
 
@@ -21,6 +21,14 @@ my_projects = Blueprint('my_projects', __name__, url_prefix='/projects')
 def datetime_format(value, format="%H:%M %d-%m-%y"):
     return value.strftime(format)
 
+@app.template_filter('chk_img')
+def check_image(value):
+    if not value:
+        return '../../static/images/image_not_available.png'
+    return value
+
+# ______________________________________________________________________
+
 @my_projects.route('/')
 @login_required
 def dashbord():
@@ -35,6 +43,14 @@ def dashbord():
 def all_projects():
 
     projects = JFW_Projects.query.all()
+
+    i = 1
+    for p in projects:
+        i = i * -1
+        if i < 0:
+            p._class = 'projects__row projects__shade'
+        else:
+            p._class = 'projects__row'
 
     return render_template('projects/all-projects.html', projects=projects)
 
@@ -138,17 +154,19 @@ def add_project():
         # _____________________________
 
 
-        markup = ''
+        # markup = ''
 
-        all_projects = JFW_Projects.query.all()
+        # all_projects = JFW_Projects.query.all()
 
-        for p in all_projects:
-            for i in p.images:
-                print(i)
-                markup += f'{i} <br>'
+        # for p in all_projects:
+        #     for i in p.images:
+        #         print(i)
+        #         markup += f'{i} <br>'
                 
 
-        return markup
+        # return markup
+
+        return redirect(url_for('my_projects.all_projects'))
         # _____________________________
 
     return render_template('projects/add-project.html', form=form)
@@ -157,3 +175,34 @@ def add_project():
 
 
 
+@my_projects.route('/delete-project/<id>', methods=['GET'])
+@login_required
+def delete_project(id):
+    project = JFW_Projects.query.get(id)
+    if project:
+        db.session.delete(project)
+        db.session.commit()
+
+        flash(
+            'Project has been removed successfully!'
+            , 'flash flash--warning'
+        )
+
+    return redirect(url_for('my_projects.all_projects'))
+
+
+# @my_clients.route('/delete-client/<id>/', methods=['GET'])
+# @login_required
+# def delete_client(id):
+
+#     client = JFW_Clients.query.get(id)
+#     if client:
+#         db.session.delete(client)
+#         db.session.commit()
+
+#         flash(
+#             'Client has been removed successfully!'
+#             , 'flash flash--warning'
+#         )
+
+#     return redirect(url_for('my_clients.all_clients'))

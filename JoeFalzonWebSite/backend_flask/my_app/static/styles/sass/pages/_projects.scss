@@ -1,52 +1,107 @@
 
 .projects {
 
+    &__shade {
+        background-color: $col-bg-g;
+        background-color: rgba($col-bg-b, .3);
+    }
+
     &__row {
     
     width: 100%;
     height: 100%;
 
     display: grid;
-    grid-template-columns: 4rem repeat(9, minmax(max-content, 1fr));
+    grid-template-columns: 4rem 7.5rem 5rem repeat(6, minmax(10rem, 1fr));
     grid-template-rows: 5rem;
     align-items: center;
     grid-auto-rows: 7rem;
     justify-items: stretch;
-    text-align: center;            
+    text-align: center;  
+
+        &:not(:last-of-type) {
+            border-bottom: 1px solid $col-black;
+        }  
+        
+        &:first-of-type {
+            border-bottom: 2px solid $col-black;
+        }
+        
+        &:not(:first-of-type) {
+            &:hover {
+                background-color: $col-bg-b;
+            }
+        }
     
     }
     
     &__item {
+
+        overflow: auto;
+        
         color: $col-black;
-        border-bottom: 1px solid $col-gray;
+        border-left: 1px solid $col-gray;
+
         height: 100%; 
-        padding-left: 1rem;        
+        padding: 0 0 0 1rem;        
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+        font-size: 1.4rem;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        scrollbar-width: none;  /* Firefox */
+        -ms-overflow-style: none;  /* IE and Edge */
+
+        a, a:visited, a:link {
+            text-decoration: none; 
+            color: $col-blue;
+
+            &:hover {
+                color: $col-red;
+                & ~ i {
+                    color: $col-red;
+                }                    
+            }
+        }
+
+
+        &--checkbox {
+            border: none;
+        }
 
         &--header {
             text-transform: capitalize;
             font-family: $font-display;
-            font-size: 1.7rem;
-            font-weight: 400;
-            border-bottom: 2px solid $col-black;
+            font-size: 1.6rem;
+            font-weight: 400; 
+            color: $col-blue;  
+
+            &--checkbox {
+                border: none;
+            }
+            
             
         }
-        
+       
         
         &--image {
             overflow: hidden;            
-            max-width: 20rem;
             text-align: center;            
             height: 100%;
-            padding-top: 0rem;            
+            width: 100%;
+            
+            padding: 0 .5rem 0 .5rem;
+                
+            align-items: center;
+            justify-content: center;      
 
             img {
                 object-fit: cover;
                 width: 100%;
                 height: 100%;
-                padding: .8rem 0;
+                padding: .4rem 0;
                 
                 
                 
