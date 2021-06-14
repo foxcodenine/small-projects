@@ -61,10 +61,10 @@ slider.addEventListener('mousemove', (e) => {
 
     event.preventDefault();
     if(!isDown) return;
-    
+
 
     const x = e.pageX - slider.offsetLeft;
-    
+
 
     const walk = x - startX;
 
@@ -76,58 +76,70 @@ slider.addEventListener('mousemove', (e) => {
 
 // _____________________________________________________________________
 
-const btnNext = document.querySelector('.arrow__next-btn'); 
+const btnNext = document.querySelector('.arrow__next-btn');
 
 btnNext.addEventListener('click', (e)=>{
 
-    
-    
-    console.log(slider.scrollLeft + slider.clientWidth)
 
-    
+
+    console.log(slider.scrollLeft + slider.clientWidth);
+
+    console.log(slider.clientWidth);
+    console.log(slider.scrollLeft);
+
+
     slider.scroll({
         top: 0,
         left: slider.scrollLeft + slider.clientWidth + 50 ,
         behavior: 'smooth'
-      });     
-      
-    //   setTimeout(()=>{
+      });
 
-    //     window.setInterval(()=>{
-            
-    //     }, 1000/60)
-    //   }, 1000)
-    
-}); 
+});
 
-const btnPrev = document.querySelector('.arrow__prev-btn'); 
+const btnPrev = document.querySelector('.arrow__prev-btn');
 
 btnPrev.addEventListener('click', (e)=>{
-    
+
     const rowWidth = document.querySelector('.arrow')
 
     console.log(slider.clientWidth - slider.scrollLeft)
+    console.log(slider.clientWidth);
+    console.log(slider.scrollLeft);
+    
     slider.scrollTo({
         top: 0,
         left: (slider.clientWidth - slider.scrollLeft + 50 ) * -1,
         behavior: 'smooth'
-      });     
-    
+      });
+
 });
 
 // _____________________________________________________________________
 
 // Initialize and add the map
 
-api_key = 'AIzaSyCWNTnx_iqacmfOafneKct65iJ3rnY5B44';
+// api_key = 'AIzaSyAfXrmWPKvCXAArFY95A85i1OibkPIRDyk';
+// google.maps.Map(mapDiv[,opts])
+// google.maps.Marker([opts])
 
+// Chris2021BillAccount
 
 function initMap() {
     // The location of Uluru
     let uluru = {lat: 35.899, lng: 14.485};
     // The map, centered at Uluru
     let map = new google.maps.Map(
-        document.getElementById('map'), {zoom: 16, center: uluru});
+        document.getElementById('map'), {zoom: 15, center: uluru});
     // The marker, positioned at Uluru
     let marker = new google.maps.Marker({position: uluru, map: map});
   }
+
+
+// _____________________________________________________________________
+
+
+
+// API_key_Joe_Falzon_Website
+api_key = 'AIzaSyAfXrmWPKvCXAArFY95A85i1OibkPIRDyk';
+
+Chris2021BillAccount

@@ -34,7 +34,7 @@
         </div>
 
         <div class="projects__item projects__item--delete clients__item">
-            <a href="#"><i class="fas fa-pencil-alt"></i></a>
+            <a href="{{url_for('my_projects.edit_project', id=p.id)}}"><i class="fas fa-pencil-alt"></i></a>
             <a href="{{url_for('my_projects.delete_project', id=p.id)}}"><i class="fas fa-trash delete-btn"></i></a>
             <a href="#"><i class="fas fa-eye"></i></a>
         </div>

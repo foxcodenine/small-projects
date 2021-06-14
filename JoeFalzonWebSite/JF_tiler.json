@@ -1,0 +1,35 @@
+{
+    "child": {
+        "child1": {
+            "directory": "\/home\/foxcodenine\/Desktop\/JoeFalzonWebSite\/frontend_nuxt",
+            "height": 232,
+            "profile": "2b7c4080-0ddd-46c5-8f23-563fd3ba789d",
+            "readOnly": false,
+            "synchronizedInput": true,
+            "type": "Terminal",
+            "uuid": "2ddae68b-c8ed-4d89-ad75-a8ef2a2c9c23",
+            "width": 722
+        },
+        "child2": {
+            "directory": "\/home\/foxcodenine\/Desktop\/JoeFalzonWebSite\/backend_flask",
+            "height": 232,
+            "profile": "2b7c4080-0ddd-46c5-8f23-563fd3ba789d",
+            "readOnly": false,
+            "synchronizedInput": true,
+            "type": "Terminal",
+            "uuid": "24677683-d420-475b-bb35-38ba45e8f3ff",
+            "width": 722
+        },
+        "orientation": 1,
+        "position": 49,
+        "ratio": 0.498924731182795678,
+        "type": "Paned"
+    },
+    "height": 465,
+    "name": "${title}",
+    "synchronizedInput": false,
+    "type": "Session",
+    "uuid": "4bd5de5d-6fe4-49f9-b9af-3c76ea213d6b",
+    "version": "1.0",
+    "width": 722
+}

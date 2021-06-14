@@ -1,0 +1,50 @@
+{% extends 'main.html' %}
+{% from "macro.html" import render_field %}
+
+
+{% block title %}{% endblock %}
+
+{% block main %}                
+<div class="addin">           
+    <form action="{{url_for('my_projects.edit_project', id=edit.id)}}" method="POST" 
+          class="myform addin__layout addin__form" 
+          enctype="multipart/form-data" novalidate role="form">
+            
+        <h2 class="myform__title addin__title">add new project</h2>
+
+        {% include 'flash-message.html' %}
+
+        {{ form.csrf_token }} 
+
+        {{ render_field(form.name, 'name', edit.name) }}
+    
+        {{ render_field(form.address, 'address', edit.address) }}
+
+        {{ render_field(form.locality, 'locality', edit.locality) }}
+
+        {{ render_field(form.ref_client, 'ref_client', edit.ref_client) }}
+
+        {{ render_field(form.ref_number, 'ref_number', edit.ref_number) }}
+
+        {{ render_field(form.pa_number, 'pa_number', edit.pa_number) }}
+
+        
+
+        {{ render_field(form.images, 'images') }}
+
+        {{ render_field(form.status, 'status', edit.status) }}
+
+        {{ render_field(form.category, 'category', edit.category) }}
+
+        {{ render_field(form.date, 'date', edit.date) }}
+
+        <div class="myform__group addin__group--content">            
+            {{ form.content.label(for="content", class="myform__label") }}                 
+            {{ form.content(id="editor_body", class="myform__input myform__input--content", cols="30", rows="10", default=edit.content) }}             
+        </div> 
+      
+        {{ form.submit(class="btn btn--dark myform__btn addin__btn", value="update project") }}         
+
+    </form>
+</div>
+{% endblock %}

@@ -123,7 +123,7 @@ def add_client():
 # _____________________________
 
 
-@my_clients.route('/edit_client/<id>/', methods=['POST', 'GET'])
+@my_clients.route('/edit-client/<id>/', methods=['POST', 'GET'])
 @login_required
 def edit_client(id):
 
