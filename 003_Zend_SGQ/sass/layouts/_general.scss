@@ -1,0 +1,54 @@
+.title {
+    margin-top: 3rem;
+    font-size: 1.5rem; 
+    
+
+    &__box {
+        border-bottom: $color-black 1px solid;
+    }
+    &__text {
+        margin-left: .5rem;
+        font-weight: 500 ;
+        color: $color-black;
+    }
+}
+
+.question {
+    color: $color-black;
+    font-size: 1.6rem;
+    margin-top: 2rem;    
+    padding:  0 .5rem;
+    &__box {
+        border-bottom: $color-black 1px solid;
+        margin: 1rem 0;
+        padding: 0 0 2rem 0;
+
+    }
+}
+.code {
+    font-family: 'Fira Code', monospace;
+    color: lighten($color: $color-primary, $amount: 10%);
+    font-size: 1.4rem;
+    margin-top: 1rem;
+    
+}
+
+.answer {
+    color: $color-black;
+    
+    &__selection {
+        padding-left: 5px;
+        margin: .5rem;
+        margin-left: 0;
+    }
+
+    &__checkbox {
+        margin-right: .5rem;
+        transform: translateY(1px);
+    }
+    &__box {
+        padding: 0.5rem 0 2rem 0;
+        border-bottom: $color-black 1px solid;
+        
+    }
+}

@@ -1,0 +1,45 @@
+.btn {
+    &__box {margin-left: .5rem;}
+    cursor: pointer;
+    border: 1px solid black;
+    width: 10rem;
+    color: $color-black;
+    padding: .1rem 0 .2rem 0;
+    font-size: 1.6rem;
+    border-radius: .9rem;
+    // margin: 2rem .5rem 10rem .5rem;
+    font-family:  "Lato", "Roboto", sans-serif;
+    transition: .2s ease;
+    display: inline;
+
+    &--check {
+        background-color: lighten($color-primary, 55%);
+    }
+
+    a:link, a:visited {
+        text-decoration: none;
+        color: $color-black;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+
+    }
+
+    &:hover {
+        background-color: lighten($color: $color-primary, $amount: 10%);
+        color: $color-white;
+        transform: translateY(-.4rem);
+        a:link, a:visited {
+            color: $color-white;
+        }
+    }
+
+    &:active {
+        transform: translateY(-.2rem);
+    }
+}
+
+.correct {
+    background-color: lighten($color-primary, 50%);
+}
+

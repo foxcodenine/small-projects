@@ -1,0 +1,84 @@
+<!-- 28 -->
+The function glob() returns an array of filenames or directories which matches a 
+specified pattern. The function returns an array of files/directories, or it will 
+return FALSE on failure. Here is an example-
+
+// get all php files AND txt files  
+    $files = glob('*.{php,txt}', GLOB_BRACE);  
+    print_r($files);  
+    /* output looks like: 
+    Array 
+    ( 
+        [0] => phptest.php 
+        [1] => pi.php 
+        [2] => post_output.php
+        .
+        .
+        .
+    )
+
+<!-- 29 -->
+
+Explanation: memory_get_usage() returns the amount of memory, in bytes, that’s 
+currently being allocated to the PHP script. We can set the parameter ‘real_usage’
+ to TRUE to get total memory allocated from system, including unused pages. 
+ 
+ If it is not set or FALSE then only the used memory is reported. 
+ To get the highest amount of memory used at any point, we can use the 
+ memory_get_peak_usage() function.
+
+
+
+ <!-- 30 -->
+
+ Explanation: The function uniqueid() is used to generate a unique ID based on the 
+ microtime (current time in microseconds). The ID generated from the function uniqueid()
+  is not optimal, as it is based on the system time. To generate an ID which is 
+  extremely difficult to predict we can use the md5() function.
+
+<!-- 31 -->
+Check for compres functions 
+Rx gzcompress
+
+<!-- 34 -->
+
+The wordwrap() function wraps a string into new lines when it reaches a specific length.
+
+Note: This function may leave white spaces at the beginning of a line.
+
+<!-- 41 -->
+
+The extract( ) function automatically creates local variables from an array. The indexes of the array elements are the variable names:
+
+$person = array('name' => 'Fred', 'age' => 35, 'wife' => 'Betty'); 
+extract($person); // $name, $age, and $wife are now set 
+If a variable created by the extraction has the same name as an existing one, the extracted variable overwrites the existing variable.
+
+The compact( ) function is the complement of extract( ). Pass it the variable names to compact either as separate parameters or in an array. The compact( ) function creates an associative array whose keys are the variable names and whose values are the variable's values. Any names in the array that do not correspond to actual variables are skipped. Here's an example of compact( ) in action:
+
+$color = 'indigo'; $shape = 'curvy'; $floppy = 'none';
+$a = compact('color', 'shape', 'floppy'); 
+// or 
+$names = array('color', 'shape', 'floppy'); 
+$a = compact($names)
+
+<!-- 44 -->
+__halt_compiler() — Halts the compiler execution.
+Halts the execution of the compiler. This can be useful to embed data in PHP scripts, like the installation files.
+
+__halt_compiler() can only be used from the outermost scope.
+
+
+
+
+
+
+
+
+
+<!-- https://phponweb.wordpress.com/2011/04/21/under-what-circumstance-is-it-impossible-to-assign-a-default-value-to-a-parameter-while-declaring-a-function/ -->
+<!-- https://compsciedu.com/mcq-questions/PHP/Basics-of-PHP -->
+<!-- http://vcampus.co/zend-certification/9569/what-is-the-best-way-to-ensure-that-a-user-defined-function-always-passed-an -->
+<!-- http://www.zendpreparation.com/quiz/learning_mode/Functions/When-during-declaring-a-function-it-is-impossible-to-assign-a-default-value-to-a-parameter -->
+<!-- https://www.briefmenow.org/zend/which-of-these-statements-about-pdo-is-not-true/ -->
+<!-- https://3v4l.org/sFD90#v8.0.12 -->

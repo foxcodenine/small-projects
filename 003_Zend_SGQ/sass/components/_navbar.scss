@@ -1,0 +1,40 @@
+.navbar {
+
+    &__list {
+        border: 1px solid $color-black;
+        border-top: none;
+        border-bottom-left-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+        font-size: 1.2rem;
+        display: block;          
+    }
+
+    &__item {   
+        cursor: pointer;     
+        display: inline-block;
+        width: calc(100% / 12);
+        text-align: center;
+        
+        transition: .2s ease;
+
+        a:link, a:visited {
+            color: darken($color-black, 20%);
+            text-decoration: none;
+        }
+        
+        &:not(:first-child) {
+            border-left: 1px solid $color-black;
+        }
+
+        &:hover {
+            background-color: lighten($color: $color-primary, $amount: 10%);
+            
+            a:link, a:visited {
+                color: $color-white;
+            }
+        }
+    
+    }
+}
+
+
