@@ -28,14 +28,14 @@
     &:hover {
         background-color: lighten($color: $color-primary, $amount: 10%);
         color: $color-white;
-        transform: translateY(-.4rem);
+        transform: translateY(-.2rem);
         a:link, a:visited {
             color: $color-white;
         }
     }
 
     &:active {
-        transform: translateY(-.2rem);
+        transform: translateY(-.1rem);
     }
 }
 

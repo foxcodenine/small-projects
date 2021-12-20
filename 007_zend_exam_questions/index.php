@@ -72,13 +72,14 @@ $ccc = $data[$chapter][$question]['correct'] ?? [];
 
                 <?php foreach($aaa as $k => $v):?>
                 <div class="answer__selection <?php markCorrect($k, $ccc)?>">
-                    <input type="checkbox" class="answer__checkbox" name="selected[]" 
+                    <input type="checkbox" class="answer__checkbox" name="selected[]" id="<?=$k?>"
                     value="<?=$k?>" <?php if(in_array($k, $sss)) {echo 'checked';} ?> >
-                    <?= $v ?>
+                    <?= "<label for='{$k}'>" . $v . '</label>'?>
                 </div>
                 <?php endforeach ?>
 
             </div>
+            
 
             <input type="hidden" name="c" value="<?= $chapter?>">
             <input type="hidden" name="q" value="<?= $question?>" id="hidden">

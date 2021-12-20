@@ -1,20 +1,27 @@
 <?php
 
-include './questions.php';
+include './questions/questions_1.php';
+include './questions/questions_2.php';
+include './questions/questions_4.php';
+include './questions/questions_7.php';
 
 $titels = [
     0,
     'Chapter 1 - PHP Basics',
     'Chapter 2 - Functions',
     'Chapter 3 - Strings and Patterns',
+    'Chapter 4 - Arrays',
+    'Chapter 5 - ',
+    'Chapter 6 - ',
+    'Chapter 7 - Data Formats and Types',
 ];
 
 $data = [
     1 => [
         1 => [
-            'question' => '',
-            'correct'  => [],
-            'answers'  => []
+            'question' => $c1q1,
+            'correct'  => [0,2,3,4],
+            'answers'  => $c1a1
             ],
     ],
     2 => [
@@ -272,7 +279,7 @@ $data = [
         ],
         50 => [
             'question' => $c2q50,
-            'correct'  => [2],
+            'correct'  => [4],
             'answers'  => $c2a50
         ],
         51 => [
@@ -298,65 +305,90 @@ $data = [
     ],
     4 => [
         1 => [
-            'question' => '',
-            'correct'  => [],
-            'answers'  => []
+            'question' => $c4q1,
+            'correct'  => [5],
+            'answers'  => $c4a1
+        ],
+        2 => [
+            'question' => $c4q2,
+            'correct'  => [0],
+            'answers'  => $c4a2
+        ],
+        3 => [
+            'question' => $c4q3,
+            'correct'  => [1],
+            'answers'  => $c4a3
+        ],
+        4 => [
+            'question' => $c4q4,
+            'correct'  => [3],
+            'answers'  => $c4a4
+        ],
+        5 => [
+            'question' => $c4q5,
+            'correct'  => [0],
+            'answers'  => $c4a5
+        ],
+        6 => [
+            'question' => $c4q6,
+            'correct'  => [0],
+            'answers'  => $c4a6
         ],
     ],
-    5 => [
-        1 => [
-            'question' => '',
-            'correct'  => [],
-            'answers'  => []
-            ],
-    ],
-    6 => [
-        1 => [
-            'question' => '',
-            'correct'  => [],
-            'answers'  => []
-            ],
-    ],
+    5 => [],
+    6 => [],
     7 => [
         1 => [
-            'question' => '',
-            'correct'  => [],
-            'answers'  => []
+            'question' => $c7q1,
+            'correct'  => [2],
+            'answers'  => $c7a1
             ],
-    ],
-    8 => [
-        1 => [
-            'question' => '',
-            'correct'  => [],
-            'answers'  => []
+        2 => [
+            'question' => $c7q2,
+            'correct'  => [1],
+            'answers'  => $c7a2
             ],
-    ],
-    9 => [
-        1 => [
-            'question' => '',
-            'correct'  => [],
-            'answers'  => []
+        3 => [
+            'question' => $c7q3,
+            'correct'  => [2],
+            'answers'  => $c7a3
             ],
-    ],
-    10 => [
-        1 => [
-            'question' => '',
-            'correct'  => [],
-            'answers'  => []
+        4 => [
+            'question' => $c7q4,
+            'correct'  => [1],
+            'answers'  => $c7a4
             ],
-    ],
-    11 => [
-        1 => [
-            'question' => '',
-            'correct'  => [],
-            'answers'  => []
+        5 => [
+            'question' => $c7q5,
+            'correct'  => [2],
+            'answers'  => $c7a5
             ],
-    ],
-    12 => [
-        1 => [
-            'question' => '',
-            'correct'  => [],
-            'answers'  => []
+        6 => [
+            'question' => $c7q6,
+            'correct'  => [3],
+            'answers'  => $c7a6
             ],
+        7 => [
+            'question' => $c7q7,
+            'correct'  => [1],
+            'answers'  => $c7a7
+            ],
+        8 => [
+            'question' => $c7q8,
+            'correct'  => [0],
+            'answers'  => $c7a8
+            ],
+        9 => [
+            'question' => $c7q9,
+            'correct'  => [0],
+            'answers'  => $c7a9
+            ],
+        10 => [
+            'question' => $c7q10,
+            'correct'  => [0],
+            'answers'  => $c7a10
+            ],
+        
     ],
+    
 ];
