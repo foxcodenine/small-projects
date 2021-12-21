@@ -20,8 +20,58 @@ $data = [
     1 => [
         1 => [
             'question' => $c1q1,
-            'correct'  => [0,2,3,4],
+            'correct'  => [3],
             'answers'  => $c1a1
+            ],
+        2 => [
+            'question' => $c1q2,
+            'correct'  => [1,3],
+            'answers'  => $c1a2
+            ],
+        3 => [
+            'question' => $c1q3,
+            'correct'  => [2],
+            'answers'  => $c1a3
+            ],
+        4 => [
+            'question' => $c1q4,
+            'correct'  => [1],
+            'answers'  => $c1a4
+            ],
+        5 => [
+            'question' => $c1q5,
+            'correct'  => [3],
+            'answers'  => $c1a5
+            ],
+        6 => [
+            'question' => $c1q6,
+            'correct'  => [0],
+            'answers'  => $c1a6
+            ],
+        7 => [
+            'question' => $c1q7,
+            'correct'  => [1,2],
+            'answers'  => $c1a7
+            ],
+        8 => [
+            'question' => $c1q8,
+            'correct'  => [0],
+            'answers'  => $c1a8
+            ],
+        9 => [
+            'question' => $c1q9,
+            'correct'  => [0],
+            'answers'  => $c1a9
+            ],
+        10 => [
+            'question' => $c1q10,
+            'correct'  => [5],
+            'answers'  => $c1a10
+            ],
+        11 => [
+            'question' => $c1q11,
+            'correct'  => [0, 2, 3, 4],
+            'answers'  => $c1a11
             ],
     ],
     2 => [
