@@ -1,0 +1,41 @@
+@use '../abstracts/' as *;
+
+.side {
+    background-color: $color-gray-light-1;
+    padding: 3rem;
+}
+
+.skills {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-top: 2.3rem;
+    gap: 1.5rem;
+
+    color: lighten($color-gray-dark-2, 2%);
+    font-family: $font-primary;
+    font-size: 1.6rem;
+
+    text-shadow: $shodow-1;
+
+
+    .skills__text {
+        text-align: justify;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1rem;
+        span {
+            font-size: .6rem;
+            
+        }
+    }
+    .skills__box {
+        letter-spacing: .13rem;
+        transform: translateY(-.1rem);
+        font-size: 1.8rem;
+    }
+
+}

@@ -1,0 +1,19 @@
+@use '../abstracts/' as *;
+
+.main {
+    background-color: $color-gray-light-2;
+    padding: 3rem;
+
+    &__text {
+        font-family: $font-primary;
+        line-height: 1.6;
+        font-size: 1.4rem;
+        color: $color-gray-dark-2;
+    }
+
+    &__logo {
+        width: 2rem;
+        margin-right: 1rem;
+        transform: translateY(.5rem);
+    }
+}

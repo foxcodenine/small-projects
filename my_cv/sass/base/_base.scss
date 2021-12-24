@@ -1,0 +1,60 @@
+@use '../abstracts/' as *;
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;   // 10px/16px = 62.5% -> 1rem = 10px
+
+    @include respond ($bp-largest) {
+        font-size: 50%;
+    }
+}
+
+body {
+    font-size: 1.6rem;
+    // font-family: $font-primary;
+    // color: $color-grey-dark-2;
+    // font-weight: 300;
+    // line-height: 1.6;
+}
+
+
+.content {
+    width: $layout-width;
+    height: $layout-hight;
+    margin: 2rem auto;
+
+    display: grid;
+    grid-auto-flow: dense;
+
+    grid-template-columns:  [side-start] 2fr [side-end main-start] 5fr [main-end]; 
+    grid-template-rows:     [header-start] 16.5% [header-end contacts-start] 4.5% [contacts-end main-start] 1fr [main-end];
+
+
+    .photo {
+        grid-column: side-start / side-end;
+        grid-row: header-start / contacts-end;
+    }
+
+
+    & > * {
+    
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: center;
+        // align-items: center;
+
+        
+    }
+
+}
+
+
+
+
+

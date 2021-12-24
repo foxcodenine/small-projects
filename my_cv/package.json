@@ -1,0 +1,28 @@
+{
+  "name": "my_cv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devserver": "live-server --browser=firefox",
+    "sass-watch": "sass sass/main.scss css/style.css -w",
+    "sass-dev": "npm-run-all --parallel sass-watch devserver",
+    "sass-compile": "sass sass/main.scss css/style.compile.css",
+    "css-concat": "concat -o ./css/style.concat.css  ./css/style.compile.css",
+    "css-prefix": "postcss --use autoprefixer -b 'last 12 versions' ./css/style.concat.css -o ./css/style.prefix.css",
+    "css-compress": "sass --style=compressed ./css/style.prefix.css ./css/style.css",
+    "css-remove": "rm ./css/style.prefix.css ./css/style.compile.css ./css/style.compile.css.map ./css/style.concat.css ./css/style.css.map",
+    "css-build": "npm-run-all sass-compile css-concat css-prefix css-compress css-remove"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "concat": "^1.0.3",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.4",
+    "postcss-cli": "^8.3.1",
+    "sass": "^1.44.0"
+  }
+}
