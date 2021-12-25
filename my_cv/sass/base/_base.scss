@@ -8,7 +8,7 @@
 
 html {
     box-sizing: border-box;
-    font-size: 62.5%;   // 10px/16px = 62.5% -> 1rem = 10px
+    font-size: 55%;   // 10px/16px = 62.5% -> 1rem = 10px
 
     @include respond ($bp-largest) {
         font-size: 50%;
@@ -17,23 +17,32 @@ html {
 
 body {
     font-size: 1.6rem;
-    // font-family: $font-primary;
-    // color: $color-grey-dark-2;
-    // font-weight: 300;
-    // line-height: 1.6;
 }
 
 
 .content {
+    // max-width: $layout-width;
+    // max-height: $layout-hight;
     width: $layout-width;
     height: $layout-hight;
     margin: 2rem auto;
 
+    @media print {
+
+        margin: 0;
+        overflow: hidden;
+
+        width: 210mm;
+        height: 297mm;
+        border: .5mm solid #fff;
+      
+      }
+
     display: grid;
     grid-auto-flow: dense;
 
-    grid-template-columns:  [side-start] 2fr [side-end main-start] 5fr [main-end]; 
-    grid-template-rows:     [header-start] 16.5% [header-end contacts-start] 4.5% [contacts-end main-start] 1fr [main-end];
+    grid-template-columns:  [side-start] 2fr [side-end main-start] 4.5fr [main-end]; 
+    grid-template-rows:     [header-start] 16.5fr [header-end contacts-start] 4.5fr [contacts-end main-start] 81fr [main-end];
 
 
     .photo {
@@ -42,7 +51,7 @@ body {
     }
 
 
-    & > * {
+    // & > * {
     
         // display: flex;
         // flex-direction: column;
@@ -50,7 +59,7 @@ body {
         // align-items: center;
 
         
-    }
+    // }
 
 }
 

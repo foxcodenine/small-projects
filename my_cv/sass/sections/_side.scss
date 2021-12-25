@@ -3,6 +3,16 @@
 .side {
     background-color: $color-gray-light-1;
     padding: 3rem;
+    
+    color: lighten($color-gray-dark-2, 2%);
+    font-family: $font-primary;
+    font-size: 1.6rem;
+    text-shadow: $shodow-1;
+
+    display: grid;
+    grid-template-rows: repeat(6, min-content);
+    align-content: space-between;
+    gap: 1rem;
 }
 
 .skills {
@@ -11,14 +21,9 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding-top: 2.3rem;
-    gap: 1.5rem;
+    gap: .5rem;
 
-    color: lighten($color-gray-dark-2, 2%);
-    font-family: $font-primary;
-    font-size: 1.6rem;
-
-    text-shadow: $shodow-1;
+    
 
 
     .skills__text {
@@ -27,8 +32,10 @@
         align-items: center;
         justify-content: flex-start;
         gap: 1rem;
+
         span {
-            font-size: .6rem;
+            font-size: 3rem;
+            transform: translateY(-.3rem);
             
         }
     }
@@ -37,5 +44,75 @@
         transform: translateY(-.1rem);
         font-size: 1.8rem;
     }
+}
 
+.languages {
+    display: grid;
+    grid-template-columns: repeat(1, max-content);
+    grid-template-rows: repeat(3, 1fr 2fr);
+    justify-content: space-between;
+    align-items: start;
+    gap: .4rem;
+    font-size: 1.5rem;
+
+    text-shadow: $shodow-3;
+
+    &__lang {
+        text-transform: uppercase;
+        &--1{letter-spacing: .2rem;}
+        &--2{letter-spacing: .25rem;}
+        &--3{letter-spacing: .35rem;}
+    }
+
+    &__level {
+        display: flex;
+        text-transform: uppercase;
+        line-height: 1;            
+        font-size: 1rem;
+        
+        p {
+            flex: 0, 0, 33.33%;
+            padding: .1rem 2.5rem;
+            background-color: lighten($color-gray-dark-2, 5%);
+            color: $color-gray-light-2;
+            box-shadow: $shodow-2;
+
+            &:not(&:first-child) {
+                border-left: $color-gray-light-2 solid .1rem;;
+            }
+        }
+    }
+
+}
+
+.study {
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    justify-content: space-between;
+
+    // border-bottom: $color-gray-dark-2 1px solid;
+    padding-bottom: 2rem;
+
+
+
+    &__box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: .5rem;
+
+    }
+
+    &__icon {
+        width: 3.5rem;
+        height: 3.5rem;
+        fill: lighten($color-gray-dark-2, 5%) !important;
+        filter: drop-shadow($shodow-2);
+    }
+
+    &__description {
+
+        font-size: 1.6rem;
+        text-shadow: $shodow-3;
+    }
 }
