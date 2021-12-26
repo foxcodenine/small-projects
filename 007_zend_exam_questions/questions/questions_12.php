@@ -604,6 +604,243 @@ $c12a30 =
 
 // ---------------------------------------------------------------------
 
+$c12q31 = <<<'QQQ'
+Q31: If you implement the __sleep() function, you need to make sure that it returns
+    an associative array containing the names and values of the instance variables you want
+    to be serialized
+QQQ;
+
+$c12a31 =
+[
+    'True',
+    'False'
+];
+
+// ---------------------------------------------------------------------
+
+$c12q32 = <<<'QQQ'
+Q32: What will the output of this code be?      
+<pre class="code">
+    <&#63;php
+    trait Dog {
+    public function makeNoise() {
+    echo "Woof";
+    }
+      public function wantWalkies() {
+    echo "Yes please!";
+    }
+    }
+    trait Cat {
+    public function makeNoise() {
+    echo "Purr";
+      }
+    public function wantWalkies() {
+        echo "No thanks!";
+    }
+    }
+    class DomesticPet
+    {
+    use Dog, Cat {
+    Cat::makeNoise insteadof Dog;
+    Cat::wantWalkies as kittyWalk;
+    Dog::wantWalkies insteadof Cat;
+    }
+    }
+    $obj = new DomesticPet();
+    $obj->kittyWalk();
+    ?>
+</pre>
+QQQ;
+
+$c12a32 =
+[
+    'Yes please!',
+    'No thanks!',
+    'Woof',
+    'Purr',
+    'None of the above'
+];
+
+// ---------------------------------------------------------------------
+
+$c12q33 = <<<'QQQ'
+Q33: What is the output of this code?      
+<pre class="code">
+    <&#63;php
+    class A
+    {
+        public $name = '0';
+        private $surname = '0';
+        public function __isset($property)
+        {
+            return true;
+        }
+    }
+    $a = new A;
+    $empty = empty($a->name);
+    $set = isset($a->surname);
+    if ($empty === $set) {
+      echo "Yes";
+    } else {
+      echo "No";
+    }
+    ?>
+</pre>
+QQQ;
+
+$c12a33 =
+[
+    'Syntax error; this won’t run',
+    'Yes',
+    'No',
+    'Fatal error'
+];
+
+// ---------------------------------------------------------------------
+
+$c12q34 = <<<'QQQ'
+Q34: Are PHP keys case sensitive? What will the output of this script be?      
+<pre class="code">
+    <&#63;php
+    $arr1 = ["A" => "apple", "B" => "banana"];
+    $arr2 = ["a" => "aardvark", "b" => "baboon"];
+    echo count($arr1 + $arr2);
+    ?>
+</pre>
+QQQ;
+
+$c12a34 =
+[
+    'They are not case sensitive; this will output 2',
+    'They are case sensitive; this will output 4',
+    'PHP keys are converted to integers; this outputs 2',
+    'None of the above'
+];
+
+// ---------------------------------------------------------------------
+
+$c12q35 = <<<'QQQ'
+Q35: What will this script output?   
+<pre class="code">
+    <&#63;php
+    $a = "0";
+    $c = $b = empty($a);
+    $d = ++$b + $a;
+    echo $d;
+    ?>
+</pre>
+QQQ;
+
+$c12a35 =
+[
+    '0',
+    '1',
+    '2',
+    'Syntax error; you can’t assign two variables on one line',
+    'None of the above'
+];
+
+// ---------------------------------------------------------------------
+
+$c12q36 = <<<'QQQ'
+Q36: What will this code output?      
+<pre class="code">
+    <&#63;php
+    $a = 1.23;
+    $b = 4.56;
+    $c = (int)$a + (int)$b;
+    echo (double)$c;
+    ?>
+</pre>
+QQQ;
+
+$c12a36 =
+[
+    '5',
+    '6',
+    '5.79',
+    'None of the above'
+];
+
+// ---------------------------------------------------------------------
+
+$c12q37 = <<<'QQQ'
+Q37: What will this script output?      
+<pre class="code">
+    <&#63;php
+    $arr = ["one", "two", 1.5 => "three"];
+    echo $arr[1];
+    ?>
+</pre>
+QQQ;
+
+$c12a37 =
+[
+    'one',
+    'two',
+    'three',
+    'None of the above'
+];
+
+// ---------------------------------------------------------------------
+
+$c12q38 = <<<'QQQ'
+Q38: Interfaces can only specify public methods, but your class can implement them
+    however you like.?      
+QQQ;
+
+$c12a38 =
+[
+    'True',
+    'False'
+];
+
+// ---------------------------------------------------------------------
+
+$c12q39 = <<<'QQQ'
+Q39: You can force sessions to be contained exclusively in cookies by using the
+_____________ configuration setting.      
+QQQ;
+
+$c12a39 =
+[
+    'session.cookie_secure',
+    'session.use_cookies',
+    'session.use_trans_sid',
+    'None of the above'
+];
+
+// ---------------------------------------------------------------------
+
+$c12q40 = <<<'QQQ'
+Q40: What is the output of this code?      
+<pre class="code">
+    <&#63;php
+    define('PI', 3.14159625);
+    define('_PI', "3.1459625");
+    $radius = 10;
+    if (PI == _PI) {
+        $area = (int)PI * $radius ** 2;
+        echo $area;
+    } else {
+        echo "Indiana";
+    }
+    ?>
+</pre>
+QQQ;
+
+$c12a40 =
+[
+    'Indiana',
+    '300',
+    '900',
+    '986.962699801',
+    '400',
+    '1600'
+];
+
+// ---------------------------------------------------------------------
+
 $c12q9 = <<<'QQQ'
 Q9: Which of the following statements can we replace the commented line with in
     order for the script to output "Castor" ?      
