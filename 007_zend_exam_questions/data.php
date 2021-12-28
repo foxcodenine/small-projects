@@ -561,7 +561,7 @@ $data = [
         ],
         [
         'question' => $c12q2,
-        'correct'  => [2],
+        'correct'  => [0],
         'answers'  => $c12a2
         ],
         [
@@ -753,6 +753,56 @@ $data = [
         'question' => $c12q40 ,
         'correct'  => [0],
         'answers'  => $c12a40 
+        ],
+        [
+        'question' => $c12q41 ,
+        'correct'  => [1],
+        'answers'  => $c12a41 
+        ],
+        [
+        'question' => $c12q42 ,
+        'correct'  => [3],
+        'answers'  => $c12a42 
+        ],
+        [
+        'question' => $c12q43 ,
+        'correct'  => [2],
+        'answers'  => $c12a43 
+        ],
+        [
+        'question' => $c12q44 ,
+        'correct'  => [3],
+        'answers'  => $c12a44 
+        ],
+        [
+        'question' => $c12q45 ,
+        'correct'  => [2],
+        'answers'  => $c12a45 
+        ],
+        [
+        'question' => $c12q46 ,
+        'correct'  => [2],
+        'answers'  => $c12a46 
+        ],
+        [
+        'question' => $c12q47 ,
+        'correct'  => [0],
+        'answers'  => $c12a47 
+        ],
+        [
+        'question' => $c12q48 ,
+        'correct'  => [0],
+        'answers'  => $c12a48 
+        ],
+        [
+        'question' => $c12q49 ,
+        'correct'  => [2],
+        'answers'  => $c12a49 
+        ],
+        [
+        'question' => $c12q50 ,
+        'correct'  => [1],
+        'answers'  => $c12a50 
         ],
     ],
     

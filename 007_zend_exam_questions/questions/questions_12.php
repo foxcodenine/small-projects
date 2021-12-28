@@ -841,26 +841,211 @@ $c12a40 =
 
 // ---------------------------------------------------------------------
 
-$c12q9 = <<<'QQQ'
-Q9: Which of the following statements can we replace the commented line with in
-    order for the script to output "Castor" ?      
+$c12q41 = <<<'QQQ'
+Q41: What is the output of this script?      
 <pre class="code">
     <&#63;php
-    $star = new StdClass;
-    // replace this line
-    $star->name = "Castor";
-    $twin->name = "Pollux";
-    echo $star->name; // must be Castor
+    function HelloWorld() {
+    echo HELLO;
+    }
+    const HELLO = "Hello World!";
+    HelloWorld();
     ?>
 </pre>
 QQQ;
 
-$c12a9 =
+$c12a41 =
 [
-    '$twin = $star;',
-    '$twin = clone($star);',
-    '$twin &= $star;',
-    '$twin = new clone($star);'
+    'Syntax Error',
+    'Hello World!',
+    'PHP Notice: Use of undefined constant HELLO',
+    'None of the above',
+];
+
+// ---------------------------------------------------------------------
+
+$c12q42 = <<<'QQQ'
+Q42: What will this code output?      
+<pre class="code">
+    <&#63;php  
+    function add(int $a, int $b): integer {
+        return $a + $b;
+    }
+    echo add(5.7, -4.6);
+    ?>
+</pre>
+QQQ;
+
+$c12a42 =
+[
+    'Syntax error',
+    '1',
+    '1.1',
+    'None of the above'
+];
+
+// ---------------------------------------------------------------------
+
+$c12q43 = <<<'QQQ'
+Q43: What is the output of this script?      
+<pre class="code">
+    <&#63;php
+    $a = 0b0010;
+    $b = 0b0001;
+    echo gettype($a & $b);
+    ?>
+</pre>
+QQQ;
+
+$c12a43 =
+[
+    'Syntax error; this won’t run',
+    'undefined',
+    'integer',
+    'double',
+    'boolean',
+];
+
+// ---------------------------------------------------------------------
+
+$c12q44 = <<<'QQQ'
+Q44: What will the output of this code be?      
+<pre class="code">
+    <&#63;php
+    $result = echo print("Hello world!");
+    var_dump($result);
+    ?>
+</pre>
+QQQ;
+
+$c12a44 =
+[
+    'NULL',
+    '1NULL',
+    'Hello world!NULL',
+    'A syntax error'
+];
+
+// ---------------------------------------------------------------------
+
+$c12q45 = <<<'QQQ'
+Q45: You have invoked PHP on the command line and want to access the arguments
+    you passed in your PHP script. Which superglobal will contain these?      
+QQQ;
+
+$c12a45 =
+[
+    '$GLOBALS',
+    '$_ARGV',
+    '$_SERVER',
+    '$_ARGUMENTS'
+];
+
+// ---------------------------------------------------------------------
+
+$c12q46 = <<<'QQQ'
+Q46: The function gc_collect_cycles() is used to do which of the following?      
+QQQ;
+
+$c12a46 =
+[
+    'There is no such function',
+    'Pause the script for a certain number of processor cycles',
+    'Initiate garbage collection to free up memory',
+    'Flush the opcode cache'
+];
+
+// ---------------------------------------------------------------------
+
+$c12q47 = <<<'QQQ'
+Q47: What will this code output?      
+<pre class="code">
+    <&#63;php
+    try {
+        // generates a notice error (not caught)
+        echo $thisVariableIsNotSet;
+    } catch (Error $e) {
+        echo "Error caught";
+    }
+    ?>
+</pre>
+QQQ;
+
+$c12a47 =
+[
+    'This produces a notice error',
+    'This produces a fatal error',
+    'Error caught',
+    'None of the above'
+];
+
+// ---------------------------------------------------------------------
+
+$c12q48 = <<<'QQQ'
+Q48: What will this code output?      
+<pre class="code">
+    <&#63;php
+    $emotion = "loves";
+    $theBeeb = function($name) use ($emotion) {
+        echo "$name $emotion Justin";
+    };
+    $emotion = "adores";
+    $theBeeb("Ron");
+    ?>
+</pre>
+QQQ;
+
+$c12a48 =
+[
+    'Ron loves Justin',
+    'Ron adores Justin',
+    '$name $emotion Justin',
+    'None of the above'
+];
+
+// ---------------------------------------------------------------------
+
+$c12q49 = <<<'QQQ'
+Q49: Assume that the Pluto and Grumpy classes are both declared in the class.
+    definitions.php file, which is in the same directory as this script. What will happen
+    when you run this script?      
+<pre class="code">
+    <&#63;php
+    $a = function() {
+    include('class.definitions.php');
+    };
+    spl_autoload_register($a);
+    // Class Pluto is defined in class.definitions.php
+    $planet = new Pluto;
+    // Class Grumpy is defined in class.definitions.php
+    $dwarf = new Grumpy;
+    ?>
+</pre>
+QQQ;
+
+$c12a49 =
+[
+    'The script will generate a fatal error because you need to put brackets after the class name',
+    'The script will generate an error when you try to include the script a second time',
+    'The file will be included once and the script won\'t output anything',
+    'The script will fail because you cannot use a variable for spl_autoload_register; only  a string literal',
+    'None of the above'
+];
+
+// ---------------------------------------------------------------------
+
+$c12q50 = <<<'QQQ'
+Q50: Which of the following pieces of information associated with the request cannot
+    be easily changed by the client?      
+QQQ;
+
+$c12a50 =
+[
+    'Remote IP address',
+    'Session data',
+    'Cookie data',
+    'User agent',
+    'All of these are easily changed by the client'
 ];
 
 
