@@ -71,3 +71,6 @@ vendor
 ./**/.aws/
 ./**.aws/*
 ./**.aws/**
+
+**/.key
+*/.key
