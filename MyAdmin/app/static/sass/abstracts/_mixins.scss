@@ -1,0 +1,37 @@
+// ----- Media Query ---------------------------------------------------
+
+$bp-largest:    1200;
+$bp-larg:       1000;
+$bp-medium:     800;
+$bp-small:      600;
+$bp-smallest:   500;
+$bp-minwidt:    400;
+
+// 16px is the default font-size of a browser
+
+@mixin respond($i) {
+    $i: calc($i / 16) + 0em;
+    @media only screen and (max-width: $i) { @content };                
+
+}
+
+// ---------------------------------------------------------------------
+
+@mixin part-name($i) {
+
+    border: crimson .1rem dashed;
+    position: relative;
+
+    &::after {
+        content: $i;
+        font-size: 1.4rem;
+        color: crimson;
+        border: crimson .1rem dashed;
+        position: absolute;
+        top: .1rem;
+        left: .1rem;
+    }              
+
+}
+
+// ---------------------------------------------------------------------

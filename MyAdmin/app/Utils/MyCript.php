@@ -32,8 +32,5 @@ class MyCript {
         $encrypted_result = mb_substr($decoded, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, null, '8bit');
         return sodium_crypto_secretbox_open($encrypted_result, $nonce, $key);
     }
-
 }
-
-
 ?>

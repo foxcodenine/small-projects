@@ -1,22 +1,20 @@
 <?php
-require './app/init.php';
 
 use Bramus\Router\Router;
-$router = new Router;
+
+$routerA = new Router;
 
 // ----- Define routes -------------------------------------------------
 
-$router->match('GET', '/', function() {
+$routerA->match('GET', '/', function() {
     $GLOBALS['endpoint']  = 'home'; 
-    include './app/view/home.php';
+    include './app/views/home.php';
     
     exit;
 
 });
 
 // ----- Run it! -------------------------------------------------------
-$router->run();
 
+$routerA->run();
 ?>
-
-

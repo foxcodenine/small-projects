@@ -2,6 +2,13 @@
 https://packagist.org/ 
 
 
+## ------ Linux --------------------------------------------------------
+
+To recursively give directories read&execute privileges:
+
+    $ find /path/to/base/dir -type d -print0 | xargs -0 chmod 755 
+    $ find /path/to/base/dir -type f -print0 | xargs -0 chmod 644
+
 ## ------ PHP Pacages --------------------------------------------------
 
 
