@@ -1,0 +1,179 @@
+@use '../abstracts/' as *;
+
+.sign {
+        min-height: 100vh;
+        // min-height: 100%;
+        background-image:   linear-gradient(
+                                    to right bottom, 
+                                    rgba($col-white, .5), 
+                                    rgba($col-white, .5)), 
+                            url(../images/backgrounds/bg2.jpg);
+
+        background-size: cover;
+        background-position: center;
+        padding: 5vw;
+        
+        // url(../images/backgrounds/bg2.jpg)
+    &__form {
+        background-color: rgba($col-white, .9);
+        border: 1px solid $col-gray-1;
+        padding: 4rem 3rem;    
+        border-radius: $border-radius;
+        margin: 0 auto;
+        width: 46rem;
+    }
+
+
+    &__title {
+        font-family: $font-display;
+        color: $col-text;
+        font-weight: 400;
+        font-size: 3rem;
+        margin-bottom: 3rem;
+        text-transform: capitalize;        
+    }
+
+    &__group {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: .8rem;
+        margin-bottom: 2rem;
+    }
+
+    &__label {
+        text-transform: capitalize;
+        float: left;
+        color: $col-text;
+    }
+
+    &__error {
+        justify-self: end;
+        color: $col-red;
+    }
+
+    &__input {
+        grid-column: 1 / span 2;
+        grid-row: 2 / 3;
+        
+        color: $col-text;
+        font-family: $font-primary;
+        padding: 1rem;        
+        height: 3.5rem;
+        border-radius: $border-radius;
+        border: 1px solid $col-gray-1;       
+        background-color: $col-white;
+
+        &:focus {
+            background-color: $col-bg-y;
+            border-color: $col-gray-3;                        
+        }
+    }
+    &__icon {
+        cursor: pointer;
+        width: 2rem;
+        height: 2rem;
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        align-self: center;
+        justify-self: end;
+        margin-right: .8rem;
+        fill: $col-gray-2;
+    }
+
+    &__forgot:link, &__forgot:visited {
+        cursor: pointer;
+        justify-self: end;
+
+        @include link-1;
+    }
+
+    &__text {
+        margin-top: 2rem;
+        & > * {margin-top: .7rem}
+        a {
+            @include link-1;
+        }
+    }
+}
+
+.checkbox {  
+
+    &__label {
+        display: flex;
+        align-items: center;
+        color: $col-text;
+    } 
+
+    &__hidden {
+        display: none;
+    }
+
+    &__hidden:checked ~ &__box {
+        background-color: $col-gray-2;
+        border-color: $col-gray-2;
+        color:$col-white;
+        
+    }
+
+    &__box {
+        cursor: pointer;
+        height: 2.2rem;
+        width: 2.2rem;
+        border-radius: $border-radius;
+        border: 1px solid $col-gray-1;
+        margin-right: .8rem;
+        
+        text-align: center;
+        font-size: 1.6rem;
+        color: transparent;
+
+        &:hover {
+            background-color: $col-gray-1;
+        }
+
+        &::after {
+            content: '\2714';
+        }
+    }
+}
+
+.btn {
+
+    cursor: pointer;
+    
+    letter-spacing: 1px;
+    display: inline-block;
+    text-transform: capitalize;
+    text-decoration: none;
+    padding: .7rem 1.4rem;  
+    font-size: 1.4rem;  
+    font-family: $font-primary;
+    border-radius: $border-radius;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.2s ease-in-out;
+
+    &:hover  { transform: translateY(-3px); }
+
+    &:active { transform: translateY(-2px); }
+
+    &:focus {  border-radius: none; outline: none;}
+
+    &--100 { width: 100%; }
+
+    &--dark {
+        background-color: rgba($col-gray-4, .9);
+        border: 1px solid rgba($col-gray-4, .0);
+        color: $col-white;
+
+        &:hover {
+            background-color: transparent;
+            color: $col-gray-4;
+            border: 1px solid rgba($col-gray-4, .8);
+            box-shadow: $shadow-2; 
+        }
+    }
+}
