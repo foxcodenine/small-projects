@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>MyAdmin</title>
+</head>
+<body>
+    <div class="sign">
+        
+        
+        <form class="sign__form sign__form-in">
+
+            <div class="sign__title">Welcome To MyAdmin</div>
+
+            <div class="sign__pair-group">
+
+                <div class="sign__group">
+                    <label class="sign__label" for="sign-firstname">firstname</label>
+                    <input type="text" class="sign__input" id="sign-firstname">
+                </div>
+    
+                <div class="sign__group">
+                    <label class="sign__label" for="sign-lastname">lastname</label>
+                    <input type="text" class="sign__input" id="sign-lastname">
+                </div>
+                
+            </div>
+
+
+
+            <div class="sign__group">
+                <label class="sign__label" for="sign-email">Email</label>
+                <div class="sign__error">This field is required</div>
+                <input type="text" class="sign__input" id="sign-email">
+            </div>
+
+            <div class="sign__group">
+                <label class="sign__label" for="sign-password">Password</label>
+                <div class="sign__error">This field is required</div>
+                <input type="password" class="sign__input" id="sign-password" placeholder="6+characters">
+                <svg class="sign__icon" id="svg-icon-eye">
+                    <use  xlink:href="../static/svg/icomoon.svg#icon-eye-slash"></use>
+                </svg>
+            </div>
+
+            
+            <button class="btn btn--dark btn--100 mt-md">Create Account</button>
+
+            <div class="sign__text sign__text--small">
+                <p>Already has account? <a href="./sign_in.html">Sign-in</a>.</p>
+                <p> Creating an account means you're okay with our 
+                <a href="#">Terms of Service</a>, <a href="#">Privacy Policy</a>, 
+                and our default <a href="#">Notification Settings</a>.</p>
+                
+            </div>           
+
+        </form>
+    </div>
+    <script src="../static/js/script.js"></script>
+</body>
+</html>

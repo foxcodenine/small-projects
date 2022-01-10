@@ -1,0 +1,45 @@
+@use '../abstracts/' as *;
+
+.dropdownmenu {
+
+    background-color: $col-white;
+    display: inline-block;
+    border-radius: $border-radius;
+    overflow: hidden;
+    
+
+    &--1 {
+        position: absolute;
+        top:6rem;
+        right: .6rem;
+    }
+
+    &__list { list-style: none; }
+
+    &__item {
+        color: $col-text;
+        padding: .8rem 3rem;
+        &:not(:last-child) { border-bottom: rgba( $col-black, .1) .1rem solid;}
+        
+        &:hover {
+            background-color: $col-hover-1;
+            color: $col-red;
+        }
+    }
+
+    &__link:link, &__link:visited {
+        text-decoration: none;
+        color: currentColor;
+
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        gap: .7rem;
+    }
+
+    &__icon {
+        width: 2rem;
+        height: 2rem;
+        fill: currentColor;
+    }
+}

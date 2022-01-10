@@ -1,6 +1,10 @@
 ## ------ Sites --------------------------------------------------------
 https://packagist.org/ 
 
+https://www.toptal.com/designers/htmlarrows/symbols/
+
+https://www.flaticon.com/search?word=eye&type=icon
+
 
 ## ------ Linux --------------------------------------------------------
 

@@ -3,4 +3,12 @@
 @use './base/typography';
 @use './base/utilities';
 
-@use './pages/sign'
+@use './components/buttons';
+@use './components/checkmarks';
+
+@use './layouts/content';
+@use './layouts/dropdownmenu';
+@use './layouts//sidemenu';
+@use './layouts/topbar';
+
+@use './pages/sign';

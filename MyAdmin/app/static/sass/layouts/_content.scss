@@ -1,0 +1,19 @@
+@use '../abstracts/' as *;
+
+.content {
+
+    background-image:   
+        linear-gradient( to right bottom,  rgba($col-white, .85),  rgba($col-white, .85)), 
+        linear-gradient( to right bottom,  rgba($col-blue, .3),  rgba($col-blue, .3)), 
+        url(../images/backgrounds/bg2.jpg);
+
+    background-size: cover;
+    background-position: center;
+
+        min-height: 100vh;
+
+        min-width: fit-content;
+        min-height: 100%;
+}
+
+

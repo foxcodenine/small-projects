@@ -1,0 +1,43 @@
+@use '../abstracts/' as *;
+
+
+.checkbox {  
+
+    &__label {
+        display: flex;
+        align-items: center;
+        color: $col-text;
+    } 
+
+    &__hidden {
+        display: none;
+    }
+
+    &__hidden:checked ~ &__box {
+        background-color: $col-gray-2;
+        border-color: $col-gray-2;
+        color:$col-white;
+        
+    }
+
+    &__box {
+        cursor: pointer;
+        height: 2.1rem;
+        width: 2.1rem;
+        border-radius: $border-radius;
+        border: 1px solid $col-gray-1;
+        margin-right: .8rem;
+        
+        text-align: center;
+        font-size: 1.6rem;
+        color: transparent;
+
+        &:hover {
+            background-color: $col-gray-1;
+        }
+
+        &::after {
+            content: '\2714';
+        }
+    }
+}

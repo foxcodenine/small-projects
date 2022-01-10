@@ -10,9 +10,16 @@
 html {
     box-sizing: border-box;
     font-size: 62.5%;   
+
+    @include respond ($bp-smaller) {
+        font-size: 55%;
+    }
 }
 
 body {
     font-size: 1.6rem;
     font-family: $font-primary;
+    height: 100vh;
+    
+    min-width: 36.36rem;
 }

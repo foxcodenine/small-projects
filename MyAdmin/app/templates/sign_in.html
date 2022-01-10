@@ -16,41 +16,47 @@
             <div class="sign__title">Welcome To MyAdmin</div>
 
             <div class="sign__group">
-                <label class="sign__label" for="sign-in-email">Email</label>
+                <label class="sign__label" for="sign-email">Email</label>
                 <div class="sign__error">This field is required</div>
-                <input type="text" class="sign__input" id="sign-in-email">
+                <input type="text" class="sign__input" id="sign-email">
             </div>
 
             <div class="sign__group">
-                <label class="sign__label" for="sign-in-password">Password</label>
+                <label class="sign__label" for="sign-password">Password</label>
                 <div class="sign__error">This field is required</div>
-                <input type="text" class="sign__input" id="sign-in-password">
-                <svg class="sign__icon">
-                    <use xlink:href="../static/svg/icomoon.svg#icon-eye-slash"></use>
+                <input type="password" class="sign__input" id="sign-password">
+                <svg class="sign__icon" id="svg-icon-eye">
+                    <use  xlink:href="../static/svg/icomoon.svg#icon-eye-slash"></use>
                 </svg>
             </div>
 
-            <div class="sign__group">                
-                
-                <label class="checkbox__label" >
-                    <input class="checkbox__hidden" type="checkbox">
-                    <span  class="checkbox__box"></span> 
-                    Remember this device
-                </label>
+            <div class="sign__pair-group">            
+                <div class="sign__group">                
+                    
+                    <label class="checkbox__label" >
+                        <input class="checkbox__hidden" type="checkbox">
+                        <span  class="checkbox__box"></span> 
+                        Remember this device
+                    </label>
 
-                <a class="sign__forgot" href="#">Forgot your password?</a>
+                </div> 
+
+                <div class="sign__group">           
+                    <a class="sign__forgot" href="#">Forgot your password?</a>
+                </div>
             </div>
 
             
             <button class="btn btn--dark btn--100 mt-md">Sign In</button>
 
             <div class="sign__text">
-                <p>Try app now?<a href="#"> Create account</a></p>
+                
+                <p>Create account? <a href="./sign_up.html">Sign-up</a>. &nbsp; Try app as a<a href="#"> Demo </a>user.</p>
                 <p class="sign__error">Please log in to access this page.</p>
-            </div>
-            
+            </div>           
 
         </form>
     </div>
+    <script src="../static/js/script.js"></script>
 </body>
 </html>
