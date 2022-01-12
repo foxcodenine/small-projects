@@ -23,3 +23,16 @@ body {
     
     min-width: 36.36rem;
 }
+
+main.pages {
+    width: calc(100% - 5rem);
+    min-height: 100vh;
+    // border: 2px dashed crimson;
+    margin-left: 5rem;
+    padding: 5rem;
+
+    @include respond ($bp-medium) {
+        width: 100%;
+        margin-left: 0;
+    }
+}

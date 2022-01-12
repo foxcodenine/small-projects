@@ -38,6 +38,27 @@
         @include respond ($bp-smallest)  { padding: 0 2rem;}
     }
 
+    &__up-in {
+        border-left: rgba( $col-black, .1) .1rem solid;
+        color:  $col-text;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: .5rem;
+
+        @include respond ($bp-small) { border-left: none;  }
+
+        a:link, a:visited {
+            color: currentColor;
+            text-decoration: none;
+
+            &:hover {
+                color: $col-red;
+            }
+        }
+        
+    }
+
 
     &__name {
         border-left: rgba( $col-black, .1) .1rem solid;

@@ -4,10 +4,14 @@
     background-color: $col-primary;
     display: inline-block;
     color: lighten($color: $col-gray-4, $amount: 5%);
-    border-right: rgba( $col-black, .5) .1rem solid;
-    border-top: rgba( $col-black, .5) .1rem solid;
+    border-right: $border-1;
+    border-top: $border-1;
     
-    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    
     padding-top: 1rem;
     transition: all .2s ease;
 
@@ -16,6 +20,14 @@
     position: absolute;
     top: 5.4rem;
     left: 0;
+
+    z-index: 100;
+
+    @include respond ($bp-medium) { 
+        bottom: auto;
+        padding-bottom: 2rem;
+        border-bottom: $border-1;
+    }
 
     @include respond ($bp-smaller) { 
         top: 5.3rem;

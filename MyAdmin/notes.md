@@ -5,6 +5,7 @@ https://www.toptal.com/designers/htmlarrows/symbols/
 
 https://www.flaticon.com/search?word=eye&type=icon
 
+https://iconmonstr.com/ 
 
 ## ------ Linux --------------------------------------------------------
 

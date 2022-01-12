@@ -6,6 +6,8 @@
     display: inline-block;
     border-radius: $border-radius;
     overflow: hidden;
+    box-shadow: $shadow-2;
+    z-index: 200;
     
 
     &--1 {

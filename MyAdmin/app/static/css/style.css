@@ -27,6 +27,19 @@ body {
   min-width: 36.36rem;
 }
 
+main.pages {
+  width: calc(100% - 5rem);
+  min-height: 100vh;
+  margin-left: 5rem;
+  padding: 5rem;
+}
+@media only screen and (max-width: 50em) {
+  main.pages {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
 .mb-tn {
   margin-bottom: 1rem !important;
 }
@@ -133,10 +146,12 @@ body {
   display: inline-block;
   text-transform: capitalize;
   text-decoration: none;
-  padding: 0.7rem 1.4rem;
+  padding: 0.3rem 1.4rem;
   font-size: 1.4rem;
   font-family: "Source Sans Pro", sans-serif;
   border-radius: 0.5rem;
+  border: 1px solid rgba(40, 55, 71, 0);
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -155,21 +170,53 @@ body {
 .btn--100 {
   width: 100%;
 }
-.btn--dark {
-  background-color: #11A9ED;
-  border: 1px solid rgba(40, 55, 71, 0);
-  color: #fff;
-}
-.btn--dark:hover {
+.btn:hover {
   background-color: transparent;
   color: #283747;
   border: 1px solid rgba(40, 55, 71, 0.8);
   box-shadow: 0 1rem 1rem rgba(27, 38, 49, 0.1);
 }
+@media only screen and (max-width: 31.25em) {
+  .btn {
+    padding: 0.2rem 1rem;
+  }
+}
+.btn--thick {
+  padding: 0.7rem 1.4rem;
+}
+@media only screen and (max-width: 31.25em) {
+  .btn--thick {
+    padding: 0.7rem 1.4rem;
+  }
+}
+.btn--primary {
+  background-color: #11A9ED;
+}
+.btn--secondary {
+  background-color: #ED7E00;
+}
+.btn--tertiary {
+  background-color: #50B012;
+}
+.btn--red {
+  background-color: #E74C3C;
+}
+.btn--dark {
+  background-color: #283747;
+}
+.btn--light {
+  background-color: transparent;
+  color: #283747;
+  border-color: #283747;
+}
+.btn--light:hover {
+  background-color: #283747;
+  color: #fff;
+}
 
 .menu-btn {
   cursor: pointer;
-  position: fixed;
+  position: absolute;
   top: 6rem;
   left: 1rem;
   color: rgba(27, 38, 49, 0.9);
@@ -229,6 +276,7 @@ body {
   min-height: 100vh;
   min-width: fit-content;
   min-height: 100%;
+  position: relative;
 }
 
 .dropdownmenu {
@@ -236,6 +284,8 @@ body {
   display: inline-block;
   border-radius: 0.5rem;
   overflow: hidden;
+  box-shadow: 0 1rem 1rem rgba(27, 38, 49, 0.1);
+  z-index: 200;
 }
 .dropdownmenu--1 {
   position: absolute;
@@ -276,13 +326,24 @@ body {
   color: #314457;
   border-right: rgba(27, 38, 49, 0.5) 0.1rem solid;
   border-top: rgba(27, 38, 49, 0.5) 0.1rem solid;
-  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
   padding-top: 1rem;
   transition: all 0.2s ease;
   width: 5rem;
   position: absolute;
   top: 5.4rem;
   left: 0;
+  z-index: 100;
+}
+@media only screen and (max-width: 50em) {
+  .sidemenu {
+    bottom: auto;
+    padding-bottom: 2rem;
+    border-bottom: rgba(27, 38, 49, 0.5) 0.1rem solid;
+  }
 }
 @media only screen and (max-width: 31.25em) {
   .sidemenu {
@@ -394,6 +455,26 @@ body {
     padding: 0 2rem;
   }
 }
+.topbar__up-in {
+  border-left: rgba(27, 38, 49, 0.1) 0.1rem solid;
+  color: rgba(27, 38, 49, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+@media only screen and (max-width: 37.5em) {
+  .topbar__up-in {
+    border-left: none;
+  }
+}
+.topbar__up-in a:link, .topbar__up-in a:visited {
+  color: currentColor;
+  text-decoration: none;
+}
+.topbar__up-in a:link:hover, .topbar__up-in a:visited:hover {
+  color: #E74C3C;
+}
 .topbar__name {
   border-left: rgba(27, 38, 49, 0.1) 0.1rem solid;
   border-right: rgba(27, 38, 49, 0.1) 0.1rem solid;
@@ -442,11 +523,133 @@ body {
   height: 2rem;
 }
 
+.dashboard__form {
+  display: grid;
+  grid-template-rows: repeat(1, max-content);
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-auto-rows: 25.1rem;
+  gap: 3rem;
+  transform: translateY(-1rem);
+}
+.dashboard__pannel {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: max-content max-content;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+@media only screen and (max-width: 50em) {
+  .dashboard__pannel {
+    grid-template-columns: max-content;
+  }
+}
+.dashboard__date {
+  font-size: 3rem;
+  font-family: "Poppins", sans-serif;
+  color: rgba(27, 38, 49, 0.9);
+  font-weight: 200;
+}
+.dashboard__date b {
+  font-weight: 600;
+}
+@media only screen and (max-width: 31.25em) {
+  .dashboard__date {
+    font-size: 2.3rem;
+  }
+}
+.dashboard__buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.frame {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  color: rgba(27, 38, 49, 0.9);
+  box-shadow: 0rem 0.5rem 1rem rgba(27, 38, 49, 0.3);
+  background-color: #11A9ED;
+}
+.frame__img {
+  height: 80%;
+  width: 100%;
+  object-fit: cover;
+  box-shadow: 0 1rem 3rem rgba(27, 38, 49, 0.3);
+}
+.frame__box {
+  padding: 1rem;
+  height: 20%;
+  margin-top: -5px;
+  font-size: 1.8rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 0.8rem;
+}
+.frame__box > * {
+  margin-top: 0.5rem;
+}
+.frame__name {
+  margin-right: auto;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.8rem;
+  text-shadow: 0.1rem 0.1rem 0.1rem rgba(255, 255, 255, 0.6);
+}
+.frame--top {
+  text-transform: uppercase;
+}
+.frame--bot {
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1.4rem;
+}
+.frame__link:link, .frame__link:visited {
+  cursor: pointer;
+  text-decoration: none;
+  color: currentColor;
+}
+.frame__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+  text-shadow: 0.1rem 0.1rem 0.1rem rgba(255, 255, 255, 0.6);
+  filter: drop-shadow(0.1rem 0.1rem 0.1rem rgba(255, 255, 255, 0.7));
+}
+.frame__icon:hover {
+  fill: #E74C3C;
+}
+
+.checkbox-2__input {
+  display: none;
+}
+.checkbox-2__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+  filter: drop-shadow(0.1rem 0.1rem 0.1rem rgba(255, 255, 255, 0.7));
+}
+.checkbox-2__icon--checked {
+  display: none;
+}
+.checkbox-2__icon:hover {
+  fill: #E74C3C;
+}
+.checkbox-2__input:checked ~ .checkbox-2__icon--checked {
+  display: inline-block;
+}
+.checkbox-2__input:checked ~ .checkbox-2__icon--unchecked {
+  display: none;
+}
+
 .sign {
   min-height: 100vh;
   min-width: fit-content;
   min-height: 100%;
-  background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(../images/backgrounds/bg2.jpg);
+  background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), linear-gradient(to right bottom, rgba(79, 60, 201, 0.3), rgba(79, 60, 201, 0.3)), url(../images/backgrounds/bg2.jpg);
   background-size: cover;
   background-position: center;
   padding: 5vw;
@@ -467,10 +670,13 @@ body {
 .sign__title {
   font-family: "Poppins", sans-serif;
   color: rgba(27, 38, 49, 0.9);
-  font-weight: 400;
+  font-weight: 200;
   font-size: 3rem;
   margin-bottom: 3rem;
-  text-transform: capitalize;
+}
+.sign__title b {
+  font-weight: 600;
+  text-transform: uppercase;
 }
 @media only screen and (max-width: 31.25em) {
   .sign__title {
