@@ -1,0 +1,54 @@
+@use '../abstracts/' as *;
+
+.project-form {
+
+    &__form { grid-template-columns: repeat(3, 1fr); 
+
+        @include respond(1000)  { grid-template-columns: repeat(2, 1fr); }
+        @include respond(700)  { grid-template-columns: 1fr; }
+    }
+
+    &__btn { margin-top: .5rem; align-self: center; 
+        @include respond(700)  { margin-top: 5rem }
+    }
+}
+
+.client-form {
+
+    &__form { grid-template-columns: repeat(4, 1fr); 
+
+        @include respond(1200) { grid-template-columns: repeat(3, 1fr); }
+        @include respond(900)  { grid-template-columns: repeat(2, 1fr); }
+        @include respond(600)  { grid-template-columns: 1fr; }
+
+    }
+}
+
+.client-form, .project-form {
+
+    color: $col-text;
+    &__form {
+        display: grid;
+        gap: 3rem;
+    }    
+
+    &__title {
+        font-family: $font-display;
+        color: currentColor;
+        font-weight: 200;
+        font-size: 3rem;
+    }
+
+    b { font-weight: 600; text-transform: uppercase;}
+    
+
+    &__title {
+        grid-column: 1 /-1;
+    }
+
+    &__btn {
+        border: 1px solid lighten($col-border-1, 40%) ;
+        grid-column: -2 / -1;
+    }    
+}
+

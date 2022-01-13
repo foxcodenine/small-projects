@@ -53,6 +53,8 @@
 
     &--dark { background-color: $col-gray-4;  }
 
+    &--currentColor { background-color: $col-text;  }
+
     &--light { 
         background-color: transparent; 
         color: $col-gray-4;

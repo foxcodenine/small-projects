@@ -1,23 +1,23 @@
 @use '../abstracts/' as *;
 
 .sign {
-        min-height: 100vh;
-        // height: 100%;
-        min-width: fit-content;
-        min-height: 100%;
-        background-image:   
-            linear-gradient( to right bottom,  rgba($col-white, .85),  rgba($col-white, .85)), 
-            linear-gradient( to right bottom,  rgba($col-blue, .3),  rgba($col-blue, .3)), 
-            url(../images/backgrounds/bg2.jpg);
+    color: $col-text;
+    min-height: 100vh;
+    // height: 100%;
+    min-width: fit-content;
+    min-height: 100%;
+    background-image:   
+        linear-gradient( to right bottom,  rgba($col-white, .85),  rgba($col-white, .85)), 
+        linear-gradient( to right bottom,  rgba($col-blue, .3),  rgba($col-blue, .3)), 
+        url(../images/backgrounds/bg2.jpg);
 
-        background-size: cover;
-        background-position: center;
-        padding: 5vw;
+    background-size: cover;
+    background-position: center;
+    padding: 5vw;
 
-        @include respond ($bp-smaller) {
-            padding: 2vw;
-        }
-        
+    @include respond ($bp-smaller) {
+        padding: 2vw;
+    }
 
     &__form {
         background-color: rgba($col-white, .9);
@@ -28,10 +28,9 @@
         max-width: 46rem;
     }
 
-
     &__title {
         font-family: $font-display;
-        color: $col-text;
+        color: currentColor;
         font-weight: 200;
         font-size: 3rem;
         margin-bottom: 3rem;
@@ -46,41 +45,6 @@
         @include respond ($bp-smallest) { font-size: 2.5rem; }
     }
 
-    &__group {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: .5rem;
-        margin-bottom: 2rem;
-    }
-
-    &__label {
-        text-transform: capitalize;
-        float: left;
-        color: $col-text;
-    }
-
-    &__error {
-        justify-self: end;
-        color: $col-red;
-    }
-
-    &__input {
-        grid-column: 1 / span 2;
-        grid-row: 2 / 3;
-        
-        color: $col-text;
-        font-family: $font-primary;
-        padding: 1rem;        
-        height: 3.5rem;
-        border-radius: $border-radius;
-        border: 1px solid $col-gray-1;       
-        background-color: $col-white;
-
-        &:focus {
-            background-color: $col-bg-y;
-            border-color: $col-gray-3;                        
-        }
-    }
     &__icon {
         cursor: pointer;
         width: 2rem;
@@ -101,12 +65,14 @@
 
         @include respond ($bp-smaller) {
             justify-self: start;
+            margin-left: 3rem;
+            margin-top: -1rem;
         }
     }
 
     &__text {
         margin-top: 2rem;
-        color: $col-text;        
+        color: currentColor;        
 
         & > * {margin-top: .7rem}
 
@@ -116,6 +82,51 @@
 
         @include respond ($bp-smaller) { font-size: 1.4rem; }
     }
+}
+
+.field {
+
+
+    &__group {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        gap: .5rem;
+        margin-bottom: 2rem;
+    }
+
+    &__label {
+        text-transform: capitalize;
+        float: left;
+        color: currentColor;
+    }
+
+    &__error {
+        justify-self: end;
+        color: $col-red;
+    }
+
+    &__input {
+        grid-column: 1 / span 2;
+        grid-row: 2 / 3;
+        
+        color: currentColor;
+        font-family: $font-primary;
+        padding: 1rem;        
+        height: 3.5rem;
+        border-radius: $border-radius;
+        border: 1px solid $col-gray-1;       
+        background-color: $col-white;
+
+        &:focus {
+            background-color: $col-bg-y;
+            border-color: $col-gray-3;                        
+        }
+    }
+
+
+
+
+
 
     &__pair-group {
         display: grid;
