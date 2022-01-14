@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/datepicker.min.css">
     <link rel="stylesheet" href="../static/css/style.css">
     <title>MyAdmin</title>
 </head>
@@ -49,7 +50,7 @@
                     </a>
                 </li>
                 <li class="dropdownmenu__item">
-                    <a href="#" class="dropdownmenu__link">
+                    <a href="./sign_in.html" class="dropdownmenu__link">
                         <svg class="dropdownmenu__icon"><use  xlink:href="../static/svg/icomoon.svg#icon-expand"></use></svg>
                          Logout                
                     </a>
@@ -126,11 +127,14 @@
 
         <main class="pages">
             <?php # include 'dashboard.html' ?>
-            <?php  include 'project_form.html' ?>
-
+            <?php # include 'projects_form.html' ?>
+            <?php # include 'clients_form.html' ?>
+            <?php include 'clients.html' ?>
         </main>
 
     </div>
+    <script src="../static/js/ckeditor.js"></script>
+    <script src="../static/js/datepicker-full.min.js"></script>
     <script src="../static/js/script.js"></script>
 </body>
 </html>

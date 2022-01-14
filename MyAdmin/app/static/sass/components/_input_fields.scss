@@ -1,0 +1,83 @@
+@use '../abstracts/' as *;
+
+.field {
+    &__group {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        gap: .3rem;
+        margin-bottom: 2rem;
+
+        &--textarea {
+            grid-column: 1 / -1;
+        }
+    }
+
+    &__label {
+        text-transform: capitalize;
+        float: left;
+        color: currentColor;
+        font-size: 1.5rem;
+    }
+
+    &__error {
+        justify-self: end;
+        color: $col-red;
+        font-size: 1.5rem;
+    }    
+
+    &__input {
+        grid-column: 1 / span 2;
+        grid-row: 2 / 3;
+        
+        color: currentColor;
+        font-family: $font-primary;
+        padding: 1rem;        
+        height: 3.5rem;
+        border-radius: $border-radius;
+        border: 1px solid $col-gray-1;       
+        background-color: $col-white;
+
+        &--select {
+            padding: 0 .7rem;
+            
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            text-indent: 1px;
+            text-overflow: '';
+        }
+        
+        &::-webkit-calendar-picker-indicator {
+            display: none !important;
+        }
+
+        &:focus {
+            background-color: $col-bg-y;
+            border-color: $col-gray-3;                        
+        }
+    }
+
+    &__pair-group {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.6rem;
+
+        & > * > * { grid-column: 1 / -1;}
+
+        @include respond ($bp-smaller) {
+            grid-template-columns: repeat(1, 1fr);
+            gap: 0;
+        }
+    }
+
+    &__down-arrow {
+        // cursor: pointer;
+        width: 2rem;
+        height: 2rem;
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        align-self: center;
+        justify-self: end;
+        margin-right: .4rem;
+        fill: $col-text;
+    }
+}

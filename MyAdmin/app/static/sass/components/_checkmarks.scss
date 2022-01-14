@@ -1,7 +1,7 @@
 @use '../abstracts/' as *;
 
 
-.checkbox {  
+.checkbox-1 {  
 
     &__label {
         display: flex;
@@ -39,5 +39,27 @@
         &::after {
             content: '\2714';
         }
+    }
+}
+
+
+.checkbox-2 {
+
+    &__input { display: none; }
+
+    &__icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        fill: currentColor;
+        filter: drop-shadow($shadow-6);
+        &--checked {display: none;}    
+        &:hover { fill: $col-red; }    
+    }
+
+    &__input:checked ~ &__icon--checked {
+        display: inline-block;
+    }
+    &__input:checked ~ &__icon--unchecked {
+        display: none;
     }
 }

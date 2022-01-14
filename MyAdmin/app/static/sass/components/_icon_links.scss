@@ -1,0 +1,19 @@
+@use '../abstracts/' as *;
+
+.icon {
+    &__link:link, &__link:visited {
+        cursor: pointer;
+        text-decoration: none;
+        color: currentColor;
+    }
+
+    &__svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        fill: currentColor;
+        text-shadow: $shadow-5;
+        &:hover { fill: $col-red; }        
+
+        filter: drop-shadow($shadow-6);
+    }
+}

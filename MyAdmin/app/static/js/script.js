@@ -11,8 +11,8 @@ document.onreadystatechange = function () {                    // <- (A)
         passwordDisplayToggle();
         dropdownmenu1Toggle();
         sideMenuToggle();
-
-
+        wysiwyg();
+        formatDateInput();
 
         // -------------------------------------------------------------        
     }
@@ -22,6 +22,29 @@ document.onreadystatechange = function () {                    // <- (A)
 
 // Declare functions:
 
+
+//----------------------------------------------------------------------
+
+// function toastrFunction() {
+//     toastr.options.closeMethod = 'fadeOut';
+//     toastr.options.closeDuration = 500;
+//     toastr.options.closeEasing = 'swing';
+
+
+//     let emailMessage = Cookies.get('icemalta_php_lesson_11_email');
+
+//     if (emailMessage && emailMessage !== 'null') {
+            
+
+//         toastr.info(emailMessage);
+//         Cookies.set('icemalta_php_lesson_11_email', 'null', { expires: 1 }); 
+
+      
+        
+//     } 
+// }
+
+//----------------------------------------------------------------------
 
 function passwordDisplayToggle() {
 
@@ -46,32 +69,8 @@ function passwordDisplayToggle() {
     }
 }
 
-
-
-
-
-
-
 //----------------------------------------------------------------------
 
-// function toastrFunction() {
-//     toastr.options.closeMethod = 'fadeOut';
-//     toastr.options.closeDuration = 500;
-//     toastr.options.closeEasing = 'swing';
-
-
-//     let emailMessage = Cookies.get('icemalta_php_lesson_11_email');
-
-//     if (emailMessage && emailMessage !== 'null') {
-            
-
-//         toastr.info(emailMessage);
-//         Cookies.set('icemalta_php_lesson_11_email', 'null', { expires: 1 }); 
-
-      
-        
-//     } 
-// }
 
 function dropdownmenu1Toggle() {
 
@@ -100,6 +99,9 @@ function dropdownmenu1Toggle() {
     }); 
 }
 
+
+//----------------------------------------------------------------------
+
 function sideMenuToggle () {
 
     const menuBtn  = document.querySelector('#menu-btn'); 
@@ -122,3 +124,46 @@ function sideMenuToggle () {
     }); 
     
 }
+
+//----------------------------------------------------------------------
+
+function wysiwyg() {
+
+    if (document.querySelector('#editor_body')) {
+        // https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/configuration.html
+        // https://ckeditor.com/docs/ckeditor5/latest/builds/guides/quick-start.html
+        ClassicEditor
+        .create( document.querySelector( '#editor_body' ), {
+            toolbar: [ 'heading', '|', 'bold', 'italic','bulletedList', 'numberedList', 'blockQuote','|','undo', 'redo' ],
+            heading: {
+                options: [
+                    { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                    { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                    { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
+                ]
+            }
+        } )
+        .catch( error => {
+            console.log( error );
+        } );            
+    } 
+}
+
+//----------------------------------------------------------------------
+
+
+function formatDateInput() {
+
+    const dateInput = document.querySelector('.dateFormat');
+
+    if (dateInput) {
+
+        const datepicker = new Datepicker(dateInput, {
+            // format : 'dd-mm-yyyy'
+            format : 'dd/mm/yyyy'
+        });       
+     
+    } 
+}
+
+//----------------------------------------------------------------------

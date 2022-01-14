@@ -5,12 +5,15 @@
 
 @use './components/buttons';
 @use './components/checkmarks';
+@use './components/dropdownmenu';
+@use './components/icon_links';
+@use './components/input_fields';
+@use './components/sidemenu';
+@use './components/topbar';
+@use './components/WYSIWYG';
 
-@use './layouts/content';
-@use './layouts/dropdownmenu';
-@use './layouts/form';
-@use './layouts//sidemenu';
-@use './layouts/topbar';
+@use './layouts/content_layout';
+@use './layouts/forms_layout';
 
 @use './pages/dashboard';
 @use './pages/sign';
