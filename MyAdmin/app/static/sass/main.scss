@@ -6,14 +6,16 @@
 @use './components/buttons';
 @use './components/checkmarks';
 @use './components/dropdownmenu';
-@use './components/icon_links';
-@use './components/input_fields';
+@use './components/icon-links';
+@use './components/input-fields';
 @use './components/sidemenu';
+@use './components/top-pannel';
 @use './components/topbar';
 @use './components/WYSIWYG';
 
-@use './layouts/content_layout';
-@use './layouts/forms_layout';
+@use './layouts/content-layout';
+@use './layouts/clients-layout';
+@use './layouts/forms-layout';
 
 @use './pages/dashboard';
 @use './pages/sign';

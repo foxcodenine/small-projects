@@ -13,34 +13,6 @@
    
         transform: translateY(-1rem);
     }
-    &__pannel {
-        grid-column: 1 / -1;
-        display: grid;
-        grid-template-columns: max-content max-content;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-
-        @include respond ($bp-medium) {
-            grid-template-columns: max-content;
-        }
-    }
-
-    &__date {
-        
-        font-size: 3rem;
-        font-family: $font-display;
-        color: $col-text;
-        font-weight: 200;
-        b { font-weight: 600; }
-
-        @include respond ($bp-smaller) { font-size: 2.3rem;  }
-    }
-
-    &__buttons {
-        display: flex;
-        gap: 1rem;
-    }
 }
 
 .frame {    

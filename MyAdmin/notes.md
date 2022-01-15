@@ -74,3 +74,22 @@ else include:
 and  follow:
 
     https://mymth.github.io/vanillajs-datepicker/#/
+
+
+#### Drag to scroll
+https://htmldom.dev/drag-to-scroll/
+
+
+
+
+## ------ CSS & SASS ---------------------------------------------------
+
+
+
+#### Stylized Table Design from Figma to HTML CSS
+https://www.youtube.com/watch?v=Oy9K7iz3aa4
+
+
+
+#### How TO - Responsive Tables
+https://www.w3schools.com/howto/howto_css_table_responsive.asp

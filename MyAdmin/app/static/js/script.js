@@ -167,3 +167,54 @@ function formatDateInput() {
 }
 
 //----------------------------------------------------------------------
+
+const mouseDownHandler = function (e) {
+
+    
+    const table = document.querySelector('#table-container');
+
+    // let pos = { left: 0, x: 0 };
+
+    // table.addEventListener('mousemove', (e) => {
+
+    //     pos = {
+    //         // The current scroll
+    //         left: table.scrollLeft,
+     
+    //         // Get the current mouse position
+    //         x: e.clientX,      
+    //     };
+    //     console.log (pos);
+    // }); 
+    
+    
+
+    // table.addEventListener('mouseup', (e) => {
+    //     myMouse.up = e.clientX;
+    // });
+
+
+    let myMouse = { 'down': 0, 'position' : 0 , 'scroll' : false  };
+
+
+
+    table.addEventListener('mousedown', (e) => {
+        myMouse.down = e.clientX;
+        myMouse.scroll = true;
+    });  
+
+    table.addEventListener('mouseup', (e) => {
+        myMouse.scroll = false;
+    });  
+
+    table.addEventListener('mousemove', (e) => {
+        myMouse.position = e.clientX;
+        
+        if (myMouse.scroll) {
+            table.scrollLeft = (myMouse.position - myMouse.down) * -1.2;
+        }
+    });
+
+};
+mouseDownHandler();
+

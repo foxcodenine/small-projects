@@ -126,10 +126,20 @@
         <!-- ------------------------------------------------------- -->
 
         <main class="pages">
-            <?php # include 'dashboard.html' ?>
-            <?php # include 'projects_form.html' ?>
-            <?php # include 'clients_form.html' ?>
-            <?php include 'clients.html' ?>
+
+            <?php 
+            //  include 'dashboard.html' 
+            ?>
+            <?php 
+            //  include 'projects_form.html' 
+            ?>
+            <?php 
+            //  include 'clients_form.html' 
+             ?>
+            <?php  
+             include 'clients.html' 
+            ?>
+
         </main>
 
     </div>

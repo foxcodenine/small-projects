@@ -1,0 +1,89 @@
+@use '../abstracts/' as *;
+
+
+.clients {
+
+    color: $col-text;
+    font-family: $font-primary;
+
+    font-size: 1.4rem;
+    background-color: $col-white;
+    padding: 2rem;
+    border-radius: $border-radius;
+    border: $border-1;
+
+      max-width: calc(100vw - 15rem);
+    
+    // border: 2px dashed blue;
+    
+    &__form {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;      
+      
+        // border: 2px dashed crimson;
+    }
+
+    &--btn {
+        width: 14rem;
+    }
+}
+
+.table {
+
+
+
+    cursor: grab;
+
+    width: max-content;
+    border-collapse: collapse;
+    overflow: hidden;
+
+    &__container {
+        overflow-x:auto;
+    }  
+
+    &__thead {
+        border-bottom: $border-1;               
+    }
+
+    &__th {
+        padding: 1rem 2rem;
+        text-transform: uppercase;
+        letter-spacing: .1rem;
+        font-weight: 900;
+        font-size: 1.2rem;
+        text-align: left;
+        
+    }
+    &__tbody {
+        color: currentColor;
+        padding-top: 1rem !important;
+        margin-top: 1rem !important;
+
+
+    }
+
+    &__tr {
+        &--1 {background-color: $col-hover-1;}
+        &:hover {background-color: lighten($col-primary, 40%)}
+    }
+    &__td {
+        padding: .7rem 2rem;
+
+
+
+        & .checkbox-2 {margin-left: .5rem;}
+        & > * { &:not(:first-child) { margin-left: 1rem; }}
+
+
+        scroll-behavior: smooth;
+
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+    }
+}
