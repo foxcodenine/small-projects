@@ -13,6 +13,7 @@ document.onreadystatechange = function () {                    // <- (A)
         sideMenuToggle();
         wysiwyg();
         formatDateInput();
+        scrollTable();
 
         // -------------------------------------------------------------        
     }
@@ -46,7 +47,7 @@ document.onreadystatechange = function () {                    // <- (A)
 
 //----------------------------------------------------------------------
 
-function passwordDisplayToggle() {
+function passwordDisplayToggle () {
 
     const svgField = document.querySelector('#svg-icon-eye');
     const passwdField = document.querySelector('#sign-password');
@@ -72,7 +73,7 @@ function passwordDisplayToggle() {
 //----------------------------------------------------------------------
 
 
-function dropdownmenu1Toggle() {
+function dropdownmenu1Toggle () {
 
     const btn = document.querySelector('#topbar-dropdown'); 
     const dropdownmenu = document.querySelector('#dropdownmenu-1'); 
@@ -127,7 +128,7 @@ function sideMenuToggle () {
 
 //----------------------------------------------------------------------
 
-function wysiwyg() {
+function wysiwyg () {
 
     if (document.querySelector('#editor_body')) {
         // https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/configuration.html
@@ -168,53 +169,45 @@ function formatDateInput() {
 
 //----------------------------------------------------------------------
 
-const mouseDownHandler = function (e) {
+function scrollTable () {
 
     
-    const table = document.querySelector('#table-container');
+    const table = document.querySelector('#table-container');    
 
-    // let pos = { left: 0, x: 0 };
-
-    // table.addEventListener('mousemove', (e) => {
-
-    //     pos = {
-    //         // The current scroll
-    //         left: table.scrollLeft,
-     
-    //         // Get the current mouse position
-    //         x: e.clientX,      
-    //     };
-    //     console.log (pos);
-    // }); 
-    
-    
-
-    // table.addEventListener('mouseup', (e) => {
-    //     myMouse.up = e.clientX;
-    // });
-
+    if (!table) return;
 
     let myMouse = { 'down': 0, 'position' : 0 , 'scroll' : false  };
 
-
-
+    // --- When mouse pressed down over the table
     table.addEventListener('mousedown', (e) => {
         myMouse.down = e.clientX;
         myMouse.scroll = true;
     });  
 
+    // --- When mouse is lifted over the table
     table.addEventListener('mouseup', (e) => {
         myMouse.scroll = false;
-    });  
+    }); 
 
+    // --- When mouse is moving inside the table
     table.addEventListener('mousemove', (e) => {
         myMouse.position = e.clientX;
-        
+
         if (myMouse.scroll) {
-            table.scrollLeft = (myMouse.position - myMouse.down) * -1.2;
+            table.scrollLeft = (myMouse.position - myMouse.down) * -1;
         }
     });
 
+    // --- When mouse leave the table
+    document.addEventListener('mousemove', (e) => {
+        if (! e.target.closest("#table-container")) {
+            myMouse.scroll = false;
+        }
+    });
 };
-mouseDownHandler();
 
+
+tippy('#table-icon-update',    { content: 'Update'});
+tippy('#table-icon-details', { content: 'Details'});
+tippy('#table-icon-remove',  { content: 'Remove'});
+tippy('#table-images',       { content: 'Update images'});

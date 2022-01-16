@@ -1,37 +1,7 @@
 @use '../abstracts/' as *;
 
 
-.clients {
-
-    color: $col-text;
-    font-family: $font-primary;
-
-    font-size: 1.4rem;
-    background-color: $col-white;
-    padding: 2rem;
-    border-radius: $border-radius;
-    border: $border-1;
-
-      max-width: calc(100vw - 15rem);
-    
-    // border: 2px dashed blue;
-    
-    &__form {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2rem;      
-      
-        // border: 2px dashed crimson;
-    }
-
-    &--btn {
-        width: 14rem;
-    }
-}
-
 .table {
-
-
 
     cursor: grab;
 
@@ -60,8 +30,6 @@
         color: currentColor;
         padding-top: 1rem !important;
         margin-top: 1rem !important;
-
-
     }
 
     &__tr {
@@ -70,9 +38,6 @@
     }
     &__td {
         padding: .7rem 2rem;
-
-
-
         & .checkbox-2 {margin-left: .5rem;}
         & > * { &:not(:first-child) { margin-left: 1rem; }}
 
@@ -85,5 +50,19 @@
         -moz-user-select: none; /* Old versions of Firefox */
         -ms-user-select: none; /* Internet Explorer/Edge */
         user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+    }
+
+    &__a {
+        cursor: pointer;
+    }
+
+    &__img {
+        height: 4rem;
+        width: 7rem;
+        object-fit: cover;
+
+        &:hover {
+            border: 1px solid $col-red;
+        }
     }
 }

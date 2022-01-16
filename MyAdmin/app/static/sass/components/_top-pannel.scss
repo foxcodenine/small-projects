@@ -3,15 +3,18 @@
 .top-pannel {
 
     grid-column: 1 / -1;
+
     display: grid;
-    grid-template-columns: max-content max-content;
+    grid-template-columns: 1fr 30rem;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
 
     @include respond ($bp-medium) {
-        grid-template-columns: max-content;
+        grid-template-columns: 1fr;
     }
+
+    // @include respond ($bp-smaller) { grid-template-columns: max-content max-content max-content;;  }
 
 
     &__date, &__title {
@@ -25,8 +28,19 @@
         @include respond ($bp-smaller) { font-size: 2.3rem;  }
     }
 
+
+
     &__buttons {
         display: flex;
         gap: 1rem;
+ 
+        & > * { flex: 1;  max-width: 23rem; }
+
+        @include respond($bp-smallest) {          
+            
+            flex-wrap: wrap;
+
+            & > * { max-width: 2100%; flex: 1 0 100%; }
+        }
     }
 }

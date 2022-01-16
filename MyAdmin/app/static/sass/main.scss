@@ -9,13 +9,16 @@
 @use './components/icon-links';
 @use './components/input-fields';
 @use './components/sidemenu';
+@use './components/tables';
 @use './components/top-pannel';
 @use './components/topbar';
 @use './components/WYSIWYG';
 
 @use './layouts/content-layout';
-@use './layouts/clients-layout';
+@use './layouts/clients-projects-layout';
 @use './layouts/forms-layout';
 
 @use './pages/dashboard';
+@use './pages/group';
+@use './pages/modal';
 @use './pages/sign';

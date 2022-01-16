@@ -1,0 +1,28 @@
+@use '../abstracts/' as *;
+
+
+.clients, .projects {
+
+    color: $col-text;
+    font-family: $font-primary;
+
+    font-size: 1.4rem;
+    background-color: $col-white;
+    padding: 2rem;
+    border-radius: $border-radius;
+    border: $border-1;
+
+    max-width: calc(100vw - 15rem);
+
+    @include respond($bp-medium) {
+        max-width: calc(100vw - 10rem);
+    }
+    
+    
+    &__form {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;    
+
+    }
+}

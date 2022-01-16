@@ -137,14 +137,25 @@
             //  include 'clients_form.html' 
              ?>
             <?php  
-             include 'clients.html' 
+            //  include 'clients.html' 
+            ?>
+            <?php  
+            //  include 'projects.html' 
+            ?>
+            <?php  
+            //  include 'modal_box.html' 
+            ?>
+            <?php  
+             include 'group.html' 
             ?>
 
         </main>
 
     </div>
-    <script src="../static/js/ckeditor.js"></script>
-    <script src="../static/js/datepicker-full.min.js"></script>
+    <script src="../static/js/ck-editor/ckeditor.js"></script>
+    <script src="../static/js/vanillajs-datepicker/datepicker-full.min.js"></script>
+    <script src="../static/js/tippy-js/popper.min.js"></script>
+    <script src="../static/js/tippy-js/tippy-bundle.umd.min.js"></script>
     <script src="../static/js/script.js"></script>
 </body>
 </html>

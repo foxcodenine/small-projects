@@ -20,7 +20,6 @@
         @include respond(1200) { grid-template-columns: repeat(3, 1fr); }
         @include respond(900)  { grid-template-columns: repeat(2, 1fr); }
         @include respond(600)  { grid-template-columns: 1fr; }
-
     }
 }
 
