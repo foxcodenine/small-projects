@@ -56,6 +56,7 @@
                     </a>
                 </li>
             </ul>
+            
         </div>
 
         <!-- ------------------------------------------------------- -->
@@ -146,7 +147,10 @@
             //  include 'modal_box.html' 
             ?>
             <?php  
-             include 'group.html' 
+            //  include 'group.html' 
+            ?>
+            <?php  
+             include 'images.html' 
             ?>
 
         </main>

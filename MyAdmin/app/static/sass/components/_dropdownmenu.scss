@@ -12,8 +12,18 @@
 
     &--1 {
         position: absolute;
-        top:6rem;
+        top: 6rem;
         right: .6rem;
+    }
+
+    &--2 {
+        position: absolute;
+        top: 3rem;
+        right: .6rem;
+
+        .dropdownmenu__item {
+            padding: .8rem 2rem;
+        }
     }
 
     &__list { list-style: none; }
@@ -35,7 +45,7 @@
 
         display: flex;
         text-align: center;
-        justify-content: center;
+        // justify-content: center;
         gap: .7rem;
     }
 
