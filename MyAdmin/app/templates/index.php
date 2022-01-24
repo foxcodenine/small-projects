@@ -129,7 +129,7 @@
         <main class="pages">
 
             <?php 
-            //  include 'dashboard.html' 
+             include 'dashboard.html' 
             ?>
             <?php 
             //  include 'projects_form.html' 
@@ -150,7 +150,7 @@
             //  include 'group.html' 
             ?>
             <?php  
-             include 'images.html' 
+            //  include 'images.php' 
             ?>
 
         </main>

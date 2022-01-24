@@ -14,6 +14,8 @@ document.onreadystatechange = function () {                    // <- (A)
         wysiwyg();
         formatDateInput();
         scrollTable();
+        myTippyFunction();
+        closeImagesMenu();
 
         // -------------------------------------------------------------        
     }
@@ -77,13 +79,13 @@ function dropdownmenu1Toggle () {
 
     const btn = document.querySelector('#topbar-dropdown'); 
     const dropdownmenu = document.querySelector('#dropdownmenu-1'); 
+
+    if ( !btn || !dropdownmenu ) return;
     
 
     if (btn) {
         
         btn.addEventListener('click', ()=>{
-            console.log('clicked');
-
             dropdownmenu.classList.toggle('display_none');
         });
     }
@@ -98,6 +100,10 @@ function dropdownmenu1Toggle () {
             dropdownmenu.classList.add('display_none');            
         }
     }); 
+
+    document.addEventListener('keydown', (e) => {        
+        if (e.key === 'Escape' && dropdownmenuIsClose) dropdownmenu.classList.add('display_none');
+    });
 }
 
 
@@ -206,8 +212,45 @@ function scrollTable () {
     });
 };
 
+//----------------------------------------------------------------------
 
-tippy('#table-icon-update',    { content: 'Update'});
-tippy('#table-icon-details', { content: 'Details'});
-tippy('#table-icon-remove',  { content: 'Remove'});
-tippy('#table-images',       { content: 'Update images'});
+
+function myTippyFunction () {
+    tippy('#table-icon-update',    { content: 'Update'});
+    tippy('#table-icon-details', { content: 'Details'});
+    tippy('#table-icon-remove',  { content: 'Remove'});
+    tippy('#table-images',       { content: 'Update images'});
+}
+
+//----------------------------------------------------------------------
+
+
+function closeImagesMenu () {
+
+    const images = document.querySelectorAll('.image__frame');
+    let openFrame = null;
+    let checkBox  = null;
+
+    images.forEach(( img, index, array) => {
+        
+        document.addEventListener('click', (e) => {
+            const frame = e.target.closest('.image__frame');
+
+            if (frame !== null && frame.id === `image-${index+1}`) {
+                if (openFrame !== frame) {
+                    if (checkBox) checkBox.checked = false;
+                    openFrame = frame;
+                    checkBox  = document.getElementById(`image-checkbox-${index+1}`);            
+                }
+            } else if (frame === null) {
+                if (checkBox) checkBox.checked = false;
+            }
+        });
+    });
+
+    document.addEventListener('keydown', (e) => {        
+        if (e.key === 'Escape' && checkBox) checkBox.checked = false;
+    });
+}
+
+

@@ -17,7 +17,7 @@
     echo "My cat is called {$wisky->name} and she is {$wisky->age} years old. <br>";         
     echo MyCript::generateKey() . '<br>';
 
-    echo $_ENV['APP_ENV'];
+    echo $_ENV['APP_ENV'], 123;
 
 
 ?>

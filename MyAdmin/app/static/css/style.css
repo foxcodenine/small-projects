@@ -515,6 +515,7 @@ main.pages {
   width: max-content;
   border-collapse: collapse;
   overflow: hidden;
+  min-width: 100%;
 }
 .table__container {
   overflow-x: auto;
@@ -1140,6 +1141,21 @@ main.pages {
 .image__menu svg:hover {
   fill: #E74C3C;
 }
+.image__menu--close, .image__menu--open {
+  transition: all 0.1s ease;
+}
+.image__menu--close {
+  visibility: hidden;
+  opacity: 0;
+}
+.image__checkbox:checked ~ .image__menu--open {
+  visibility: hidden;
+  opacity: 0;
+}
+.image__checkbox:checked ~ .image__menu--close {
+  visibility: visible;
+  opacity: 1;
+}
 .image__arrow {
   position: absolute;
   top: 90%;
@@ -1181,7 +1197,7 @@ main.pages {
 }
 .image__dopdownmenu {
   visibility: hidden;
-  transition: all 0.2s ease-in;
+  transition: all 0.1s ease-in;
   opacity: 0;
 }
 

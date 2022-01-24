@@ -115,6 +115,27 @@
                 fill: $col-red;
             }
         }
+
+        &--close, &--open {
+            transition: all .1s ease;
+        }
+
+        &--close {
+            visibility: hidden;
+            opacity: 0;
+        }
+        
+    }
+
+    &__checkbox:checked ~ &__menu  {
+        &--open {
+            visibility: hidden;
+            opacity: 0;
+        }
+        &--close {
+            visibility: visible;
+            opacity: 1;
+        }
     }
 
     &__arrow {
@@ -172,4 +193,6 @@
         opacity: 0;
     }
 }
+
+
 
