@@ -32,6 +32,20 @@ $routerBase->match('GET', '/clients', function() {
 
 });
 
+$routerBase->match('GET', '/clients-add', function() {
+    $GLOBALS['endpoint']  = 'clients-add'; 
+    include './app/views/clients_add.php';    
+    exit;
+
+});
+
+$routerBase->match('GET', '/projects-add', function() {
+    $GLOBALS['endpoint']  = 'projects-add'; 
+    include './app/views/projects_add.php';    
+    exit;
+
+});
+
 // ----- Run it! -------------------------------------------------------
 
 $routerBase->run();
