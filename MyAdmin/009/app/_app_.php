@@ -24,6 +24,6 @@ if (!debug_backtrace()) {
 
     echo $_ENV['APP_ENV'];
     echo '...so far so good!<br>';
-    
+
 }
 ?>

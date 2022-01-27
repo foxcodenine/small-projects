@@ -22,8 +22,6 @@ class DBConnect {
         if (self::$conn === null) {
 
             try {
-                
-
                 $conn = new PDO(
                     self::$db_type . ':host=' . self::$db_host . ';dbname=' . self::$db_schema,
                     self::$db_usename,
@@ -64,14 +62,14 @@ class DBConnect {
 
     // _________________________________________
 
-    public static function createTable($sql) {
+    public static function execSql($sql) {
         $conn = self::getConn();        
 
         try {
             $conn->exec($sql);
 
         } catch (PDOException $e) {
-            die("Error createTable: <br>" .  $e->getMessage());
+            die("Error execSql: <br>" .  $e->getMessage());
         }
     }
 

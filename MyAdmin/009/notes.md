@@ -186,3 +186,9 @@ https://www.youtube.com/watch?v=Oy9K7iz3aa4
 
 #### How TO - Responsive Tables
 https://www.w3schools.com/howto/howto_css_table_responsive.asp
+
+
+
+## ------ MySQL --------------------------------------------------------
+
+https://www.mysqltutorial.org/mysql-on-delete-cascade/

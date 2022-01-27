@@ -25,19 +25,19 @@
 
     // echo ($_SERVER['SERVER_NAME']). '<br>';
     // echo ($_SERVER['HTTP_HOST']). '<br>';
-    echo gethostname() . '<br>'; // may output e.g,: sandie
+    // echo gethostname() . '<br>'; // may output e.g,: sandie
     // echo php_uname('s');
 
-    $sqlStudebtTable = 'CREATE TABLE IF NOT EXISTS Student (
-        id INT PRIMARY KEY AUTO_INCREMENT,
-        firstname VARCHAR(100) NOT NULL,
-        lastname VARCHAR(100) NOT NULL,
-        age INT NOT NULL,
-        email VARCHAR(100) NOT NULL,
-        phone INT NOT NULL            
-    )';
+    // $sqlStudebtTable = 'CREATE TABLE IF NOT EXISTS Student (
+    //     id INT PRIMARY KEY AUTO_INCREMENT,
+    //     firstname VARCHAR(100) NOT NULL,
+    //     lastname VARCHAR(100) NOT NULL,
+    //     age INT NOT NULL,
+    //     email VARCHAR(100) NOT NULL,
+    //     phone INT NOT NULL            
+    // )';
 
-    DBConnect::createTable($sqlStudebtTable);
+    // DBConnect::createTable($sqlStudebtTable);
     
 
 

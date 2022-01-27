@@ -1,5 +1,6 @@
 <?php
 
+use app\Model\DBTables;
 use Bramus\Router\Router;
 
 $routerBase = new Router;
@@ -43,7 +44,20 @@ $routerBase->match('GET', '/projects-add', function() {
     $GLOBALS['endpoint']  = 'projects-add'; 
     include './app/views/projects_add.php';    
     exit;
+});
 
+$routerBase->match('GET', '/images', function() {
+    $GLOBALS['endpoint']  = 'images'; 
+    include './app/views/images.php';    
+    exit;
+});
+
+
+$routerBase->match('GET', '/tables', function() {
+    $GLOBALS['endpoint']  = 'tables'; 
+    DBTables::createTables();
+    header("Location: /009");
+    exit;
 });
 
 // ----- Run it! -------------------------------------------------------
