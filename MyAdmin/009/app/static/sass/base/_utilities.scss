@@ -31,3 +31,21 @@
 // _____________________________________________________________________
 
 .display_none { display: none !important;}
+
+
+
+.message__warning {
+    color: crimson !important;
+    background-color: rgba(crimson, .1);
+}
+
+
+.message__success {
+    color: #44733b;    
+    background-color: #d4edda;
+}
+
+.message__none {
+    color: transparent;    
+    background-color: transparent;
+}

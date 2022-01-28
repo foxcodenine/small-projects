@@ -8,3 +8,6 @@
     <link rel="stylesheet" href="app/static/css/style.css">
     <title>MyAdmin</title>
 </head>
+
+<?php 
+

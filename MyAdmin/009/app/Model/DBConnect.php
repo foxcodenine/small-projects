@@ -1,9 +1,12 @@
 <?php
 namespace app\Model;
 
+use app\Utils\MyCript;
 use PDO;
 use PRO;
 use PDOException;
+
+
 
 class DBConnect {
 
@@ -13,6 +16,8 @@ class DBConnect {
     private static $db_schema;
     private static $db_usename;
     private static $db_password;
+
+    const DT_FORMAT = 'Y-m-d H:i:s';
 
     // _________________________________________
 
@@ -48,15 +53,15 @@ class DBConnect {
         if ($_ENV['APP_ENV'] === 'production' && $_SERVER['SERVER_NAME'] === 'foxcode.io') {
             
             self::$db_schema   = $_ENV['DB_SCHEMA_PRO'];
-            self::$db_usename  = $_ENV['DB_USERNAME_PRO'];
-            self::$db_password = $_ENV['DB_PASSWORD_PRO'];
+            self::$db_usename  = MyCript::decrypt($_ENV['DB_USERNAME_PRO']);
+            self::$db_password = MyCript::decrypt($_ENV['DB_PASSWORD_PRO']);
         }
 
         if ($_ENV['APP_ENV'] === 'development' && gethostname() === 'Inspiron16' && php_uname('s') === 'Linux') {
 
             self::$db_schema   = $_ENV['DB_SCHEMA_DEV'];
-            self::$db_usename  = $_ENV['DB_USERNAME_DEV'];
-            self::$db_password = $_ENV['DB_PASSWORD_DEV'];
+            self::$db_usename  = MyCript::decrypt($_ENV['DB_USERNAME_DEV']);
+            self::$db_password = MyCript::decrypt($_ENV['DB_PASSWORD_DEV']);
         }
     }
 

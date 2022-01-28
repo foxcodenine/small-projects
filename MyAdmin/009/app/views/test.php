@@ -14,30 +14,28 @@
     use app\Model\DBConnect;
     use app\Utils\MyCript;
 
-    $wisky = new Cat('Wisky', 9);
-    // echo "My cat is called {$wisky->name} and she is {$wisky->age} years old. <br>";         
-    // echo MyCript::generateKey() . '<br>';
+    // $wisky = new Cat('Wisky', 9);
+    // echo "My cat is called {$wisky->name} and she is {$wisky->age} years old. <br>";  
+    
+    // -----------------------------------------------------------------
+
+    echo MyCript::generateKey() . '<br>';
+    $encript =  MyCript::encrypt($_ENV['DB_PASSWORD_DEV']);
+    $decript =  MyCript::decrypt($encript);
+    echo $encript . '<br>';
+    echo $decript . '<br>';
+
+    // -----------------------------------------------------------------
 
     // echo $_ENV['APP_ENV'], 123 . '<br>';
-
-
-
-
     // echo ($_SERVER['SERVER_NAME']). '<br>';
     // echo ($_SERVER['HTTP_HOST']). '<br>';
     // echo gethostname() . '<br>'; // may output e.g,: sandie
     // echo php_uname('s');
 
-    // $sqlStudebtTable = 'CREATE TABLE IF NOT EXISTS Student (
-    //     id INT PRIMARY KEY AUTO_INCREMENT,
-    //     firstname VARCHAR(100) NOT NULL,
-    //     lastname VARCHAR(100) NOT NULL,
-    //     age INT NOT NULL,
-    //     email VARCHAR(100) NOT NULL,
-    //     phone INT NOT NULL            
-    // )';
+        // -----------------------------------------------------------------
 
-    // DBConnect::createTable($sqlStudebtTable);
+
     
 
 

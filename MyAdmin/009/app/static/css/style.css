@@ -140,6 +140,21 @@ main.pages {
   display: none !important;
 }
 
+.message__warning {
+  color: crimson !important;
+  background-color: rgba(220, 20, 60, 0.1);
+}
+
+.message__success {
+  color: #44733b;
+  background-color: #d4edda;
+}
+
+.message__none {
+  color: transparent;
+  background-color: transparent;
+}
+
 .btn {
   cursor: pointer;
   letter-spacing: 1px;
@@ -1252,7 +1267,7 @@ main.pages {
   color: currentColor;
   font-weight: 200;
   font-size: 3rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 .sign__title b {
   font-weight: 600;
@@ -1317,6 +1332,11 @@ main.pages {
   .sign__text {
     font-size: 1.4rem;
   }
+}
+.sign__message {
+  padding: 0.5rem 3rem;
+  margin: 0 -3rem 1em -3rem;
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */

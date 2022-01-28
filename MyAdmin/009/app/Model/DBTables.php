@@ -10,7 +10,7 @@ class DBTables {
         id INT PRIMARY KEY AUTO_INCREMENT,
         email VARCHAR(20) NOT NULL,
         pass VARCHAR(255) NOT NULL,
-        active VARCHAR(20) NOT NULL,
+        accountState VARCHAR(20) NOT NULL,
         roleGroup VARCHAR(20),
         signUpDate DATETIME,
         lastLogin DATETIME,

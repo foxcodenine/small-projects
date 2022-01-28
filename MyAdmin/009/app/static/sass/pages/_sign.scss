@@ -33,7 +33,7 @@
         color: currentColor;
         font-weight: 200;
         font-size: 3rem;
-        margin-bottom: 3rem;
+        margin-bottom: 1rem;
         // text-transform: capitalize;  
 
         b { font-weight: 600; text-transform: uppercase;}
@@ -81,5 +81,14 @@
         &--small { font-size: 1.4rem; }
 
         @include respond ($bp-smaller) { font-size: 1.4rem; }
+    }
+
+    &__message {
+        padding: .5rem 3rem;
+        // border-radius: $border-radius;
+        // border: 1px solid lighten($col-success, 25%);
+        margin: 0 -3rem 1em -3rem;
+        text-align: center;
+        
     }
 }

@@ -62,11 +62,11 @@ function passwordDisplayToggle () {
 
             if (passwdField.getAttribute('type') === 'text') {
                 passwdField.setAttribute('type', 'password')
-                svgIconEye.setAttribute('xlink:href', '../static/svg/icomoon.svg#icon-eye-slash');
+                svgIconEye.setAttribute('xlink:href', './app/static/svg/icomoon.svg#icon-eye-slash');
 
             } else {
                 passwdField.setAttribute('type', 'text')
-                svgIconEye.setAttribute('xlink:href', '../static/svg/icomoon.svg#icon-eye');
+                svgIconEye.setAttribute('xlink:href', './app/static/svg/icomoon.svg#icon-eye');
             }  
         });
     }
