@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<?php require './app/views/include/header.php'; ?>
-
-<body>
-<div class="content">
-
-<?php require './app/views/include/body_upper.php'; ?>   
-
-<main class="pages">
-
-<!-- ############################################################### -->
-
 <section class="client-form">
 <form action="#" class="client-form__form" autocomplete="off">
 
@@ -123,18 +109,6 @@
 
     <button class="btn btn--primary btn--thick client-form__btn mt-sm">Add Client</button>
 
-
-
 </form>
 </section>
-
-<!-- ############################################################### -->
-
-</main>
-
-</div>
-<?php require './app/views/include/body_scripts.php'; ?>
-</body>
-</html>
-
 

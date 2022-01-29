@@ -8,6 +8,7 @@ document.onreadystatechange = function () {                    // <- (A)
         // Calling functions:
       
         // toastrFunction();
+        
         passwordDisplayToggle();
         dropdownmenu1Toggle();
         sideMenuToggle();
@@ -16,6 +17,9 @@ document.onreadystatechange = function () {                    // <- (A)
         scrollTable();
         myTippyFunction();
         closeImagesMenu();
+        mySwupFunction();
+
+        
 
         // -------------------------------------------------------------        
     }
@@ -178,9 +182,10 @@ function formatDateInput() {
 function scrollTable () {
 
     
-    const table = document.querySelector('#table-container');    
-
+    const table = document.querySelector('#table-container'); 
+    
     if (!table) return;
+
 
     let myMouse = { 'down': 0, 'position' : 0 , 'scroll' : false  };
 
@@ -253,4 +258,10 @@ function closeImagesMenu () {
     });
 }
 
-
+function mySwupFunction() {
+    if (!document.querySelector('.transition-fade')) return;
+    
+    const swup = new Swup(
+        {animationSelector: '[class*="transition-"]'}
+    );
+}

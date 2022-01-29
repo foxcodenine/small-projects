@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="app/static/css/datepicker.min.css">
     <link rel="stylesheet" href="app/static/css/style.css">
     <title>MyAdmin</title>
+    <link rel="shortcut icon" href="./app/static/images/fav.svg" type="image/x-icon"/>
+    
 </head>
 
 <?php 

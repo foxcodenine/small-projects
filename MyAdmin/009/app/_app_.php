@@ -1,6 +1,7 @@
 <?php
 session_start();
 use Dotenv\Dotenv;
+define( 'WP_SAMESITE_COOKIE', 'None' );
 
 // ----- ENV -----------------------------------------------------------
 
@@ -11,10 +12,8 @@ $dotenv->load();
 
 // ----- Routes --------------------------------------------------------
 
-require './app/router/routerBase.php';
-
-
-
+require './app/router/router.php';
+// require './app/router/routerSigning.php';
 
 
 

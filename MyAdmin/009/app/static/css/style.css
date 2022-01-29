@@ -25,6 +25,17 @@ body {
   font-family: "Source Sans Pro", sans-serif;
   height: 100vh;
   min-width: 36.36rem;
+  overflow-y: overlay;
+}
+body::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.01);
+}
+body::-webkit-scrollbar-thumb {
+  background: #5a5a5a;
 }
 
 main.pages {
@@ -38,6 +49,19 @@ main.pages {
     width: 100%;
     margin-left: 0;
   }
+}
+
+.transition-fade {
+  opacity: 1;
+  transition: 0.3s;
+}
+
+html.is-animating .transition-fade {
+  opacity: 0;
+}
+
+html.is-leaving .transition-fade {
+  opacity: 0;
 }
 
 .mb-tn {
@@ -534,6 +558,16 @@ main.pages {
 }
 .table__container {
   overflow-x: auto;
+}
+.table__container::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.table__container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.01);
+}
+.table__container::-webkit-scrollbar-thumb {
+  background: #5a5a5a;
 }
 .table__thead {
   border-bottom: rgba(27, 38, 49, 0.5) 0.1rem solid;

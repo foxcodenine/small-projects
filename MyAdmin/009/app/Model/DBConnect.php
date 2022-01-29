@@ -1,7 +1,7 @@
 <?php
 namespace app\Model;
 
-use app\Utils\MyCript;
+use app\Controller\MyCript;
 use PDO;
 use PRO;
 use PDOException;

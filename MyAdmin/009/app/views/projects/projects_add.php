@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<?php require './app/views/include/header.php'; ?>
-
-<body>
-<div class="content">
-
-<?php require './app/views/include/body_upper.php'; ?>   
-
-<main class="pages">
-
-<!-- ############################################################### -->
-
 <section class="project-form">
 <form action="#" class="project-form__form" autocomplete="off">
 
@@ -105,24 +91,12 @@
         <label class="field__label" for="description"></label>
         <div class="field__error"></div>
         <textarea id="editor_body" class="ck"></textarea>
-    </div>
-    
+    </div>    
     
 
     <button class="btn btn--primary btn--thick project-form__btn">Add Project</button>
-
     
-
 </form>
 </section>
-
-<!-- ############################################################### -->
-
-</main>
-
-</div>
-<?php require './app/views/include/body_scripts.php'; ?>
-</body>
-</html>
 
 

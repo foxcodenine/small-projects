@@ -27,13 +27,13 @@
             <div class="field__pair-group">
 
                 <div class="field__group">
-                    <label class="field__label" for="sign-firstname" name="firstname" >firstname</label>
-                    <input type="text" class="field__input" id="sign-firstname">
+                    <label class="field__label" for="sign-firstname">firstname</label>
+                    <input type="text" class="field__input" id="sign-firstname" name="firstname" >
                 </div>
     
                 <div class="field__group">
-                    <label class="field__label" for="sign-lastname" name="lastname" >lastname</label>
-                    <input type="text" class="field__input" id="sign-lastname">
+                    <label class="field__label" for="sign-lastname" >lastname</label>
+                    <input type="text" class="field__input" id="sign-lastname" name="lastname">
                 </div>
                 
             </div>

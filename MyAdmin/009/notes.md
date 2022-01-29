@@ -110,6 +110,26 @@ https://github.com/PHPMailer/PHPMailer
 
 ## ------ JS Script ----------------------------------------------------
 
+
+
+#### swup
+
+https://github.com/swup/swup
+https://www.youtube.com/watch?v=eVwH3VL1EsA
+
+
+Swup can be installed from npm…
+
+    $ npm install swup
+
+…or include the file from the dist folder… 
+
+    <script src="./dist/swup.js"></script>
+ 
+    <!-- or directly from unpkg -->
+    <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>  
+
+
 #### CKEditor
 
 You can find the script in 'static/js/ck-editor/ckeditor.js' 
