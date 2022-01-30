@@ -12,15 +12,15 @@
 <?php 
     use app\Controller\Cat;
     use app\Model\DBConnect;
-    use app\Utils\MyCript;
+    use app\Controller\MyCript;
 
     // $wisky = new Cat('Wisky', 9);
     // echo "My cat is called {$wisky->name} and she is {$wisky->age} years old. <br>";  
     
     // -----------------------------------------------------------------
 
-    echo MyCript::generateKey() . '<br>';
-    $encript =  MyCript::encrypt($_ENV['DB_PASSWORD_DEV']);
+    // echo MyCript::generateKey() . '<br>';
+    $encript =  MyCript::encrypt($_ENV['EMAIL_HOST']);
     $decript =  MyCript::decrypt($encript);
     echo $encript . '<br>';
     echo $decript . '<br>';

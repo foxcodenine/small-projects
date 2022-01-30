@@ -1,5 +1,22 @@
 <?php
+
+use app\Controller\MyHelperClass;
 use app\Model\DBConnect;
+use app\Model\Mail;
+use app\Model\User;
+
+
+// _____________________________________________________________________
+
+$router->match('GET', '/account-verify', function() {   
+
+    echo $_GET['code'] . '<br>';
+    echo base64_decode($_GET['code']) . '<br>';
+    echo $_GET['id'];
+    exit;
+});
+
+// _____________________________________________________________________
 
 
 $router->match('GET|POST', '/sign-up', function() {
@@ -15,12 +32,18 @@ $router->match('GET|POST', '/sign-up', function() {
     // --- setting password & error message
     $errorEmail    = $_SESSION['error']['errorEmail'] ?? '&nbsp;';
     $errorPassword = $_SESSION['error']['errorPassword'] ?? '&nbsp;';
+
+    
     unset($_SESSION['error']);
     
     // --- if post
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+        // _____________________________________________________________
+
         unset($_SESSION['message']); unset($_SESSION['error']);
+
+        // _____________________________________________________________
 
         $firstname = filter_input(INPUT_POST, 'firstname',  FILTER_SANITIZE_STRING);
         $lastname  = filter_input(INPUT_POST, 'lastname',   FILTER_SANITIZE_STRING);
@@ -28,6 +51,7 @@ $router->match('GET|POST', '/sign-up', function() {
         $password  = filter_input(INPUT_POST, 'password',   FILTER_SANITIZE_STRING);       
 
         
+        // _____________________________________________________________
 
         if (!$email) {
             $_SESSION['error']['errorEmail'] = 'This field is required';
@@ -52,42 +76,30 @@ $router->match('GET|POST', '/sign-up', function() {
             unset($_SESSION['error']['errorPassword']);
         }
 
-        if (!isset($_SESSION['error']) || empty($_SESSION['error'])) {            
-            $_SESSION['message']['content'] = 'An email has been sent to your email address to activate your account.';
+        // _____________________________________________________________
+
+        if (!isset($_SESSION['error']) || empty($_SESSION['error'])) {     
+
+            $_SESSION['message']['content'] = "An email has been sent to {$email}, to activate your account.";
             $_SESSION['message']['type'] = 'success';
 
-            try {
+            $newUser = new User( email:$email, passHash:$password, 
+                firstUserName:$firstname, lastUserName:$lastname );
 
-                $conn = DBConnect::getConn();
-
-                $sql = " INSERT INTO User (email, pass,  accountState, roleGroup, signUpDate, firstUserName, lastUserName)
-                        VALUES (:email, :pass, :accountState, :roleGroup, :signUpDate, :firstUserName, :lastUserName)";
-
-                $addUser = $conn -> prepare($sql);
-
-                $addUser -> bindValue(':email', $email);
-                $addUser -> bindValue(':pass', $password);
-                $addUser -> bindValue(':accountState', 'not-validated');
-                $addUser -> bindValue(':roleGroup', 'Demo');
-                $addUser -> bindValue(':signUpDate', date(DBConnect::DT_FORMAT, time()));
-                $addUser -> bindValue(':firstUserName', $firstname);
-                $addUser -> bindValue(':lastUserName', $lastname);
-
-                $addUser -> execute();
-
-
-            } catch (PDOException $e) {
-                die("Error getConn: <br>" . $e->getMessage());
-            }
+    
+            $emailMail = new Mail();
+            $emailMail->recipient($email, "$firstname $lastname");
+            $emailMail->accountVerify($newUser);
+            $emailMail->send();
         }
-        session_write_close();
-        
+
+        // _____________________________________________________________
+
+        session_write_close();        
         header('Location: ' . '/009/sign-up');
         exit();
     }
 
-    include './app/views/sign/sign_up.php';    
-
-
+    include './app/views/sign/sign_up.php';  
     exit;
 });

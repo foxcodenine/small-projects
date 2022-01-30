@@ -106,6 +106,9 @@ https://github.com/PHPMailer/PHPMailer
     $ composer require phpmailer/phpmailer
     $ composer dump-autoload -o
 
+You might need too Enable PHP mail() function on Ubuntu
+    https://researchhubs.com/post/computing/linux-basic/enable-php-mail-function-to-work-on-ubuntu.html
+
 
 
 ## ------ JS Script ----------------------------------------------------

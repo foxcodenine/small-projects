@@ -23,7 +23,6 @@ class DBConnect {
 
     public static function getConn() {
         self::loadENV();
-        echo self::$db_type . ':host=' . self::$db_host . ';dbname=' . self::$db_schema .'<br>';
         if (self::$conn === null) {
 
             try {

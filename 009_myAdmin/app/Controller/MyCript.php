@@ -44,5 +44,21 @@ class MyCript {
     }
 
     // _________________________________________
+
+    public static function passHash ($password) {
+        $hash = sodium_crypto_pwhash_str(
+            $password,
+            SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE,
+            SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE
+        );
+
+        return $hash;
+    }
+
+    // _________________________________________
+
+    public static function passVerify ($hash, $password) {
+        return sodium_crypto_pwhash_str_verify($hash, $password);
+    }
 }
 ?>

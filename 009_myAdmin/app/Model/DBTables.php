@@ -11,7 +11,7 @@ class DBTables {
         firstUserName VARCHAR(20),
         lastUserName VARCHAR(20),
         email VARCHAR(20) NOT NULL,
-        pass VARCHAR(255) NOT NULL,
+        passHash VARCHAR(255) NOT NULL,
         accountState VARCHAR(20) NOT NULL,
         roleGroup VARCHAR(20),
         signUpDate DATETIME,

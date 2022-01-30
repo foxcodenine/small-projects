@@ -2,7 +2,7 @@
 <form action="#"  class="dashboard__form">
 
     <div class="top-pannel">
-        <div class="top-pannel__date">Wed, 16 Aug <b>10:24PM</b></div>
+        <div class="top-pannel__date">Wed, 12 Aug <b>10:24PM</b></div>
             
         <div class="top-pannel__buttons">
             <button class="btn btn--light">Hosted</button>
