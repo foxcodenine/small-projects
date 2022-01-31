@@ -3,7 +3,9 @@
 namespace app\Model;
 
 use app\Controller\MyCript;
+use app\Controller\MyHelperClass;
 use app\Model\DBConnect;
+use PDO;
 use PDOException;
 
 class User {
@@ -46,7 +48,7 @@ class User {
         try {
 
             $this->passHash = MyCript::passHash($this->passHash);
-            $this->accountState = 'Not-Validated';
+            $this->accountState = 'Nonactivated';
             $this->roleGroup = 'Demo';
             $this->signUpDate = date(DBConnect::DT_FORMAT, time());
 
@@ -76,6 +78,79 @@ class User {
     }
     // _________________________________________________________________
 
+    public function deleteThisUser () {
+
+        try {
+
+            $conn = DBConnect::getConn();
+            $sql = 'DELETE FROM User WHERE id = :id';
+
+            $stmt = $conn -> prepare($sql);
+            $stmt -> bindValue(':id', $this->id);
+            $stmt -> execute();
+
+
+        } catch (PDOException $e) {
+            die("Error deleteThisUser: <br>" . $e->getMessage());
+        }
+    }
+
+
+
+    // _________________________________________________________________
+
+    public static function getUserById ($userId) {
+
+        try {
+        
+            $conn = DBConnect::getConn();
+            $sql = 'SELECT * FROM User WHERE id = :id';
+                    $stmt = $conn -> prepare($sql);
+                    $stmt -> bindValue(':id', $userId);
+                    $stmt -> execute();
+                    $stmt -> setFetchMode(PDO::FETCH_OBJ);
+                    $stdClass = $stmt -> fetch();
+                    
+            $user = new self (
+                email: $stdClass->email,
+                passHash: $stdClass->passHash,
+                id: $stdClass->id,
+                firstUserName: $stdClass->firstUserName,
+                lastUserName: $stdClass->lastUserName,
+                accountState: $stdClass->accountState,
+                roleGroup: $stdClass->roleGroup,
+                signUpDate: $stdClass->signUpDate,
+                lastLogin: $stdClass->lastLogin,
+                token: $stdClass->token,
+            );
+
+            return $user;
+
+        } catch (PDOException $e) {
+            die("Error getUserById: <br>" . $e->getMessage());
+        }
+    }
+    // _________________________________________________________________
+
+    public function removeNonactivatedUser () {
+
+        $user = 'sparrow';
+        $password = 'umbrella';
+        $schema = 'project_009_myAdmin';
+        
+        $userId = $this->id;
+        $passHash = $this->passHash;
+        
+        $command = './app/bash/removeNonactivatedUser.sh' . " {$user} {$password} {$schema} {$userId} " . "'\"" . $passHash . "\"'";
+
+
+        MyHelperClass::runBackgroundProsess($command);
+
+    }
+
+
+    // _________________________________________________________________
+
     /** Get the value of id */ 
     public function getId() {
         return $this->id;
@@ -86,4 +161,9 @@ class User {
         return $this->passHash;
     }
 
+
+    /** Get the value of accountState */ 
+    public function getAccountState() {
+        return $this->accountState;
+    }
 }

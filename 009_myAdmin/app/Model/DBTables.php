@@ -8,12 +8,12 @@ class DBTables {
 
     const User = 'CREATE TABLE IF NOT EXISTS User (
         id INT PRIMARY KEY AUTO_INCREMENT,
-        firstUserName VARCHAR(20),
-        lastUserName VARCHAR(20),
-        email VARCHAR(20) NOT NULL,
+        firstUserName VARCHAR(100),
+        lastUserName VARCHAR(100),
+        email VARCHAR(100) NOT NULL,
         passHash VARCHAR(255) NOT NULL,
-        accountState VARCHAR(20) NOT NULL,
-        roleGroup VARCHAR(20),
+        accountState VARCHAR(100) NOT NULL,
+        roleGroup VARCHAR(100),
         signUpDate DATETIME,
         lastLogin DATETIME,
         token VARCHAR(255)
@@ -24,7 +24,7 @@ class DBTables {
 
     const Locality = 'CREATE TABLE IF NOT EXISTS Locality (
         id INT PRIMARY KEY AUTO_INCREMENT,
-        lName VARCHAR(20) NOT NULL UNIQUE,
+        lName VARCHAR(100) NOT NULL UNIQUE,
 
         userID INT NOT NULL ,
         CONSTRAINT User_Locality
@@ -36,7 +36,7 @@ class DBTables {
 
     const Country = 'CREATE TABLE IF NOT EXISTS Country (
         id INT PRIMARY KEY AUTO_INCREMENT,
-        cName VARCHAR(20) NOT NULL UNIQUE,
+        cName VARCHAR(100) NOT NULL UNIQUE,
 
         userID INT NOT NULL ,
         CONSTRAINT User_County
@@ -50,22 +50,22 @@ class DBTables {
     const Client = ' CREATE TABLE IF NOT EXISTS Client (
         id INT PRIMARY KEY AUTO_INCREMENT,
         title VARCHAR(6) NOT NULL,
-        firstname VARCHAR(20) NOT NULL,
-        lastname VARCHAR(20) NOT NULL,
-        idCard VARCHAR(10),
+        firstname VARCHAR(100) NOT NULL,
+        lastname VARCHAR(100) NOT NULL,
+        idCard VARCHAR(50),
         company VARCHAR(255),
         clientNo INT,
         phone INT,
         mobile INT,
         streetAddress VARCHAR(255),
-        postcode VARCHAR(10),
+        postcode VARCHAR(50),
 
-        localityName VARCHAR(20) ,
+        localityName VARCHAR(100) ,
         CONSTRAINT Locality_Client
             FOREIGN KEY (localityName) REFERENCES Locality (lName)
             ON DELETE SET NULL,
 
-        countryName VARCHAR(20) ,
+        countryName VARCHAR(100) ,
         CONSTRAINT Country_Client
             FOREIGN KEY (countryName) REFERENCES Country (cName)
             ON DELETE SET NULL,

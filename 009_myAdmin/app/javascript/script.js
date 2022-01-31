@@ -1,3 +1,5 @@
+"use strict";
+
 // (A)  Is non-jQuery equivalent of `$(document).ready()`
 //      `$(document).ready()` to make a function available after the document is loaded
 

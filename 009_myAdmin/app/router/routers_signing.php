@@ -59,6 +59,9 @@ $router->match('GET|POST', '/sign-up', function() {
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $_SESSION['error']['errorEmail'] = 'Invalid email address';
 
+        } elseif (MyHelperClass::emailInDB($email)) {
+            $_SESSION['error']['errorEmail'] = 'Email address is already being used';
+
         } else {
             unset($_SESSION['error']['errorEmail']);
         }
@@ -91,6 +94,9 @@ $router->match('GET|POST', '/sign-up', function() {
             $emailMail->recipient($email, "$firstname $lastname");
             $emailMail->accountVerify($newUser);
             $emailMail->send();
+
+            $newUser->removeNonactivatedUser();
+
         }
 
         // _____________________________________________________________

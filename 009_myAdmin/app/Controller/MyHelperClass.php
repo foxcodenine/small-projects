@@ -3,11 +3,13 @@
 namespace app\Controller;
 
 use app\Model\DBConnect;
+use app\Model\User;
 use PDO;
 
 class MyHelperClass {
 
-    public static function emailInDB($email) {        
+    public static function emailInDB($email) {   
+        /** Check if email is alreay in database */  
 
         $sql = 'SELECT COUNT(email) AS "count" FROM User WHERE email = :email GROUP BY email';
 
@@ -21,5 +23,25 @@ class MyHelperClass {
 
         $result = $stmt->fetch(PDO::FETCH_OBJ);
         return (bool) (int) $result->count;       
+    }
+
+    // _________________________________________________________________
+
+    public static function whoami () {
+
+        if ($_ENV['APP_ENV'] === 'production' && $_SERVER['SERVER_NAME'] === 'foxcode.io') {
+            return 'productionServer';
+        }
+
+        if ($_ENV['APP_ENV'] === 'development' && gethostname() === 'Inspiron16' && php_uname('s') === 'Linux') {
+            return 'develepmentHome';
+        }
+    }
+
+    // _________________________________________________________________
+
+    public static function runBackgroundProsess($command, $outputFile = '/dev/null') {
+        $processId = shell_exec(sprintf('%s > %s 2>&1 & echo $!', $command, $outputFile ));  
+        return $processId;
     }
 }
