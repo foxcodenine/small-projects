@@ -95,8 +95,6 @@ class User {
         }
     }
 
-
-
     // _________________________________________________________________
 
     public static function getUserById ($userId) {
@@ -134,9 +132,22 @@ class User {
 
     public function removeNonactivatedUser () {
 
-        $user = 'sparrow';
-        $password = 'umbrella';
-        $schema = 'project_009_myAdmin';
+
+        if (MyHelperClass::whoami() === 'productionServer') {
+            
+            $schema   = $_ENV['DB_SCHEMA_PRO'];
+            $user  = MyCript::decrypt($_ENV['DB_USERNAME_PRO']);
+            $password = MyCript::decrypt($_ENV['DB_PASSWORD_PRO']);
+        }
+
+        if (MyHelperClass::whoami() === 'develepmentHome') {
+
+            $schema   = $_ENV['DB_SCHEMA_DEV'];
+            $user   = MyCript::decrypt($_ENV['DB_USERNAME_DEV']);
+            $password = MyCript::decrypt($_ENV['DB_PASSWORD_DEV']);
+        }
+
+
         
         $userId = $this->id;
         $passHash = $this->passHash;

@@ -43,6 +43,7 @@
 .message__success {
     color: #44733b;    
     background-color: #d4edda;
+    animation: fase-in .2s ease;
 }
 
 .message__none {

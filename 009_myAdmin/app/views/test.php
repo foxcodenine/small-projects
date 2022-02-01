@@ -37,8 +37,8 @@ use app\Model\User;
 
     // -----------------------------------------------------------------
     
-    $test = User::getUserById(55);
-    $test->removeNonactivatedUser();
+    // $test = User::getUserById(55);
+    // $test->removeNonactivatedUser();
     
 
     

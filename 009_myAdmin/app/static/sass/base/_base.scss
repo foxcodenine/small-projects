@@ -55,16 +55,38 @@ main.pages {
 
 
 
+// --- Page Transition -------------------------------------------------
+
   
-  .transition-fade {
+.transition-fade {
     opacity: 1;
     transition: .3s;
-  }
-  
-  html.is-animating .transition-fade {
+}
+
+html.is-animating .transition-fade {
     opacity: 0;
-  }
-  
-  html.is-leaving .transition-fade {
+}
+
+html.is-leaving .transition-fade {
     opacity: 0;
-  }
+}
+
+// --- Spinner ---------------------------------------------------------
+    
+#spinner {
+
+    position:fixed;
+    z-index:9999;
+    top: calc(50% - 60px);
+    left: calc(50% - 60px);
+    
+
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+    
+

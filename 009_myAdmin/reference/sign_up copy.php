@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<?php require './app/views/include/header.php'; ?>
+
+<body>
+
+
+<?php // require './app/views/include/body_upper.php'; ?>   
+
 
 
 <div class="sign">        
@@ -15,8 +25,8 @@
             <div class="field__pair-group">
 
                 <div class="field__group">
-                    <label class="field__label" for="sign-firstname" >firstname</label>
-                    <input type="text" class="field__input" id="sign-firstname" name="firstname" value="<?= $_SESSION['input']['firstname'] ?? '' ;?>">
+                    <label class="field__label" for="sign-firstname">firstname</label>
+                    <input type="text" class="field__input" id="sign-firstname" name="firstname" >
                 </div>
     
                 <div class="field__group">
@@ -54,3 +64,11 @@
 
         </form>
     </div>
+
+<!-- ############################################################### -->
+
+
+<?php require './app/views/include/body_scripts.php'; ?>
+</body>
+</html>
+

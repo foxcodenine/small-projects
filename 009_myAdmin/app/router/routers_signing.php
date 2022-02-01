@@ -23,7 +23,7 @@ $router->match('GET|POST', '/sign-up', function() {
 
 
     // --- setting messages
-    $message = $_SESSION['message']['content'] ?? '&nbsp;';    
+    $message = $_SESSION['message']['content'] ?? '&nbsp;<br>&nbsp;';    
     $messageType = $_SESSION['message']['type'] ?? 'none';
     unset($_SESSION['message']);
 
@@ -48,7 +48,10 @@ $router->match('GET|POST', '/sign-up', function() {
         $firstname = filter_input(INPUT_POST, 'firstname',  FILTER_SANITIZE_STRING);
         $lastname  = filter_input(INPUT_POST, 'lastname',   FILTER_SANITIZE_STRING);
         $email     = filter_input(INPUT_POST, 'email',      FILTER_SANITIZE_EMAIL);
-        $password  = filter_input(INPUT_POST, 'password',   FILTER_SANITIZE_STRING);       
+        $password  = filter_input(INPUT_POST, 'password',   FILTER_SANITIZE_STRING);      
+        
+        
+        $_SESSION['input']['firstname'] = $firstname;
 
         
         // _____________________________________________________________
@@ -83,29 +86,38 @@ $router->match('GET|POST', '/sign-up', function() {
 
         if (!isset($_SESSION['error']) || empty($_SESSION['error'])) {     
 
+
             $_SESSION['message']['content'] = "An email has been sent to {$email}, to activate your account.";
             $_SESSION['message']['type'] = 'success';
-
+    
             $newUser = new User( email:$email, passHash:$password, 
                 firstUserName:$firstname, lastUserName:$lastname );
-
+    
     
             $emailMail = new Mail();
             $emailMail->recipient($email, "$firstname $lastname");
             $emailMail->accountVerify($newUser);
             $emailMail->send();
-
-            $newUser->removeNonactivatedUser();
+    
+            $newUser->removeNonactivatedUser();  
 
         }
 
         // _____________________________________________________________
+
 
         session_write_close();        
         header('Location: ' . '/009/sign-up');
         exit();
     }
 
+    $pageName = 'sign_up'; include './app/views/_page.php';
+    exit;
+
     include './app/views/sign/sign_up.php';  
     exit;
 });
+
+
+
+

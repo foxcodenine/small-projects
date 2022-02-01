@@ -20,6 +20,7 @@ document.onreadystatechange = function () {                    // <- (A)
         myTippyFunction();
         closeImagesMenu();
         mySwupFunction();
+        myLoaderBtn();
 
         
 
@@ -267,3 +268,29 @@ function mySwupFunction() {
         {animationSelector: '[class*="transition-"]'}
     );
 }
+
+//----------------------------------------------------------------------
+
+function myLoaderBtn() {
+
+    const myLoader = document.querySelector('.myLoaderBtn');
+
+    if (!myLoader) return;
+
+    myLoader.addEventListener('click', ()=>{
+        const div_box = document.createElement('div');
+
+
+        div_box.innerHTML = '<div id="spinner"></div>';   
+        document.body.prepend(div_box);   
+    
+        setTimeout(()=>{
+            div_box.remove();
+        }, 10000);
+    });
+};
+
+
+//----------------------------------------------------------------------
+
+

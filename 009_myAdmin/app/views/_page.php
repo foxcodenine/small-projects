@@ -8,7 +8,12 @@
 <body>
 <div class="content">
 
-    <?php require './app/views/include/body_upper.php'; ?>   
+    <?php 
+    if ($pageName !== 'sign_up') {
+        require './app/views/include/body_upper.php';
+    }
+    
+    ?>   
 
 <main  id="swup" class="transition-fade pages">
 
@@ -39,6 +44,10 @@
 
         case 'clients_add':
             $pagePath = './app/views/clients/clients_add.php';
+            break;    
+
+        case 'sign_up':
+            $pagePath = './app/views/sign/sign_up.php';
             break;            
     }
     ?>

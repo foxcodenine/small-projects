@@ -1,4 +1,14 @@
+# ______________________________________________________________________
+
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . index.php [L]
+
+# ______________________________________________________________________
+
+# enable PHP error loggoing
+php_flag log_error on
+php_value error_log /var/www/projects/009_myAdmin/.log
+
+# ______________________________________________________________________
