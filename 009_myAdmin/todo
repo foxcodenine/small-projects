@@ -1,4 +1,20 @@
-1. Insert signin fome page
-2. Make sign up form sticky
-3. Add a min hight to sign__message class to remove &nbsp;<br>&nbsp;
-4. rename routhers to camel case
+OK  1. Insert signin fom page
+OK  2. Make sign up form sticky
+OK  3. Add a min hight to sign__message class to remove &nbsp;<br>&nbsp;
+OK  4. rename routhers to camel case
+
+OK 4.5 remove count error
+
+OK 5.  Create an activate router 
+OK 6.  Check if link is valid
+
+OK 7.  If NOT valid direct to sign-up page
+OK 8. Add a rety message to the sign up page
+
+OK 8.1 create a login router
+OK 8.2 create a login page
+
+OK 9.  If valid direct to login page
+OK 10. If account has already been activated - Add a message accodingly
+
+OK 11. If account has NOT been activated - Activated & Add a message accodingly

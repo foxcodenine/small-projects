@@ -6,24 +6,74 @@ use app\Model\Mail;
 use app\Model\User;
 
 
-// _____________________________________________________________________
+// ___ Activate ________________________________________________________
 
-$router->match('GET', '/account-verify', function() {   
+$router->match('GET', '/activate/(\w+)/([\w=]+)', function($id, $code) {   
 
-    echo $_GET['code'] . '<br>';
-    echo base64_decode($_GET['code']) . '<br>';
-    echo $_GET['id'];
-    exit;
+    $hash =  base64_decode($code);
+    
+    $currentUser = User::getUserById($id);
+
+    $hashValid = $currentUser && $currentUser->getPassHash() === $hash;
+
+    // _________________________________________________________________
+
+    if ($hashValid && $currentUser->getAccountState() === 'Activated') {
+        
+        
+        $_SESSION['message']['content'] = 'Your account has already been activated. <br> You may proceed to login.';
+        $_SESSION['message']['type'] = 'warning';
+
+        header('Location: /009/sign-in');
+        exit();
+
+
+    } else if ($hashValid && $currentUser->getAccountState() === 'Nonactivated') {
+
+
+        $_SESSION['message']['content'] = 'Your account has been activated. <br> You may proceed to login.';
+        $_SESSION['message']['type'] = 'success';
+
+        $currentUser = $currentUser->setAccountState('Activated');
+        $currentUser->updateUser();
+
+        header('Location: /009/sign-in');
+        exit();
+
+    } else {
+        
+        $_SESSION['message']['content'] = "Your account activation link has expired or is invalid. Please try again.";
+        $_SESSION['message']['type'] = 'warning';
+
+        header('Location: /009/sign-up');
+        exit();
+    } 
 });
 
-// _____________________________________________________________________
+// ___ Sign-In _________________________________________________________
+
+$router->match('GET|POST', '/sign-in', function() {   
+
+    // --- setting messages
+    $message = $_SESSION['message']['content'] ?? '';    
+    $messageType = $_SESSION['message']['type'] ?? 'none';
+    unset($_SESSION['message']);
+
+    $pageName = 'sign_in'; include './app/views/_page.php';
+    unset($_SESSION['message']);
+    exit;
+
+});
+
+
+// ___ Sign-Up _________________________________________________________
 
 
 $router->match('GET|POST', '/sign-up', function() {
 
 
     // --- setting messages
-    $message = $_SESSION['message']['content'] ?? '&nbsp;<br>&nbsp;';    
+    $message = $_SESSION['message']['content'] ?? '';    
     $messageType = $_SESSION['message']['type'] ?? 'none';
     unset($_SESSION['message']);
 
@@ -51,7 +101,10 @@ $router->match('GET|POST', '/sign-up', function() {
         $password  = filter_input(INPUT_POST, 'password',   FILTER_SANITIZE_STRING);      
         
         
-        $_SESSION['input']['firstname'] = $firstname;
+        $_SESSION['sign-up']['firstname'] = $firstname;
+        $_SESSION['sign-up']['lastname'] = $lastname;
+        $_SESSION['sign-up']['email'] = $email;
+        $_SESSION['sign-up']['password'] = $password;
 
         
         // _____________________________________________________________
@@ -63,7 +116,7 @@ $router->match('GET|POST', '/sign-up', function() {
             $_SESSION['error']['errorEmail'] = 'Invalid email address';
 
         } elseif (MyHelperClass::emailInDB($email)) {
-            $_SESSION['error']['errorEmail'] = 'Email address is already being used';
+            $_SESSION['error']['errorEmail'] = 'This Email address is already being used';
 
         } else {
             unset($_SESSION['error']['errorEmail']);
@@ -96,11 +149,10 @@ $router->match('GET|POST', '/sign-up', function() {
     
             $emailMail = new Mail();
             $emailMail->recipient($email, "$firstname $lastname");
-            $emailMail->accountVerify($newUser);
+            $emailMail->contentAccountActivation($newUser);
             $emailMail->send();
     
             $newUser->removeNonactivatedUser();  
-
         }
 
         // _____________________________________________________________
@@ -112,10 +164,9 @@ $router->match('GET|POST', '/sign-up', function() {
     }
 
     $pageName = 'sign_up'; include './app/views/_page.php';
+    unset($_SESSION['sign-up']);
     exit;
 
-    include './app/views/sign/sign_up.php';  
-    exit;
 });
 
 

@@ -9,16 +9,16 @@ $router = new Router;
 // ----- Define routes -------------------------------------------------
 
 
-include './app/router/routers_basic.php';
+include './app/router/routerBasic.php';
 
 
-include './app/router/routers_projects.php';
+include './app/router/routerProjects.php';
 
 
-include './app/router/routers_clients.php';
+include './app/router/routerClients.php';
 
 
-include './app/router/routers_signing.php';
+include './app/router/routerSigning.php';
 
 
 

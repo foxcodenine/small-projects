@@ -32,21 +32,32 @@
 
 .display_none { display: none !important;}
 
+.message {
 
-
-.message__warning {
-    color: crimson !important;
-    background-color: rgba(crimson, .1);
-}
-
-
-.message__success {
-    color: #44733b;    
-    background-color: #d4edda;
     animation: fase-in .2s ease;
-}
-
-.message__none {
-    color: transparent;    
-    background-color: transparent;
+    
+    &__danger {
+        color: #a24445 !important;
+        background-color: #f2dedf !important;
+    }    
+    
+    &__success {
+        color: #44733b !important;
+        background-color: #d4edda !important;        
+    }
+    
+    &__primary {
+        color: #2e6e8a !important;
+        background-color: #d9edf6 !important;        
+    }
+    
+    &__warning {
+        color: #876935 !important;
+        background-color: #fdf8e4 !important;        
+    }
+    
+    &__none {
+        color: transparent !important;
+        background-color: transparent!important;
+    }
 }

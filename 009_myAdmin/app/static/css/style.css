@@ -92,7 +92,7 @@ html.is-leaving .transition-fade {
   border-radius: 50%;
   width: 120px;
   height: 120px;
-  animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite, fase-in 0.2s linear;
 }
 
 .mb-tn {
@@ -195,20 +195,28 @@ html.is-leaving .transition-fade {
   display: none !important;
 }
 
-.message__warning {
-  color: crimson !important;
-  background-color: rgba(220, 20, 60, 0.1);
-}
-
-.message__success {
-  color: #44733b;
-  background-color: #d4edda;
+.message {
   animation: fase-in 0.2s ease;
 }
-
+.message__danger {
+  color: #a24445 !important;
+  background-color: #f2dedf !important;
+}
+.message__success {
+  color: #44733b !important;
+  background-color: #d4edda !important;
+}
+.message__primary {
+  color: #2e6e8a !important;
+  background-color: #d9edf6 !important;
+}
+.message__warning {
+  color: #876935 !important;
+  background-color: #fdf8e4 !important;
+}
 .message__none {
-  color: transparent;
-  background-color: transparent;
+  color: transparent !important;
+  background-color: transparent !important;
 }
 
 .btn {
@@ -1403,6 +1411,7 @@ html.is-leaving .transition-fade {
   padding: 0.5rem 3rem;
   margin: 0 -3rem 1em -3rem;
   text-align: center;
+  min-height: 5.4rem;
 }
 
 /*# sourceMappingURL=style.css.map */

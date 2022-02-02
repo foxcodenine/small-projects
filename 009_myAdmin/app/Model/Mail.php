@@ -47,11 +47,11 @@ class Mail {
 
     // _________________________________________
     
-    public function accountVerify($user) {
+    public function contentAccountActivation($user) {
   
         $code = base64_encode($user->getPassHash());
-        $link = $_ENV['BASE_URL'] . '/account-verify?id=' . $user->getId() . '&code=' . $code; ;
-        $this->content('Verify You Account', "<a href='$link'>$link</a>");
+        $link = $_ENV['BASE_URL'] . '/activate' . '/' . $user->getId() . '/' . $code; ;
+        $this->content('Activate You Account', "<a href='$link'>$link</a>");
     }
 
     // _________________________________________

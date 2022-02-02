@@ -78,6 +78,46 @@ class User {
     }
     // _________________________________________________________________
 
+    public function updateUser() {
+
+        try {
+
+            $conn = DBConnect::getConn();
+
+            $sql = " UPDATE User SET 
+                firstUserName = :firstUserName,
+                lastUserName  = :lastUserName,
+                email         = :email,
+                passHash      = :passHash,
+                accountState  = :accountState,
+                roleGroup     = :roleGroup,
+                signUpDate    = :signUpDate,
+                lastLogin     = :lastLogin,
+                token         = :token
+                WHERE id      = :id 
+            ";
+
+            $stmt = $conn -> prepare($sql);
+            
+            $stmt -> bindValue(':id', $this->id);
+            $stmt -> bindValue(':firstUserName', $this->firstUserName);
+            $stmt -> bindValue(':lastUserName', $this->lastUserName);
+            $stmt -> bindValue(':email', $this->email);
+            $stmt -> bindValue(':passHash', $this->passHash);
+            $stmt -> bindValue(':accountState', $this->accountState);
+            $stmt -> bindValue(':roleGroup', $this->roleGroup);
+            $stmt -> bindValue(':signUpDate', $this->signUpDate);
+            $stmt -> bindValue(':lastLogin', $this->lastLogin);
+            $stmt -> bindValue(':token', $this->token);
+
+            $stmt -> execute();
+
+        } catch (PDOException $e) {
+            die("Error updateUser: <br>" . $e->getMessage());
+        }      
+    }
+    // _________________________________________________________________
+
     public function deleteThisUser () {
 
         try {
@@ -103,11 +143,13 @@ class User {
         
             $conn = DBConnect::getConn();
             $sql = 'SELECT * FROM User WHERE id = :id';
-                    $stmt = $conn -> prepare($sql);
-                    $stmt -> bindValue(':id', $userId);
-                    $stmt -> execute();
-                    $stmt -> setFetchMode(PDO::FETCH_OBJ);
-                    $stdClass = $stmt -> fetch();
+            $stmt = $conn -> prepare($sql);
+            $stmt -> bindValue(':id', $userId);
+            $stmt -> execute();
+            $stmt -> setFetchMode(PDO::FETCH_OBJ);
+            $stdClass = $stmt -> fetch();
+
+            if (!$stdClass) return false;
                     
             $user = new self (
                 email: $stdClass->email,
@@ -159,8 +201,9 @@ class User {
 
     }
 
-
     // _________________________________________________________________
+
+
 
     /** Get the value of id */ 
     public function getId() {
@@ -172,9 +215,14 @@ class User {
         return $this->passHash;
     }
 
-
     /** Get the value of accountState */ 
     public function getAccountState() {
         return $this->accountState;
+    }
+
+    /** Set the value of accountState */ 
+    public function setAccountState ($accountState) {
+        $this->accountState = $accountState;
+        return $this;
     }
 }

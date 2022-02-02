@@ -22,7 +22,8 @@ class MyHelperClass {
         $stmt -> execute();
 
         $result = $stmt->fetch(PDO::FETCH_OBJ);
-        return (bool) (int) $result->count;       
+
+        return (bool) $result;     
     }
 
     // _________________________________________________________________

@@ -9,7 +9,7 @@
 <div class="content">
 
     <?php 
-    if ($pageName !== 'sign_up') {
+    if ($pageName !== 'sign_up' && $pageName !== 'sign_in') {
         require './app/views/include/body_upper.php';
     }
     
@@ -48,6 +48,10 @@
 
         case 'sign_up':
             $pagePath = './app/views/sign/sign_up.php';
+            break;  
+
+        case 'sign_in':
+            $pagePath = './app/views/sign/sign_in.php';
             break;            
     }
     ?>
