@@ -1,20 +1,23 @@
-OK  1. Insert signin fom page
-OK  2. Make sign up form sticky
-OK  3. Add a min hight to sign__message class to remove &nbsp;<br>&nbsp;
-OK  4. rename routhers to camel case
+OK 1. clean sign-in page
+OK 2. make sign in form functional 
 
-OK 4.5 remove count error
+3. validate input
+OK    a. empty fields
+OK    b. email not in database
+OK    c. email pass do not match
+OK    d. account is still not activated 
 
-OK 5.  Create an activate router 
-OK 6.  Check if link is valid
+4. add relative messages
 
-OK 7.  If NOT valid direct to sign-up page
-OK 8. Add a rety message to the sign up page
 
-OK 8.1 create a login router
-OK 8.2 create a login page
+OK 5 date picker not working
+OK 6 tip tippy not working 
+OK 7 password toggle not showing in log in page
 
-OK 9.  If valid direct to login page
-OK 10. If account has already been activated - Add a message accodingly
 
-OK 11. If account has NOT been activated - Activated & Add a message accodingly
+
+
+OK 8 Clean up annimaion css
+9 Resend link
+OK 10 sidebar bottom line
+OK 11 signin page transection

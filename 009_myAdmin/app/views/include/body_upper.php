@@ -63,7 +63,7 @@
         <div class="sidemenu__text">Dashbord</div>
     </a>
     
-    <a href="#" class="sidemenu__item">              
+    <a href="/009/images" class="sidemenu__item">              
         <svg class="sidemenu__icon"><use xlink:href="./app/static/svg/icomoon.svg#icon-telescope"></use></svg>  
         <div class="sidemenu__text">Search</div>
     </a>
@@ -107,7 +107,9 @@
     <a href="#" class="sidemenu__item sidemenu__close">                
         <svg class="sidemenu__icon"><use xlink:href="./app/static/svg/icomoon.svg#icon-map-pin"></use></svg>              
         <div class="sidemenu__text">Locations</div>
-    </a>           
+    </a>    
+    
+    <div class="sidemenu__line"></div>
 
 </div>
 

@@ -3,13 +3,12 @@
 .sign {
     color: $col-text;
     min-height: 100vh;
-    // height: 100%;
     min-width: fit-content;
     min-height: 100%;
-    background-image:   
-        linear-gradient( to right bottom,  rgba($col-white, .85),  rgba($col-white, .85)), 
-        linear-gradient( to right bottom,  rgba($col-blue, .3),  rgba($col-blue, .3)), 
-        url(../images/backgrounds/bg2.jpg);
+    // background-image:   
+    //     linear-gradient( to right bottom,  rgba($col-white, .85),  rgba($col-white, .85)), 
+    //     linear-gradient( to right bottom,  rgba($col-blue, .3),  rgba($col-blue, .3)), 
+    //     url(../images/backgrounds/bg2.jpg);
 
     background-size: cover;
     background-position: center;
@@ -26,6 +25,7 @@
         border-radius: $border-radius;
         margin: 0 auto;
         max-width: 46rem;
+
     }
 
     &__title {
@@ -54,7 +54,7 @@
         align-self: center;
         justify-self: end;
         margin-right: .8rem;
-        fill: $col-gray-2;
+        fill: $col-gray-3;
     }
 
     &__forgot:link, &__forgot:visited {
@@ -88,5 +88,10 @@
         margin: 0 -3rem 1em -3rem;
         text-align: center; 
         min-height: 5.4rem;
+    }
+
+    &__resend-link {
+        @include link-1;
+        cursor: pointer;
     }
 }

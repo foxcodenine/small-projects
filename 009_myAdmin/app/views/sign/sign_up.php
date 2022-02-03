@@ -1,8 +1,6 @@
-
-
-<div class="sign">        
+<div class="sign ">        
         
-        <form class="sign__form sign__form-in" method="POST" action="/009/sign-up">
+        <form class="sign__form sign__form--up" method="POST" action="/009/sign-up" autocomplete="off">
 
             
             <div class="sign__title">Welcome to <b>My</b>Admin</div>
@@ -45,7 +43,7 @@
             
             <button class="btn btn--primary btn--thick btn--100 mt-md myLoaderBtn" type="submit">Create Demo Account</button>
 
-            <div class="sign__text sign__text--small">
+            <div class="sign__text ">
                 <p>Already has account? <a href="/009/sign-in">Sign-in</a>.</p>
                 <p> Creating an account means you're okay with our 
                 <a href="#">Terms of Service</a>, <a href="#">Privacy Policy</a>, 

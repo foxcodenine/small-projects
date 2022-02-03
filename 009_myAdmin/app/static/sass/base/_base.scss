@@ -39,7 +39,6 @@ body {
 }
 
 
-
 main.pages {
     width: calc(100% - 5rem);
     min-height: calc(100vh - 5.5rem);
@@ -56,20 +55,12 @@ main.pages {
 
 
 // --- Page Transition -------------------------------------------------
-
-  
-.transition-fade {
-    opacity: 1;
-    transition: .3s;
+.pageTransition {
+	animation: fadeInAnimation ease-in .5s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
 }
 
-html.is-animating .transition-fade {
-    opacity: 0;
-}
-
-html.is-leaving .transition-fade {
-    opacity: 0;
-}
 
 // --- Spinner ---------------------------------------------------------
     
@@ -86,7 +77,7 @@ html.is-leaving .transition-fade {
     border-radius: 50%;
     width: 120px;
     height: 120px;
-    animation: spin 2s linear infinite, fase-in .2s linear;
+    animation: spinAnimation 2s linear infinite, fadeInAnimation .2s linear;
 }
     
 

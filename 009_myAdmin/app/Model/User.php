@@ -137,14 +137,27 @@ class User {
 
     // _________________________________________________________________
 
-    public static function getUserById ($userId) {
+    public static function getUserById_Email ($userId=null, $userEmail=null) {
 
-        try {
-        
-            $conn = DBConnect::getConn();
+        $conn = DBConnect::getConn();
+
+        if (isset($userId)) {
             $sql = 'SELECT * FROM User WHERE id = :id';
             $stmt = $conn -> prepare($sql);
             $stmt -> bindValue(':id', $userId);
+
+        } else if (isset($userEmail)) {
+            $sql = 'SELECT * FROM User WHERE email = :email';
+            $stmt = $conn -> prepare($sql);
+            $stmt -> bindValue(':email', $userEmail);
+
+        } else {
+            return false;
+        }
+
+
+        try {
+        
             $stmt -> execute();
             $stmt -> setFetchMode(PDO::FETCH_OBJ);
             $stdClass = $stmt -> fetch();
@@ -224,5 +237,15 @@ class User {
     public function setAccountState ($accountState) {
         $this->accountState = $accountState;
         return $this;
+    }
+
+    /** Get the value of firstUserName */ 
+    public function getFirstUserName() {
+        return $this->firstUserName;
+    }
+
+    /** Get the value of firstUserName */ 
+    public function getLastUserName() {
+        return $this->lastUserName;
     }
 }

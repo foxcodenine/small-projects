@@ -1,5 +1,6 @@
 "use strict";
 
+
 // (A)  Is non-jQuery equivalent of `$(document).ready()`
 //      `$(document).ready()` to make a function available after the document is loaded
 
@@ -19,7 +20,7 @@ document.onreadystatechange = function () {                    // <- (A)
         scrollTable();
         myTippyFunction();
         closeImagesMenu();
-        mySwupFunction();
+        // mySwupFunction();
         myLoaderBtn();
 
         
@@ -261,13 +262,17 @@ function closeImagesMenu () {
     });
 }
 
-function mySwupFunction() {
-    if (!document.querySelector('.transition-fade')) return;
+//----------------------------------------------------------------------
+
+// Interfiring with other scripts -- achiving same effect with sass
+
+// function mySwupFunction() {
+//     if (!document.querySelector('.transition-fade')) return;
     
-    const swup = new Swup(
-        {animationSelector: '[class*="transition-"]'}
-    );
-}
+//     const swup = new Swup(
+//         {animationSelector: '[class*="transition-"]'}
+//     );
+// }
 
 //----------------------------------------------------------------------
 

@@ -11,11 +11,11 @@
     <?php 
     if ($pageName !== 'sign_up' && $pageName !== 'sign_in') {
         require './app/views/include/body_upper.php';
-    }
-    
-    ?>   
-
-<main  id="swup" class="transition-fade pages">
+        echo '<main  class="pages pageTransition">';
+    } else {
+        echo '<main>';
+    }    
+    ?>  
 
 <!-- --------------------------------------------------------------- -->
     <?php
