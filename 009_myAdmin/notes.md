@@ -8,6 +8,12 @@ https://www.flaticon.com/search?word=eye&type=icon
 https://iconmonstr.com/ 
 https://iconmonstr.com/checkbox-3-svg/
 
+## ------ Ideas --------------------------------------------------------
+
+https://support.anghami.com/hc/en-us
+
+
+
 ## ------ Music --------------------------------------------------------
 
 
@@ -109,6 +115,15 @@ https://github.com/PHPMailer/PHPMailer
 
 You might need too Enable PHP mail() function on Ubuntu
     https://researchhubs.com/post/computing/linux-basic/enable-php-mail-function-to-work-on-ubuntu.html
+
+    and installing sendmail
+
+    $ sudo apt install sendmail
+
+    also you may need to update your /etc/hosts too. Check:
+    git/repo/research_n_study/resources/Linux/Sendmail___unqualified_hostname_unknown..._Tutorials_-_Learn.pdf
+
+
 
 
 

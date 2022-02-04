@@ -1,11 +1,21 @@
 <?php
 
 use app\Controller\MyCript;
-use app\Controller\MyHelperClass;
+use app\Controller\MyUtilities;
 use app\Model\DBConnect;
 use app\Model\Mail;
 use app\Model\User;
 
+// ___ Activate ________________________________________________________
+// _____________________________________________________________________
+
+
+$router->match('GET', '/cookieTest', function() {   
+
+    foreach ($_COOKIE as $key => $value) {
+        echo "$key => $value<br>";
+    }
+});
 
 // ___ Activate ________________________________________________________
 // _____________________________________________________________________
@@ -56,13 +66,16 @@ $router->match('GET', '/activate/(\w+)/([\w=]+)', function($id, $code) {
 // ___ Resend email ____________________________________________________
 // _____________________________________________________________________
 
-$router->match('GET', '/resendEmail', function() {   
+$router->match('GET', '/resend-email', function() {   
 
-    var_dump($_SESSION); echo '<br>';
-    var_dump($_SESSION['resendEmail']);
 
-    $email = $_SESSION['resendEmail'];
-    unset($_SESSION['resendEmail']);
+    $email = $_SESSION['resend-email'] ?? null;
+
+    if (!$email) { header('Location: ' . '/009/sign-in');  exit(); }
+
+    unset($_SESSION['resend-email']);
+
+    // _________________________________________________
 
     $currentUser = User::getUserById_Email(null, $email);
 
@@ -74,7 +87,16 @@ $router->match('GET', '/resendEmail', function() {
     $emailMail->contentAccountActivation($currentUser);
     $emailMail->send();
 
-    
+    // _________________________________________________
+
+    $_SESSION['message']['content'] = "A new activation email has been resent to {$email}. To activate your account.";
+    $_SESSION['message']['type'] = 'primary';
+
+    // _________________________________________________
+
+    session_write_close();        
+    header('Location: ' . '/009/sign-in');
+    exit();   
 });
 
 // ___ Sign-In _________________________________________________________
@@ -117,7 +139,7 @@ $router->match('GET|POST', '/sign-in', function() {
 
         if ($email && $password) {
 
-            if ($email_in_db = MyHelperClass::emailInDB($email)) {
+            if ($email_in_db = MyUtilities::emailInDB($email)) {
 
                 $currentUser = User::getUserById_Email (null, $email);
                 $pass_is_correct = MyCript::passVerify($currentUser->getPassHash(), $password);
@@ -130,14 +152,39 @@ $router->match('GET|POST', '/sign-in', function() {
 
             }  else if (!$user_activated) {
                 $_SESSION['message']['content'] = "You Haven't Activated Your Account Yet. <br> 
-                Kindly check your mail. <a class='sign__resend-link myLoaderBtn' href='/009/resendEmail'>Resend email</a>";
-                $_SESSION['message']['type'] = 'primary';
-                $_SESSION['resendEmail'] = $email;
+                Kindly check your mail. <a class='sign__resend-link myLoaderBtn' href='/009/resend-email'>Resend email</a>";
+                $_SESSION['message']['type'] = 'warning';
+                $_SESSION['resend-email'] = $email;
                 
 
             } else {
+
                 $_SESSION['message']['content'] = "Loged In";
                 $_SESSION['message']['type'] = 'success';
+
+                $_SESSION['currentUser'] = $currentUser;
+                
+
+                // _____________________________________________________
+
+                $cookieName   = 'FOXCODE.IO|009|MYADMIN|SIGNIN'; 
+                $cookieValue  = MyCript::generateKey(); 
+                $cookieExp    =  isset($remember) ? (time() + ($_ENV['COOKIE_EXP'])) : 0;
+                $cookiePath   = $_ENV['COOKIE_PATH'];
+                $cookieDomain = $_ENV['COOKIE_DOMAIN'];
+
+                setcookie($cookieName, $cookieValue, $cookieExp, $cookiePath, $cookieDomain);
+
+                $currentUser->setToken($cookieValue);
+                $currentUser->updateUser();
+
+                // _____________________________________________________
+
+                session_regenerate_id();
+
+                session_write_close();        
+                header('Location: ' . '/009/cookieTest');
+                exit();
             }
         }
 
@@ -208,7 +255,7 @@ $router->match('GET|POST', '/sign-up', function() {
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $_SESSION['error']['errorEmail'] = 'Invalid email address';
 
-        } elseif (MyHelperClass::emailInDB($email)) {
+        } elseif (MyUtilities::emailInDB($email)) {
             $_SESSION['error']['errorEmail'] = 'This Email address is already being used';
 
         } else {

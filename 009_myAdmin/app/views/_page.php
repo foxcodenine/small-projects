@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php require './app/views/include/header.php'; ?>
+<?php
+
+use app\Controller\MyHelperClass;
+
+require './app/views/include/header.php'; ?>
 
 <!-- --- Body ------------------------------------------------------ -->
 
@@ -14,6 +18,7 @@
         echo '<main  class="pages pageTransition">';
     } else {
         echo '<main>';
+        // MyHelperClass::currentUserInSession();
     }    
     ?>  
 

@@ -6,7 +6,7 @@ use app\Model\DBConnect;
 use app\Model\User;
 use PDO;
 
-class MyHelperClass {
+class MyUtilities {
 
     public static function emailInDB($email) {   
         /** Check if email is alreay in database */  
@@ -44,5 +44,27 @@ class MyHelperClass {
     public static function runBackgroundProsess($command, $outputFile = '/dev/null') {
         $processId = shell_exec(sprintf('%s > %s 2>&1 & echo $!', $command, $outputFile ));  
         return $processId;
+    }
+
+    // _________________________________________________________________
+
+    public static function currentUserInSession() {
+        if (isset($_SESSION['currentUser'])) {
+
+            session_write_close();        
+            header('Location: ' . '/009');
+            exit();
+        }
+    }
+
+    // _________________________________________________________________
+
+    public static function currentUserNotInSession() {
+        if (isset($_SESSION['currentUser'])) {
+            
+            session_write_close();        
+            header('Location: ' . '/009/sign-in');
+            exit();
+        }
     }
 }

@@ -2,7 +2,7 @@
 namespace app\Model;
 
 use app\Controller\MyCript;
-use app\Controller\MyHelperClass;
+use app\Controller\MyUtilities;
 use PDO;
 use PRO;
 use PDOException;
@@ -50,14 +50,14 @@ class DBConnect {
         self::$db_host = $_ENV['DB_HOST'];
         
 
-        if (MyHelperClass::whoami() === 'productionServer') {
+        if (MyUtilities::whoami() === 'productionServer') {
             
             self::$db_schema   = $_ENV['DB_SCHEMA_PRO'];
             self::$db_usename  = MyCript::decrypt($_ENV['DB_USERNAME_PRO']);
             self::$db_password = MyCript::decrypt($_ENV['DB_PASSWORD_PRO']);
         }
 
-        if (MyHelperClass::whoami() === 'develepmentHome') {
+        if (MyUtilities::whoami() === 'develepmentHome') {
 
             self::$db_schema   = $_ENV['DB_SCHEMA_DEV'];
             self::$db_usename  = MyCript::decrypt($_ENV['DB_USERNAME_DEV']);

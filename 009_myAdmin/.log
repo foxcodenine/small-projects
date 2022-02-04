@@ -1,1 +1,10 @@
 
+[03-Feb-2022 17:24:40 Europe/Berlin] PHP Fatal error:  Uncaught Dotenv\Exception\InvalidFileException: Failed to parse dotenv file. Encountered a missing closing quote at ['http://localhost/009]. in /var/www/projects/009_myAdmin/vendor/vlucas/phpdotenv/src/Parser/Parser.php:30
+Stack trace:
+#0 /var/www/projects/009_myAdmin/vendor/graham-campbell/result-type/src/Error.php(118): Dotenv\Parser\Parser::Dotenv\Parser\{closure}()
+#1 /var/www/projects/009_myAdmin/vendor/vlucas/phpdotenv/src/Parser/Parser.php(31): GrahamCampbell\ResultType\Error->mapError()
+#2 /var/www/projects/009_myAdmin/vendor/vlucas/phpdotenv/src/Dotenv.php(222): Dotenv\Parser\Parser->parse()
+#3 /var/www/projects/009_myAdmin/app/_app_.php(10): Dotenv\Dotenv->load()
+#4 /var/www/projects/009_myAdmin/index.php(2): require('...')
+#5 {main}
+  thrown in /var/www/projects/009_myAdmin/vendor/vlucas/phpdotenv/src/Parser/Parser.php on line 30

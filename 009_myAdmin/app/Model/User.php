@@ -3,7 +3,7 @@
 namespace app\Model;
 
 use app\Controller\MyCript;
-use app\Controller\MyHelperClass;
+use app\Controller\MyUtilities;
 use app\Model\DBConnect;
 use PDO;
 use PDOException;
@@ -188,21 +188,19 @@ class User {
     public function removeNonactivatedUser () {
 
 
-        if (MyHelperClass::whoami() === 'productionServer') {
+        if (MyUtilities::whoami() === 'productionServer') {
             
             $schema   = $_ENV['DB_SCHEMA_PRO'];
             $user  = MyCript::decrypt($_ENV['DB_USERNAME_PRO']);
             $password = MyCript::decrypt($_ENV['DB_PASSWORD_PRO']);
         }
 
-        if (MyHelperClass::whoami() === 'develepmentHome') {
+        if (MyUtilities::whoami() === 'develepmentHome') {
 
             $schema   = $_ENV['DB_SCHEMA_DEV'];
             $user   = MyCript::decrypt($_ENV['DB_USERNAME_DEV']);
             $password = MyCript::decrypt($_ENV['DB_PASSWORD_DEV']);
         }
-
-
         
         $userId = $this->id;
         $passHash = $this->passHash;
@@ -210,7 +208,7 @@ class User {
         $command = './app/bash/removeNonactivatedUser.sh' . " {$user} {$password} {$schema} {$userId} " . "'\"" . $passHash . "\"'";
 
 
-        MyHelperClass::runBackgroundProsess($command);
+        MyUtilities::runBackgroundProsess($command);
 
     }
 
@@ -247,5 +245,27 @@ class User {
     /** Get the value of firstUserName */ 
     public function getLastUserName() {
         return $this->lastUserName;
+    }
+
+    /** Get the value of signUpDate */ 
+    public function getSignUpDate() {
+        return $this->signUpDate;
+    }
+
+    /** Set the value of signUpDate */ 
+    public function setSignUpDate($signUpDate) {
+        $this->signUpDate = $signUpDate;
+        return $this;
+    }
+
+    /** Get the value of token */ 
+    public function getToken() {
+        return $this->token;
+    }
+
+    /** Set the value of token */ 
+    public function setToken($token) {
+        $this->token = $token;
+        return $this;
     }
 }

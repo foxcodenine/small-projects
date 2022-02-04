@@ -1,23 +1,21 @@
-OK 1. clean sign-in page
-OK 2. make sign in form functional 
+OK 1. Add resend massage
+OK 2. Foward page to login page
 
-3. validate input
-OK    a. empty fields
-OK    b. email not in database
-OK    c. email pass do not match
-OK    d. account is still not activated 
+OK 4. Lock resed router
+OK 5. Test Page online
 
-4. add relative messages
+OK 6. Extend email account on Namecheap
+OK 7. Fix sendmail on my local machine
 
 
-OK 5 date picker not working
-OK 6 tip tippy not working 
-OK 7 password toggle not showing in log in page
+8. If pass & email match 
 
+    a. cookie functionality
 
+    i. Add currentUser to session
 
+    ii. Redirect to dashboard
 
-OK 8 Clean up annimaion css
-9 Resend link
-OK 10 sidebar bottom line
-OK 11 signin page transection
+    iii. If currentUser is session redirect to dashboard from any sign-in page
+
+    iv. If in a page and currentUser Not in session redirect to login page.
