@@ -2,6 +2,10 @@
         
         <form class="sign__form sign__form--up" method="POST" action="/009/sign-up" autocomplete="off">
 
+            <div class="sign__side-img">
+                <img src="./app/static/images/signing/img-sign-6.jpg" alt="">
+            </div>
+
             
             <div class="sign__title">Welcome to <b>My</b>Admin</div>
             

@@ -13,19 +13,42 @@
     background-size: cover;
     background-position: center;
     padding: 5vw;
+    padding: 7vw;
+    
+ 
 
     @include respond ($bp-smaller) {
         padding: 2vw;
     }
 
+    --width-side-img: 30rem;
+
+    &__side-img {
+        background-color: black;
+        height: 100%;
+        width: var(--width-side-img);
+
+        position: absolute;
+        top: 0; left: 0;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
     &__form {
         background-color: rgba($col-white, .9);
         border: 1px solid $col-gray-1;
-        padding: 4rem 3rem;    
+        padding: 4rem 3rem 4rem calc(3rem + var(--width-side-img));    
         border-radius: $border-radius;
         margin: 0 auto;
-        max-width: 46rem;
+        max-width: calc(46rem + var(--width-side-img));
+        // border: red dashed 2px;
 
+        position: relative;
+        overflow: hidden;
     }
 
     &__title {
@@ -85,7 +108,7 @@
 
     &__message {
         padding: .5rem 3rem;
-        margin: 0 -3rem 1em -3rem;
+        margin: 0 -2.5rem 1em -2.5rem;
         text-align: center; 
         min-height: 5.4rem;
     }

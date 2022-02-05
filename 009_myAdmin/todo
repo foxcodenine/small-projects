@@ -1,14 +1,4 @@
-OK 1. Add resend massage
-OK 2. Foward page to login page
-
-OK 4. Lock resed router
-OK 5. Test Page online
-
-OK 6. Extend email account on Namecheap
-OK 7. Fix sendmail on my local machine
-
-
-8. If pass & email match 
+OK 8. If pass & email match 
 
     a. cookie functionality
 
@@ -18,4 +8,15 @@ OK 7. Fix sendmail on my local machine
 
     iii. If currentUser is session redirect to dashboard from any sign-in page
 
-    iv. If in a page and currentUser Not in session redirect to login page.
+    iv. If in a page and currentUser Not in session redirect to login page
+
+
+OK 9. create 3 functions 
+
+    a. validate_function 
+    b. veify_function
+    c. invalidate_function
+
+10. add logout functionality 
+
+    

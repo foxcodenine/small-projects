@@ -2,6 +2,10 @@
         
     <form class="sign__form sign__form--in " method="POST">
 
+        <div class="sign__side-img">
+                <img src="./app/static/images/signing/img-sign-6.jpg" alt="">
+        </div>
+
         <div class="sign__title">Welcome to <b>My</b>Admin</div>
 
         <div class="sign__message message message__<?= $messageType ?> ">

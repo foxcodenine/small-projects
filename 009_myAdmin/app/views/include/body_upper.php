@@ -1,4 +1,4 @@
-<!-- ------------------------------------------------------- -->
+<!-- --- Topbar ---------------------------------------------------- -->
 
 <div class="topbar">            
     <a class="topbar__logobox" href="/009">
@@ -25,7 +25,7 @@
 
 </div>
 
-<!-- ------------------------------------------------------- -->
+<!-- --- Dropdown menu --------------------------------------------- -->
 
 <div class="dropdownmenu dropdownmenu--1 display_none" id="dropdownmenu-1">
 
@@ -37,7 +37,7 @@
             </a>
         </li>
         <li class="dropdownmenu__item">
-            <a href="./sign_in.html" class="dropdownmenu__link">
+            <a href="./sign-out" class="dropdownmenu__link">
                 <svg class="dropdownmenu__icon"><use  xlink:href="./app/static/svg/icomoon.svg#icon-expand"></use></svg>
                     Logout                
             </a>
@@ -48,13 +48,13 @@
 
 <!-- ------------------------------------------------------- -->
 
-<div class="menu-btn" id="menu-btn">
+<!-- <div class="menu-btn" id="menu-btn">
     <div class="menu-btn__line"></div>              
     <div class="menu-btn__line"></div>              
     <div class="menu-btn__line"></div>              
-</div>
+</div> -->
 
-<!-- ------------------------------------------------------- -->
+<!-- --- Sidemenu -------------------------------------------------- -->
 
 <div class="sidemenu" id="sidemenu" >
     

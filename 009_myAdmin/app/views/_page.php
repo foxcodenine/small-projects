@@ -1,9 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <?php
 
 use app\Controller\MyHelperClass;
+use app\Controller\MyUtilities;
+
 
 require './app/views/include/header.php'; ?>
 
@@ -16,11 +19,14 @@ require './app/views/include/header.php'; ?>
     if ($pageName !== 'sign_up' && $pageName !== 'sign_in') {
         require './app/views/include/body_upper.php';
         echo '<main  class="pages pageTransition">';
+        MyUtilities::checkCookieAndReturnUser();
+        MyUtilities::userInSessionPage();
     } else {
         echo '<main>';
-        // MyHelperClass::currentUserInSession();
+        MyUtilities::checkCookieAndReturnUser();
+        MyUtilities::userInSessionSigning();
     }    
-    ?>  
+    ?>      
 
 <!-- --------------------------------------------------------------- -->
     <?php

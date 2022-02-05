@@ -18,7 +18,9 @@ include './app/router/routerProjects.php';
 include './app/router/routerClients.php';
 
 
-include './app/router/routerSigning.php';
+include './app/router/routerSign.php';
+include './app/router/routerSignUp.php';
+include './app/router/routerSignIn.php';
 
 
 

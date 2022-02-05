@@ -2,8 +2,7 @@
 
 
 .table {
-
-    cursor: grab;
+    
 
     width: max-content;
     border-collapse: collapse;
@@ -42,6 +41,21 @@
         color: currentColor;
         padding-top: 1rem !important;
         margin-top: 1rem !important;
+
+        
+        
+        // cursor: -webkit-grab;
+        // cursor: hand;
+        
+        cursor: move;
+        
+
+
+        @supports (cursor: -moz-grab) {
+            cursor: grab;
+        }
+        
+        
     }
 
     &__tr {

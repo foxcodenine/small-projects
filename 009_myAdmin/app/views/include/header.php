@@ -14,11 +14,20 @@
     <link rel="shortcut icon" href="./app/static/images/fav.svg" type="image/x-icon"/>
 
     <?php
-    header('Expires: Sun, 01 Jan 2014 00:00:00 GMT');
-    header('Cache-Control: no-store, no-cache, must-revalidate');
-    header('Cache-Control: post-check=0, pre-check=0', FALSE);
-    header('Pragma: no-cache');
-    ?>
+
+    use app\Controller\MyUtilities;
+
+
+
+    if ($pageName !== 'sign_up' && $pageName !== 'sign_in') {
+
+        MyUtilities::checkCookieAndReturnUser();
+        MyUtilities::userInSessionPage();
+    } else {
+        MyUtilities::checkCookieAndReturnUser();
+        MyUtilities::userInSessionSigning();
+    }    
+    ?>  
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/css/datepicker.min.css">
     <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/js/datepicker-full.min.js"></script>
 </head>

@@ -5,6 +5,12 @@
     padding: 0;
     box-sizing: inherit;
     outline: none;
+
+
+
+
+      -ms-overflow-style: none;
+  scrollbar-width: none; /* Firefox */
 }
 
 html {
@@ -14,7 +20,14 @@ html {
     @include respond ($bp-smaller) {
         font-size: 55%;
     }
+
+    /* Scrollbars */
+    -ms-overflow-style: none;
+    scrollbar-width: none; /* Firefox */
+    scrollbar-color: rgba(90, 90, 90)  rgba(0, 0, 0, 0.01);
+    scrollbar-width: 6px;
 }
+
 
 body {
     font-size: 1.6rem;
@@ -23,7 +36,8 @@ body {
     
     min-width: 36.36rem;
 
-    // overflow-y: scroll; /* Show scrollbars */
+    /* Scrollbars */
+    overflow: auto;
     overflow-y: overlay;
 
     &::-webkit-scrollbar {

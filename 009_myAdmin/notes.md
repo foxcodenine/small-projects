@@ -129,7 +129,7 @@ You might need too Enable PHP mail() function on Ubuntu
 
 ## ------ JS Script ----------------------------------------------------
 
-
+https://christopheraue.net/design/fading-pages-on-load-and-unload
 
 #### swup
 
