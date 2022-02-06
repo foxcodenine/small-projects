@@ -15,8 +15,9 @@ $router->match('GET', '/test', function() {
 });
 
 $router->match('GET', '/tables', function() {
+    
     $GLOBALS['endpoint']  = 'tables'; 
     DBTables::createTables();
     header("Location: /009");
-    exit;
+    exit();
 });

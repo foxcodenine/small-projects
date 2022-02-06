@@ -49,12 +49,12 @@ class DBTables {
 
     const Client = ' CREATE TABLE IF NOT EXISTS Client (
         id INT PRIMARY KEY AUTO_INCREMENT,
-        title VARCHAR(6) NOT NULL,
+        title VARCHAR(6),
         firstname VARCHAR(100) NOT NULL,
         lastname VARCHAR(100) NOT NULL,
         idCard VARCHAR(50),
         company VARCHAR(255),
-        clientNo INT,
+        email VARCHAR(100),
         phone INT,
         mobile INT,
         streetAddress VARCHAR(255),

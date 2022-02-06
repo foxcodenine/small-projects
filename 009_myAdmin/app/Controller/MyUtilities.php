@@ -142,7 +142,8 @@ class MyUtilities {
 
         // --- Compare database with cookie ------
 
-        if (isset($currentUser) && $currentUser->getToken() === $userToken) {
+
+        if (isset($currentUser) && !empty($currentUser) && $currentUser->getToken() === $userToken) {
             $_SESSION['currentUser'] = serialize($currentUser);
             return $currentUser;
         } 

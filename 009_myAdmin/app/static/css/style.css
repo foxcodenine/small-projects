@@ -389,6 +389,9 @@ main.pages {
   content: "✔";
 }
 
+.checkbox-2 {
+  cursor: pointer;
+}
 .checkbox-2__input {
   display: none;
 }
@@ -918,7 +921,7 @@ main.pages {
   }
 }
 .content {
-  background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), linear-gradient(to right bottom, rgba(79, 60, 201, 0.3), rgba(79, 60, 201, 0.3)), url(../images/backgrounds/bg2.jpg);
+  background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), linear-gradient(to right bottom, rgba(79, 60, 201, 0), rgba(79, 60, 201, 0)), url(../images/backgrounds/bg4.jpg);
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -1373,7 +1376,7 @@ main.pages {
   }
 }
 .sign__side-img {
-  background-color: black;
+  background-color: transparent;
   height: 100%;
   width: var(--width-side-img);
   position: absolute;

@@ -89,6 +89,8 @@ $router->match('GET|POST', '/sign-up', function() {
             $emailMail->recipient($email, "$firstname $lastname");
             $emailMail->contentAccountActivation($newUser);
             $emailMail->send();
+            usleep(333333);
+            $emailMail->send();
     
             $newUser->removeNonactivatedUser();  
         }

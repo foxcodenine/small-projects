@@ -1,22 +1,7 @@
-OK 8. If pass & email match 
+1.  Clean client form
+2.  get post data
+3.  filte data
+4.  input data i db
 
-    a. cookie functionality
-
-    i. Add currentUser to session
-
-    ii. Redirect to dashboard
-
-    iii. If currentUser is session redirect to dashboard from any sign-in page
-
-    iv. If in a page and currentUser Not in session redirect to login page
-
-
-OK 9. create 3 functions 
-
-    a. validate_function 
-    b. veify_function
-    c. invalidate_function
-
-10. add logout functionality 
 
     

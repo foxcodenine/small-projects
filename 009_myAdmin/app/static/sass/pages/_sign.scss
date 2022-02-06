@@ -24,12 +24,14 @@
     --width-side-img: 30rem;
 
     &__side-img {
-        background-color: black;
+        background-color: transparent;
+    
         height: 100%;
         width: var(--width-side-img);
 
         position: absolute;
         top: 0; left: 0;
+
 
         img {
             height: 100%;

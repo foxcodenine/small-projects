@@ -9,7 +9,8 @@ export schema=$3
 export userId=$4
 export passHash=$5
 
-sleep 120;
+# sleep 120;
+sleep $6;
 
 # ______________________________________________________________________
 # --- get execut mysql
