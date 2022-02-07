@@ -1,7 +1,19 @@
-1.  Clean client form
-2.  get post data
-3.  filte data
-4.  input data i db
+1. check if country and location are in db
+2. if not add them to db
+3. in form list in options the country and location that ae in db
+
+
+
+
+------------------------------------------------------------------------
+
+
+1. Add media querys to signing pages.
+2. Make backgroud image and signing image size responsive according display width
+3. Update message colors to match that of the signing image
+4. Add time and date to email body
+5. update email body
+
 
 
     
