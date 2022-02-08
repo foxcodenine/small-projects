@@ -8,8 +8,34 @@ use PDO;
 
 class MyUtilities {
 
-    public static function emailInDB($email) {   
+    // _________________________________________________________________
+
+    public static function whoami () {
+
+        if ($_ENV['APP_ENV'] === 'production' && $_SERVER['SERVER_NAME'] === 'foxcode.io') {
+            return 'productionServer';
+        }
+
+        if ($_ENV['APP_ENV'] === 'development' && gethostname() === 'Inspiron16' && php_uname('s') === 'Linux') {
+            return 'develepmentHome';
+        }
+    }
+
+    public static function runBackgroundProsess($command, $outputFile = '/dev/null') {
+        $processId = shell_exec(sprintf('%s > %s 2>&1 & echo $!', $command, $outputFile ));  
+        return $processId;
+    }
+
+    // -------------------------------------------------------------------------
+    // --- Check Database --- Check Database --- Check Database --- Check Databa
+    // -------------------------------------------------------------------------
+
+    public static function emailInDB($email=false) {   
         /** Check if email is alreay in database */  
+
+        if (!isset($email) || empty($email)) return false;
+
+        // -----------------------------------------------------
 
         $sql = 'SELECT COUNT(email) AS "count" FROM User WHERE email = :email GROUP BY email';
 
@@ -26,49 +52,133 @@ class MyUtilities {
         return (bool) $result;     
     }
 
-    // _________________________________________________________________
+    // -----------------------------------------------------------------
 
-    public static function whoami () {
+    public static function localityInDB ($locality=false) {
 
-        if ($_ENV['APP_ENV'] === 'production' && $_SERVER['SERVER_NAME'] === 'foxcode.io') {
-            return 'productionServer';
+        if (!isset($locality) || empty($locality)) return false;
+
+        // -----------------------------------------------------
+
+        $userID = unserialize($_SESSION['currentUser'])->getID();
+
+        $conn = DBConnect::getConn();
+
+        $sql = 'SELECT * FROM Locality WHERE lName = :locality AND userID = :userID';
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':locality', $locality);
+        $stmt->bindValue(':userID', $userID);
+
+        $stmt->execute();
+
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return (bool) $result;       
+    } 
+
+    // -----------------------------------------------------------------
+    
+    public static function countryInDB ($country=false) {
+        
+        if (!isset($country) || empty($country)) return false;
+        
+        // -----------------------------------------------------
+
+        $userID = unserialize($_SESSION['currentUser'])->getID();
+        
+        $conn = DBConnect::getConn();
+        
+        $sql = 'SELECT * FROM Country WHERE cName = :country  AND userID = :userID';
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':country', $country);
+        $stmt->bindValue(':userID', $userID);
+
+        $stmt->execute();
+        
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        return (bool) $result;       
+    } 
+    
+
+    // -------------------------------------------------------------------------
+    // --- Add to Database --- Add to Database --- Add to Database --- Add to Da
+    // -------------------------------------------------------------------------
+
+    public static function insertOptionToDB($table,  $name) {
+
+        $table = ucfirst(strtolower($table));
+        $userID = unserialize($_SESSION['currentUser'])->getID();
+
+        $sql = 'INSERT INTO ';
+
+        switch ($table) {
+
+            case 'Locality';
+                $sql .= 'Locality (lName, userID) VALUES (:nname, :userID)';
+                break;
+
+            case 'Country';
+                $sql .= 'Country (cName, userID) VALUES (:nname, :userID)';
+                break;
+
         }
 
-        if ($_ENV['APP_ENV'] === 'development' && gethostname() === 'Inspiron16' && php_uname('s') === 'Linux') {
-            return 'develepmentHome';
+        $conn = DBConnect::getConn();
+
+        $stmt = $conn->prepare($sql);       
+
+        $stmt -> bindValue(':nname', $name, PDO::PARAM_STR);
+        $stmt -> bindValue(':userID', $userID, PDO::PARAM_INT);
+
+        $stmt->execute();
+    }
+
+    // -------------------------------------------------------------------------
+    // --- Fetch from Database  --- Fetch from Database --- Fetch from Database
+    // -------------------------------------------------------------------------
+
+    public static function fetchOptionsFromDB ($table) {
+
+        $table = ucfirst(strtolower($table));
+        $userID = unserialize($_SESSION['currentUser'])->getID();
+
+        $sql = 'SELECT ';
+
+
+        switch ($table) {
+
+            case 'Locality':
+                $sql .= 'userID, lName FROM Locality WHERE userID = :userID';
+                break;
+
+            case 'Country':
+                $sql .= 'userID, cName FROM Country WHERE userID = :userID';
+                break;
         }
+
+        $conn = DBConnect::getConn();
+
+        $stmt = $conn->prepare($sql);       
+
+        $stmt -> bindValue(':userID', $userID, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+        return $result;
     }
 
-    // _________________________________________________________________
-
-    public static function runBackgroundProsess($command, $outputFile = '/dev/null') {
-        $processId = shell_exec(sprintf('%s > %s 2>&1 & echo $!', $command, $outputFile ));  
-        return $processId;
-    }
-
-    // _________________________________________________________________
-
-    public static function currentUserInSession() {
-        if (isset($_SESSION['currentUser'])) {
-
-            session_write_close();        
-            header('Location: ' . '/009');
-            exit();
-        }
-    }
-
-    // _________________________________________________________________
-
-    public static function currentUserNotInSession() {
-        if (isset($_SESSION['currentUser'])) {
-            
-            session_write_close();        
-            header('Location: ' . '/009/sign-in');
-            exit();
-        }
-    }
-
-    // _________________________________________________________________
+    
+    
+    //--------------------------------------------------------------------------
+    // --- Cookie --- Cookie --- Cookie --- Cookie --- Cookie --- Cookie --- Coo
+    //--------------------------------------------------------------------------
 
     public static function setCookie($currentUser, $remember=false) {
 
@@ -152,6 +262,29 @@ class MyUtilities {
         return false;
     }
 
+    //--------------------------------------------------------------------------
+    //--- User --- User --- User --- User --- User --- User --- User --- User --
+    //--------------------------------------------------------------------------
+
+    public static function currentUserInSession() {
+        if (isset($_SESSION['currentUser'])) {
+
+            session_write_close();        
+            header('Location: ' . '/009');
+            exit();
+        }
+    }
+
+    // _________________________________________________________________
+
+    public static function currentUserNotInSession() {
+        if (isset($_SESSION['currentUser'])) {
+            
+            session_write_close();        
+            header('Location: ' . '/009/sign-in');
+            exit();
+        }
+    }
     // _________________________________________________________________
 
     public static function setUserInSession($currentUser=false) {

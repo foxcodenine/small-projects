@@ -9,7 +9,7 @@ export schema=$3
 export userId=$4
 export passHash=$5
 
-# sleep 120;
+# --- wait for $6 sec before start
 sleep $6;
 
 # ______________________________________________________________________

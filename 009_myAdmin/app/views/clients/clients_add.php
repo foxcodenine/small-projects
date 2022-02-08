@@ -12,9 +12,7 @@
             <option value="Mr"  <?= $title === 'Mr' ? 'selected' : '' ?> >Mr</option>
             <option value="Mrs" <?= $title === 'Mrs' ? 'selected' : '' ?> >Mrs</option>
             <option value="Ms"  <?= $title === 'Ms' ? 'selected' : '' ?> >Ms</option>
-            <option value="Miss"<?= $title === 'Miss' ? 'selected' : '' ?> >Miss</option>
-
-            
+            <option value="Miss"<?= $title === 'Miss' ? 'selected' : '' ?> >Miss</option>            
         </select>
         <svg class="field__down-arrow">
             <use  xlink:href="./app/static/svg/icomoon.svg#icon-arrow_drop_down"></use>
@@ -73,11 +71,11 @@
     <div class="field__group">
         <label class="field__label" for="locality">locality</label>
         <div class="field__error"><?= $errorLocality; ?></div>
-        <input type="text" class="field__input" id="locality" list="locationList" name="locality">
+        <input type="text" class="field__input" id="locality" list="locationList" name="locality" value='<?= $_SESSION['client']['locality'] ?? '' ?>'>
         <datalist id="locationList">
-            <option value="Birzebbugia">  
-            <option value="Valletta">
-            <option value="Qormi">
+            <?php foreach ($listLocality as $obj): ?>
+            <option value="<?= $obj->lName ?>">  
+            <?php endforeach; ?>
         </datalist>
         <svg class="field__down-arrow">
             <use  xlink:href="./app/static/svg/icomoon.svg#icon-arrow_drop_down"></use>
@@ -87,11 +85,11 @@
     <div class="field__group">
         <label class="field__label" for="country">country</label>
         <div class="field__error"><?= $errorCountry; ?></div>
-        <input type="text" class="field__input" id="country" list="countryList" name="country">
+        <input type="text" class="field__input" id="country" list="countryList" name="country"  value='<?= $_SESSION['client']['country'] ?? '' ?>'>
         <datalist id="countryList">
-            <option value="Malta">  
-            <option value="Gozo">
-            <option value="UK">
+            <?php foreach ($listCountry as $obj): ?>
+            <option value="<?= $obj->cName ?>">  
+            <?php endforeach; ?>
         </datalist>
         <svg class="field__down-arrow">
             <use  xlink:href="./app/static/svg/icomoon.svg#icon-arrow_drop_down"></use>

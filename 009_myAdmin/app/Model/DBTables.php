@@ -24,24 +24,28 @@ class DBTables {
 
     const Locality = 'CREATE TABLE IF NOT EXISTS Locality (
         id INT PRIMARY KEY AUTO_INCREMENT,
-        lName VARCHAR(100) NOT NULL UNIQUE,
+        lName VARCHAR(100) NOT NULL,
 
         userID INT NOT NULL ,
         CONSTRAINT User_Locality
             FOREIGN KEY (userID) REFERENCES User (id)
-            ON DELETE CASCADE
+            ON DELETE CASCADE,
+        
+        UNIQUE KEY unique_cName_userID (lName, userID) 
     )ENGINE=InnoDB;';
 
     // -----------------------------------------------------------------
 
     const Country = 'CREATE TABLE IF NOT EXISTS Country (
         id INT PRIMARY KEY AUTO_INCREMENT,
-        cName VARCHAR(100) NOT NULL UNIQUE,
+        cName VARCHAR(100) NOT NULL,
 
         userID INT NOT NULL ,
         CONSTRAINT User_County
             FOREIGN KEY (userID) REFERENCES User (id)
-            ON DELETE CASCADE
+            ON DELETE CASCADE,
+        
+        UNIQUE KEY unique_cName_userID (cName, userID)        
     )ENGINE=InnoDB;';
 
     // -----------------------------------------------------------------

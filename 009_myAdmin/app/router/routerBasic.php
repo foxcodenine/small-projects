@@ -2,10 +2,15 @@
 use app\Model\DBTables;
 
 
+////////////////////////////////////////////////////////////////////////
+
+
 $router->match('GET', '/', function() {
 
     $pageName = 'dashboard'; include './app/views/_page.php';    
 });
+
+////////////////////////////////////////////////////////////////////////
 
 $router->match('GET', '/test', function() {
     $GLOBALS['endpoint']  = 'test'; 
@@ -13,6 +18,8 @@ $router->match('GET', '/test', function() {
     exit;
 
 });
+
+////////////////////////////////////////////////////////////////////////
 
 $router->match('GET', '/tables', function() {
     

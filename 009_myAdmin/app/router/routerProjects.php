@@ -1,5 +1,6 @@
 <?php
 
+////////////////////////////////////////////////////////////////////////
 
 $router->match('GET', '/projects', function() {        
 
@@ -8,11 +9,15 @@ $router->match('GET', '/projects', function() {
     exit;
 });
 
+////////////////////////////////////////////////////////////////////////
+
 $router->match('GET', '/projects-add', function() {    
     
     $pageName = 'pojects_add'; include './app/views/_page.php';   
     exit;
 });
+
+////////////////////////////////////////////////////////////////////////
 
 $router->match('GET', '/images', function() {   
 

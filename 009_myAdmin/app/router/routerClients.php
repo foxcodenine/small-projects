@@ -3,14 +3,18 @@
 use app\Controller\MyUtilities;
 use app\Model\DBConnect;
 
+////////////////////////////////////////////////////////////////////////
+
 $router->match('GET', '/clients', function() {
     
     $pageName = 'clients'; include './app/views/_page.php';
+    unset($_SESSION['error']);
+    unset($_SESSION['client']);
     exit;
 
 });
 
-
+////////////////////////////////////////////////////////////////////////
 
 $router->match('GET|POST', '/clients-add', function() {
 
@@ -29,35 +33,37 @@ $router->match('GET|POST', '/clients-add', function() {
     $errorPostcode  = $_SESSION['error']['errorPostcode'] ?? '&nbsp;'; 
     
     // --- default select option
-    $title = $_SESSION['client']['title'] ?? '';
+    $title = $_SESSION['client']['title'] ?? ''; 
+
+
     
+    $listLocality = MyUtilities::fetchOptionsFromDB('locality');
+    $listCountry  = MyUtilities::fetchOptionsFromDB('country');
 
 
 
+    // --- If post
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         $_SESSION['client']['title']        = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
-        $_SESSION['client']['firstname']    = filter_input(INPUT_POST, 'fistname', FILTER_SANITIZE_STRING);
-        $_SESSION['client']['lastname']     = filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_STRING);
+        $_SESSION['client']['firstname']    = ucwords(strtolower(filter_input(INPUT_POST, 'fistname', FILTER_SANITIZE_STRING)));
+        $_SESSION['client']['lastname']     = ucwords(strtolower(filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_STRING)));
         $_SESSION['client']['id']           = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING);
-        $_SESSION['client']['company']      = filter_input(INPUT_POST, 'company', FILTER_SANITIZE_STRING);
+        $_SESSION['client']['company']      = (filter_input(INPUT_POST, 'company', FILTER_SANITIZE_STRING));
         $_SESSION['client']['email']        = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
         $_SESSION['client']['phone']        = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING);
         $_SESSION['client']['mobile']       = filter_input(INPUT_POST, 'mobile', FILTER_SANITIZE_STRING);
         $_SESSION['client']['strAddr']      = filter_input(INPUT_POST, 'strAddr', FILTER_SANITIZE_STRING);
-        $_SESSION['client']['locality']     = filter_input(INPUT_POST, 'locality', FILTER_SANITIZE_STRING);
-        $_SESSION['client']['country']      = filter_input(INPUT_POST, 'country', FILTER_SANITIZE_STRING);
-        $_SESSION['client']['postcode']     = filter_input(INPUT_POST, 'postcode', FILTER_SANITIZE_STRING);
-        $_SESSION['client']['clientInfo']   = htmlspecialchars($_POST['clientInfo']);
+        $_SESSION['client']['locality']     = ucwords(strtolower(filter_input(INPUT_POST, 'locality', FILTER_SANITIZE_STRING)));
+        $_SESSION['client']['country']      = ucwords(strtolower(filter_input(INPUT_POST, 'country', FILTER_SANITIZE_STRING)));
+        $_SESSION['client']['postcode']     = strtoupper(filter_input(INPUT_POST, 'postcode', FILTER_SANITIZE_STRING));
+        $_SESSION['client']['clientInfo']   = trim(htmlspecialchars($_POST['clientInfo']));
 
         unset($_POST);
 
-        // echo $_SESSION['client']['title']; exit();
-   
-
-        // _____________________________________________________________
-
+    
+        // --- Validating fields
 
         if (!$_SESSION['client']['firstname']) {
             $_SESSION['error']['errorFirstname'] = 'This field is required';
@@ -72,46 +78,32 @@ $router->match('GET|POST', '/clients-add', function() {
         }
 
 
+        // --- Createing New Client
+
         if (!isset($_SESSION['error']) || empty($_SESSION['error'])) {
             
-            function localityExists ($locality=false) {
 
-                if (!isset($locality) || empty($locality)) return false;
+            $location_in_db = empty($_SESSION['client']['locality']) ?: MyUtilities::localityInDB($_SESSION['client']['locality']);
+            $country_in_db  = empty($_SESSION['client']['country']) ?: MyUtilities::countryInDB($_SESSION['client']['country']);
 
-                // -----------------------------------------------------
-
-                $conn = DBConnect::getConn();
-                $sql = 'SELECT * FROM Locality WHERE lName = :locality';
-
-                $stmt = $conn->prepare($sql);
-                $stmt->bindValue(':locality', $locality);
-
-                $stmt->execute();
-
-                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                var_dump((bool) $result);
-                echo '<br>';
-
-                var_dump($_SESSION);
-
-                exit();
-
-                // -----------------------------------------------------
-                
-                
-            } 
-
-            localityExists($_SESSION['client']['locality']);
             
+            if (!$country_in_db) {
+                MyUtilities::insertOptionToDB('country', $_SESSION['client']['country']);
+            }
+            
+            if (!$location_in_db) {
+                MyUtilities::insertOptionToDB('locality', $_SESSION['client']['locality']);
+            }
+
+            MyUtilities::redirect('/009/clients');
+            exit();
         }
-
-
-
 
         MyUtilities::redirect('/009/clients-add');
         exit();
-    }
+
+    }  
+    // --- End post
 
     $pageName = 'clients_add'; include './app/views/_page.php';
     unset($_SESSION['error']);
@@ -119,3 +111,5 @@ $router->match('GET|POST', '/clients-add', function() {
     exit;
 
 });
+
+////////////////////////////////////////////////////////////////////////
