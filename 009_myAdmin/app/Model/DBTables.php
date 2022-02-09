@@ -59,9 +59,9 @@ class DBTables {
         idCard VARCHAR(50),
         company VARCHAR(255),
         email VARCHAR(100),
-        phone INT,
-        mobile INT,
-        streetAddress VARCHAR(255),
+        phone VARCHAR(25),
+        mobile VARCHAR(25),
+        strAddr VARCHAR(255),
         postcode VARCHAR(50),
 
         localityName VARCHAR(100) ,

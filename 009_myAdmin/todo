@@ -1,13 +1,16 @@
-OK 1. check if country and location are in db
-OK 2. if not add them to db
-OK 3. in the client form,  list the options  (country & location) that are in db
-OK 4. make datalist sticky
+OK A. create a client class
+   ok a. get properties form db
+   ok b. __construct
+   ok c. addClientToDB
+    
 
 
-
-A. create a client class
-B. insert client in database
+OK B. insert client in database
 C. fetch clients from database
+
+OK D. Save Client info in db
+
+OK E. update client error from [error][errorName] [error][name]
 
 X. update topbar with current user info
     1. name and surname

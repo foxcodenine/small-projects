@@ -1,0 +1,13 @@
+        $_SESSION['client']['title']        = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
+        $_SESSION['client']['firstname']    = ucwords(strtolower(filter_input(INPUT_POST, 'fistname', FILTER_SANITIZE_STRING)));
+        $_SESSION['client']['lastname']     = ucwords(strtolower(filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_STRING)));
+        $_SESSION['client']['id']           = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING);
+        $_SESSION['client']['company']      = (filter_input(INPUT_POST, 'company', FILTER_SANITIZE_STRING));
+        $_SESSION['client']['email']        = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+        $_SESSION['client']['phone']        = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING);
+        $_SESSION['client']['mobile']       = filter_input(INPUT_POST, 'mobile', FILTER_SANITIZE_STRING);
+        $_SESSION['client']['strAddr']      = filter_input(INPUT_POST, 'strAddr', FILTER_SANITIZE_STRING);
+        $_SESSION['client']['locality']     = ucwords(strtolower(filter_input(INPUT_POST, 'locality', FILTER_SANITIZE_STRING)));
+        $_SESSION['client']['country']      = ucwords(strtolower(filter_input(INPUT_POST, 'country', FILTER_SANITIZE_STRING)));
+        $_SESSION['client']['postcode']     = strtoupper(filter_input(INPUT_POST, 'postcode', FILTER_SANITIZE_STRING));
+        $_SESSION['client']['clientInfo']   = trim(htmlspecialchars($_POST['clientInfo']));

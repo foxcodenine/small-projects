@@ -33,9 +33,9 @@
     </div>
 
     <div class="field__group">
-        <label class="field__label" for="id">id</label>
-        <div class="field__error"><?= $errorId; ?></div>
-        <input type="text" class="field__input" id="id" name="id" value='<?= $_SESSION['client']['id'] ?? '' ?>'>
+        <label class="field__label" for="idCard">id </label>
+        <div class="field__error"><?= $errorIdCard; ?></div>
+        <input type="text" class="field__input" id="idCard" name="idCard" value='<?= $_SESSION['client']['idCard'] ?? '' ?>'>
     </div>
 
     <div class="field__group">

@@ -36,7 +36,9 @@ class DBConnect {
                 self::$conn = $conn;
 
             } catch (PDOException $e) {
-                die("Error getConn: <br>" . $e->getMessage());
+                $msg = "Error getConn: <br>" . $e->getMessage();
+                error_log($msg);
+                die($msg);
             }
         }
         return self::$conn;
@@ -74,7 +76,9 @@ class DBConnect {
             $conn->exec($sql);
 
         } catch (PDOException $e) {
-            die("Error execSql: <br>" .  $e->getMessage());
+            $msg = "Error execSql: <br>" .  $e->getMessage();
+            error_log($msg);
+            die($msg);
         }
     }
 

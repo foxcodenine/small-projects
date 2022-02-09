@@ -26,6 +26,11 @@ class MyUtilities {
         return $processId;
     }
 
+    public static function validatePhoneNumber($num) {
+        return preg_match('/^[\d ]*$/', $num);
+    }
+
+
     // -------------------------------------------------------------------------
     // --- Check Database --- Check Database --- Check Database --- Check Databa
     // -------------------------------------------------------------------------

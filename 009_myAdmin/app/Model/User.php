@@ -73,7 +73,7 @@ class User {
 
 
         } catch (PDOException $e) {
-            die("Error __construct: <br>" . $e->getMessage());
+            die("Error User addUserToDB: <br>" . $e->getMessage());
         }
     }
     // _________________________________________________________________
