@@ -82,6 +82,25 @@ class DBTables {
 
     // -----------------------------------------------------------------
 
+    const InfoClient = 'CREATE TABLE IF NOT EXISTS InfoClient (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        info TEXT,
+    
+        userID INT NOT NULL ,
+        CONSTRAINT User_InfoClient
+                FOREIGN KEY (userID) REFERENCES User (id)
+                ON DELETE CASCADE,
+    
+        clientID INT NOT NULL ,
+        CONSTRAINT User_ClientID
+                FOREIGN KEY (clientID) REFERENCES Client (id)
+                ON DELETE CASCADE
+    )ENGINE=InnoDB;';
+
+
+
+    // -----------------------------------------------------------------
+
     static function createTables () {
         $oClass = new \ReflectionClass(__CLASS__);
         $arrTables = $oClass->getConstants();

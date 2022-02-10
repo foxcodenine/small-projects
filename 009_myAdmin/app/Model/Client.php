@@ -96,6 +96,52 @@ class Client {
 
 	// _________________________________________________________________
 
+	public function info($crud, $info='') {
+
+		try {
+
+			$conn = DBConnect::getConn();
+			$sql = '';
+			
+			if ($crud == 'read') {
+				$sql = 'SELECT info FROM InfoClient WHERE clientID = :clientID  AND userID = :userID';
+				echo 'Client->info->read not yet finilized'; 
+				exit();
+			};
+
+			switch ($crud) {
+				case 'create':
+					$sql = 'INSERT INTO InfoClient (info, userID, clientID) VALUES (:info, :userID, :clientID)';
+					break;
+				case 'update':
+					$sql = 'UPDATE infoClient SET info = :info WHERE clientID = :clientID  AND userID = :userID';
+					break;
+				case 'delete':
+					$sql = 'DELETE FROM InfoClient WHERE clientID = :clientID  AND userID = :userID';
+					break;
+			}
+
+			$userID = unserialize($_SESSION['currentUser'])->getId();
+
+			$stmt = $conn->prepare($sql);
+			
+			$stmt->bindValue(':info', $info);
+			$stmt->bindValue(':clientID', $this->getId());
+			$stmt->bindValue(':userID', $userID);
+
+			$stmt->execute();
+
+		} catch (PDOException $e) {
+
+			$msg = "Error Client info: <br>" . $e->getMessage();
+			error_log($msg);
+			die($msg);
+		}
+	}
+
+
+	// _________________________________________________________________
+
 
 	public static function initClientList() {		
 		$ClientList = new \SplObjectStorage();

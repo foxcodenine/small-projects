@@ -12,11 +12,7 @@ $dotenv->load();
 
 // ----- Routes --------------------------------------------------------
 
-require './app/router/router.php';
-// require './app/router/routerSigning.php';
-
-
-
+require './app/RouterController/router.php';
 
 // ---------------------------------------------------------------------
 

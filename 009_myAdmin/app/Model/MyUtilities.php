@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Controller;
+namespace app\Model;
 
 use app\Model\DBConnect;
 use app\Model\User;
@@ -21,14 +21,48 @@ class MyUtilities {
         }
     }
 
+    // -----------------------------------------------------------------
+
     public static function runBackgroundProsess($command, $outputFile = '/dev/null') {
         $processId = shell_exec(sprintf('%s > %s 2>&1 & echo $!', $command, $outputFile ));  
         return $processId;
     }
 
+    // -----------------------------------------------------------------
+
     public static function validatePhoneNumber($num) {
         return preg_match('/^[\d ]*$/', $num);
     }
+
+    public static function validateName($name) {
+        return preg_match('/^[A-Za-z\'\"]+$/', $name);
+    }
+
+    // -----------------------------------------------------------------
+
+    public static function topBarUserFullnameRollIcon () {
+
+        $currentUser = unserialize($_SESSION['currentUser']);
+
+        $firstname = $currentUser->getFirstUserName();
+        $lastname = $currentUser->getLastUserName();
+
+        $fullname = "$firstname $lastname";
+
+        $id = str_pad($currentUser->getId(), 2, "0", STR_PAD_LEFT);
+        $rollGroup = strtoupper($currentUser->getRoleGroup());
+
+        $roll = "$id $rollGroup";
+
+        $icon = $firstname[0] . $lastname[0];
+
+        return [$fullname, $roll, $icon];
+    }
+
+    // -----------------------------------------------------------------
+
+
+    // -----------------------------------------------------------------
 
 
     // -------------------------------------------------------------------------

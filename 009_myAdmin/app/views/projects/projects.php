@@ -2,7 +2,7 @@
 <form action="#"  class="projects__form">
 
     <div class="top-pannel">
-        <div class="top-pannel__date"><b>projects</b> List</div>
+        <div class="top-pannel__date"><b>projects</b> list</div>
             
         <div class="top-pannel__buttons">
             <a href="#" class="btn btn--light">add new client</a>

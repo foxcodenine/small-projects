@@ -18,11 +18,13 @@
 
                 <div class="field__group">
                     <label class="field__label" for="sign-firstname" >firstname</label>
+                    <div class="field__error"><?= $errorFirstname; ?></div>
                     <input type="text" class="field__input" id="sign-firstname" name="firstname" value="<?= $_SESSION['sign-up']['firstname'] ?? '' ;?>">
                 </div>
     
                 <div class="field__group">
                     <label class="field__label" for="sign-lastname" >lastname</label>
+                    <div class="field__error"><?= $errorLastname; ?></div>
                     <input type="text" class="field__input" id="sign-lastname" name="lastname" value="<?= $_SESSION['sign-up']['lastname'] ?? '' ;?>">
                 </div>
                 

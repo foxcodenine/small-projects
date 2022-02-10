@@ -1,5 +1,5 @@
 <?php
-namespace app\Controller;
+namespace app\Model;
 
 class Cat {
 
@@ -11,6 +11,4 @@ class Cat {
         $this->age = $age;
     }
 }
-
-
 ?>

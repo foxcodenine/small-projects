@@ -1,7 +1,7 @@
 <?php
 
-use app\Controller\MyCript;
-use app\Controller\MyUtilities;
+use app\Model\MyCript;
+use app\Model\MyUtilities;
 use app\Model\DBConnect;
 use app\Model\Mail;
 use app\Model\User;

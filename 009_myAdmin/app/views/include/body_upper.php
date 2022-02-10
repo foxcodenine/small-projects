@@ -12,12 +12,12 @@
     </div>  -->
 
     <div class="topbar__name">
-        <span class="topbar__name-upper">Joseph Falzon</span>
-        <span class="topbar__name-lower">Architect</span>
+        <span class="topbar__name-upper"><?= $topbarFullname ?? ' &nbsp; &nbsp; ' ?></span>
+        <span class="topbar__name-lower"><?= $topbarRoll ?? ' &nbsp; &nbsp; ' ?></span>
     </div>
 
     <div class="topbar__dropdown" id="topbar-dropdown">
-        <div class="topbar__pic">JF</div>
+        <div class="topbar__pic"><?= $topbarIcon ?? '&nbsp;&nbsp;' ?></div>
         <svg class="topbar__arrow">
             <use  xlink:href="./app/static/svg/icomoon.svg#icon-arrow_drop_down"></use>
         </svg>

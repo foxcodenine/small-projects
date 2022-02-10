@@ -2,7 +2,7 @@
 
 namespace app\Model;
 
-use app\Controller\MyCript;
+use app\Model\MyCript;
 use Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 

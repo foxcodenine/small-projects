@@ -10,13 +10,14 @@
 </head>
 <body>
 <?php 
-    use app\Controller\Cat;
-    use app\Model\DBConnect;
-    use app\Controller\MyCript;
-use app\Controller\MyHelperClass;
-use app\Model\User;
 
-// $wisky = new Cat('Wisky', 9);
+    use app\Model\Cat;
+    use app\Model\DBConnect;
+    use app\Model\MyCript;
+    use app\Model\MyHelperClass;
+    use app\Model\User;
+
+    // $wisky = new Cat('Wisky', 9);
     // echo "My cat is called {$wisky->name} and she is {$wisky->age} years old. <br>";  
     
     // -----------------------------------------------------------------

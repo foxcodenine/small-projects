@@ -1,7 +1,7 @@
 <?php
 
-use app\Controller\MyCript;
-use app\Controller\MyUtilities;
+use app\Model\MyCript;
+use app\Model\MyUtilities;
 use app\Model\DBConnect;
 use app\Model\Mail;
 use app\Model\User;
@@ -23,6 +23,8 @@ $router->match('GET|POST', '/sign-up', function() {
     // --- setting password & error message
     $errorEmail    = $_SESSION['error']['errorEmail'] ?? '&nbsp;';
     $errorPassword = $_SESSION['error']['errorPassword'] ?? '&nbsp;'; 
+    $errorLastname    = $_SESSION['error']['errorLastname'] ?? '&nbsp;';
+    $errorFirstname = $_SESSION['error']['errorFirstname'] ?? '&nbsp;'; 
     
 
     
@@ -32,8 +34,8 @@ $router->match('GET|POST', '/sign-up', function() {
 
         // _____________________________________________________________
 
-        $firstname = filter_input(INPUT_POST, 'firstname',  FILTER_SANITIZE_STRING);
-        $lastname  = filter_input(INPUT_POST, 'lastname',   FILTER_SANITIZE_STRING);
+        $firstname = ucwords(strtolower(filter_input(INPUT_POST, 'firstname',  FILTER_SANITIZE_STRING)));
+        $lastname  = ucwords(strtolower(filter_input(INPUT_POST, 'lastname',   FILTER_SANITIZE_STRING)));
         $email     = filter_input(INPUT_POST, 'email',      FILTER_SANITIZE_EMAIL);
         $password  = filter_input(INPUT_POST, 'password',   FILTER_SANITIZE_STRING);  
         unset($_POST);   
@@ -71,6 +73,26 @@ $router->match('GET|POST', '/sign-up', function() {
 
         } else {
             unset($_SESSION['error']['errorPassword']);
+        }
+
+        if (!$firstname) {
+            $_SESSION['error']['errorFirstname'] = 'This field is required';
+
+        } elseif (!MyUtilities::validateName($firstname)) {
+            $_SESSION['error']['errorFirstname'] = 'Invalid firstname';
+
+        } else {
+            unset($_SESSION['error']['errorFirstname']);
+        }
+
+        if (!$lastname) {
+            $_SESSION['error']['errorLastname'] = 'This field is required';
+
+        } elseif (!MyUtilities::validateName($lastname)) {
+            $_SESSION['error']['errorLastname'] = 'Invalid lastname';
+
+        } else {
+            unset($_SESSION['error']['errorLastname']);
         }
 
         // _____________________________________________________________

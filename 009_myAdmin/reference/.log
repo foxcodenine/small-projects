@@ -1,0 +1,129 @@
+
+[09-Feb-2022 09:01:21 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\User::getFirstName() in /var/www/projects/009_myAdmin/app/Model/MyUtilities.php:43
+Stack trace:
+#0 /var/www/projects/009_myAdmin/app/views/_page.php(26): app\Model\MyUtilities::topBarUserNameAndRoll()
+#1 /var/www/projects/009_myAdmin/app/RouterController/routerClients.php(138): include('...')
+#2 [internal function]: {closure}()
+#3 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /var/www/projects/009_myAdmin/app/RouterController/router.php(28): Bramus\Router\Router->run()
+#7 /var/www/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /var/www/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /var/www/projects/009_myAdmin/app/Model/MyUtilities.php on line 43
+[09-Feb-2022 09:01:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\User::getFirstName() in /var/www/projects/009_myAdmin/app/Model/MyUtilities.php:43
+Stack trace:
+#0 /var/www/projects/009_myAdmin/app/views/_page.php(29): app\Model\MyUtilities::topBarUserNameAndRoll()
+#1 /var/www/projects/009_myAdmin/app/RouterController/routerClients.php(138): include('...')
+#2 [internal function]: {closure}()
+#3 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /var/www/projects/009_myAdmin/app/RouterController/router.php(28): Bramus\Router\Router->run()
+#7 /var/www/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /var/www/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /var/www/projects/009_myAdmin/app/Model/MyUtilities.php on line 43
+[09-Feb-2022 09:01:53 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\User::getFirstName() in /var/www/projects/009_myAdmin/app/Model/MyUtilities.php:43
+Stack trace:
+#0 /var/www/projects/009_myAdmin/app/views/_page.php(29): app\Model\MyUtilities::topBarUserNameAndRoll()
+#1 /var/www/projects/009_myAdmin/app/RouterController/routerClients.php(138): include('...')
+#2 [internal function]: {closure}()
+#3 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /var/www/projects/009_myAdmin/app/RouterController/router.php(28): Bramus\Router\Router->run()
+#7 /var/www/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /var/www/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /var/www/projects/009_myAdmin/app/Model/MyUtilities.php on line 43
+[09-Feb-2022 09:02:40 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\User::getFirstName() in /var/www/projects/009_myAdmin/app/Model/MyUtilities.php:43
+Stack trace:
+#0 /var/www/projects/009_myAdmin/app/views/_page.php(29): app\Model\MyUtilities::topBarUserNameAndRoll()
+#1 /var/www/projects/009_myAdmin/app/RouterController/routerClients.php(138): include('...')
+#2 [internal function]: {closure}()
+#3 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /var/www/projects/009_myAdmin/app/RouterController/router.php(28): Bramus\Router\Router->run()
+#7 /var/www/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /var/www/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /var/www/projects/009_myAdmin/app/Model/MyUtilities.php on line 43
+[09-Feb-2022 09:02:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\User::getFirstName() in /var/www/projects/009_myAdmin/app/Model/MyUtilities.php:43
+Stack trace:
+#0 /var/www/projects/009_myAdmin/app/views/_page.php(29): app\Model\MyUtilities::topBarUserNameAndRoll()
+#1 /var/www/projects/009_myAdmin/app/RouterController/routerClients.php(138): include('...')
+#2 [internal function]: {closure}()
+#3 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /var/www/projects/009_myAdmin/app/RouterController/router.php(28): Bramus\Router\Router->run()
+#7 /var/www/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /var/www/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /var/www/projects/009_myAdmin/app/Model/MyUtilities.php on line 43
+[09-Feb-2022 09:02:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\User::getFirstName() in /var/www/projects/009_myAdmin/app/Model/MyUtilities.php:43
+Stack trace:
+#0 /var/www/projects/009_myAdmin/app/views/_page.php(29): app\Model\MyUtilities::topBarUserNameAndRoll()
+#1 /var/www/projects/009_myAdmin/app/RouterController/routerClients.php(138): include('...')
+#2 [internal function]: {closure}()
+#3 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /var/www/projects/009_myAdmin/app/RouterController/router.php(28): Bramus\Router\Router->run()
+#7 /var/www/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /var/www/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /var/www/projects/009_myAdmin/app/Model/MyUtilities.php on line 43
+[09-Feb-2022 09:03:40 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\User::getFirstname() in /var/www/projects/009_myAdmin/app/Model/MyUtilities.php:43
+Stack trace:
+#0 /var/www/projects/009_myAdmin/app/views/_page.php(29): app\Model\MyUtilities::topBarUserNameAndRoll()
+#1 /var/www/projects/009_myAdmin/app/RouterController/routerClients.php(138): include('...')
+#2 [internal function]: {closure}()
+#3 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /var/www/projects/009_myAdmin/app/RouterController/router.php(28): Bramus\Router\Router->run()
+#7 /var/www/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /var/www/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /var/www/projects/009_myAdmin/app/Model/MyUtilities.php on line 43
+[09-Feb-2022 09:12:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\MyUtilities::topBarUserFullnameRollIcon() in /var/www/projects/009_myAdmin/app/views/_page.php:26
+Stack trace:
+#0 /var/www/projects/009_myAdmin/app/RouterController/routerClients.php(138): include()
+#1 [internal function]: {closure}()
+#2 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /var/www/projects/009_myAdmin/app/RouterController/router.php(28): Bramus\Router\Router->run()
+#6 /var/www/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /var/www/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /var/www/projects/009_myAdmin/app/views/_page.php on line 26
+[09-Feb-2022 09:12:41 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\MyUtilities::topBarUserFullnameRollIcon() in /var/www/projects/009_myAdmin/app/views/_page.php:26
+Stack trace:
+#0 /var/www/projects/009_myAdmin/app/RouterController/routerClients.php(138): include()
+#1 [internal function]: {closure}()
+#2 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /var/www/projects/009_myAdmin/app/RouterController/router.php(28): Bramus\Router\Router->run()
+#6 /var/www/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /var/www/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /var/www/projects/009_myAdmin/app/views/_page.php on line 26
+[09-Feb-2022 09:13:00 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in /var/www/projects/009_myAdmin/app/Model/MyUtilities.php:53
+Stack trace:
+#0 /var/www/projects/009_myAdmin/app/views/_page.php(26): app\Model\MyUtilities::topBarUserFullnameRollIcon()
+#1 /var/www/projects/009_myAdmin/app/RouterController/routerClients.php(138): include('...')
+#2 [internal function]: {closure}()
+#3 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /var/www/projects/009_myAdmin/app/RouterController/router.php(28): Bramus\Router\Router->run()
+#7 /var/www/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /var/www/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /var/www/projects/009_myAdmin/app/Model/MyUtilities.php on line 53

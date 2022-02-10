@@ -4,8 +4,8 @@
 
 <?php
 
-use app\Controller\MyHelperClass;
-use app\Controller\MyUtilities;
+
+use app\Model\MyUtilities;
 
 
 require './app/views/include/header.php'; ?>
@@ -17,10 +17,19 @@ require './app/views/include/header.php'; ?>
 
     <?php 
     if ($pageName !== 'sign_up' && $pageName !== 'sign_in') {
-        require './app/views/include/body_upper.php';
-        echo '<main  class="pages pageTransition">';
+        
+        // Checking if user is loged in;
         MyUtilities::checkCookieAndReturnUser();
         MyUtilities::userInSessionPage();
+        
+        // Setup topbar use fullname, id and roll;
+        [$topbarFullname, $topbarRoll, $topbarIcon] =  MyUtilities::topBarUserFullnameRollIcon();
+
+        // Inserting top and side bars
+        require './app/views/include/body_upper.php';
+        echo '<main  class="pages pageTransition">';
+        
+        
     } else {
         echo '<main>';
         MyUtilities::checkCookieAndReturnUser();

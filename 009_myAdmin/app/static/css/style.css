@@ -729,9 +729,11 @@ main.pages {
   font-family: "Poppins", sans-serif;
   color: rgba(27, 38, 49, 0.9);
   font-weight: 200;
+  text-transform: capitalize;
 }
 .top-pannel__date b, .top-pannel__title b {
   font-weight: 600;
+  text-transform: uppercase;
 }
 @media only screen and (max-width: 31.25em) {
   .top-pannel__date, .top-pannel__title {

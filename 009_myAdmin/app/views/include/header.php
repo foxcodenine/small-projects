@@ -15,7 +15,7 @@
 
     <?php
 
-    use app\Controller\MyUtilities;
+    use app\Model\MyUtilities;
 
 
 

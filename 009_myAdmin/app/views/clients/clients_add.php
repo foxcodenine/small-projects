@@ -104,8 +104,8 @@
 
     <div class="field__group field__group--textarea">
         <label class="field__label" for="description"></label>
-        <div class="field__error"></div>
-        <textarea id="editor_body" class="ck" name="clientInfo"><?= $_SESSION['client']['clientInfo'] ?? '' ?></textarea>
+        <div class="field__error"><?= $errorInfoClient; ?></div>
+        <textarea id="editor_body" class="ck" name="infoClient"><?= $_SESSION['client']['infoClient'] ?? '' ?></textarea>
     </div>
 
     <button class="btn btn--primary btn--thick client-form__btn mt-sm">Add Client</button>
