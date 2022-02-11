@@ -102,10 +102,11 @@
         <input type="text" class="field__input" id="postcode" name="postcode">
     </div>
 
-    <div class="field__group field__group--textarea">
+    <div class="field__group field__group--textarea" >
         <label class="field__label" for="description"></label>
         <div class="field__error"><?= $errorInfoClient; ?></div>
-        <textarea id="editor_body" class="ck" name="infoClient"><?= $_SESSION['client']['infoClient'] ?? '' ?></textarea>
+        <textarea  id="editor_body" name="infoClient"><?= $_SESSION['client']['infoClient'] ?? '' ?></textarea>
+        
     </div>
 
     <button class="btn btn--primary btn--thick client-form__btn mt-sm">Add Client</button>

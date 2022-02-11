@@ -144,11 +144,39 @@ class Client {
 
 
 	public static function initClientList() {		
-		$ClientList = new \SplObjectStorage();
+		self::$ClientList = new \SplObjectStorage();
 	}
 
 	public static function updatedClientList() {
-		
+
+		self::initClientList();
+
+		// _____________________________________
+
+		$conn  = DBConnect::getConn();
+
+		$sql = 'SELECT * FROM Client';
+
+		$stmt = $conn->prepare($sql);
+
+		$stmt->execute();
+
+		$result = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+		foreach($result as $c) {
+			$client = new self(
+				$c->title, $c->firstname, $c->lastname, $c->idCard, $c->company, $c->email, $c->phone, $c->mobile, 
+				$c->strAddr, $c->postcode, $c->localityName, $c->countryName, $c->userID
+			);
+
+			self::$ClientList->attach($client);
+		}
+
+
+		//NOTE: testing
+		header('Content-Type: application/json');
+		var_dump(self::$ClientList);
+		exit();
 	}
 
 

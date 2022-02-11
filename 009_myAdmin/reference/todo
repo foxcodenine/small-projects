@@ -1,18 +1,26 @@
 C. fetch clients from database
 
-A in signup add name and surname validation 
-    1. should have at list 1 letter
+OK A in signup add name and surname validation 
+    1. should have at list at list 1 letter
     2. only letters
 
-OK  B chaneg route and move controller classes to Model
+OK  B change route and move controller classes to Model
 
 OK  D. update User class setter and getters
 
 OK  X. update topbar with current user info
     1. name and surname
     2. user id and role
+
+E. Enter client info in database
+    ok 1. create table client info
+    2. validate if info data exists
+    3. validate lenght
+
     
 Y. demo delete time
+X. create a Deploy folder
+    include vitual host
 
 ------------------------------------------------------------------------
 

@@ -1,15 +1,69 @@
 @use '../abstracts/' as *;
-.ck-editor{
-    // transform: translateY(.7rem);
-    // margin-bottom: 3rem !important;
-    
+
+.cke_editor_editor_body {
+    grid-column: 1 / -1;
+    border-radius: $border-radius  !important;
+    box-shadow: none !important;
+    border-color: none;
+
+
 }
-.ck-editor-main{
-    // border-color: $col-gray-3 !important;
+.cke_toolbar_break, #cke_18, #cke_31, #cke_46, #cke_25, #cke_26 {
+    display:  none !important;
 }
+
+@include respond ($bp-smaller) {    
+
+    .cke_toolbar_break {
+        display:  block !important;
+    }
+}
+
+.cke_top {
+    background-color: transparent !important;
+    background-color: $col-bg-y !important;
+}
+
+.cke_bottom {
+    background-color: transparent !important;
+    background-color: $col-bg-y !important;
+}
+
+.cke_contents  {    
+    border-radius: 0px;
+
+    // &:hover {
+    //     border: 1px solid $col-gray-3 !important;
+    //     margin: 0 -1px !important;
+    // }
+}
+
+.cke_button_icon {
+    margin: 0 1rem !important;
+}
+
+// .cke {
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .ck  {   
     grid-column: 1 / -1;  
+;
     
     &-focused {
         // background-color: $col-bg-y !important;

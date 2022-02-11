@@ -12,7 +12,12 @@ use app\Model\User;
 
 $router->match('GET', '/sign-out', function() {   
 
-    $currentUser = unserialize($_SESSION['currentUser']);
+    if (isset($_SESSION['currentUser'])) {
+        $currentUser = unserialize($_SESSION['currentUser']);
+    } else {
+        $currentUser = null;
+    }
+    
     MyUtilities::unsetCookie($currentUser);
     MyUtilities::redirect('/009/sign-in');
 

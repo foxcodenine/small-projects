@@ -21,13 +21,12 @@ document.onreadystatechange = function () {                    // <- (A)
         myTippyFunction();
         closeImagesMenu();
         // mySwupFunction();
-        myLoaderBtn();
-
-        
+        myLoaderBtn();        
 
         // -------------------------------------------------------------        
     }
 }
+
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -142,47 +141,15 @@ function sideMenuToggle () {
 
 //----------------------------------------------------------------------
 
-// function wysiwyg () {
 
-//     if (document.querySelector('#editor_body')) {
-//         // https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/configuration.html
-//         // https://ckeditor.com/docs/ckeditor5/latest/builds/guides/quick-start.html
-//         ClassicEditor
-//         .create( document.querySelector( '#editor_body' ), {
-//             toolbar: [ 'heading', '|', 'bold', 'italic','bulletedList', 'numberedList', 'blockQuote','|','undo', 'redo' ],
-//             heading: {
-//                 options: [
-//                     { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-//                     { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
-//                     { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
-//                     { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' }
-//                 ]
-//             }
-//         } )
-//         .catch( error => {
-//             console.log( error );
-//         } );            
-//     } 
-// }
 
 function wysiwyg () {
 
-    if (document.querySelector('#editor_body')) {
+    // useing ckeditor4
 
-        
-
-        ClassicEditor
-
-        .create( document.querySelector('#editor_body'), 
-            {toolbar: [ 'heading', '|', 'bold', 'italic','bulletedList', 'numberedList', 'blockQuote','|','undo', 'redo' ]} 
-        )
-        .catch( error => {
-
-            console.error( error );
-
-        } );
-    } 
+    CKEDITOR.replace( 'editor_body' );
 }
+
 
 //----------------------------------------------------------------------
 

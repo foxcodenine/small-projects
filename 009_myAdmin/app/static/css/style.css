@@ -879,6 +879,40 @@ main.pages {
   height: 2rem;
 }
 
+.cke_editor_editor_body {
+  grid-column: 1/-1;
+  border-radius: 0.5rem !important;
+  box-shadow: none !important;
+  border-color: none;
+}
+
+.cke_toolbar_break, #cke_18, #cke_31, #cke_46, #cke_25, #cke_26 {
+  display: none !important;
+}
+
+@media only screen and (max-width: 31.25em) {
+  .cke_toolbar_break {
+    display: block !important;
+  }
+}
+.cke_top {
+  background-color: transparent !important;
+  background-color: #fdffe6 !important;
+}
+
+.cke_bottom {
+  background-color: transparent !important;
+  background-color: #fdffe6 !important;
+}
+
+.cke_contents {
+  border-radius: 0px;
+}
+
+.cke_button_icon {
+  margin: 0 1rem !important;
+}
+
 .ck {
   grid-column: 1/-1;
 }

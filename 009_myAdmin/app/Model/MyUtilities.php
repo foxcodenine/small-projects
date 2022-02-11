@@ -247,17 +247,18 @@ class MyUtilities {
 
     // _________________________________________________________________
 
-    public static function unsetCookie($currentUser) {
+    public static function unsetCookie($currentUser=null) {
 
         // --- Updating DB -------------
-
-        $currentUser->setToken('');
-        $currentUser->updateUser();  
+        if (isset($currentUser)) {
+            $currentUser->setToken('');
+            $currentUser->updateUser(); 
+        } 
 
         // --- Updating Cookie ---------
 
         $cookieName   = 'FOXCODE_IO|009|MYADMIN'; 
-        $cookieValue = json_encode([$currentUser->getId(), null]);                    
+        $cookieValue  = '';                    
         $cookieExp    =  time() - 3600;
         $cookiePath   = $_ENV['COOKIE_PATH'];
         $cookieDomain = $_ENV['COOKIE_DOMAIN'];

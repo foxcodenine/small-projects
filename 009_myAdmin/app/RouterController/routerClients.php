@@ -7,6 +7,8 @@ use app\Model\DBConnect;
 ////////////////////////////////////////////////////////////////////////
 
 $router->match('GET', '/clients', function() {
+
+    Client::updatedClientList();
     
     $pageName = 'clients'; include './app/views/_page.php';
     unset($_SESSION['error']);

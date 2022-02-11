@@ -8,6 +8,9 @@ https://www.flaticon.com/search?word=eye&type=icon
 https://iconmonstr.com/ 
 https://iconmonstr.com/checkbox-3-svg/
 
+
+https://github.com/ckeditor/ckeditor4
+
 ## ------ Ideas --------------------------------------------------------
 
 https://support.anghami.com/hc/en-us
@@ -138,7 +141,7 @@ https://github.com/swup/swup
 https://www.youtube.com/watch?v=eVwH3VL1EsA
 
 
-Swup can be installed from npm…
+<!-- Swup can be installed from npm…
 
     $ npm install swup
 
@@ -146,23 +149,42 @@ Swup can be installed from npm…
 
     <script src="./dist/swup.js"></script>
  
-    <!-- or directly from unpkg -->
-    <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>  
+    or directly from unpkg
+    <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>   -->
 
 
-#### CKEditor
+#### CKEditor4
 
-You can find the script in 'static/js/ck-editor/ckeditor.js' 
-& my 'wysiwyg()' function in 'static/js/script.js' 
+    https://github.com/ckeditor/ckeditor4
 
-else include:
+Getting started
+Using npm package
 
-    <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
+        npm install --save ckeditor
+Use it on your website:
 
-and follow:
+    <div id="editor">
+        <p>This is the editor content.</p>
+    </div>
 
-https://ckeditor.com/docs/ckeditor5/latest/builds/guides/quick-start.html
-https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/configuration.html
+    <script src="./node_modules/ckeditor/ckeditor.js"></script>
+
+    <script>
+        CKEDITOR.replace( 'editor' );
+    </script>
+
+Using CDN
+Load the CKEditor 4 script from CDN:
+
+    <div id="editor">
+        <p>This is the editor content.</p>
+    </div>
+
+    <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+
+    <script>
+        CKEDITOR.replace( 'editor' );
+    </script>
 
 
 
