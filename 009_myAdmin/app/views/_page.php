@@ -59,11 +59,11 @@ require './app/views/include/header.php'; ?>
             break;            
 
         case 'clients':
-            $pagePath = './app/views/clients/clients.php';
+            $pagePath = './app/views/clients/viewClients.php';
             break;            
 
         case 'clients_add':
-            $pagePath = './app/views/clients/clients_add.php';
+            $pagePath = './app/views/clients/viewClientsAddEdit.php';
             break;    
 
         case 'sign_up':

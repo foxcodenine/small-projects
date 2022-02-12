@@ -146,8 +146,9 @@ function sideMenuToggle () {
 function wysiwyg () {
 
     // useing ckeditor4
-
-    CKEDITOR.replace( 'editor_body' );
+    if (document.querySelector('#editor_body')) {        
+        CKEDITOR.replace( 'editor_body' );
+    }
 }
 
 

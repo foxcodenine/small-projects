@@ -183,6 +183,8 @@ class MyUtilities {
 
     public static function fetchOptionsFromDB ($table) {
 
+        self::userInSessionPage();
+
         $table = ucfirst(strtolower($table));
         $userID = unserialize($_SESSION['currentUser'])->getID();
 

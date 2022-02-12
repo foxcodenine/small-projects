@@ -1,4 +1,12 @@
-A. fetch clients from database
+OK A. Adjust fetch client to fetch only user clients
+
+OK B. Display Clients in clients list
+
+OK C. Fix Bug client info not added to db {there was no bug}
+
+OK D. add  JsonSerializable interface to clients class
+
+OK E. Fix js wyswyg erorr in consol.log
    
 Y. demo delete time
 X. create a Deploy folder

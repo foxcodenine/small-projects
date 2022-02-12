@@ -3,10 +3,13 @@
 namespace app\Model;
 
 use app\Model\DBConnect;
+
 use PDO;
 use PDOException;
 
-class Client {
+use JsonSerializable;
+
+class Client  implements JsonSerializable {
     private $id;
     private $title;
     private $firstname;
@@ -48,6 +51,7 @@ class Client {
 
 		if (!isset($id) || empty($id)) {
 			$this->addClientToDB();
+			self::addToClientList($this);
 		}
 
 		return $this;
@@ -140,24 +144,43 @@ class Client {
 	}
 
 
+
+
 	// _________________________________________________________________
 
 
-	public static function initClientList() {		
-		self::$ClientList = new \SplObjectStorage();
+	public static function checkForClientList() {				
+		return isset(self::$ClientList) && !empty(self::$ClientList);
 	}
+	
+
+
+	public static function addToClientList($newClient) {			
+		
+		if (!self::checkForClientList()) {self::updatedClientList();}
+		else {self::$ClientList->attach($newClient);}	
+	}
+
 
 	public static function updatedClientList() {
 
-		self::initClientList();
-
+		
+		if (!isset($_SESSION['currentUser']) || empty($_SESSION['currentUser']))  {
+			MyUtilities::redirect('/');	exit();
+		}
 		// _____________________________________
+
+		self::$ClientList = new \SplObjectStorage();
 
 		$conn  = DBConnect::getConn();
 
-		$sql = 'SELECT * FROM Client';
+		$userID = unserialize($_SESSION['currentUser'])->getId();
+
+		$sql = 'SELECT * FROM Client WHERE userID = :userID';
 
 		$stmt = $conn->prepare($sql);
+
+		$stmt->bindValue(':userID', $userID);
 
 		$stmt->execute();
 
@@ -165,18 +188,20 @@ class Client {
 
 		foreach($result as $c) {
 			$client = new self(
-				$c->title, $c->firstname, $c->lastname, $c->idCard, $c->company, $c->email, $c->phone, $c->mobile, 
-				$c->strAddr, $c->postcode, $c->localityName, $c->countryName, $c->userID
+				$c->firstname, $c->lastname, $c->id, $c->title,  $c->idCard, $c->company, $c->email, $c->phone,  
+				$c->mobile, $c->strAddr, $c->postcode, $c->localityName, $c->countryName, $c->userID
 			);
 
 			self::$ClientList->attach($client);
 		}
 
 
+
 		//NOTE: testing
-		header('Content-Type: application/json');
-		var_dump(self::$ClientList);
-		exit();
+		// header('Content-Type: application/json');
+		// // var_dump(self::$ClientList);
+		// echo json_encode( self::$ClientList->current(), JSON_PRETTY_PRINT);
+		// exit();
 	}
 
 
@@ -282,12 +307,12 @@ class Client {
 	}
 
 	/** Get the value of strAddr */
-	public function getstrAddr() {
+	public function getStrAddr() {
 		return $this->strAddr;
 	}
 
 	/** Set the value of strAddr */
-	public function setstrAddr($strAddr) {
+	public function setStrAddr($strAddr) {
 		$this->strAddr = $strAddr;
 		return $this;
 	}
@@ -334,5 +359,17 @@ class Client {
 	public function setUserID($userID) {
 		$this->userID = $userID;
 		return $this;
+	}
+
+	// _________________________________________________________________
+
+	public function jsonSerialize () {
+
+		$json = array();
+
+		foreach ($this as $poperty => $value ) {			
+			$json[$poperty] = $value;
+		}
+		return $json;
 	}
 }
