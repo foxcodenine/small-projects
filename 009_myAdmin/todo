@@ -1,19 +1,27 @@
-OK A. Adjust fetch client to fetch only user clients
+A. Set Edit page
+    ok 1. set router
+    ok 2. in no client id redirect
+    ok 3. fetch client
+    ok 4. insert client data in input value
+    ok 5. fetch client info.
+    6. in post if edit update user instead of create
 
-OK B. Display Clients in clients list
+    
 
-OK C. Fix Bug client info not added to db {there was no bug}
+B. Update clientList when adding client
 
-OK D. add  JsonSerializable interface to clients class
+OK C. add update link in cliens page
 
-OK E. Fix js wyswyg erorr in consol.log
+D. Test site online
    
+
+
+------------------------------------------------------------------------
 Y. demo delete time
 X. create a Deploy folder
     include vitual host
 
 ------------------------------------------------------------------------
-
 
 1. Add media querys to signing pages.
 2. Make backgroud image and signing image size responsive according display width

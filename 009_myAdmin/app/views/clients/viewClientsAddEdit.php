@@ -109,7 +109,7 @@
         
     </div>
 
-    <button class="btn btn--primary btn--thick client-form__btn mt-sm">Add Client</button>
+    <button class="btn btn--primary btn--thick client-form__btn mt-sm"><?= $endpointURL === 'clients-add' ? 'Add' : 'Update' ?>  Client</button>
 
 </form>
 </section>

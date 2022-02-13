@@ -33,8 +33,8 @@
             <tbody class="table__tbody">
 
                 <!--  -->
-                <?php $tr = true; ?>
-                <?php while ($clientList->valid()): ?>
+                <?php $tr = false; ?>
+                <?php foreach($clientList as $client): ?>
                 <?php $tr = !$tr; ?>
                 
                 
@@ -50,7 +50,7 @@
                     </td>
 
                     <td class="table__td">
-                        <a href="#" class="icon__link" id="table-icon-update">
+                        <a href="/009/clients-edit<?= $client->getId(); ?>" class="icon__link" id="table-icon-update">
                             <svg class="icon__svg"> <use xlink:href="./app/static/svg/icomoon.svg#icon-pencil-10"></use></svg>
                         </a>
                         <a href="#" class="icon__link" id="table-icon-details">
@@ -61,11 +61,7 @@
                         </a>
                     </td>
 
-                    
-                    <?php $client = $clientList->current(); ?>
-
-    
-                    
+                                 
                     <td class="table__td"><?= $client->getId(); ?></td>
                     <td class="table__td"><?= $client->getFirstname(); ?></td>
                     <td class="table__td"><?= $client->getLastname(); ?></td>
@@ -80,7 +76,7 @@
                     <td class="table__td"><?= $client->getPostcode(); ?></td>
                 </tr>
 
-                <?php $clientList->next(); endwhile ?>
+                <?php endforeach ?>
                 <!--  -->
        
             </tbody>

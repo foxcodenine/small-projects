@@ -3,7 +3,7 @@
 namespace app\Model;
 
 use app\Model\DBConnect;
-
+use Exception;
 use PDO;
 use PDOException;
 
@@ -99,37 +99,141 @@ class Client  implements JsonSerializable {
     }
 
 	// _________________________________________________________________
+	
+	public function update () {
+
+		try {
+
+			$conn = DBConnect::getConn();
+
+			$sql = 'UPDATE Client SET 
+					title		= :title, 		
+					firstname	= :firstname,
+					lastname	= :lastname, 	
+					idCard		= :idCard, 		
+					company		= :company, 		
+					email 		= :email, 		
+					phone		= :phone, 		
+					mobile		= :mobile, 		
+					strAddr		= :strAddr,		
+					postcode   	= :postcode, 	
+					localityName = :localityName,
+					countryName  = :countryName
+					WHERE id = :id';
+			
+			$stmt = $conn->prepare($sql);
+
+			$stmt -> bindValue(':id', 			$this->getId());
+			$stmt -> bindValue(':title', 		$this->getTitle());
+			$stmt -> bindValue(':firstname',	$this->getFirstname());
+			$stmt -> bindValue(':lastname', 	$this->getLastname());
+			$stmt -> bindValue(':idCard', 		$this->getIdCard());
+			$stmt -> bindValue(':company', 		$this->getCompany());
+			$stmt -> bindValue(':email', 		$this->getEmail());
+			$stmt -> bindValue(':phone', 		$this->getPhone());
+			$stmt -> bindValue(':mobile', 		$this->getMobile());
+			$stmt -> bindValue(':strAddr',		$this->getstrAddr());
+			$stmt -> bindValue(':postcode', 	$this->getPostcode());
+			$stmt -> bindValue(':localityName', $this->getLocalityName());
+			$stmt -> bindValue(':countryName', 	$this->getCountryName());
+
+			$stmt -> execute();
+
+			self::$ClientList[$this->getId()] = $this;
+
+
+		} catch (PDOException $e) {
+			$msg = "Error Client updateClient: <br>" . $e->getMessage();
+			error_log($msg);
+			die($msg);
+		} 	
+	}
+
+	// _________________________________________________________________
+
+	public function infoInDb () {
+
+		try {
+
+			$conn = DBConnect::getConn();
+			$sql = 'SELECT * FROM InfoClient WHERE userID = :userID AND clientID = :clientID LIMIT 1'; 
+
+			$userID = unserialize($_SESSION['currentUser'])->getId();
+			
+			$stmt = $conn->prepare($sql);
+			$stmt->bindValue(':userID', $userID);
+			$stmt->bindValue(':clientID', $this->getId());
+
+			$stmt->execute();
+			return (bool) $stmt->fetch(PDO::FETCH_ASSOC) ?? 0;
+
+		} catch (PDOException $e) {
+
+			$msg = "Error Client infoInDb: <br>" . $e->getMessage();
+			error_log($msg);
+			die($msg);
+		}
+	}
+
+	// _________________________________________________________________
 
 	public function info($crud, $info='') {
+
+
+		$crud = strtolower($crud);
+
+		if (!in_array($crud, ['read', 'create', 'update', 'delete'])) {
+			throw new Exception('Client Info: Not Valid CRUD option'); exit();
+		}
+
+		if ($crud === 'update' && strlen(trim($info)) < 1) {
+			$crud = 'delete';
+		} elseif ($crud === 'update' && !$this->infoInDb()) {
+			$crud = 'create';
+		}
+
+		// _____________________________________________________________
 
 		try {
 
 			$conn = DBConnect::getConn();
 			$sql = '';
+			$userID = unserialize($_SESSION['currentUser'])->getId();
 			
 			if ($crud == 'read') {
 				$sql = 'SELECT info FROM InfoClient WHERE clientID = :clientID  AND userID = :userID';
-				echo 'Client->info->read not yet finilized'; 
-				exit();
+
+				$stmt = $conn->prepare($sql);
+			
+				$stmt->bindValue(':clientID', $this->getId());
+				$stmt->bindValue(':userID', $userID);	
+				$stmt->execute();
+
+				$result = $stmt->fetch(PDO::FETCH_ASSOC)['info'] ?? '';
+				return html_entity_decode($result);
 			};
+
+			// ---------------------------------------------------------
+			
+
 
 			switch ($crud) {
 				case 'create':
 					$sql = 'INSERT INTO InfoClient (info, userID, clientID) VALUES (:info, :userID, :clientID)';
 					break;
 				case 'update':
-					$sql = 'UPDATE infoClient SET info = :info WHERE clientID = :clientID  AND userID = :userID';
+					$sql = 'UPDATE InfoClient SET info = :info WHERE clientID = :clientID  AND userID = :userID';
 					break;
 				case 'delete':
 					$sql = 'DELETE FROM InfoClient WHERE clientID = :clientID  AND userID = :userID';
 					break;
 			}
 
-			$userID = unserialize($_SESSION['currentUser'])->getId();
-
 			$stmt = $conn->prepare($sql);
 			
-			$stmt->bindValue(':info', $info);
+			if ($crud === 'create' || $crud === 'update'){
+				$stmt->bindValue(':info', $info);
+			}
 			$stmt->bindValue(':clientID', $this->getId());
 			$stmt->bindValue(':userID', $userID);
 
@@ -143,9 +247,6 @@ class Client  implements JsonSerializable {
 		}
 	}
 
-
-
-
 	// _________________________________________________________________
 
 
@@ -153,24 +254,27 @@ class Client  implements JsonSerializable {
 		return isset(self::$ClientList) && !empty(self::$ClientList);
 	}
 	
-
+	// _________________________________________________________________
 
 	public static function addToClientList($newClient) {			
 		
 		if (!self::checkForClientList()) {self::updatedClientList();}
-		else {self::$ClientList->attach($newClient);}	
+		// else {self::$ClientList->offsetSet($newClient, $newClient->getId());}	// NOTE:
+		else {self::$ClientList[$newClient->getId()] = $newClient;}	
 	}
 
-
+	// _________________________________________________________________
+	
 	public static function updatedClientList() {
 
 		
 		if (!isset($_SESSION['currentUser']) || empty($_SESSION['currentUser']))  {
-			MyUtilities::redirect('/');	exit();
+			MyUtilities::redirect('/009');	exit();
 		}
 		// _____________________________________
 
-		self::$ClientList = new \SplObjectStorage();
+		// self::$ClientList = new \SplObjectStorage(); 				// NOTE:
+		self::$ClientList = array();
 
 		$conn  = DBConnect::getConn();
 
@@ -192,16 +296,8 @@ class Client  implements JsonSerializable {
 				$c->mobile, $c->strAddr, $c->postcode, $c->localityName, $c->countryName, $c->userID
 			);
 
-			self::$ClientList->attach($client);
+			self::$ClientList[$client->getId()] = $client; 				// NOTE:
 		}
-
-
-
-		//NOTE: testing
-		// header('Content-Type: application/json');
-		// // var_dump(self::$ClientList);
-		// echo json_encode( self::$ClientList->current(), JSON_PRETTY_PRINT);
-		// exit();
 	}
 
 
