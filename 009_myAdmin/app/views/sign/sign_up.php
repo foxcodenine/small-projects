@@ -1,9 +1,10 @@
+<?php use app\Model\MyUtilities; ?>
 <div class="sign ">        
         
         <form class="sign__form sign__form--up" method="POST" action="/009/sign-up" autocomplete="off">
 
             <div class="sign__side-img">
-                <img src="./app/static/images/signing/img-sign-6.jpg" alt="">
+                <img src="<?= MyUtilities::fetchSignImage() ?>" alt="">
             </div>
 
             

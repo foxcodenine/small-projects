@@ -1,18 +1,10 @@
-A. Set Edit page
-    ok 1. set router
-    ok 2. in no client id redirect
-    ok 3. fetch client
-    ok 4. insert client data in input value
-    ok 5. fetch client info.
-    6. in post if edit update user instead of create
+1. setup live server to php
 
-    
+2. Test site online
 
-B. Update clientList when adding client
-
-OK C. add update link in cliens page
-
-D. Test site online
+3. Build a Cliend Detail page 
+    a. add edit link 
+    b. add clients list link
    
 
 

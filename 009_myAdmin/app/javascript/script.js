@@ -11,6 +11,7 @@ document.onreadystatechange = function () {                    // <- (A)
         // Calling functions:
       
         // toastrFunction();
+        // mySwupFunction();
         
         passwordDisplayToggle();
         dropdownmenu1Toggle();
@@ -20,7 +21,6 @@ document.onreadystatechange = function () {                    // <- (A)
         scrollTable();
         myTippyFunction();
         closeImagesMenu();
-        // mySwupFunction();
         myLoaderBtn();        
 
         // -------------------------------------------------------------        

@@ -68,7 +68,8 @@
         margin-left: 1.3rem;
         fill: currentColor;        
         stroke-width: 1;
-        stroke: currentColor;        
+        stroke: currentColor;   
+        filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));    
     }
 
     &__text {        

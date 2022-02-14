@@ -8,6 +8,8 @@ https://www.flaticon.com/search?word=eye&type=icon
 https://iconmonstr.com/ 
 https://iconmonstr.com/checkbox-3-svg/
 
+http://wallpaperswide.com/latest_wallpapers.html
+
 
 https://github.com/ckeditor/ckeditor4
 

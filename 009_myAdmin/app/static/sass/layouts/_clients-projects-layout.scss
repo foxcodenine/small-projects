@@ -23,6 +23,86 @@
         display: grid;
         grid-template-columns: 1fr;
         gap: 2rem;    
+    }
+}
 
+.clients {
+    &__display {
+        
+        display: flex;
+
+        @include respond($bp-medium) {
+            flex-direction: column;
+        }
+    }
+
+    &__left {
+        flex: 0 0 49%;
+        margin-right: auto;
+
+        
+
+        @include respond($bp-medium) {
+            flex: 0 0 100%; 
+            width: 100%;
+        }
+    }
+    &__right {
+        flex: 0 0 49%;
+
+        @include respond($bp-medium) {
+            flex: 0 0 100%;
+            width: 100%;
+        }
+    }
+
+    &__prifix {
+        text-transform: lowercase;
+    }
+
+    &__title {
+        border-top: $border-1;
+        margin: 2rem 0;
+        padding-top: .5rem;
+        font-size: 2rem;
+        text-transform: uppercase;
+        font-family: $font-display;
+
+        span {
+            border-bottom: $border-1;
+            padding-bottom: .5rem;
+        }
+    }
+
+    &__set {
+        display: flex;
+        margin-bottom: 3rem;
+        align-items: center;
+        align-content: center;
+        height: 2rem;
+    }
+
+    &__icon {
+        width:  1.4rem;
+        height: 1.4rem;
+
+        margin-right: 1rem;
+        fill: $col-text;
+    }
+
+    &__field {
+        font-size: 1.6rem;
+        font-weight: 300;
+        line-height: 1.8rem;
+    }
+
+    &__info {
+        font-size: 1.4rem;
+        font-weight: 300;
+        text-transform: lowercase;
+    }
+    &__text {
+        font-size: 1.4rem;
+        font-weight: 300;
     }
 }

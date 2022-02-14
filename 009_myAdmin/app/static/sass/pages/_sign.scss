@@ -15,13 +15,25 @@
     padding: 5vw;
     padding: 7vw;
     
- 
+ /*
+ $bp-largest:    1200;
+$bp-larg:       1000;
+$bp-medium:     800;
+$bp-small:      600;
+$bp-smaller:    500;
+$bp-smallest:   400;
+ */
 
     @include respond ($bp-smaller) {
         padding: 2vw;
     }
 
     --width-side-img: 30rem;
+
+    @include respond ($bp-larg)   { --width-side-img: 25rem;  }
+    @include respond ($bp-medium) { --width-side-img: 15rem;  }
+    @include respond (640) { --width-side-img: 0rem;  }
+    // @include respond ($bp-larg) { --width-side-img: 25rem;  }
 
     &__side-img {
         background-color: transparent;

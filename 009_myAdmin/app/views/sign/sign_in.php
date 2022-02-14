@@ -1,9 +1,10 @@
+<?php use app\Model\MyUtilities; ?>
 <div class="sign ">
         
     <form class="sign__form sign__form--in " method="POST">
 
         <div class="sign__side-img">
-                <img src="./app/static/images/signing/img-sign-6-s.jpg" alt="">
+                <img src="<?= MyUtilities::fetchSignImage() ?>" alt="">
         </div>
 
         <div class="sign__title">Welcome to <b>My</b>Admin</div>

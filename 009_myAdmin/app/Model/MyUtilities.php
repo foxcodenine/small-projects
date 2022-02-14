@@ -61,6 +61,13 @@ class MyUtilities {
 
     // -----------------------------------------------------------------
 
+    public static function fetchSignImage() {
+
+        $num = rand(0, 6);
+
+        return "./app/static/images/signing/img-sign-{$num}.jpg";
+    }
+
 
     // -----------------------------------------------------------------
 

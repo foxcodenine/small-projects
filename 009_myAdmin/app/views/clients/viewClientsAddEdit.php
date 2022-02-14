@@ -23,7 +23,7 @@
     <div class="field__group">
         <label class="field__label" for="firstname">firstname</label>
         <div class="field__error"><?= $errorFirstname; ?></div>
-        <input type="text" class="field__input" id="firstname" name="fistname" value='<?= $_SESSION['client']['firstname'] ?? '' ?>' >
+        <input type="text" class="field__input" id="firstname" name="fistname" value='<?= $_SESSION['client']['firstname'] ?? '' ?>'>
     </div>
 
     <div class="field__group">

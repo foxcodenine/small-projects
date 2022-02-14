@@ -60,7 +60,7 @@
 
     &__tr {
         &--1 {background-color: $col-hover-1;}
-        &:hover {background-color: lighten($col-primary, 40%)}
+        &:hover {background-color: lighten($col-primary, 20%)}
         
     }
     &__td {

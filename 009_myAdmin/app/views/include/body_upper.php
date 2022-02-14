@@ -48,11 +48,11 @@
 
 <!-- ------------------------------------------------------- -->
 
-<!-- <div class="menu-btn" id="menu-btn">
+<div class="menu-btn" id="menu-btn">
     <div class="menu-btn__line"></div>              
     <div class="menu-btn__line"></div>              
     <div class="menu-btn__line"></div>              
-</div> -->
+</div>
 
 <!-- --- Sidemenu -------------------------------------------------- -->
 
