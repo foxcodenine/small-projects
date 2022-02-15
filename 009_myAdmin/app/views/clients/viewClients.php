@@ -5,7 +5,7 @@
         <div class="top-pannel__date"><b>CLIENTS</b> List</div>
             
         <div class="top-pannel__buttons">
-            <a href="#" class="btn btn--light">add new client</a>
+            <a href="/009/clients-add" class="btn btn--light">add new client</a>
             <button class="btn btn--red">remove client</button>
         </div>
     </div>
@@ -50,10 +50,10 @@
                     </td>
 
                     <td class="table__td">
-                        <a href="/009/clients-edit<?= $client->getId(); ?>" class="icon__link" id="table-icon-update">
+                        <a href="/009/clients-edit<?= $client->getId();?>" class="icon__link" id="table-icon-update">
                             <svg class="icon__svg"> <use xlink:href="./app/static/svg/icomoon.svg#icon-pencil-10"></use></svg>
                         </a>
-                        <a href="#" class="icon__link" id="table-icon-details">
+                        <a href="/009/clients-details<?= $client->getId();?>" class="icon__link" id="table-icon-details">
                             <svg class="icon__svg"> <use xlink:href="./app/static/svg/icomoon.svg#icon-view-12"></use></svg>
                         </a>
                         <a href="#" class="icon__link" id="table-icon-remove">

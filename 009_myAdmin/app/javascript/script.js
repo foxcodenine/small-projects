@@ -21,12 +21,59 @@ document.onreadystatechange = function () {                    // <- (A)
         scrollTable();
         myTippyFunction();
         closeImagesMenu();
-        myLoaderBtn();        
+        myLoaderBtn(); 
+        modal();
+
 
         // -------------------------------------------------------------        
     }
 }
 
+function modal () {
+
+    const sidemenu     = document.querySelector('#sidemenu');
+    const menubtn      = document.querySelector('.menu-btn');
+    const modal        = document.querySelector('.modal');
+    const modalBtns    = document.querySelectorAll('.modalBtn');
+    const modalContent = document.querySelector('.modal__content');
+
+
+    function modalOn() {
+        modalContent.style.opacity = 1;
+        modal.style['background-color'] = 'rgba(1,1,1,0.15)'.replace(/[^,]+(?=\))/, '0.15');
+
+        sidemenu.style['z-index'] = 0;
+        modal.style.display = 'grid';
+        menubtn.style['z-index'] = 0;
+    }
+
+    function modalOff() {        
+
+        modalContent.style.opacity = 0;
+        modal.style['background-color'] = 'transparent';
+
+        setTimeout(() => {
+            sidemenu.style['z-index'] = 100;
+            modal.style.display = 'none';
+            menubtn.style['z-index'] = 100;
+            
+        }, 400);
+
+    }
+    
+
+    modalBtns.forEach((btn) => {
+        btn.addEventListener('click', function() {
+            modalOn();
+        })
+    });
+
+    modal.addEventListener('click', (e) => {
+        if(! Boolean(e.target.closest(".modal__content"))) {
+            modalOff();
+        }
+    });
+}
 
 ////////////////////////////////////////////////////////////////////////
 

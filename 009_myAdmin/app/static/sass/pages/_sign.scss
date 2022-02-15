@@ -5,28 +5,14 @@
     min-height: 100vh;
     min-width: fit-content;
     min-height: 100%;
-    // background-image:   
-    //     linear-gradient( to right bottom,  rgba($col-white, .85),  rgba($col-white, .85)), 
-    //     linear-gradient( to right bottom,  rgba($col-blue, .3),  rgba($col-blue, .3)), 
-    //     url(../images/backgrounds/bg2.jpg);
 
     background-size: cover;
     background-position: center;
     padding: 5vw;
     padding: 7vw;
     
- /*
- $bp-largest:    1200;
-$bp-larg:       1000;
-$bp-medium:     800;
-$bp-small:      600;
-$bp-smaller:    500;
-$bp-smallest:   400;
- */
 
-    @include respond ($bp-smaller) {
-        padding: 2vw;
-    }
+    @include respond ($bp-smaller) { padding: 2vw; }
 
     --width-side-img: 30rem;
 

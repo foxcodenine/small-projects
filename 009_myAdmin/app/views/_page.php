@@ -60,9 +60,13 @@ require './app/views/include/header.php'; ?>
 
         case 'clients':
             $pagePath = './app/views/clients/viewClients.php';
+            break;   
+
+        case 'clients_details':
+            $pagePath = './app/views/clients/viewClientsDetails.php';
             break;            
 
-        case 'clients_add':
+        case 'clients_add_edit':
             $pagePath = './app/views/clients/viewClientsAddEdit.php';
             break;    
 

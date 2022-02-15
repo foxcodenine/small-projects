@@ -237,7 +237,7 @@ $router->match('GET|POST', '/clients-add|clients-edit(\d+)|clients-edit', functi
     }  
     // --- End post
 
-    $pageName = 'clients_add'; include './app/views/_page.php';
+    $pageName = 'clients_add_edit'; include './app/views/_page.php';
     unset($_SESSION['error']);
     unset($_SESSION['client']);
     exit;

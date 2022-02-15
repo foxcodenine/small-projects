@@ -21,4 +21,62 @@ $router->match('GET', '/clients', function() {
 
 ////////////////////////////////////////////////////////////////////////
 
+$router->match('GET', '/clients-details(\d+)', function($id=0) {
+
+    Client::updatedClientList();
+
+    $client = Client::$ClientList[$id] ?? null;
+
+    if(!isset($client)) MyUtilities::redirect('/009');
+
+    // -----------------------
+
+    $clientFullname = $client->getFirstname() . ' ' . $client->getLastname();
+
+    // -----------------------
+
+    $clientIdCard = $client->getIdCard();
+
+    // -----------------------
+
+    $clientEmail  = $client->getEmail()  ?: false;
+    $clientMobile = $client->getMobile() ?: false;
+    $clientPhone  = $client->getPhone () ?: false;
+
+    $clinetContact = ((bool) $clientEmail) + ((bool) $clientMobile) + ((bool) $clientPhone);
+
+    // -----------------------
+
+    $clientStrAddr = $client->getStrAddr() ? $client->getStrAddr() . ' &nbsp; &nbsp; ' : false;
+    $clientLocalityName = $client->getLocalityName() ? $client->getLocalityName() . ' &nbsp; &nbsp; ' : false;
+    $clientPostcode = $client->getPostcode() ? $client->getPostcode() . ' &nbsp; &nbsp; ' : false;
+    $clientCountryName = $client->getCountryName() ?: false;
+
+    $clientAddress = trim(
+        "$clientStrAddr $clientLocalityName ".
+        "$clientPostcode $clientCountryName"
+    );
+
+    $clientAddress = empty($clientAddress) ? false : $clientAddress;
+
+    // -----------------------
+
+    $clientCompany  = $client->getCompany () ?: false;
+
+    // -----------------------
+
+    $clinetInfo = $client->info('read');
+    $clinetInfo = empty($clinetInfo) ? false : $clinetInfo;
+
+
+    
+    $pageName = 'clients_details'; include './app/views/_page.php';
+    unset($_SESSION['error']);
+    unset($_SESSION['client']);
+    exit;
+
+});
+
+////////////////////////////////////////////////////////////////////////
+
 
