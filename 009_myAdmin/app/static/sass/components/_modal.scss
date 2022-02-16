@@ -1,7 +1,6 @@
 @use '../abstracts/' as *;
 
-.modal {
-        
+.modal {       
     
     position: fixed;
     top: 0;
@@ -17,30 +16,74 @@
     align-items: top;
     justify-items: center;
 
-    background-color: rgba($col-black, .1); 
-
     z-index: 101;
-    
 
-    // border: 2px dashed red;
     display: none;
 
     animation: fadeInAnimation ease-in .2s;
 	animation-iteration-count: 1;
-	animation-fill-mode: forwards;
-    
+	animation-fill-mode: forwards;    
     
     transition:  all .3s ease;
 
     &__content {
         background-color: $col-white;
-        width: 50rem;
-        height: 15rem;
+        min-width: 30em;
+        width: max-content;
+        height: min-content;
         border-radius: $border-radius;
         box-shadow: $shadow-3;  
         margin-top: 15%;
+
+        position: relative;
         
         transition:  all .3s ease;
         opacity: 1;
+        color: $col-text;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.5rem 2rem;
+
+    }
+
+    &__close {
+        cursor: pointer;
+
+        position: absolute;        
+        top: .8rem;
+        right: .6em;
+        z-index: 20;
+
+
+        width: 1.8rem;
+        height: 1.8rem;
+        transform: translate(1px , 0px);
+        fill: $col-text;
+        transition: all .1s ease;
+        &:hover {
+            fill: $col-red;
+        }       
+
+    }
+
+    &__title {
+        font-size: 2.3rem;
+        margin-bottom: .7rem;
+    }
+    &__question {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+    &__confirmation {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+
+        button {
+            min-width: 9rem !important;
+        }
     }
 }

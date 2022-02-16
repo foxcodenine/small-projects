@@ -6,11 +6,11 @@ use app\Model\DBConnect;
 
 ////////////////////////////////////////////////////////////////////////
 
-$router->match('GET', '/clients', function() {
+$router->match('GET|POST', '/clients', function() {
 
     Client::updatedClientList();
 
-    $clientList = Client::$ClientList;
+    $clientList = Client::getClientList();
     
     $pageName = 'clients'; include './app/views/_page.php';
     unset($_SESSION['error']);
@@ -25,7 +25,7 @@ $router->match('GET', '/clients-details(\d+)', function($id=0) {
 
     Client::updatedClientList();
 
-    $client = Client::$ClientList[$id] ?? null;
+    $client = Client::getClientList()[$id] ?? null;
 
     if(!isset($client)) MyUtilities::redirect('/009');
 
@@ -79,4 +79,14 @@ $router->match('GET', '/clients-details(\d+)', function($id=0) {
 
 ////////////////////////////////////////////////////////////////////////
 
+$router->match('GET|POST', '/clients-delete', function() {
 
+    Client::deleteClientsFromDB(...$_POST['clientsDeleteList']);
+    MyUtilities::redirect('/009/clients');
+
+});
+
+
+
+
+////////////////////////////////////////////////////////////////////////

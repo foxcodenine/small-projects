@@ -1,10 +1,17 @@
-OK 1. Set Clients detail page dynamicly
+OK 1. Clean js modal function
+OK 2. complete modal design and html
 
-2. 
-   
+OK 3. Create a client delete route
+OK 4. Pass data from modal form to delete router
 
 
-------------------------------------------------------------------------
+OK 5. add functionalit to delete button in clients list
+    a. make modal work 
+
+remove password stiky signup 
+optimize signing image
+
+-------------------------------------------`-----------------------------
 Y. demo delete time
 X. create a Deploy folder
     include vitual host

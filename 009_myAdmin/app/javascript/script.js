@@ -22,45 +22,91 @@ document.onreadystatechange = function () {                    // <- (A)
         myTippyFunction();
         closeImagesMenu();
         myLoaderBtn(); 
-        modal();
+        modalToggle();
+        clientsRemoveFromLink();
 
 
         // -------------------------------------------------------------        
     }
 }
 
-function modal () {
+function clientsRemoveFromLink () {
+    let clientsRemoveLinks = document.querySelectorAll('.client-remove-link');
+    let clientsCheckboxs   = document.querySelectorAll('.client-checkbox');
+    let modalQuestion      = document.querySelector('.modal-question-js');
+
+    clientsRemoveLinks.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+
+            for( let checkbox of clientsCheckboxs) checkbox.checked = false;
+        
+            let id = (e.target.closest('a').id).split('-').at(-1);
+            let checkbox = document.querySelector('#client-id-checkbox-' + id);
+            checkbox.checked = 'on';
+
+            modalQuestion.textContent = 'Are you sure you want to delete this Client?';        
+
+            document.querySelector('.modalBtn').click();
+            
+        });
+    });
+}
+
+
+
+function modalToggle () {
+
+    // ----- Elements
 
     const sidemenu     = document.querySelector('#sidemenu');
     const menubtn      = document.querySelector('.menu-btn');
     const modal        = document.querySelector('.modal');
     const modalBtns    = document.querySelectorAll('.modalBtn');
     const modalContent = document.querySelector('.modal__content');
+    const modalCancel = document.querySelector('.modal__cancel');
+    const modalClose = document.querySelector('.modal__close');
+    const closeElements = [modalCancel, modalClose];
+    let modalQuestion      = document.querySelector('.modal-question-js');
 
+    if (!modal) return;
+
+    // ----- Inner function to call in EventListeners
 
     function modalOn() {
+
+        // --- properties to Fade In when displaying modal
         modalContent.style.opacity = 1;
         modal.style['background-color'] = 'rgba(1,1,1,0.15)'.replace(/[^,]+(?=\))/, '0.15');
 
+        // --- Adjusting z-indexes
         sidemenu.style['z-index'] = 0;
-        modal.style.display = 'grid';
         menubtn.style['z-index'] = 0;
+        
+        // --- Displaying Modal
+        modal.style.display = 'grid';
     }
 
-    function modalOff() {        
 
+    function modalOff() {           
+       
+        
+
+        // --- properties to Fade Out before removing modal
         modalContent.style.opacity = 0;
         modal.style['background-color'] = 'transparent';
 
         setTimeout(() => {
-            sidemenu.style['z-index'] = 100;
+            // - Adjusting z-indexes
+            sidemenu.style['z-index'] = 101;
+            menubtn.style['z-index'] = 100;  
+            // - Removing Modal          
             modal.style.display = 'none';
-            menubtn.style['z-index'] = 100;
-            
+            modalQuestion.textContent = 'Are you sure you want to delete these Clients?';
         }, 400);
-
     }
-    
+
+
+    // ----- EventListeners
 
     modalBtns.forEach((btn) => {
         btn.addEventListener('click', function() {
@@ -73,6 +119,10 @@ function modal () {
             modalOff();
         }
     });
+
+    closeElements.forEach( (closeItem) => {
+        closeItem.addEventListener('click', modalOff);
+    })
 }
 
 ////////////////////////////////////////////////////////////////////////

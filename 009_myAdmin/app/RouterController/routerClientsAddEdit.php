@@ -35,8 +35,8 @@ $router->match('GET|POST', '/clients-add|clients-edit(\d+)|clients-edit', functi
             if (!Client::checkForClientList()) {
                 Client::updatedClientList();
             }
-            if (array_key_exists($id, Client::$ClientList ) && !isset($_SESSION['client']['id'])) {
-                $currentClient = Client::$ClientList[$id];
+            if (array_key_exists($id, Client::getClientList() ) && !isset($_SESSION['client']['id'])) {
+                $currentClient = Client::getClientList()[$id];
 
                 $_SESSION['client']['id']       = $currentClient->getId() ?? ''; 
                 $_SESSION['client']['title']    = $currentClient->getTitle() ?? '';        
@@ -53,8 +53,7 @@ $router->match('GET|POST', '/clients-add|clients-edit(\d+)|clients-edit', functi
                 $_SESSION['client']['postcode'] = $currentClient->getPostcode() ?? '';
 
                 $_SESSION['client']['infoClient'] = $currentClient->info('read');
-                // $_SESSION['client']['infoClient'] = $currentClient->getEmail() ?? '';
-
+     
             } else {
                 MyUtilities::redirect('/009');
                 exit();
@@ -217,7 +216,7 @@ $router->match('GET|POST', '/clients-add|clients-edit(\d+)|clients-edit', functi
                 $currentClient->setLocalityName($_SESSION['client']['locality']);
                 $currentClient->setCountryName($_SESSION['client']['country']);
 
-                $currentClient->update();
+                $currentClient->updateClientToDB();
                 $currentClient->info('update', $_SESSION['client']['infoClient']);
 
             }

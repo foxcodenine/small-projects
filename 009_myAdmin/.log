@@ -1,15 +1,1 @@
 
-[14-Feb-2022 17:47:37 Europe/Berlin] PHP Warning:  Undefined array key "currentUser" in /var/www/projects/009_myAdmin/app/Model/MyUtilities.php on line 45
-[14-Feb-2022 17:47:37 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getFirstUserName() on bool in /var/www/projects/009_myAdmin/app/Model/MyUtilities.php:47
-Stack trace:
-#0 /var/www/projects/009_myAdmin/app/views/_page.php(26): app\Model\MyUtilities::topBarUserFullnameRollIcon()
-#1 /var/www/projects/009_myAdmin/app/RouterController/routerBasic.php(10): include('...')
-#2 [internal function]: {closure}()
-#3 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#4 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#5 /var/www/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#6 /var/www/projects/009_myAdmin/app/RouterController/router.php(30): Bramus\Router\Router->run()
-#7 /var/www/projects/009_myAdmin/app/_app_.php(15): require('...')
-#8 /var/www/projects/009_myAdmin/index.php(2): require('...')
-#9 {main}
-  thrown in /var/www/projects/009_myAdmin/app/Model/MyUtilities.php on line 47

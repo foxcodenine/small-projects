@@ -99,11 +99,59 @@ class Client  implements JsonSerializable {
     }
 
 	// _________________________________________________________________
-	
-	public function update () {
+
+	public static function deleteClientsFromDB (...$clientIds) {
+
+		// Function is stutic to delete multiple client in one query
+
+		if (empty($clientIds)) return;
 
 		try {
 
+			// ----- Ceate SQL string
+
+			$sql_start = 'DELETE FROM Client WHERE';
+
+			$sql_array = array_map( function ($client_id) {
+				return " userID = :userID AND id =  :id{$client_id}";
+			}, $clientIds);
+
+			$sql_end = implode(' OR ', $sql_array);
+
+			$sql = $sql_start . $sql_end;
+
+			// ----- Get coon and prepare
+
+			$conn = DBConnect::getConn();
+			$stmt = $conn->prepare($sql);		
+
+			// ----- Bind data
+
+			$userID = MyUtilities::checkCookieAndReturnUser()->getId();
+			$stmt->bindValue(":userID", $userID);
+
+			foreach($clientIds as $client_id) {
+				$stmt->bindValue(":id{$client_id}", $client_id);
+			}
+
+			// ----- Execute and update clientsList
+
+			$stmt -> execute();	
+			self::updatedClientList();				
+
+		} catch (PDOException $e) {
+			$msg = "Error Client deleteClientsFromDB: <br>" . $e->getMessage();
+			error_log($msg);
+			die($msg);
+		} 
+	}
+
+	// _________________________________________________________________
+	
+	public function updateClientToDB () {
+
+		try {
+			// ---- updateing client in db
 			$conn = DBConnect::getConn();
 
 			$sql = 'UPDATE Client SET 
@@ -123,6 +171,9 @@ class Client  implements JsonSerializable {
 			
 			$stmt = $conn->prepare($sql);
 
+			$localityName = empty($this->getLocalityName()) ? null : $this->getLocalityName();
+			$countryName  = empty($this->getCountryName()) ? null :  $this->getCountryName();
+
 			$stmt -> bindValue(':id', 			$this->getId());
 			$stmt -> bindValue(':title', 		$this->getTitle());
 			$stmt -> bindValue(':firstname',	$this->getFirstname());
@@ -134,11 +185,14 @@ class Client  implements JsonSerializable {
 			$stmt -> bindValue(':mobile', 		$this->getMobile());
 			$stmt -> bindValue(':strAddr',		$this->getstrAddr());
 			$stmt -> bindValue(':postcode', 	$this->getPostcode());
-			$stmt -> bindValue(':localityName', $this->getLocalityName());
-			$stmt -> bindValue(':countryName', 	$this->getCountryName());
+			$stmt -> bindValue(':localityName', $localityName);
+			$stmt -> bindValue(':countryName', 	$countryName);
 
 			$stmt -> execute();
 
+
+			// ---- updateing clientList
+			if (!self::checkForClientList()) {self::updatedClientList();}
 			self::$ClientList[$this->getId()] = $this;
 
 
@@ -182,6 +236,12 @@ class Client  implements JsonSerializable {
 
 		$crud = strtolower($crud);
 
+		// if ($crud !== 'read') {
+		// 	echo $crud;
+		// 	exit();
+	
+		// }
+
 		if (!in_array($crud, ['read', 'create', 'update', 'delete'])) {
 			throw new Exception('Client Info: Not Valid CRUD option'); exit();
 		}
@@ -191,6 +251,13 @@ class Client  implements JsonSerializable {
 		} elseif ($crud === 'update' && !$this->infoInDb()) {
 			$crud = 'create';
 		}
+
+
+		// if ($crud !== 'read') {
+		// 	echo $crud;
+		// 	exit();
+	
+		// }
 
 		// _____________________________________________________________
 
@@ -213,9 +280,9 @@ class Client  implements JsonSerializable {
 				return html_entity_decode($result);
 			};
 
-			// ---------------------------------------------------------
-			
 
+
+			// ---------------------------------------------------------
 
 			switch ($crud) {
 				case 'create':
@@ -259,21 +326,18 @@ class Client  implements JsonSerializable {
 	public static function addToClientList($newClient) {			
 		
 		if (!self::checkForClientList()) {self::updatedClientList();}
-		// else {self::$ClientList->offsetSet($newClient, $newClient->getId());}	// NOTE:
-		else {self::$ClientList[$newClient->getId()] = $newClient;}	
+		self::$ClientList[$newClient->getId()] = $newClient;
 	}
 
 	// _________________________________________________________________
 	
 	public static function updatedClientList() {
-
 		
 		if (!isset($_SESSION['currentUser']) || empty($_SESSION['currentUser']))  {
 			MyUtilities::redirect('/009');	exit();
 		}
 		// _____________________________________
 
-		// self::$ClientList = new \SplObjectStorage(); 				// NOTE:
 		self::$ClientList = array();
 
 		$conn  = DBConnect::getConn();
@@ -296,8 +360,13 @@ class Client  implements JsonSerializable {
 				$c->mobile, $c->strAddr, $c->postcode, $c->localityName, $c->countryName, $c->userID
 			);
 
-			self::$ClientList[$client->getId()] = $client; 				// NOTE:
+			self::$ClientList[$client->getId()] = $client; 				
 		}
+	}
+
+	public static function getClientList () {
+		if (!self::checkForClientList()) {self::updatedClientList();}
+		return self::$ClientList;
 	}
 
 

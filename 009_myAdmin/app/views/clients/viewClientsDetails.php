@@ -85,8 +85,19 @@
 </section>
 
 <section class="modal">
-    <!-- <div class="modal__background"></div> -->
-    <div class="modal__content"></div>
-        
-    
+    <div class="modal__content">
+
+        <svg class="modal__close"><use href="./app/static/svg/icomoon.svg#icon-x-mark-thin"></use></svg>
+
+        <div class="modal__title">Delete Confermation </div>
+
+        <div class="modal__question">Are you sure you want to delete this Client?</div>
+
+        <form action="/009/clients-delete" class="modal__confirmation" method="POST">
+            <input type="hidden" name="clientsDeleteList[]" value="<?= $id ?>">
+            <button class="btn btn--light modal__cancel" type="button">cancel</button>
+            <button class="btn btn--red">Confirm</button>
+        </form>
+
+    </div>    
 </section>

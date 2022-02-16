@@ -22,11 +22,13 @@
     
     // -----------------------------------------------------------------
 
-    // echo MyCript::generateKey() . '<br>';
-    // $encript =  MyCript::encrypt($_ENV['EMAIL_HOST']);
+
+
+    // $encript =  MyCript::encrypt($_ENV['EMAIL_PASSWORD2']);
     // $decript =  MyCript::decrypt($encript);
     // echo $encript . '<br>';
-    // echo $decript . '<br>';
+    // echo $decript . '<br><br>';
+
 
     // -----------------------------------------------------------------
 

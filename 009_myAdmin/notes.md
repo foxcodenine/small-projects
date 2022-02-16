@@ -8,10 +8,15 @@ https://www.flaticon.com/search?word=eye&type=icon
 https://iconmonstr.com/ 
 https://iconmonstr.com/checkbox-3-svg/
 
+https://shortpixel.com/online-image-compression
+
 http://wallpaperswide.com/latest_wallpapers.html
 
 
 https://github.com/ckeditor/ckeditor4
+
+https://computingforgeeks.com/install-and-use-firewalld-on-ubuntu/
+https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-centos-7
 
 ## ------ Ideas --------------------------------------------------------
 

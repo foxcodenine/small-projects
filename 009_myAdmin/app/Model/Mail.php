@@ -75,10 +75,18 @@ class Mail {
         try {
             
             $mail = new PHPMailer(true);
-            
+                       
             $host = MyCript::decrypt($_ENV['EMAIL_HOST']);
             $username = MyCript::decrypt($_ENV['EMAIL_USERNAME']);
             $password = MyCript::decrypt($_ENV['EMAIL_PASSWORD']);
+            $port = $_ENV['EMAIL_PORT'];
+
+            if ($_ENV['EMAIL_TYPE'] === 'NR') {
+                $host = MyCript::decrypt($_ENV['EMAIL_HOST2']);
+                $username = MyCript::decrypt($_ENV['EMAIL_USERNAME2']);
+                $password = MyCript::decrypt($_ENV['EMAIL_PASSWORD2']);
+                $port = $_ENV['EMAIL_PORT2'];
+            }
             
             
             $mail->isSMTP();                                            
@@ -87,7 +95,7 @@ class Mail {
             $mail->Username   = $username;           
             $mail->Password   = $password;                              
             $mail->SMTPSecure = 'ssl';         
-            $mail->Port       = 465; 
+            $mail->Port       = $port; 
 
             self::$mail = $mail;
 

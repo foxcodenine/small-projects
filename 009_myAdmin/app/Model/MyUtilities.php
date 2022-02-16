@@ -293,8 +293,9 @@ class MyUtilities {
         // --- fetch user from database ---------
 
         if ($cookieData) {            
-            $userId = filter_var(json_decode($cookieData)[0], FILTER_SANITIZE_STRING);
-            $userToken = filter_var(json_decode($cookieData)[1], FILTER_SANITIZE_STRING);
+
+            $userId = htmlspecialchars(json_decode($cookieData)[0]);
+            $userToken = htmlspecialchars(json_decode($cookieData)[1]);
 
             $currentUser = User::getUserById_Email($userId) ?? null;   
         }
@@ -307,6 +308,8 @@ class MyUtilities {
             return $currentUser;
         } 
 
+        // --- If no cookie or cookie data does not match db unset curentUser
+
         unset ($_SESSION['currentUser']);
         return false;
     }
@@ -315,26 +318,28 @@ class MyUtilities {
     //--- User --- User --- User --- User --- User --- User --- User --- User --
     //--------------------------------------------------------------------------
 
-    public static function currentUserInSession() {
-        if (isset($_SESSION['currentUser'])) {
+    // public static function currentUserInSession() {
+    //     if (isset($_SESSION['currentUser'])) {
 
-            session_write_close();        
-            header('Location: ' . '/009');
-            exit();
-        }
-    }
+    //         session_write_close();        
+    //         header('Location: ' . '/009');
+    //         exit();
+    //     }
+    // }
 
-    // _________________________________________________________________
+    // // _________________________________________________________________
 
-    public static function currentUserNotInSession() {
-        if (isset($_SESSION['currentUser'])) {
+    // public static function currentUserNotInSession() {
+    //     if (isset($_SESSION['currentUser'])) {
             
-            session_write_close();        
-            header('Location: ' . '/009/sign-in');
-            exit();
-        }
-    }
+    //         session_write_close();        
+    //         header('Location: ' . '/009/sign-in');
+    //         exit();
+    //     }
+    // }
     // _________________________________________________________________
+
+    
 
     public static function setUserInSession($currentUser=false) {
 
@@ -351,14 +356,12 @@ class MyUtilities {
 
     public static function userInSessionPage() {
         if (!isset($_SESSION['currentUser'])) {
-
             self::redirect('/009/sign-in');
         } 
     }
 
     public static function userInSessionSigning() {
         if (isset($_SESSION['currentUser'])) {
-
             self::redirect('/009');
         }
     }

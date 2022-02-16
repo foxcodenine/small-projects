@@ -200,11 +200,12 @@ class User {
             $schema     = $_ENV['DB_SCHEMA_DEV'];
             $user       = MyCript::decrypt($_ENV['DB_USERNAME_DEV']);
             $password   = MyCript::decrypt($_ENV['DB_PASSWORD_DEV']);
-            $time       = $_ENV['REMOVE_UNACTIVATED_TIME'];
+            
         }
         
         $userId = $this->id;
         $passHash = $this->passHash;
+        $time       = $_ENV['REMOVE_UNACTIVATED_TIME'];
         
         $command = './app/bash/removeNonactivatedUser.sh' . " {$user} {$password} {$schema} {$userId} " . "'\"" . $passHash . "\"'" . " $time";
 

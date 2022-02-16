@@ -1,12 +1,12 @@
 <section class="clients">
-<form action="#"  class="clients__form">
+<form action="/009/clients-delete"  class="clients__form" method="POST">
 
     <div class="top-pannel">
         <div class="top-pannel__date"><b>CLIENTS</b> List</div>
             
         <div class="top-pannel__buttons">
             <a href="/009/clients-add" class="btn btn--light">add new client</a>
-            <button class="btn btn--red">remove client</button>
+            <button class="btn btn--red modalBtn" type="button">remove client</button>
         </div>
     </div>
     
@@ -43,7 +43,8 @@
 
                     <td class="table__td">
                     <label class="checkbox-2" >
-                        <input type="checkbox" class="checkbox-2__input">
+                    <input type="hidden">
+                        <input type="checkbox" class="checkbox-2__input client-checkbox"  name="clientsDeleteList[]" value="<?= $client->getId()?>" id="client-id-checkbox-<?= $client->getId(); ?>">
                         <svg class="checkbox-2__icon checkbox-2__icon--unchecked"><use href="./app/static/svg/icomoon.svg#icon-checkbox-6"></use></svg>
                         <svg class="checkbox-2__icon checkbox-2__icon--checked"><use href="./app/static/svg/icomoon.svg#icon-checkbox-3"></use></svg>
                     </label>
@@ -56,8 +57,8 @@
                         <a href="/009/clients-details<?= $client->getId();?>" class="icon__link" id="table-icon-details">
                             <svg class="icon__svg"> <use xlink:href="./app/static/svg/icomoon.svg#icon-view-12"></use></svg>
                         </a>
-                        <a href="#" class="icon__link" id="table-icon-remove">
-                            <svg class="icon__svg"> <use xlink:href="./app/static/svg/icomoon.svg#icon-minus-4"></use></svg>
+                        <a  class="icon__link client-remove-link" id="client-id-link-<?= $client->getId(); ?>">
+                            <svg class="icon__svg "> <use xlink:href="./app/static/svg/icomoon.svg#icon-minus-4" ></use></svg>
                         </a>
                     </td>
 
@@ -83,7 +84,28 @@
         </table>
     </div>
 
-</form>
+
+
+<section class="modal">
+    <div class="modal__content">
+
+        <svg class="modal__close"><use href="./app/static/svg/icomoon.svg#icon-x-mark-thin"></use></svg>
+
+        <div class="modal__title">Delete Confermation </div>
+
+        <!-- <div class="modal__question">Are you sure you want to delete this Client?</div> -->
+        <div class="modal__question modal-question-js">Are you sure you want to delete these Clients?</div>
+
+        <div  class="modal__confirmation" method="POST">
+        
+            
+            <button class="btn btn--light modal__cancel" type="button">cancel</button>
+            <button class="btn btn--red">Confirm</button>
+        </div>
+
+    </div>    
 </section>
 
 
+</form>
+</section>

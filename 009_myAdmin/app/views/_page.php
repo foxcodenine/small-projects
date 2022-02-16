@@ -33,7 +33,6 @@ require './app/views/include/header.php'; ?>
     } else {
         echo '<main>';
         MyUtilities::checkCookieAndReturnUser();
-        MyUtilities::userInSessionSigning();
     }    
     ?>      
 
