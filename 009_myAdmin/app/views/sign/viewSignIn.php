@@ -49,8 +49,8 @@
 
         <div class="sign__text">
             
-            <p> <span>Test app, create <a href="/009/sign-up">Demo Account</a> ?</span> 
-                <span>&nbsp;Just<a href="#"> Visit</a>.</span>
+            <p> <span>Test app, create Demo Account?<a href="/009/sign-up"> Sign-up</a>.</span> 
+                <!-- <span>&nbsp;Just<a href="#"> Visit</a>.</span> -->
             </p>
         
         </div>           

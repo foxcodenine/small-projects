@@ -100,7 +100,7 @@ $router->match('GET|POST', '/sign-up', function() {
         if (!isset($_SESSION['error']) || empty($_SESSION['error'])) {     
 
 
-            $_SESSION['message']['content'] = "An email has been sent to {$email}, to activate your account.";
+            $_SESSION['message']['content'] = "An email has been sent to {$email} to activate your account.";
             $_SESSION['message']['type'] = 'success';
     
             $newUser = new User( email:$email, passHash:$password, 
@@ -111,10 +111,11 @@ $router->match('GET|POST', '/sign-up', function() {
             $emailMail->recipient($email, "$firstname $lastname");
             $emailMail->contentAccountActivation($newUser);
             $emailMail->send();
-            usleep(333333);
-            $emailMail->send();
+            // usleep(333333);
+            // $emailMail->send();
     
             $newUser->removeNonactivatedUser();  
+            unset($_SESSION['sign-up']);
         }
 
         // _____________________________________________________________

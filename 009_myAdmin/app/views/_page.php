@@ -70,11 +70,11 @@ require './app/views/include/header.php'; ?>
             break;    
 
         case 'sign_up':
-            $pagePath = './app/views/sign/sign_up.php';
+            $pagePath = './app/views/sign/viewSignUp.php';
             break;  
 
         case 'sign_in':
-            $pagePath = './app/views/sign/sign_in.php';
+            $pagePath = './app/views/sign/viewSignIn.php';
             break;            
     }
     ?>

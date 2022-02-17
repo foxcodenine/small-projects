@@ -24,6 +24,8 @@ document.onreadystatechange = function () {                    // <- (A)
         myLoaderBtn(); 
         modalToggle();
         clientsRemoveFromLink();
+        sortTables();
+        sortTableAddArrow();
 
 
         // -------------------------------------------------------------        
@@ -52,7 +54,65 @@ function clientsRemoveFromLink () {
     });
 }
 
+//----------------------------------------------------------------------
 
+function sortTables() {
+    const tableHeadersAnchers = document.querySelectorAll('.table-sort-js');
+    if (tableHeadersAnchers.length < 2) return;
+
+
+    tableHeadersAnchers.forEach(ancher => {        
+        
+        ancher.addEventListener('click', (e)=>{
+            // e.preventDefault()
+      
+            let link = ancher.href;
+
+            console.log(link)
+
+            if (link.endsWith('ASC') && window.location.search.endsWith('ASC') ) {
+                link = link.replace('ASC', 'DESC');  
+                                            
+            } else {
+                link = link.replace('DESC', 'ASC');                
+            }
+            ancher.href = link;              
+
+        })
+    });
+}
+
+
+function sortTableAddArrow() {
+    
+    let params;
+    
+    if (window.location.search) {
+        params = window.location.search;
+    }
+
+    if (!params) return;
+    
+    let [sort, direction] = params.split('&');
+    sort = sort.split('=')[1]
+    direction = direction.split('=')[1]
+
+    let element = document.querySelector(`#${sort}`)
+
+
+    if(element) {
+    
+        if (direction == 'DESC') {
+            element.innerHTML = element.textContent + ' &utrif;';
+
+        } else {
+            element.innerHTML = element.textContent + ' &dtrif;';
+        }
+    }
+}
+
+
+//----------------------------------------------------------------------
 
 function modalToggle () {
 
@@ -87,8 +147,7 @@ function modalToggle () {
     }
 
 
-    function modalOff() {           
-       
+    function modalOff() {              
         
 
         // --- properties to Fade Out before removing modal

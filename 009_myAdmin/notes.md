@@ -7,16 +7,26 @@ https://www.flaticon.com/search?word=eye&type=icon
 
 https://iconmonstr.com/ 
 https://iconmonstr.com/checkbox-3-svg/
+https://dev.w3.org/html5/html-author/charref
 
 https://shortpixel.com/online-image-compression
-
-http://wallpaperswide.com/latest_wallpapers.html
-
 
 https://github.com/ckeditor/ckeditor4
 
 https://computingforgeeks.com/install-and-use-firewalld-on-ubuntu/
 https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-centos-7
+
+## ------ Hosting and deploying ----------------------------------------
+
+https
+https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-ubuntu-20-04
+
+vh_redirection
+https://linuxize.com/post/redirect-http-to-https-in-apache/
+
+DNS
+https://www.namecheap.com/support/knowledgebase/article.aspx/319/2237/how-can-i-set-up-an-a-address-record-for-my-domain/
+
 
 ## ------ Ideas --------------------------------------------------------
 

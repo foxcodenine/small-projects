@@ -1,15 +1,17 @@
-OK 1. Clean js modal function
-OK 2. complete modal design and html
 
-OK 3. Create a client delete route
-OK 4. Pass data from modal form to delete router
+OK 1. remove password stiky signup 
 
+OK 2. optimize signing image
 
-OK 5. add functionalit to delete button in clients list
-    a. make modal work 
+OK 3. remove just vist link
 
-remove password stiky signup 
-optimize signing image
+4. rename views to camel case
+
+OK 5. create sort functionality
+
+OK 6. add soting arrow
+
+6. filetr get in client list sorting
 
 -------------------------------------------`-----------------------------
 Y. demo delete time
@@ -18,8 +20,7 @@ X. create a Deploy folder
 
 ------------------------------------------------------------------------
 
-1. Add media querys to signing pages.
-2. Make backgroud image and signing image size responsive according display width
+
 3. Update message colors to match that of the signing image
 4. Add time and date to email body
 5. update email body

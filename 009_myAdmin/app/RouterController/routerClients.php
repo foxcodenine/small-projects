@@ -11,8 +11,35 @@ $router->match('GET|POST', '/clients', function() {
     Client::updatedClientList();
 
     $clientList = Client::getClientList();
+
+
+    // ____________________________________________
+
+
+    function cmp($a, $b) {
+
+        $method = $_GET['sortBy'] ?? 'getId';
+        $sortOrder = $_GET['sortOrder'] ?? 1;
+     
+      
+        if ($a->$method() == $b->$method()) { 
+
+            return 0;
+        } else if ($sortOrder === 'ASC') {
+
+            return ($a->$method() > $b->$method()) ? -1 : 1;
+
+        } else {
+            return ($a->$method() < $b->$method()) ? -1 : 1;
+        }              
+    }
+
+    usort($clientList, "cmp");
+
+    // ____________________________________________
     
     $pageName = 'clients'; include './app/views/_page.php';
+    
     unset($_SESSION['error']);
     unset($_SESSION['client']);
     exit;

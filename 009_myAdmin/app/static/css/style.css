@@ -732,6 +732,13 @@ main.pages {
   font-size: 1.2rem;
   text-align: left;
 }
+.table__th a:link, .table__th a:visited {
+  color: currentColor;
+  text-decoration: none;
+}
+.table__th a:link:hover, .table__th a:visited:hover {
+  color: #E74C3C;
+}
 .table__tbody {
   color: currentColor;
   padding-top: 1rem !important;
