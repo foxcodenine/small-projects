@@ -21,8 +21,8 @@
     // echo "My cat is called {$wisky->name} and she is {$wisky->age} years old. <br>";  
     
     // -----------------------------------------------------------------
-
-
+    $str = '<title>Example document: XSS Doc</title>';
+    echo MyCript::stringSanitize($str);
 
     // $encript =  MyCript::encrypt($_ENV['EMAIL_PASSWORD2']);
     // $decript =  MyCript::decrypt($encript);

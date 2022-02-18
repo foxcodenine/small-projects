@@ -63,7 +63,7 @@ class MyUtilities {
 
     public static function fetchSignImage() {
 
-        $num = rand(0, 6);
+        $num = rand(0, 15);
 
         return "./app/static/images/signing/img-sign-{$num}.jpg";
     }
@@ -294,8 +294,8 @@ class MyUtilities {
 
         if ($cookieData) {            
 
-            $userId = htmlspecialchars(json_decode($cookieData)[0]);
-            $userToken = htmlspecialchars(json_decode($cookieData)[1]);
+            $userId = MyCript::stringSanitize(json_decode($cookieData)[0]);
+            $userToken = MyCript::stringSanitize(json_decode($cookieData)[1]);
 
             $currentUser = User::getUserById_Email($userId) ?? null;   
         }

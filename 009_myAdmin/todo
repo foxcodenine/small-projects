@@ -1,19 +1,20 @@
 
-OK 1. remove password stiky signup 
+OK 1. rename views to camel case
 
-OK 2. optimize signing image
+OK 2. filetr get in client list sorting
 
-OK 3. remove just vist link
+A. Start working on Add project form
+    OK 1. Clean form errors
 
-4. rename views to camel case
+OK B. Create project table
 
-OK 5. create sort functionality
+C. Create Project Class
+    OK 1. Add properties
+    OK 2. addProjectToDB
+        a. test class
+    3. Add __construct
 
-OK 6. add soting arrow
-
-6. filetr get in client list sorting
-
--------------------------------------------`-----------------------------
+------------------------------------------------------------------------
 Y. demo delete time
 X. create a Deploy folder
     include vitual host

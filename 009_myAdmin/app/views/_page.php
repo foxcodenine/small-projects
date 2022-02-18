@@ -8,7 +8,7 @@
 use app\Model\MyUtilities;
 
 
-require './app/views/include/header.php'; ?>
+require './app/views/include/viewHeader.php'; ?>
 
 <!-- --- Body ------------------------------------------------------ -->
 
@@ -26,7 +26,7 @@ require './app/views/include/header.php'; ?>
         [$topbarFullname, $topbarRoll, $topbarIcon] =  MyUtilities::topBarUserFullnameRollIcon();
 
         // Inserting top and side bars
-        require './app/views/include/body_upper.php';
+        require './app/views/include/viewBodyUpper.php';
         echo '<main  class="pages pageTransition">';
         
         
@@ -42,19 +42,19 @@ require './app/views/include/header.php'; ?>
     switch ($pageName) {
 
         case 'dashboard':   
-            $pagePath = './app/views/dashboard.php';
+            $pagePath = './app/views/viewDashboard.php';
             break;  
 
         case 'projects':
-            $pagePath = './app/views/projects/projects.php';
+            $pagePath = './app/views/projects/viewProjects.php';
             break;  
 
         case 'pojects_add':
-            $pagePath = './app/views/projects/projects_add.php';
+            $pagePath = './app/views/projects/viewProjectsAddEdit.php';
             break;  
 
         case 'images':
-            $pagePath = './app/views/projects/images.php';
+            $pagePath = './app/views/projects/viewImages.php';
             break;            
 
         case 'clients':
@@ -86,7 +86,7 @@ require './app/views/include/header.php'; ?>
 
 </div>
 
-    <?php require './app/views/include/body_scripts.php'; ?>
+    <?php require './app/views/include/viewBodyScripts.php'; ?>
 
 </body>
 </html>

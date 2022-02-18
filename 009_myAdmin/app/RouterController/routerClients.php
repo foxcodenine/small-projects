@@ -3,6 +3,7 @@
 use app\Model\MyUtilities;
 use app\Model\Client;
 use app\Model\DBConnect;
+use app\Model\MyCript;
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -18,8 +19,8 @@ $router->match('GET|POST', '/clients', function() {
 
     function cmp($a, $b) {
 
-        $method = $_GET['sortBy'] ?? 'getId';
-        $sortOrder = $_GET['sortOrder'] ?? 1;
+        $method    = MyCript::stringSanitize($_GET['sortBy'] ?? 'getId');
+        $sortOrder = MyCript::stringSanitize($_GET['sortOrder'] ?? 1);
      
       
         if ($a->$method() == $b->$method()) { 

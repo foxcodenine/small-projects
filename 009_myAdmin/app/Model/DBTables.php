@@ -50,6 +50,70 @@ class DBTables {
 
     // -----------------------------------------------------------------
 
+    const Stage = 'CREATE TABLE IF NOT EXISTS Stage (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        sName VARCHAR(100) NOT NULL,
+
+        userID INT NOT NULL ,
+        CONSTRAINT User_Stage
+            FOREIGN KEY (userID) REFERENCES User (id)
+            ON DELETE CASCADE,
+        
+        UNIQUE KEY unique_sName_userID (sName, userID)        
+    )ENGINE=InnoDB;';
+
+    // -----------------------------------------------------------------
+
+    const Category = 'CREATE TABLE IF NOT EXISTS Category (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        yName VARCHAR(100) NOT NULL,
+
+        userID INT NOT NULL ,
+        CONSTRAINT User_Category
+            FOREIGN KEY (userID) REFERENCES User (id)
+            ON DELETE CASCADE,
+        
+        UNIQUE KEY unique_yName_userID (yName, userID)        
+    )ENGINE=InnoDB;';
+
+    // -----------------------------------------------------------------
+
+    const Poject = 'CREATE TABLE IF NOT EXISTS Project (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        projectname VARCHAR(100) NOT NULL,
+        strAddr VARCHAR(255),
+        projectNo VARCHAR(50),
+        paNo VARCHAR(50),
+        projectDate DATETIME,
+
+        localityName VARCHAR(100) ,
+        CONSTRAINT Locality_Poject
+            FOREIGN KEY (localityName) REFERENCES Locality (lName)
+            ON DELETE SET NULL,
+
+        stageName VARCHAR(100) ,
+        CONSTRAINT Stage_Poject
+            FOREIGN KEY (stageName) REFERENCES Stage (sName)
+            ON DELETE SET NULL,
+
+        categoryName VARCHAR(100) ,
+        CONSTRAINT Category_Poject
+            FOREIGN KEY (categoryName) REFERENCES Category (yName)
+            ON DELETE SET NULL,
+
+        clientId INT,
+        CONSTRAINT Stage_Client
+            FOREIGN KEY (clientId) REFERENCES Client (id)
+            ON DELETE SET NULL,
+
+
+        userID INT NOT NULL ,
+        CONSTRAINT User_Poject
+            FOREIGN KEY (userID) REFERENCES User (id)
+            ON DELETE CASCADE
+    )';
+
+    // -----------------------------------------------------------------
 
     const Client = ' CREATE TABLE IF NOT EXISTS Client (
         id INT PRIMARY KEY AUTO_INCREMENT,

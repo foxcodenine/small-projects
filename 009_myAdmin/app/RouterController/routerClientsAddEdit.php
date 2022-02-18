@@ -3,13 +3,13 @@
 use app\Model\MyUtilities;
 use app\Model\Client;
 use app\Model\DBConnect;
-
+use app\Model\MyCript;
 
 ////////////////////////////////////////////////////////////////////////
 
 $router->match('GET|POST', '/clients-add|clients-edit(\d+)|clients-edit', function($id=null) {
 
-    
+    // -----------------------------------------------------------------
     $arrURL = explode('/', $_SERVER['REQUEST_URI']);
     $endpointURL = end($arrURL);
 
@@ -89,23 +89,23 @@ $router->match('GET|POST', '/clients-add|clients-edit(\d+)|clients-edit', functi
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
-        $_SESSION['client']['title']        = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
-        $_SESSION['client']['firstname']    = ucwords(strtolower(filter_input(INPUT_POST, 'fistname', FILTER_SANITIZE_STRING)));
-        $_SESSION['client']['lastname']     = ucwords(strtolower(filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_STRING)));
-        $_SESSION['client']['idCard']       = strtolower(filter_input(INPUT_POST, 'idCard', FILTER_SANITIZE_STRING));
-        $_SESSION['client']['company']      = (filter_input(INPUT_POST, 'company', FILTER_SANITIZE_STRING));
+        $_SESSION['client']['title']        = MyCript::stringSanitize($_POST['title']);
+        $_SESSION['client']['firstname']    = ucwords(strtolower( MyCript::stringSanitize($_POST['firstname'])));
+        $_SESSION['client']['lastname']     = ucwords(strtolower( MyCript::stringSanitize($_POST['lastname'])));
+        $_SESSION['client']['idCard']       = strtolower(MyCript::stringSanitize($_POST['idCard']));
+        $_SESSION['client']['company']      = MyCript::stringSanitize($_POST['company']);
         $_SESSION['client']['email']        = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-        $_SESSION['client']['phone']        = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING);
-        $_SESSION['client']['mobile']       = filter_input(INPUT_POST, 'mobile', FILTER_SANITIZE_STRING);
-        $_SESSION['client']['strAddr']      = filter_input(INPUT_POST, 'strAddr', FILTER_SANITIZE_STRING);
-        $_SESSION['client']['locality']     = ucwords(strtolower(trim(filter_input(INPUT_POST, 'locality', FILTER_SANITIZE_STRING))));
-        $_SESSION['client']['country']      = ucwords(strtolower(trim(filter_input(INPUT_POST, 'country', FILTER_SANITIZE_STRING))));
-        $_SESSION['client']['postcode']     = strtoupper(filter_input(INPUT_POST, 'postcode', FILTER_SANITIZE_STRING));
+        $_SESSION['client']['phone']        = MyCript::stringSanitize($_POST['phone']);
+        $_SESSION['client']['mobile']       = MyCript::stringSanitize($_POST['mobile']);
+        $_SESSION['client']['strAddr']      = MyCript::stringSanitize($_POST['strAddr']);
+        $_SESSION['client']['locality']     = ucwords(strtolower(trim(MyCript::stringSanitize($_POST['locality']))));
+        $_SESSION['client']['country']      = ucwords(strtolower(trim(MyCript::stringSanitize($_POST['country']))));
+        $_SESSION['client']['postcode']     = strtoupper(MyCript::stringSanitize($_POST['postcode']));
         $_SESSION['client']['infoClient']   = trim(htmlspecialchars($_POST['infoClient']));
 
-        
 
         unset($_POST);
+
 
     
         // --- Validating fields
@@ -200,7 +200,7 @@ $router->match('GET|POST', '/clients-add|clients-edit(\d+)|clients-edit', functi
                 }
             }
 
-            //NOTE: if clients-edit
+            // If clients-edit
             if ($endpointURL === 'clients-edit') {
 
                 $currentClient->setTitle($_SESSION['client']['title']);

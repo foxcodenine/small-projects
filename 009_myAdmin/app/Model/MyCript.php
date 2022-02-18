@@ -60,5 +60,24 @@ class MyCript {
     public static function passVerify ($hash, $password) {
         return sodium_crypto_pwhash_str_verify($hash, $password);
     }
+
+
+	
+    public static function removeSpecialChar($value){
+        $result  = preg_replace('/[^a-zA-Z0-9_ -]/s','',$value);
+        
+        return $result;
+        }
+
+    public static function stringSanitize ($str) {
+        $str = strip_tags($str);
+        $str = self::removeSpecialChar($str);
+        $str = htmlspecialchars($str);
+        $str = addslashes($str);
+        $str = trim($str);
+        return $str;
+    }
 }
+
+    
 ?>
