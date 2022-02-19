@@ -9,10 +9,13 @@ use app\Model\MyCript;
 
 $router->match('GET|POST', '/clients-add|clients-edit(\d+)|clients-edit', function($id=null) {
 
-    // -----------------------------------------------------------------
+
+    // ----- Get url endpoint
+
     $arrURL = explode('/', $_SERVER['REQUEST_URI']);
     $endpointURL = end($arrURL);
 
+    // -----------------------------------------------------------------
 
     switch ($endpointURL) {
         // Check if ADD or EDIT.
@@ -62,7 +65,7 @@ $router->match('GET|POST', '/clients-add|clients-edit(\d+)|clients-edit', functi
 
     // _________________________________________________________________
 
-    // --- setting password & error message
+    // --- setting error messages
     $errorTitle     = $_SESSION['error']['title'] ?? '&nbsp;';
     $errorFirstname = $_SESSION['error']['firstname'] ?? '&nbsp;';
     $errorLastname  = $_SESSION['error']['lastname'] ?? '&nbsp;'; 
@@ -77,7 +80,7 @@ $router->match('GET|POST', '/clients-add|clients-edit(\d+)|clients-edit', functi
     $errorPostcode  = $_SESSION['error']['postcode'] ?? '&nbsp;'; 
     $errorInfoClient  = $_SESSION['error']['infoClient'] ?? ''; 
     
-    // --- default select option
+    // --- Set select option 
     $title = $_SESSION['client']['title'] ?? ''; 
   
     $listLocality = MyUtilities::fetchOptionsFromDB('locality');
@@ -98,8 +101,8 @@ $router->match('GET|POST', '/clients-add|clients-edit(\d+)|clients-edit', functi
         $_SESSION['client']['phone']        = MyCript::stringSanitize($_POST['phone']);
         $_SESSION['client']['mobile']       = MyCript::stringSanitize($_POST['mobile']);
         $_SESSION['client']['strAddr']      = MyCript::stringSanitize($_POST['strAddr']);
-        $_SESSION['client']['locality']     = ucwords(strtolower(trim(MyCript::stringSanitize($_POST['locality']))));
-        $_SESSION['client']['country']      = ucwords(strtolower(trim(MyCript::stringSanitize($_POST['country']))));
+        $_SESSION['client']['locality']     = ucwords(strtolower(MyCript::stringSanitize($_POST['locality'])));
+        $_SESSION['client']['country']      = ucwords(strtolower(MyCript::stringSanitize($_POST['country'])));
         $_SESSION['client']['postcode']     = strtoupper(MyCript::stringSanitize($_POST['postcode']));
         $_SESSION['client']['infoClient']   = trim(htmlspecialchars($_POST['infoClient']));
 
@@ -154,10 +157,11 @@ $router->match('GET|POST', '/clients-add|clients-edit(\d+)|clients-edit', functi
         }
 
 
-        // --- Createing New Client
+        // ----- if NO error
 
         if (!isset($_SESSION['error']) || empty($_SESSION['error'])) {
             
+            // --- Check if locality and country are in db
 
             $location_in_db = empty($_SESSION['client']['locality']) ?: MyUtilities::localityInDB($_SESSION['client']['locality']);
             $country_in_db  = empty($_SESSION['client']['country']) ?: MyUtilities::countryInDB($_SESSION['client']['country']);
@@ -171,6 +175,8 @@ $router->match('GET|POST', '/clients-add|clients-edit(\d+)|clients-edit', functi
             if (!$location_in_db) {
                 MyUtilities::insertOptionToDB('locality', $_SESSION['client']['locality']);
             }
+
+            // --- Createing New Client
 
             if ($endpointURL === 'clients-add') {
 
@@ -200,7 +206,7 @@ $router->match('GET|POST', '/clients-add|clients-edit(\d+)|clients-edit', functi
                 }
             }
 
-            // If clients-edit
+            // --- Edit clients
             if ($endpointURL === 'clients-edit') {
 
                 $currentClient->setTitle($_SESSION['client']['title']);

@@ -64,7 +64,7 @@ class MyCript {
 
 	
     public static function removeSpecialChar($value){
-        $result  = preg_replace('/[^a-zA-Z0-9_ -]/s','',$value);
+        $result  = preg_replace('/[^a-zA-Z0-9_ -@\'".,]/s','',$value);
         
         return $result;
         }

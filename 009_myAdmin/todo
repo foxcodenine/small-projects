@@ -1,18 +1,34 @@
 
-OK 1. rename views to camel case
-
-OK 2. filetr get in client list sorting
-
 A. Start working on Add project form
     OK 1. Clean form errors
+    OK 2. fetch data from form
+    OK 3. add category and stage db
+    4. display clients category and stage list
+        a. client
+            i. create a method to create str for option
+        b. category
+        c. stage
 
-OK B. Create project table
 
-C. Create Project Class
+
+B. Create Project Class
     OK 1. Add properties
     OK 2. addProjectToDB
-        a. test class
-    3. Add __construct
+    OK 3. Add __construct
+    4. Test Class
+
+OK C. Sort option and datalis alphabeticaly
+
+D. Create fetch functions
+    OK 1. Stage
+    OK 2. Category
+    OK 2. Clients
+
+E. Add add json inteface to project  and check client json
+
+F. Use MyUtilities::optionInDB method 
+   in Clients and remove redundant methods from MyUtilities
+
 
 ------------------------------------------------------------------------
 Y. demo delete time

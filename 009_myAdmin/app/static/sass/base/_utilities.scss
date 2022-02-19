@@ -35,29 +35,31 @@
 .message {
 
     animation: fase-in .2s ease;
+    text-shadow: 2px 2px 2px white;
+    
     
     &__danger {
-        color: #a24445 !important;
-        background-color: #f2dedf !important;
+        // color: #a24445 !important;
+        background-color: #f8e9ea !important;
     }    
     
     &__success {
-        color: #44733b !important;
-        background-color: #d4edda !important;        
+        // color: #44733b !important;
+        background-color: #e6f6e9 !important;        
     }
     
     &__primary {
-        color: #2e6e8a !important;
-        background-color: #d9edf6 !important;        
+        // color: #2e6e8a !important;
+        background-color: #e7f4fa !important;       
     }
     
     &__warning {
-        color: #876935 !important;
+        // color: #876935 !important;
         background-color: #fdf8e4 !important;        
     }
     
     &__none {
-        color: transparent !important;
+        // color: transparent !important;
         background-color: transparent!important;
     }
 }

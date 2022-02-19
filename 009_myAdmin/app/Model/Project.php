@@ -22,8 +22,36 @@ class Project {
 
 	private static $ProjectList = null;
 
+	
+
 
     // _________________________________________________________________
+
+	public function __construct( $projectname, 
+		$id=null, $strAddr=null, $projectNo=null, $paNo=null, $projectDate=null, 
+		$localityName=null, $stageName=null, $categoryName=null, $clientId=null, 
+		$userID=null
+	) {
+		$this->setId($id); 
+		$this->setProjectname($projectname); 
+		$this->setStrAddr($strAddr); 
+		$this->setProjectNo($projectNo); 
+		$this->setPaNo($paNo); 
+		$this->setProjectDate($projectDate); 		
+		$this->setLocalityName($localityName); 
+		$this->setStageName($stageName); 
+		$this->setCategoryName($categoryName); 
+		$this->setClientId($clientId); 
+		$this->setUserID($userID);
+
+		if (!isset($id) || empty($id)) {
+			$this->addProjectToDB();
+			// self::addToProjectList($this);	// NOTE:
+		}
+		return $this;
+	}
+
+	// _________________________________________________________________
 
     public function addProjectToDB() {	
 		
@@ -39,6 +67,8 @@ class Project {
 			)';
 
 			$stmt = $conn->prepare($sql);
+
+			$this->getProjectDate(date(DBConnect::DT_FORMAT, time()));
 
 			$stmt -> bindValue(':projectname',	$this->getProjectname());
 			$stmt -> bindValue(':strAddr', 	    $this->getStrAddr());

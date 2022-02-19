@@ -235,25 +235,21 @@ main.pages {
 
 .message {
   animation: fase-in 0.2s ease;
+  text-shadow: 2px 2px 2px white;
 }
 .message__danger {
-  color: #a24445 !important;
-  background-color: #f2dedf !important;
+  background-color: #f8e9ea !important;
 }
 .message__success {
-  color: #44733b !important;
-  background-color: #d4edda !important;
+  background-color: #e6f6e9 !important;
 }
 .message__primary {
-  color: #2e6e8a !important;
-  background-color: #d9edf6 !important;
+  background-color: #e7f4fa !important;
 }
 .message__warning {
-  color: #876935 !important;
   background-color: #fdf8e4 !important;
 }
 .message__none {
-  color: transparent !important;
   background-color: transparent !important;
 }
 

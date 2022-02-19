@@ -63,7 +63,7 @@ class MyUtilities {
 
     public static function fetchSignImage() {
 
-        $num = rand(0, 15);
+        $num = rand(0, 22);
 
         return "./app/static/images/signing/img-sign-{$num}.jpg";
     }
@@ -149,6 +149,56 @@ class MyUtilities {
         
         return (bool) $result;       
     } 
+
+    // -----------------------------------------------------------------
+    
+    public static function optionInDB ($table=false, $option=false) {
+        
+        if (!isset($table) || empty($table)) return false;
+        if (!isset($option)  || empty($option)) return false;
+
+        $table  = ucfirst(strtolower($table));
+        $option = ucfirst(strtolower($option));
+
+        
+        // -----------------------------------------------------
+
+        $userID = unserialize($_SESSION['currentUser'])->getID();
+        
+        $conn = DBConnect::getConn();
+
+        $sql = '';
+
+        switch ($table) {
+            case 'Stage':
+                $sql .= 'SELECT * FROM Stage    WHERE sName = :_option  AND userID = :userID';
+                break;
+
+            case 'Category':
+                $sql .= 'SELECT * FROM Category WHERE yName = :_option  AND userID = :userID';
+                break;
+
+            case 'Locality':
+                $sql .= 'SELECT * FROM Locality WHERE lName = :_option  AND userID = :userID';
+                break;
+
+            case 'Country':
+                $sql .= 'SELECT * FROM Country  WHERE cName = :_option  AND userID = :userID';
+                break;
+
+        }        
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':_option', $option);
+        $stmt->bindValue(':userID', $userID);
+
+        $stmt->execute();
+        
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        return (bool) $result;       
+    } 
     
 
     // -------------------------------------------------------------------------
@@ -170,6 +220,14 @@ class MyUtilities {
 
             case 'Country';
                 $sql .= 'Country (cName, userID) VALUES (:nname, :userID)';
+                break;
+
+            case 'Stage';
+                $sql .= 'Stage (sName, userID) VALUES (:nname, :userID)';
+                break;
+
+            case 'Category';
+                $sql .= 'Category (yName, userID) VALUES (:nname, :userID)';
                 break;
 
         }
@@ -201,11 +259,23 @@ class MyUtilities {
         switch ($table) {
 
             case 'Locality':
-                $sql .= 'userID, lName FROM Locality WHERE userID = :userID';
+                $sql .= 'userID, lName FROM Locality WHERE userID = :userID ORDER BY lName';
                 break;
 
             case 'Country':
-                $sql .= 'userID, cName FROM Country WHERE userID = :userID';
+                $sql .= 'userID, cName FROM Country WHERE userID = :userID ORDER BY cName';
+                break;
+
+            case 'Stage':
+                $sql .= 'userID, sName FROM Stage WHERE userID = :userID ORDER BY sName';
+                break;
+
+            case 'Category':
+                $sql .= 'userID, yName FROM Category WHERE userID = :userID ORDER BY yName';
+                break;
+
+            case 'Client':
+                $sql .= '* FROM Client WHERE userID = :userID ORDER BY firstname, lastname, id';
                 break;
         }
 
