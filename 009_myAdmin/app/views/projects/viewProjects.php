@@ -5,8 +5,8 @@
         <div class="top-pannel__date"><b>projects</b> list</div>
             
         <div class="top-pannel__buttons">
-            <a href="#" class="btn btn--light">add new client</a>
-            <button class="btn btn--red">remove client</button>
+            <a href="<?= $_ENV['BASE_PATH']?>/projects-add" class="btn btn--light">add new poject</a>
+            <button class="btn btn--red">remove project</button>
         </div>
     </div>
     
@@ -31,8 +31,16 @@
             
             <tbody class="table__tbody">
 
-                <!-- ----------------------------------------------- -->                
-                <tr class="table__tr table__tr--1">
+            
+    
+                
+               
+                <!-- ----------------------------------------------- -->
+                <?php $tr = true; ?>
+                <?php foreach($projectList as $p): ?>
+                <?php $tr = !$tr; ?>
+
+                <tr class="table__tr table__tr--<?= $tr ?>">
 
                     <td class="table__td">
                     <label class="checkbox-2" >
@@ -54,21 +62,22 @@
                         </a>
                     </td>
 
-                    <td class="table__td">1</td>
-                    <td class="table__td">Sirens</td>
-                    <td class="table__td">St Pauls Bay</td>
-                    <td class="table__td">John Farrugia</td>
-                    <td class="table__td">0402</td>
-                    <td class="table__td">PA 01236/19</td>
+                    <td class="table__td"><?= $p->getId() ?></td>
+                    <td class="table__td"><?= $p->getProjectName() ?></td>
+                    <td class="table__td"><?= $p->getLocalityName() ?></td>
+                    <td class="table__td"><?= $p->fetchClientName() ?></td>
+                    <td class="table__td"><?= $p->getProjectNo() ?></td>
+                    <td class="table__td"><?= $p->getPaNo() ?></td>
                     <td class="table__td">
-                        <a class="table__a" href="#"><img id="table-images" class="table__img" src="./app/static/images/samples/house-1.jpeg" alt="default image"></a>
+                        <a class="table__a" href="#"><img id="table-images" class="table__img" src="<?= $p->getCover() ?: './app/static/images/upload_img.png' ?>" alt="default image"></a>
                     </td>
-                    <td class="table__td">Complete</td>
-                    <td class="table__td">Commercial</td>
-                    <td class="table__td">14/2/2020</td>
-                    <td class="table__td">24 Triq San Geraldu, San Pawl il-Baħar</td>   
+                    <td class="table__td"><?= $p->getStageName() ?></td>
+                    <td class="table__td"><?= $p->getCategoryName() ?></td>
+                    <td class="table__td"><?= $p->getProjectDate() ?></td>
+                    <td class="table__td"><?= $p->getStrAddr() ?>, <?= $p->getLocalityName() ?></td>   
 
                 </tr>
+                <?php endforeach; ?>
                 <!-- ----------------------------------------------- -->
        
             </tbody>

@@ -13,6 +13,7 @@ include './app/RouterController/routerBasic.php';
 
 
 include './app/RouterController/routerProjects.php';
+include './app/RouterController/routerProjectsAddEdit.php';
 
 
 include './app/RouterController/routerClients.php';

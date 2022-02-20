@@ -61,7 +61,7 @@ $router->match('GET|POST', '/sign-in', function() {
 
             }  else if (!$user_activated) {
                 $_SESSION['message']['content'] = "You Haven't Activated Your Account Yet. <br> 
-                Kindly check your mail. <a class='sign__resend-link myLoaderBtn' href='/009/resend-email'>Resend email</a>";
+                Kindly check your mail. <a class='sign__resend-link myLoaderBtn' href='{$_ENV['BASE_PATH']}/resend-email'>Resend email</a>";
                 $_SESSION['message']['type'] = 'warning';
                 $_SESSION['resend-email'] = $email;
                 
@@ -79,7 +79,7 @@ $router->match('GET|POST', '/sign-in', function() {
                 session_regenerate_id();
 
                 session_write_close();        
-                MyUtilities::redirect('/009');
+                MyUtilities::redirect($_ENV['BASE_PATH']);
                 exit();
             }
         }
@@ -87,7 +87,7 @@ $router->match('GET|POST', '/sign-in', function() {
         // _____________________________________________________________
 
         session_write_close();        
-        header('Location: ' . '/009/sign-in');
+        header('Location: ' . $_ENV['BASE_PATH'] . '/sign-in');
         exit();
     }
 

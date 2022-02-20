@@ -84,7 +84,8 @@ class DBTables {
         strAddr VARCHAR(255),
         projectNo VARCHAR(50),
         paNo VARCHAR(50),
-        projectDate DATETIME,
+        projectDate DATE,
+        cover VARCHAR(255),
 
         localityName VARCHAR(100) ,
         CONSTRAINT Locality_Poject

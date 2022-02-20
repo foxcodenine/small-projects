@@ -14,6 +14,7 @@ class Project {
     private $projectNo;
     private $paNo;
     private $projectDate;
+    private $cover;
     private $localityName;
     private $stageName;
     private $categoryName;
@@ -29,8 +30,8 @@ class Project {
 
 	public function __construct( $projectname, 
 		$id=null, $strAddr=null, $projectNo=null, $paNo=null, $projectDate=null, 
-		$localityName=null, $stageName=null, $categoryName=null, $clientId=null, 
-		$userID=null
+		$cover=null, $localityName=null, $stageName=null, $categoryName=null, 
+		$clientId=null, $userID=null
 	) {
 		$this->setId($id); 
 		$this->setProjectname($projectname); 
@@ -38,6 +39,7 @@ class Project {
 		$this->setProjectNo($projectNo); 
 		$this->setPaNo($paNo); 
 		$this->setProjectDate($projectDate); 		
+		$this->setCover($cover); 		
 		$this->setLocalityName($localityName); 
 		$this->setStageName($stageName); 
 		$this->setCategoryName($categoryName); 
@@ -58,11 +60,11 @@ class Project {
 		try {
 			$conn = DBConnect::getConn();
 
-			$sql = 'INSERT INTO Client (
-				projectname, strAddr, projectNo, paNo, projectDate, 
+			$sql = 'INSERT INTO Project (
+				projectname, strAddr, projectNo, paNo,  projectDate, cover,
                 localityName, stageName, categoryName, clientId, userID
 			) VALUES (
-				:projectname, :strAddr, :projectNo, :paNo, :projectDate, 
+				:projectname, :strAddr, :projectNo, :paNo,  :projectDate, :cover,
                 :localityName, :stageName, :categoryName, :clientId, :userID
 			)';
 
@@ -75,6 +77,7 @@ class Project {
 			$stmt -> bindValue(':projectNo', 	$this->getProjectNo());
 			$stmt -> bindValue(':paNo', 		$this->getPaNo());
 			$stmt -> bindValue(':projectDate', 	$this->getProjectDate());
+			$stmt -> bindValue(':cover', 		$this->getCover());
 			$stmt -> bindValue(':localityName', $this->getLocalityName());
 			$stmt -> bindValue(':stageName', 	$this->getStageName());
 			$stmt -> bindValue(':categoryName', $this->getCategoryName());
@@ -90,8 +93,91 @@ class Project {
 			die($msg);
 		}
     }
+	// _________________________________________________________________
 
 
+	public static function checkForProjectList() {				
+		return isset(self::$ProjectList) && !empty(self::$ProjectList);
+	}
+	
+	// _________________________________________________________________
+
+	public static function addToProjectList($newProject) {			
+		
+		if (!self::checkForProjectList()) {self::updatedProjectList();}
+		self::$ProjectList[$newProject->getId()] = $newProject;
+	}
+
+	// _________________________________________________________________
+
+	public static function getProjectList () {
+		if (!self::checkForProjectList()) {self::updatedProjectList();}
+		return self::$ProjectList;
+	}
+
+	// _________________________________________________________________
+
+	public static function updatedProjectList() {
+		if (!isset($_SESSION['currentUser']) || empty($_SESSION['currentUser']))  {
+			MyUtilities::redirect($_ENV['BASE_PATH']);	exit();
+		}
+		// _____________________________________
+
+		self::$ProjectList = array();
+
+		$conn  = DBConnect::getConn();
+
+		$currentUser = MyUtilities::checkCookieAndReturnUser(); 
+		MyUtilities::userInSessionPage();
+		$userID = $currentUser->getId();
+
+		$sql = 'SELECT * FROM Project WHERE userID = :userID';
+
+		$stmt = $conn->prepare($sql);
+
+		$stmt->bindValue(':userID', $userID);
+
+		$stmt->execute();
+
+		$result = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+		foreach($result as $p) {
+			$project = new self( $p->projectname, 
+				$p->id, $p->strAddr, $p->projectNo, $p->paNo,  $p->projectDate, $p->cover,
+				$p->localityName, $p->stageName, $p->categoryName, $p->clientId, $p->userID 
+			);
+
+			self::$ProjectList[$project->getId()] = $project; 				
+		}
+	}
+
+    // _________________________________________________________________
+
+	public function fetchClientName() {
+
+		try {
+
+			$conn = DBConnect::getConn();
+
+			$sql = 'SELECT firstname, lastname FROM Client WHERE id = :id LIMIT 1';
+
+			$stmt = $conn->prepare($sql);
+
+			$stmt->bindValue(':id', $this->getClientId());
+
+			$stmt->execute();
+
+			$resultClient = $stmt->fetch(PDO::FETCH_ASSOC);
+
+			return $resultClient ? "{$resultClient['firstname']} {$resultClient['lastname']}" : '';
+
+		} catch (PDOException $e) {
+
+			$msg = "Error Project fetchClientName: <br>" . $e->getMessage();
+			error_log($msg);
+			die($msg);
+		}
+	}
     // _________________________________________________________________
 
 	/** Get the value of id */
@@ -215,14 +301,14 @@ class Project {
 		return $this;
 	}
 
-	/** Get the value of ProjectList */
-	public function getProjectList() {
-		return $this->ProjectList;
+	/** Get the value of cover */
+	public function getCover() {
+		return $this->cover;
 	}
 
-	/** Set the value of ProjectList */
-	public function setProjectList($ProjectList) {
-		$this->ProjectList = $ProjectList;
+	/** Set the value of cover */
+	public function setCover($cover) {
+		$this->cover = $cover;
 		return $this;
 	}
 }

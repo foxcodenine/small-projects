@@ -1,32 +1,33 @@
 
-A. Start working on Add project form
-    OK 1. Clean form errors
-    OK 2. fetch data from form
-    OK 3. add category and stage db
-    4. display clients category and stage list
-        a. client
-            i. create a method to create str for option
-        b. category
-        c. stage
+A. Insert project to db
 
-
+AA. redirect after to project lis adding project
 
 B. Create Project Class
     OK 1. Add properties
     OK 2. addProjectToDB
     OK 3. Add __construct
-    4. Test Class
+    OK 4. Test Class
+    add cover
 
-OK C. Sort option and datalis alphabeticaly
 
-D. Create fetch functions
-    OK 1. Stage
-    OK 2. Category
-    OK 2. Clients
+C. Project Description
+    1. create table
+    2. validate data
+    3. ceate methods in Project class
+    4. input date to db
 
-E. Add add json inteface to project  and check client json
+D. ProjectList Property
+    1. fetch
+    2. update
+    3. display projects in poject page
 
-F. Use MyUtilities::optionInDB method 
+E. Project Images
+
+
+F. Add add json inteface to project  and check client json
+
+G. Use MyUtilities::optionInDB method 
    in Clients and remove redundant methods from MyUtilities
 
 

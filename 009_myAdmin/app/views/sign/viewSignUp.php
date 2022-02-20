@@ -1,7 +1,7 @@
 <?php use app\Model\MyUtilities; ?>
 <div class="sign ">        
         
-        <form class="sign__form sign__form--up" method="POST" action="/009/sign-up" autocomplete="off">
+        <form class="sign__form sign__form--up" method="POST" action="<?= $_ENV['BASE_PATH'] ?>/sign-up" autocomplete="off">
 
             <div class="sign__side-img">
                 <img src="<?= MyUtilities::fetchSignImage() ?>" alt="">
@@ -51,7 +51,7 @@
             <button class="btn btn--primary btn--thick btn--100 mt-md myLoaderBtn" type="submit">Create Demo Account</button>
 
             <div class="sign__text ">
-                <p>Already has account? <a href="/009/sign-in">Sign-in</a>.</p>
+                <p>Already has account? <a href="<?= $_ENV['BASE_PATH'] ?>/sign-in">Sign-in</a>.</p>
                 <p> Creating an account means you're okay with our 
                 <a href="#">Terms of Service</a>, <a href="#">Privacy Policy</a>, 
                 and our default <a href="#">Notification Settings</a>.</p>                

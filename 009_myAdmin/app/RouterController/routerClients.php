@@ -9,7 +9,7 @@ use app\Model\MyCript;
 
 $router->match('GET|POST', '/clients', function() {
 
-    Client::updatedClientList();
+    Client::updateClientList();
 
     $clientList = Client::getClientList();
 
@@ -17,7 +17,7 @@ $router->match('GET|POST', '/clients', function() {
     // ____________________________________________
 
 
-    function cmp($a, $b) {
+    function sortCallback($a, $b) {
 
         $method    = MyCript::stringSanitize($_GET['sortBy'] ?? 'getId');
         $sortOrder = MyCript::stringSanitize($_GET['sortOrder'] ?? 1);
@@ -35,7 +35,7 @@ $router->match('GET|POST', '/clients', function() {
         }              
     }
 
-    usort($clientList, "cmp");
+    usort($clientList, "sortCallback");
 
     // ____________________________________________
     
@@ -51,11 +51,11 @@ $router->match('GET|POST', '/clients', function() {
 
 $router->match('GET', '/clients-details(\d+)', function($id=0) {
 
-    Client::updatedClientList();
+    Client::updateClientList();
 
     $client = Client::getClientList()[$id] ?? null;
 
-    if(!isset($client)) MyUtilities::redirect('/009');
+    if(!isset($client)) MyUtilities::redirect($_ENV['BASE_PATH']);
 
     // -----------------------
 
@@ -110,7 +110,7 @@ $router->match('GET', '/clients-details(\d+)', function($id=0) {
 $router->match('GET|POST', '/clients-delete', function() {
 
     Client::deleteClientsFromDB(...$_POST['clientsDeleteList']);
-    MyUtilities::redirect('/009/clients');
+    MyUtilities::redirect($_ENV['BASE_PATH'] . '/clients');
 
 });
 

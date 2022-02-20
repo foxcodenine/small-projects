@@ -28,7 +28,7 @@ $router->match('GET|POST', '/clients-add|clients-edit(\d+)|clients-edit', functi
             break;
 
         case 'clients-edit':
-            MyUtilities::redirect('/009');
+            MyUtilities::redirect($_ENV['BASE_PATH']);
             exit();
             break;
                 
@@ -36,7 +36,7 @@ $router->match('GET|POST', '/clients-add|clients-edit(\d+)|clients-edit', functi
             $endpointURL = 'clients-edit';    
             
             if (!Client::checkForClientList()) {
-                Client::updatedClientList();
+                Client::updateClientList();
             }
             if (array_key_exists($id, Client::getClientList() ) && !isset($_SESSION['client']['id'])) {
                 $currentClient = Client::getClientList()[$id];
@@ -58,7 +58,7 @@ $router->match('GET|POST', '/clients-add|clients-edit(\d+)|clients-edit', functi
                 $_SESSION['client']['infoClient'] = $currentClient->info('read');
      
             } else {
-                MyUtilities::redirect('/009');
+                MyUtilities::redirect($_ENV['BASE_PATH']);
                 exit();
             }
     }
@@ -231,12 +231,12 @@ $router->match('GET|POST', '/clients-add|clients-edit(\d+)|clients-edit', functi
             
             // --- Redirect to client page;
             unset($_SESSION['client']);
-            MyUtilities::redirect('/009/clients');
+            MyUtilities::redirect($_ENV['BASE_PATH'] . '/clients');
             exit();
         }
 
         
-        MyUtilities::redirect('/009/clients-add');
+        MyUtilities::redirect($_ENV['BASE_PATH'] . '/clients-add');
         exit();
 
     }  

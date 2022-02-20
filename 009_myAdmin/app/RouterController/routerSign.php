@@ -19,7 +19,7 @@ $router->match('GET', '/sign-out', function() {
     }
     
     MyUtilities::unsetCookie($currentUser);
-    MyUtilities::redirect('/009/sign-in');
+    MyUtilities::redirect($_ENV['BASE_PATH'] . '/sign-in');
 
 });
 
@@ -43,7 +43,7 @@ $router->match('GET', '/activate/(\w+)/([\w=]+)', function($id, $code) {
         $_SESSION['message']['content'] = 'Your account has already been activated. <br> You may proceed to login.';
         $_SESSION['message']['type'] = 'warning';
 
-        header('Location: /009/sign-in');
+        header('Location: ' . $_ENV['BASE_PATH'] . '/sign-in');
         exit();
 
 
@@ -56,7 +56,7 @@ $router->match('GET', '/activate/(\w+)/([\w=]+)', function($id, $code) {
         $currentUser = $currentUser->setAccountState('Activated');
         $currentUser->updateUser();
 
-        header('Location: /009/sign-in');
+        header('Location: ' . $_ENV['BASE_PATH'] . '/sign-in');
         exit();
 
     } else {
@@ -64,7 +64,7 @@ $router->match('GET', '/activate/(\w+)/([\w=]+)', function($id, $code) {
         $_SESSION['message']['content'] = "Your account activation link has expired or is invalid. Please try again.";
         $_SESSION['message']['type'] = 'warning';
 
-        header('Location: /009/sign-up');
+        header('Location: ' . $_ENV['BASE_PATH'] .'/sign-up');
         exit();
     } 
 });
@@ -77,7 +77,7 @@ $router->match('GET', '/resend-email', function() {
 
     $email = $_SESSION['resend-email'] ?? null;
 
-    if (!$email) { header('Location: ' . '/009/sign-in');  exit(); }
+    if (!$email) { header('Location: ' . $_ENV['BASE_PATH'] . '/sign-in');  exit(); }
 
     unset($_SESSION['resend-email']);
 
@@ -101,7 +101,7 @@ $router->match('GET', '/resend-email', function() {
     // _________________________________________________
 
     session_write_close();        
-    header('Location: ' . '/009/sign-in');
+    header('Location: ' . $_ENV['BASE_PATH'] . '/sign-in');
     exit();   
 });
 

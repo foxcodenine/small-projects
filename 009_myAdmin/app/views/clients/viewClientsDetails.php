@@ -4,8 +4,8 @@
         <div class="top-pannel__date top-pannel__date--small"><?= $clientFullname ?></div>
             
         <div class="top-pannel__buttons">
-            <a href="/009/clients" class="btn btn--light">clients</a>
-            <a href="/009/clients-edit<?= $id ?>" class="btn btn--light">update</a>
+            <a href="<?= $_ENV['BASE_PATH'] ?>/clients" class="btn btn--light">clients</a>
+            <a href="<?= $_ENV['BASE_PATH'] ?>/clients-edit<?= $id ?>" class="btn btn--light">update</a>
             <a href="#" class="btn btn--red modalBtn">remove</a>            
         </div>
     </div>
@@ -93,7 +93,7 @@
 
         <div class="modal__question">Are you sure you want to delete this Client?</div>
 
-        <form action="/009/clients-delete" class="modal__confirmation" method="POST">
+        <form action="<?= $_ENV['BASE_PATH'] ?>/clients-delete" class="modal__confirmation" method="POST">
             <input type="hidden" name="clientsDeleteList[]" value="<?= $id ?>">
             <button class="btn btn--light modal__cancel" type="button">cancel</button>
             <button class="btn btn--red">Confirm</button>

@@ -1,7 +1,7 @@
 <!-- --- Topbar ---------------------------------------------------- -->
 
 <div class="topbar">            
-    <a class="topbar__logobox" href="/009">
+    <a class="topbar__logobox" href="<?= $_ENV['BASE_PATH'] ?>">
         <span><b>MY</b>Admin</span>
     </a>
 
@@ -58,36 +58,36 @@
 
 <div class="sidemenu" id="sidemenu" >
     
-    <a href="/009" class="sidemenu__item">              
+    <a href="<?= $_ENV['BASE_PATH'] ?>" class="sidemenu__item">              
         <svg class="sidemenu__icon"><use xlink:href="./app/static/svg/icomoon.svg#icon-home"></use></svg>  
         <div class="sidemenu__text">Dashbord</div>
     </a>
     
-    <a href="/009/images" class="sidemenu__item">              
+    <a href="<?= $_ENV['BASE_PATH'] ?>/images" class="sidemenu__item">              
         <svg class="sidemenu__icon"><use xlink:href="./app/static/svg/icomoon.svg#icon-telescope"></use></svg>  
         <div class="sidemenu__text">Search</div>
     </a>
 
     <div class="sidemenu__line"></div>
 
-    <a href="/009/clients" class="sidemenu__item sidemenu__close">                
+    <a href="<?= $_ENV['BASE_PATH'] ?>/clients" class="sidemenu__item sidemenu__close">                
         <svg class="sidemenu__icon"><use xlink:href="./app/static/svg/icomoon.svg#icon-strategy"></use></svg>              
         <div class="sidemenu__text">Clients</div>
     </a>
 
-    <a href="/009/clients-add" class="sidemenu__item sidemenu__close">                
+    <a href="<?= $_ENV['BASE_PATH'] ?>/clients-add" class="sidemenu__item sidemenu__close">                
         <svg class="sidemenu__icon"><use xlink:href="./app/static/svg/icomoon.svg#icon-plus"></use></svg>              
         <div class="sidemenu__text">Add&nbsp;Client</div>
     </a>
 
     <div class="sidemenu__line"></div>
 
-    <a href="/009/projects" class="sidemenu__item sidemenu__close">                
+    <a href="<?= $_ENV['BASE_PATH'] ?>/projects" class="sidemenu__item sidemenu__close">                
         <svg class="sidemenu__icon"><use xlink:href="./app/static/svg/icomoon.svg#icon-circle-compass"></use></svg>              
         <div class="sidemenu__text">Projects</div>
     </a>
 
-    <a href="/009/projects-add" class="sidemenu__item sidemenu__close">                
+    <a href="<?= $_ENV['BASE_PATH'] ?>/projects-add" class="sidemenu__item sidemenu__close">                
         <svg class="sidemenu__icon"><use xlink:href="./app/static/svg/icomoon.svg#icon-plus"></use></svg>              
         <div class="sidemenu__text">Add&nbsp;Project</div>
     </a>

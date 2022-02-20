@@ -1,11 +1,11 @@
 <section class="clients">
-<form action="/009/clients-delete"  class="clients__form" method="POST">
+<form action="<?= $_ENV['BASE_PATH'] ?>/clients-delete"  class="clients__form" method="POST">
 
     <div class="top-pannel">
         <div class="top-pannel__date"><b>CLIENTS</b> List</div>
             
         <div class="top-pannel__buttons">
-            <a href="/009/clients-add" class="btn btn--light">add new client</a>
+            <a href="<?= $_ENV['BASE_PATH'] ?>/clients-add" class="btn btn--light">add new client</a>
             <button class="btn btn--red modalBtn" type="button">remove client</button>
         </div>
     </div>
@@ -16,18 +16,18 @@
             <thead class="table__thead ">
                 <th class="table__th">chk</th>
                 <th class="table__th">btn-s</th>
-                <th class="table__th"><a class="table-sort-js" id="getId"           href="/009/clients?By=getId&sortOrder=ASC">db-id</a></th>
-                <th class="table__th"><a class="table-sort-js" id="getFirstname"    href="/009/clients?sortBy=getFirstname&sortOrder=ASC">firstname</a></th>
-                <th class="table__th"><a class="table-sort-js" id="getLastname"     href="/009/clients?sortBy=getLastname&sortOrder=ASC">lastname</a></th>
-                <th class="table__th"><a class="table-sort-js" id="getIdCard"       href="/009/clients?sortBy=getIdCard&sortOrder=ASC">id-no</a></th>
-                <th class="table__th"><a class="table-sort-js" id="getCompany"      href="/009/clients?sortBy=getCompany&sortOrder=ASC">company</a></th>
-                <th class="table__th"><a class="table-sort-js" id="getEmail"        href="/009/clients?sortBy=getEmail&sortOrder=ASC">email</a></th>
-                <th class="table__th"><a class="table-sort-js" id="getPhone"        href="/009/clients?sortBy=getPhone&sortOrder=ASC">phone</a></th>
-                <th class="table__th"><a class="table-sort-js" id="getMobile"       href="/009/clients?sortBy=getMobile&sortOrder=ASC">mobile</a></th>
-                <th class="table__th"><a class="table-sort-js" id="getStrAddr"      href="/009/clients?sortBy=getStrAddr&sortOrder=ASC">street address</a></th>
-                <th class="table__th"><a class="table-sort-js" id="getLocalityName" href="/009/clients?sortBy=getLocalityName&sortOrder=ASC">locality</a></th>
-                <th class="table__th"><a class="table-sort-js" id="getCountryName"  href="/009/clients?sortBy=getCountryName&sortOrder=ASC">country</a></th>
-                <th class="table__th"><a class="table-sort-js" id="getPostcode"     href="/009/clients?sortBy=getPostcode&sortOrder=ASC">postcode</a></th>
+                <th class="table__th"><a class="table-sort-js" id="getId"           href="<?= $_ENV['BASE_PATH'] ?>/clients?By=getId&sortOrder=ASC">db-id</a></th>
+                <th class="table__th"><a class="table-sort-js" id="getFirstname"    href="<?= $_ENV['BASE_PATH'] ?>/clients?sortBy=getFirstname&sortOrder=ASC">firstname</a></th>
+                <th class="table__th"><a class="table-sort-js" id="getLastname"     href="<?= $_ENV['BASE_PATH'] ?>/clients?sortBy=getLastname&sortOrder=ASC">lastname</a></th>
+                <th class="table__th"><a class="table-sort-js" id="getIdCard"       href="<?= $_ENV['BASE_PATH'] ?>/clients?sortBy=getIdCard&sortOrder=ASC">id-no</a></th>
+                <th class="table__th"><a class="table-sort-js" id="getCompany"      href="<?= $_ENV['BASE_PATH'] ?>/clients?sortBy=getCompany&sortOrder=ASC">company</a></th>
+                <th class="table__th"><a class="table-sort-js" id="getEmail"        href="<?= $_ENV['BASE_PATH'] ?>/clients?sortBy=getEmail&sortOrder=ASC">email</a></th>
+                <th class="table__th"><a class="table-sort-js" id="getPhone"        href="<?= $_ENV['BASE_PATH'] ?>/clients?sortBy=getPhone&sortOrder=ASC">phone</a></th>
+                <th class="table__th"><a class="table-sort-js" id="getMobile"       href="<?= $_ENV['BASE_PATH'] ?>/clients?sortBy=getMobile&sortOrder=ASC">mobile</a></th>
+                <th class="table__th"><a class="table-sort-js" id="getStrAddr"      href="<?= $_ENV['BASE_PATH'] ?>/clients?sortBy=getStrAddr&sortOrder=ASC">street address</a></th>
+                <th class="table__th"><a class="table-sort-js" id="getLocalityName" href="<?= $_ENV['BASE_PATH'] ?>/clients?sortBy=getLocalityName&sortOrder=ASC">locality</a></th>
+                <th class="table__th"><a class="table-sort-js" id="getCountryName"  href="<?= $_ENV['BASE_PATH'] ?>/clients?sortBy=getCountryName&sortOrder=ASC">country</a></th>
+                <th class="table__th"><a class="table-sort-js" id="getPostcode"     href="<?= $_ENV['BASE_PATH'] ?>/clients?sortBy=getPostcode&sortOrder=ASC">postcode</a></th>
             </thead>
             
             <tbody class="table__tbody">
@@ -51,10 +51,10 @@
                     </td>
 
                     <td class="table__td">
-                        <a href="/009/clients-edit<?= $client->getId();?>" class="icon__link" id="table-icon-update">
+                        <a href="<?= $_ENV['BASE_PATH'] ?>/clients-edit<?= $client->getId();?>" class="icon__link" id="table-icon-update">
                             <svg class="icon__svg"> <use xlink:href="./app/static/svg/icomoon.svg#icon-pencil-10"></use></svg>
                         </a>
-                        <a href="/009/clients-details<?= $client->getId();?>" class="icon__link" id="table-icon-details">
+                        <a href="<?= $_ENV['BASE_PATH'] ?>/clients-details<?= $client->getId();?>" class="icon__link" id="table-icon-details">
                             <svg class="icon__svg"> <use xlink:href="./app/static/svg/icomoon.svg#icon-view-12"></use></svg>
                         </a>
                         <a  class="icon__link client-remove-link" id="client-id-link-<?= $client->getId(); ?>">

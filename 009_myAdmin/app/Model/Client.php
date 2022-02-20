@@ -137,7 +137,7 @@ class Client  implements JsonSerializable {
 			// ----- Execute and update clientsList
 
 			$stmt -> execute();	
-			self::updatedClientList();				
+			self::updateClientList();				
 
 		} catch (PDOException $e) {
 			$msg = "Error Client deleteClientsFromDB: <br>" . $e->getMessage();
@@ -192,7 +192,7 @@ class Client  implements JsonSerializable {
 
 
 			// ---- updateing clientList
-			if (!self::checkForClientList()) {self::updatedClientList();}
+			if (!self::checkForClientList()) {self::updateClientList();}
 			self::$ClientList[$this->getId()] = $this;
 
 
@@ -236,12 +236,6 @@ class Client  implements JsonSerializable {
 
 		$crud = strtolower($crud);
 
-		// if ($crud !== 'read') {
-		// 	echo $crud;
-		// 	exit();
-	
-		// }
-
 		if (!in_array($crud, ['read', 'create', 'update', 'delete'])) {
 			throw new Exception('Client Info: Not Valid CRUD option'); exit();
 		}
@@ -252,12 +246,6 @@ class Client  implements JsonSerializable {
 			$crud = 'create';
 		}
 
-
-		// if ($crud !== 'read') {
-		// 	echo $crud;
-		// 	exit();
-	
-		// }
 
 		// _____________________________________________________________
 
@@ -325,16 +313,16 @@ class Client  implements JsonSerializable {
 
 	public static function addToClientList($newClient) {			
 		
-		if (!self::checkForClientList()) {self::updatedClientList();}
+		if (!self::checkForClientList()) {self::updateClientList();}
 		self::$ClientList[$newClient->getId()] = $newClient;
 	}
 
 	// _________________________________________________________________
 	
-	public static function updatedClientList() {
+	public static function updateClientList() {
 		
 		if (!isset($_SESSION['currentUser']) || empty($_SESSION['currentUser']))  {
-			MyUtilities::redirect('/009');	exit();
+			MyUtilities::redirect($_ENV['BASE_PATH']);	exit();
 		}
 		// _____________________________________
 
@@ -342,7 +330,9 @@ class Client  implements JsonSerializable {
 
 		$conn  = DBConnect::getConn();
 
-		$userID = unserialize($_SESSION['currentUser'])->getId();
+		$currentUser = MyUtilities::checkCookieAndReturnUser(); 
+		MyUtilities::userInSessionPage();
+		$userID = $currentUser->getId();
 
 		$sql = 'SELECT * FROM Client WHERE userID = :userID';
 
@@ -365,7 +355,7 @@ class Client  implements JsonSerializable {
 	}
 
 	public static function getClientList () {
-		if (!self::checkForClientList()) {self::updatedClientList();}
+		if (!self::checkForClientList()) {self::updateClientList();}
 		return self::$ClientList;
 	}
 

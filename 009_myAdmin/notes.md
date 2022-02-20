@@ -272,3 +272,10 @@ https://www.w3schools.com/howto/howto_css_table_responsive.asp
 ## ------ MySQL --------------------------------------------------------
 
 https://www.mysqltutorial.org/mysql-on-delete-cascade/
+
+
+
+
+## ------ Messages --------------------------------------------------------
+
+An email with a link to reset your password has been sent to: chris12aug@yahoo.com

@@ -381,6 +381,7 @@ class MyUtilities {
         // --- If no cookie or cookie data does not match db unset curentUser
 
         unset ($_SESSION['currentUser']);
+
         return false;
     }
 
@@ -392,7 +393,7 @@ class MyUtilities {
     //     if (isset($_SESSION['currentUser'])) {
 
     //         session_write_close();        
-    //         header('Location: ' . '/009');
+    //         header('Location: ' . $_ENV['BASE_PATH']);
     //         exit();
     //     }
     // }
@@ -403,7 +404,7 @@ class MyUtilities {
     //     if (isset($_SESSION['currentUser'])) {
             
     //         session_write_close();        
-    //         header('Location: ' . '/009/sign-in');
+    //         header('Location: ' . $_ENV['BASE_PATH'] . '/sign-in');
     //         exit();
     //     }
     // }
@@ -426,13 +427,13 @@ class MyUtilities {
 
     public static function userInSessionPage() {
         if (!isset($_SESSION['currentUser'])) {
-            self::redirect('/009/sign-in');
+            self::redirect($_ENV['BASE_PATH'] . '/sign-in');
         } 
     }
 
     public static function userInSessionSigning() {
         if (isset($_SESSION['currentUser'])) {
-            self::redirect('/009');
+            self::redirect($_ENV['BASE_PATH']);
         }
     }
 

@@ -19,6 +19,7 @@ class DBConnect {
     private static $db_password;
 
     const DT_FORMAT = 'Y-m-d H:i:s';
+    const D_FORMAT  = 'Y-m-d';
 
     // _________________________________________
 

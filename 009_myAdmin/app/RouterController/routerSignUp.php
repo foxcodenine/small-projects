@@ -122,7 +122,7 @@ $router->match('GET|POST', '/sign-up', function() {
 
 
         session_write_close();        
-        header('Location: ' . '/009/sign-up');
+        header('Location: ' . $_ENV['BASE_PATH'] . '/sign-up');
         exit();
     }
 

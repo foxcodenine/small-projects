@@ -337,10 +337,14 @@ function scrollTable () {
 
     let myMouse = { 'down': 0, 'position' : 0 , 'scroll' : false  };
 
+    let scrollCurrentPosition;
+
     // --- When mouse pressed down over the table
     table.addEventListener('mousedown', (e) => {
         myMouse.down = e.clientX;
         myMouse.scroll = true;
+        scrollCurrentPosition = table.scrollLeft;
+
     });  
 
     // --- When mouse is lifted over the table
@@ -352,8 +356,8 @@ function scrollTable () {
     table.addEventListener('mousemove', (e) => {
         myMouse.position = e.clientX;
 
-        if (myMouse.scroll) {
-            table.scrollLeft = (myMouse.position - myMouse.down) * -1;
+        if (myMouse.scroll) {            
+            table.scrollLeft = scrollCurrentPosition + (myMouse.position - myMouse.down) * -1;            
         }
     });
 
