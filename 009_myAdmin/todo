@@ -1,28 +1,28 @@
 
-A. Insert project to db
+0.  remove some of the images
+OK  00. fix  upload inplu fiel in images page (beloaw 420px)
 
-AA. redirect after to project lis adding project
-
-B. Create Project Class
-    OK 1. Add properties
-    OK 2. addProjectToDB
-    OK 3. Add __construct
-    OK 4. Test Class
-    add cover
+00 fomat date in poject list page
+00 Add both date format functions as methods to project. 
 
 
-C. Project Description
-    1. create table
-    2. validate data
-    3. ceate methods in Project class
-    4. input date to db
+OK 1. Make projects form sticky
 
-D. ProjectList Property
-    1. fetch
-    2. update
-    3. display projects in poject page
+2. Edit Project
 
-E. Project Images
+3. Project Description
+    a. create table
+    b. validate data
+    c. ceate methods in Project class
+    d. input date to db
+
+4. Project Images
+    a. find how to store image from php to:
+        i.  AWS bot3
+        ii. Digital Ocen store
+    b try to implement both options
+
+
 
 
 F. Add add json inteface to project  and check client json

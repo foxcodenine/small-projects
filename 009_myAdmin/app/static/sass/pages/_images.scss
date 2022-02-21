@@ -32,7 +32,7 @@
     &__upload-box {
         display: flex;
         background-color: $col-hover-1;
-        
+        max-width: calc(100vw - 14rem);        
     }
 
     &__input {

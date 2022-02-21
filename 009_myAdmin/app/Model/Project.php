@@ -48,7 +48,7 @@ class Project {
 
 		if (!isset($id) || empty($id)) {
 			$this->addProjectToDB();
-			// self::addToProjectList($this);	// NOTE:
+			self::addToProjectList($this);
 		}
 		return $this;
 	}
@@ -94,7 +94,54 @@ class Project {
 		}
     }
 	// _________________________________________________________________
+	public function updateProjectToDB () {
 
+		try {
+
+			$conn = DBConnect::getConn();
+
+			$sql = 'UPDATE Project SET
+				projectname = :projectname, 
+				localityName = :localityName, 
+				strAddr = :strAddr, 
+				clientId = :clientId, 
+				projectNo = :projectNo, 
+				paNo = :paNo,  
+				stageName = :stageName, 
+				categoryName = :categoryName, 
+				projectDate = :projectDate
+			WHERE id = :id';
+
+			$stmt = $conn->prepare($sql);
+
+			$localityName = empty($this->getLocalityName()) ? null : $this->getLocalityName();
+			$categoryName = empty($this->getCategoryName()) ? null : $this->getCategoryName();
+			$stageName    = empty($this->getStageName())    ? null : $this->getStageName();
+
+			$stmt->bindValue(':id', 			$this->getId()); 
+			$stmt->bindValue(':projectname', 	$this->getProjectname()); 
+			$stmt->bindValue(':localityName', 	$localityName); 
+			$stmt->bindValue(':strAddr', 		$this->getStrAddr()); 
+			$stmt->bindValue(':clientId', 		$this->getClientId()); 
+			$stmt->bindValue(':projectNo', 		$this->getProjectNo()); 
+			$stmt->bindValue(':paNo', 			$this->getPaNo()); 
+			$stmt->bindValue(':stageName', 		$stageName); 
+			$stmt->bindValue(':categoryName', 	$categoryName); 
+			$stmt->bindValue(':projectDate', 	$this->getProjectDate());
+
+			$stmt -> execute();
+
+
+		} catch (PDOException $e) {
+			$msg = "Error Client updateClient: <br>" . $e->getMessage();
+			error_log($msg);
+			die($msg);
+		} 
+
+		// ---- updateing clientList
+		if (!self::checkForProjectList()) {self::updateProjectList();}
+		self::$ProjectList[$this->getId()] = $this;
+	}
 
 	public static function checkForProjectList() {				
 		return isset(self::$ProjectList) && !empty(self::$ProjectList);
@@ -104,20 +151,20 @@ class Project {
 
 	public static function addToProjectList($newProject) {			
 		
-		if (!self::checkForProjectList()) {self::updatedProjectList();}
+		if (!self::checkForProjectList()) {self::updateProjectList();}
 		self::$ProjectList[$newProject->getId()] = $newProject;
 	}
 
 	// _________________________________________________________________
 
 	public static function getProjectList () {
-		if (!self::checkForProjectList()) {self::updatedProjectList();}
+		if (!self::checkForProjectList()) {self::updateProjectList();}
 		return self::$ProjectList;
 	}
 
 	// _________________________________________________________________
 
-	public static function updatedProjectList() {
+	public static function updateProjectList() {
 		if (!isset($_SESSION['currentUser']) || empty($_SESSION['currentUser']))  {
 			MyUtilities::redirect($_ENV['BASE_PATH']);	exit();
 		}

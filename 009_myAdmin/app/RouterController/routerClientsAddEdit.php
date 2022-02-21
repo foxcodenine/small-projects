@@ -152,7 +152,6 @@ $router->match('GET|POST', '/clients-add|clients-edit(\d+)|clients-edit', functi
 
         } else {
 
-
             unset($_SESSION['error']['infoClient']);
         }
 

@@ -10,13 +10,71 @@ use app\Model\Project;
 
 ////////////////////////////////////////////////////////////////////////
 
-$router->match('GET|POST', '/projects-add', function() {   
+$router->match('GET|POST', '/projects-add|projects-edit(\d+)|projects-edit', function($id=null) {   
     
     // ----- Get url endpoint
 
     $arrURL = explode('/', $_SERVER['REQUEST_URI']);
     $endpointURL = end($arrURL);
 
+
+    switch ($endpointURL) {
+        // Check if ADD or EDIT.
+        // If ADD break 
+        // If EDIT set client in session
+        // Or redirect if clientID is empty or invalid.
+
+        case 'projects-add':
+            $currentProject = new stdClass;
+            break;
+
+        case 'projects-edit':
+            MyUtilities::redirect($_ENV['BASE_PATH']);
+            exit();
+            break;
+
+        default:
+            $endpointURL = 'projects-edit';    
+            
+        if (!Project::checkForProjectList()) {
+                Project::updateProjectList();
+            }
+        if (array_key_exists($id, Project::getProjectList() ) && !isset($_SESSION['project']['id'])) {
+            $currentProject = Project::getProjectList()[$id];
+
+            $_SESSION['project']['projectname'] = $currentProject->getProjectname();
+            $_SESSION['project']['localityName']  = $currentProject->getLocalityName();
+            $_SESSION['project']['strAddr']  = $currentProject->getStrAddr();
+            $_SESSION['project']['clientId']  = $currentProject->getClientId();
+            $_SESSION['project']['projectNo']  = $currentProject->getProjectNo();
+            $_SESSION['project']['paNo']  = $currentProject->getPaNo();
+            $_SESSION['project']['stageName']  = $currentProject->getStageName();
+            $_SESSION['project']['categoryName']  = $currentProject->getCategoryName();
+
+
+            if ($currentProject->getProjectDate()) {
+                preg_match('#(\d+)-(\d+)-(\d+)#', $currentProject->getProjectDate() ,$arr);
+                $_SESSION['project']['projectDate']  = "{$arr[3]}/{$arr[2]}/{$arr[1]}";
+
+            } else {
+                $_SESSION['project']['projectDate'] = '';
+            }
+
+            
+
+        
+
+    
+            // $_SESSION['project']['description'] = //TODO:; 	import project descition
+        } else {
+            MyUtilities::redirect($_ENV['BASE_PATH']);
+            exit();
+        }
+
+
+
+
+    }
 
     // --- setting  error messages
 
@@ -56,6 +114,8 @@ $router->match('GET|POST', '/projects-add', function() {
         $_SESSION['project']['stageName'] = ucwords(strtolower(MyCript::stringSanitize($_POST['stageName']))); 
         $_SESSION['project']['categoryName'] = ucwords(strtolower(MyCript::stringSanitize($_POST['categoryName']))); 
         $_SESSION['project']['projectDate'] = MyCript::stringSanitize($_POST['projectDate']); 
+
+
 
         $_SESSION['project']['description'] = trim(htmlspecialchars($_POST['description'])); 	
         unset($_POST);
@@ -139,21 +199,35 @@ $router->match('GET|POST', '/projects-add', function() {
                     userID :        $userId ,
                 );
 
-                unset($_SESSION['project']);
+                //TODO: add project description
+
             }           
 
 
             // --- Edit Project
-            if ($endpointURL === 'projects-edit') {}
+            if ($endpointURL === 'projects-edit') {
+
+                $currentProject->setProjectname($_SESSION['project']['projectname']); 
+                $currentProject->setLocalityName($_SESSION['project']['localityName']); 
+                $currentProject->setStrAddr($_SESSION['project']['strAddr']); 
+                $currentProject->setClientId($_SESSION['project']['clientId']); 
+                $currentProject->setProjectNo($_SESSION['project']['projectNo']); 
+                $currentProject->setPaNo($_SESSION['project']['paNo']); 
+                $currentProject->setStageName($_SESSION['project']['stageName']); 
+                $currentProject->setCategoryName($_SESSION['project']['categoryName']); 
+                $currentProject->setProjectDate($_SESSION['project']['projectDate']); 
+                
+                $currentProject->updateProjectToDB();
+                // $currentClient->info('update', $_SESSION['client']['infoClient']); //TODO: update project description
+            }
 
 
             // --- Redirect to Projects page
-
+            unset($_SESSION['project']);
             MyUtilities::redirect($_ENV['BASE_PATH'] . '/projects');            
-        }
-        
+        }       
 
-        unset($_SESSION['project']);
+        
         MyUtilities::redirect($_ENV['BASE_PATH'] . '/projects-add');
         exit();
     

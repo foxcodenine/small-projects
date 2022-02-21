@@ -1404,6 +1404,7 @@ main.pages {
 .images__upload-box {
   display: flex;
   background-color: #EEF8FF;
+  max-width: calc(100vw - 14rem);
 }
 .images__input {
   cursor: ne-resize;

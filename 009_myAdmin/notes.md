@@ -16,6 +16,21 @@ https://github.com/ckeditor/ckeditor4
 https://computingforgeeks.com/install-and-use-firewalld-on-ubuntu/
 https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-centos-7
 
+## ------  DigitalOcean Spaces -----------------------------------------
+
+https://www.digitalocean.com/community/tools/adapting-an-existing-aws-s3-application-to-digitalocean-spaces
+
+## ------ AWS S3 -------------------------------------------------------
+
+Tutorials
+https://blog.trigent.com/crud-operations-on-amazon-s3-using-php-aws-sdk/
+https://blog.eduonix.com/web-programming-tutorials/learn-s3-using-aws-php-sdk/
+
+Documantation
+https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/s3-examples.html
+https://aws.amazon.com/sdk-for-php/
+
+
 ## ------ Hosting and deploying ----------------------------------------
 
 https
