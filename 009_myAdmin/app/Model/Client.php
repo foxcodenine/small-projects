@@ -127,7 +127,10 @@ class Client  implements JsonSerializable {
 
 			// ----- Bind data
 
-			$userID = MyUtilities::checkCookieAndReturnUser()->getId();
+			$currentUser = MyUtilities::checkCookieAndReturnUser(); 
+			MyUtilities::userInSessionPage();
+			$userID = $currentUser->getId();
+			
 			$stmt->bindValue(":userID", $userID);
 
 			foreach($clientIds as $client_id) {

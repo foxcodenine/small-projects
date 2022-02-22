@@ -9,11 +9,7 @@ use app\Model\Project;
 
 $router->match('GET', '/projects', function() {   
     
-    // header('Content-Type: application/json');
 
-    // print_r(Project::getProjectList());
-
-    // exit();
 
     $projectList = Project::getProjectList();
 
@@ -22,7 +18,14 @@ $router->match('GET', '/projects', function() {
     exit;
 });
 
+////////////////////////////////////////////////////////////////////////
 
+$router->match('GET|POST', '/projects-delete', function() {
+
+    Project::deleteProjectsFromDB(...$_POST['projectsDeleteList']);
+    MyUtilities::redirect($_ENV['BASE_PATH'] . '/projects');
+
+});
 
 ////////////////////////////////////////////////////////////////////////
 

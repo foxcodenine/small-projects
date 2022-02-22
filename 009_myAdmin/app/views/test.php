@@ -15,14 +15,15 @@
     use app\Model\DBConnect;
     use app\Model\MyCript;
     use app\Model\MyHelperClass;
-    use app\Model\User;
+use app\Model\Project;
+use app\Model\User;
 
     // $wisky = new Cat('Wisky', 9);
     // echo "My cat is called {$wisky->name} and she is {$wisky->age} years old. <br>";  
     
     // -----------------------------------------------------------------
-    $str = '<title>Example document: XSS Doc</title>';
-    echo MyCript::stringSanitize($str);
+    // $str = '<title>Example document: XSS Doc</title>';
+    // echo MyCript::stringSanitize($str);
 
     // $encript =  MyCript::encrypt($_ENV['EMAIL_PASSWORD2']);
     // $decript =  MyCript::decrypt($encript);
@@ -42,6 +43,8 @@
     
     // $test = User::getUserById(55);
     // $test->removeNonactivatedUser();
+
+    // var_dump(Project::formatDateForDisplay());
     
 
     

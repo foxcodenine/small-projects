@@ -3,6 +3,7 @@
 namespace app\Model;
 
 use app\Model\DBConnect;
+use DateTime;
 use Exception;
 use PDO;
 use PDOException;
@@ -55,6 +56,59 @@ class Project {
 
 	// _________________________________________________________________
 
+	public static function deleteProjectsFromDB (...$projectIds) {
+
+		// Function is stutic to delete multiple projects in one query
+
+		if (empty($projectIds)) return;
+
+		try {
+
+			// ----- Ceate SQL string
+
+			$sql_start = 'DELETE FROM Project WHERE';
+
+			$sql_array = array_map( function ($project_id) {
+				return " userID = :userID AND id =  :id{$project_id}";
+			}, $projectIds);
+
+			$sql_end = implode(' OR ', $sql_array);
+
+			$sql = $sql_start . $sql_end;
+
+			// ----- Get coon and prepare
+
+			$conn = DBConnect::getConn();
+			$stmt = $conn->prepare($sql);	
+
+			// ----- Bind data
+
+
+			$currentUser = MyUtilities::checkCookieAndReturnUser(); 
+			MyUtilities::userInSessionPage();
+			$userID = $currentUser->getId();
+
+			$stmt->bindValue(":userID", $userID);
+
+
+			foreach($projectIds as $project_id) {
+				$stmt->bindValue(":id{$project_id}", $project_id);
+			}
+
+			// ----- Execute and update clientsList
+
+			$stmt -> execute();	
+			self::updateProjectList();
+
+		} catch (PDOException $e) {
+			$msg = "Error Project deleteProjectsFromDB: <br>" . $e->getMessage();
+			error_log($msg);
+			die($msg);
+		} 
+	}
+
+	// _________________________________________________________________
+
     public function addProjectToDB() {	
 		
 		try {
@@ -70,7 +124,8 @@ class Project {
 
 			$stmt = $conn->prepare($sql);
 
-			$this->getProjectDate(date(DBConnect::DT_FORMAT, time()));
+			$pojectdate  = $this->getProjectDate() ? $this->formatDateForDB() : date(DBConnect::D_FORMAT, time());
+			$this->setProjectDate($pojectdate);
 
 			$stmt -> bindValue(':projectname',	$this->getProjectname());
 			$stmt -> bindValue(':strAddr', 	    $this->getStrAddr());
@@ -93,7 +148,9 @@ class Project {
 			die($msg);
 		}
     }
+
 	// _________________________________________________________________
+
 	public function updateProjectToDB () {
 
 		try {
@@ -117,12 +174,17 @@ class Project {
 			$localityName = empty($this->getLocalityName()) ? null : $this->getLocalityName();
 			$categoryName = empty($this->getCategoryName()) ? null : $this->getCategoryName();
 			$stageName    = empty($this->getStageName())    ? null : $this->getStageName();
+			$clientId     = empty($this->getClientId())     ? null : $this->getClientId();
+
+			$projectdate = $this->formatDateForDB();
+			$this->setProjectDate($projectdate);
+
 
 			$stmt->bindValue(':id', 			$this->getId()); 
 			$stmt->bindValue(':projectname', 	$this->getProjectname()); 
 			$stmt->bindValue(':localityName', 	$localityName); 
 			$stmt->bindValue(':strAddr', 		$this->getStrAddr()); 
-			$stmt->bindValue(':clientId', 		$this->getClientId()); 
+			$stmt->bindValue(':clientId', 		$clientId); 
 			$stmt->bindValue(':projectNo', 		$this->getProjectNo()); 
 			$stmt->bindValue(':paNo', 			$this->getPaNo()); 
 			$stmt->bindValue(':stageName', 		$stageName); 
@@ -142,6 +204,122 @@ class Project {
 		if (!self::checkForProjectList()) {self::updateProjectList();}
 		self::$ProjectList[$this->getId()] = $this;
 	}
+	// _________________________________________________________________
+
+	public function descriptInDb() {
+
+		try {
+			$conn = DBConnect::getConn();
+			$sql = 'SELECT * FROM DescriptProject WHERE userID = :userID AND projectID = :projectID LIMIT 1'; 
+
+			$userID = unserialize($_SESSION['currentUser'])->getId();
+			
+			$stmt = $conn->prepare($sql);
+			$stmt->bindValue(':userID', $userID);
+			$stmt->bindValue(':projectID', $this->getId());
+
+			$stmt->execute();
+			return (bool) $stmt->fetch(PDO::FETCH_ASSOC) ?? 0;
+
+		} catch (PDOException $e) {
+
+			$msg = "Error Project descriptInDb: <br>" . $e->getMessage();
+			error_log($msg);
+			die($msg);
+		}
+	}
+
+	public function descript($crud, $descript='') {
+
+		$crud = strtolower($crud);
+
+		if (!in_array($crud, ['read', 'create', 'update', 'delete'])) {
+			throw new Exception('Project descript: Not Valid CRUD option'); exit();
+		}
+
+		if ($crud === 'update' && strlen(trim($descript)) < 1) {
+			$crud = 'delete';
+		} elseif ($crud === 'update' && !$this->descriptInDb()) {
+			$crud = 'create';
+		}
+
+		// _____________________________________________________________
+
+		try {
+
+			$conn = DBConnect::getConn();
+			$sql = '';
+			$userID = unserialize($_SESSION['currentUser'])->getId();
+
+
+			if ($crud == 'read') {
+				$sql = 'SELECT descript FROM DescriptProject WHERE projectID = :projectID  AND userID = :userID';
+
+				$stmt = $conn->prepare($sql);
+			
+				$stmt->bindValue(':projectID', $this->getId());
+				$stmt->bindValue(':userID', $userID);	
+				$stmt->execute();
+
+				$result = $stmt->fetch(PDO::FETCH_ASSOC)['descript'] ?? '';
+				return html_entity_decode($result);
+			};
+
+			switch ($crud) {
+				case 'create':
+					$sql = 'INSERT INTO DescriptProject (descript, userID, projectID) VALUES (:descript, :userID, :projectID)';
+					break;
+				case 'update':
+					$sql = 'UPDATE DescriptProject SET descript = :descript WHERE projectID = :projectID  AND userID = :userID';
+					break;
+				case 'delete':
+					$sql = 'DELETE FROM DescriptProject WHERE projectID = :projectID  AND userID = :userID';
+					break;
+			}
+
+
+			$stmt = $conn->prepare($sql);
+			
+			if ($crud === 'create' || $crud === 'update'){
+				$stmt->bindValue(':descript', $descript);
+			}
+
+			$stmt->bindValue(':projectID', $this->getId());
+			$stmt->bindValue(':userID', $userID);
+
+			$stmt->execute();
+
+
+		} catch (PDOException $e) {
+
+			$msg = "Error Project descript: <br>" . $e->getMessage();
+			error_log($msg);
+			die($msg);
+		}
+	}
+
+	// _________________________________________________________________
+
+	public function formatDateForForm() {
+		preg_match('#(\d+)-(\d+)-(\d+)#', $this->getProjectDate() ,$arr);
+		return "{$arr[3]}/{$arr[2]}/{$arr[1]}";
+	}
+
+	public function formatDateForDisplay() {
+
+		preg_match('#(\d+)-(\d+)-(\d+)#', $this->getProjectDate() ,$arr);
+
+		$dateObj = new DateTime("{$arr[3]}-{$arr[2]}-{$arr[1]}");
+
+		return $dateObj->format('j M Y');
+	}
+
+	public function formatDateForDB() {
+		$date =  preg_match('@(\d+)/(\d+)/(\d+)@', $this->getProjectDate(), $arr);
+		return $date ? "{$arr[3]}-{$arr[2]}-{$arr[1]}" : false;
+	}
+
+	// _________________________________________________________________
 
 	public static function checkForProjectList() {				
 		return isset(self::$ProjectList) && !empty(self::$ProjectList);

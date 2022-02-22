@@ -1,12 +1,12 @@
 <section class="projects">
-<form action="#"  class="projects__form">
+<form action="<?= $_ENV['BASE_PATH'] ?>/projects-delete"  class="projects__form" method="POST">
 
     <div class="top-pannel">
         <div class="top-pannel__date"><b>projects</b> list</div>
             
         <div class="top-pannel__buttons">
             <a href="<?= $_ENV['BASE_PATH']?>/projects-add" class="btn btn--light">add new poject</a>
-            <button class="btn btn--red">remove project</button>
+            <button class="btn btn--red modalBtn" type="button">remove project</button>
         </div>
     </div>
     
@@ -44,22 +44,25 @@
 
                     <td class="table__td">
                     <label class="checkbox-2" >
-                        <input type="checkbox" class="checkbox-2__input">
+                        <input type="checkbox" class="checkbox-2__input project-checkbox" name="projectsDeleteList[]" value="<?= $p->getId()?>" id="project-id-checkbox-<?= $p->getId(); ?>">
                         <svg class="checkbox-2__icon checkbox-2__icon--unchecked"><use href="./app/static/svg/icomoon.svg#icon-checkbox-6"></use></svg>
                         <svg class="checkbox-2__icon checkbox-2__icon--checked"><use href="./app/static/svg/icomoon.svg#icon-checkbox-3"></use></svg>
                     </label>
                     </td>
 
                     <td class="table__td">
-                        <a href="#" class="icon__link" id="table-icon-update">
+                        <a href="<?= $_ENV['BASE_PATH'] ?>/projects-edit<?= $p->getId() ?>" class="icon__link" id="table-icon-update">
                             <svg class="icon__svg"> <use xlink:href="./app/static/svg/icomoon.svg#icon-pencil-10"></use></svg>
                         </a>
                         <a href="#" class="icon__link" id="table-icon-details">
                             <svg class="icon__svg"> <use xlink:href="./app/static/svg/icomoon.svg#icon-view-12"></use></svg>
                         </a>
-                        <a href="#" class="icon__link" id="table-icon-remove">
+                        <a class="icon__link  project-remove-link" id="project-id-link-<?= $p->getId(); ?>">
                             <svg class="icon__svg"> <use xlink:href="./app/static/svg/icomoon.svg#icon-minus-4"></use></svg>
                         </a>
+
+
+
                     </td>
 
                     <td class="table__td"><?= $p->getId() ?></td>
@@ -73,7 +76,7 @@
                     </td>
                     <td class="table__td"><?= $p->getStageName() ?></td>
                     <td class="table__td"><?= $p->getCategoryName() ?></td>
-                    <td class="table__td"><?= $p->getProjectDate() ?></td>
+                    <td class="table__td"><?= $p->formatDateForDisplay() ?></td>
                     <td class="table__td"><?= $p->getStrAddr() ?>, <?= $p->getLocalityName() ?></td>   
 
                 </tr>
@@ -83,6 +86,27 @@
             </tbody>
         </table>
     </div>
+
+<section class="modal">
+    <div class="modal__content">
+
+        <svg class="modal__close"><use href="./app/static/svg/icomoon.svg#icon-x-mark-thin"></use></svg>
+
+        <div class="modal__title">Delete Confermation </div>
+
+        <p style="display: none;" class="modal-hidden-message-js">Are you sure you want to delete these Projects?</p>
+
+        <div class="modal__question modal-question-js">Are you sure you want to delete these Projects?</div>
+
+        <div  class="modal__confirmation" method="POST">
+        
+            
+            <button class="btn btn--light modal__cancel" type="button">cancel</button>
+            <button class="btn btn--red">Confirm</button>
+        </div>
+
+    </div>    
+</section>
 
 </form>
 </section>

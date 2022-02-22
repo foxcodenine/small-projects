@@ -103,11 +103,11 @@
         <label class="field__label" for="description"></label>
         <div class="field__error"><?= $errorDescription; ?></div>
         <div class="field__error"></div>
-        <textarea id="editor_body" class="ck" name="description"><?= $_SESSION['project']['description'] ?? '' ?></textarea>
+        <textarea id="editor_body" class="ck" name="descriptProject"><?= $_SESSION['project']['descriptProject'] ?? '' ?></textarea>
     </div>    
     
 
-    <button class="btn btn--primary btn--thick project-form__btn">Add Project</button>
+    <button class="btn btn--primary btn--thick project-form__btn"><?= $endpointURL === 'projects-add' ? 'Add' : 'Update' ?> Project</button>
     
 </form>
 </section>

@@ -148,10 +148,9 @@ $router->match('GET|POST', '/clients-add|clients-edit(\d+)|clients-edit', functi
         }
 
         if ($_SESSION['client']['infoClient'] && strlen($_SESSION['client']['infoClient']) > 65500 ) {
-            $_SESSION['error']['infoClient'] = 'Client info is too long' . strlen($_SESSION['client']['infoClient']);
+            $_SESSION['error']['infoClient'] = 'Client info is too long';
 
         } else {
-
             unset($_SESSION['error']['infoClient']);
         }
 
@@ -197,10 +196,9 @@ $router->match('GET|POST', '/clients-add|clients-edit(\d+)|clients-edit', functi
                 );                
 
                 // --- If info save to db  in infoClient table;
-                if(
-                    isset($_SESSION['client']['infoClient']) && 
-                    !empty($_SESSION['client']['infoClient'])
-                ) { 
+                if( isset($_SESSION['client']['infoClient']) && 
+                    !empty($_SESSION['client']['infoClient']) ) { 
+                        
                     $newClient->info('create', $_SESSION['client']['infoClient']);
                 }
             }

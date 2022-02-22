@@ -43,7 +43,7 @@
 
                     <td class="table__td">
                     <label class="checkbox-2" >
-                    <input type="hidden">
+                    <!-- <input type="hidden"> TODO: to remove  --> 
                         <input type="checkbox" class="checkbox-2__input client-checkbox"  name="clientsDeleteList[]" value="<?= $client->getId()?>" id="client-id-checkbox-<?= $client->getId(); ?>">
                         <svg class="checkbox-2__icon checkbox-2__icon--unchecked"><use href="./app/static/svg/icomoon.svg#icon-checkbox-6"></use></svg>
                         <svg class="checkbox-2__icon checkbox-2__icon--checked"><use href="./app/static/svg/icomoon.svg#icon-checkbox-3"></use></svg>
@@ -93,7 +93,8 @@
 
         <div class="modal__title">Delete Confermation </div>
 
-        <!-- <div class="modal__question">Are you sure you want to delete this Client?</div> -->
+        <p style="display: none;" class="modal-hidden-message-js">Are you sure you want to delete these Clients?</p>
+        
         <div class="modal__question modal-question-js">Are you sure you want to delete these Clients?</div>
 
         <div  class="modal__confirmation" method="POST">

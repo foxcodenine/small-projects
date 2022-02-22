@@ -21,8 +21,8 @@ $router->match('GET|POST', '/projects-add|projects-edit(\d+)|projects-edit', fun
     switch ($endpointURL) {
         // Check if ADD or EDIT.
         // If ADD break 
-        // If EDIT set client in session
-        // Or redirect if clientID is empty or invalid.
+        // If EDIT set project in session
+        // Or redirect if pojectID is empty or invalid.
 
         case 'projects-add':
             $currentProject = new stdClass;
@@ -42,37 +42,29 @@ $router->match('GET|POST', '/projects-add|projects-edit(\d+)|projects-edit', fun
         if (array_key_exists($id, Project::getProjectList() ) && !isset($_SESSION['project']['id'])) {
             $currentProject = Project::getProjectList()[$id];
 
-            $_SESSION['project']['projectname'] = $currentProject->getProjectname();
-            $_SESSION['project']['localityName']  = $currentProject->getLocalityName();
-            $_SESSION['project']['strAddr']  = $currentProject->getStrAddr();
-            $_SESSION['project']['clientId']  = $currentProject->getClientId();
-            $_SESSION['project']['projectNo']  = $currentProject->getProjectNo();
-            $_SESSION['project']['paNo']  = $currentProject->getPaNo();
-            $_SESSION['project']['stageName']  = $currentProject->getStageName();
-            $_SESSION['project']['categoryName']  = $currentProject->getCategoryName();
+            $_SESSION['project']['projectname']     = $currentProject->getProjectname();
+            $_SESSION['project']['localityName']    = $currentProject->getLocalityName();
+            $_SESSION['project']['strAddr']         = $currentProject->getStrAddr();
+            $_SESSION['project']['clientId']        = $currentProject->getClientId();
+            $_SESSION['project']['projectNo']       = $currentProject->getProjectNo();
+            $_SESSION['project']['paNo']            = $currentProject->getPaNo();
+            $_SESSION['project']['stageName']       = $currentProject->getStageName();
+            $_SESSION['project']['categoryName']    = $currentProject->getCategoryName();
 
 
             if ($currentProject->getProjectDate()) {
-                preg_match('#(\d+)-(\d+)-(\d+)#', $currentProject->getProjectDate() ,$arr);
-                $_SESSION['project']['projectDate']  = "{$arr[3]}/{$arr[2]}/{$arr[1]}";
+                $_SESSION['project']['projectDate']  = $currentProject->formatDateForForm();
 
             } else {
                 $_SESSION['project']['projectDate'] = '';
-            }
-
-            
-
-        
+            }        
 
     
-            // $_SESSION['project']['description'] = //TODO:; 	import project descition
+            $_SESSION['project']['descriptProject'] = $currentProject->descript('read');
         } else {
             MyUtilities::redirect($_ENV['BASE_PATH']);
             exit();
         }
-
-
-
 
     }
 
@@ -87,7 +79,7 @@ $router->match('GET|POST', '/projects-add|projects-edit(\d+)|projects-edit', fun
     $errorStageName     = $_SESSION['error']['stageName'] ?? '&nbsp;';
     $errorCategoryName  = $_SESSION['error']['categoryName'] ?? '&nbsp;';
     $errorProjectDate   = $_SESSION['error']['projectDate'] ?? '&nbsp;';
-    $errorDescription   = $_SESSION['error']['description'] ?? '&nbsp;';
+    $errorDescription   = $_SESSION['error']['descriptProject'] ?? '&nbsp;';
 
     // ----- Set select option 
  
@@ -117,7 +109,7 @@ $router->match('GET|POST', '/projects-add|projects-edit(\d+)|projects-edit', fun
 
 
 
-        $_SESSION['project']['description'] = trim(htmlspecialchars($_POST['description'])); 	
+        $_SESSION['project']['descriptProject'] = trim(htmlspecialchars($_POST['descriptProject'])); 	
         unset($_POST);
 
 
@@ -141,6 +133,15 @@ $router->match('GET|POST', '/projects-add|projects-edit(\d+)|projects-edit', fun
         }  else {
             unset($_SESSION['error']['strAddr']);
         }
+
+        if ($_SESSION['project']['descriptProject'] && strlen($_SESSION['project']['descriptProject']) > 65500 ) {
+            $_SESSION['error']['descriptProject'] = 'Project desciption is too long' . strlen($_SESSION['project']['descriptProject']);
+        } else {
+            unset($_SESSION['error']['descriptProject']);
+        }
+
+
+
         // ----- if NO error
 
         if (!isset($_SESSION['error']) || empty($_SESSION['error'])) {
@@ -178,11 +179,6 @@ $router->match('GET|POST', '/projects-add|projects-edit(\d+)|projects-edit', fun
 
                 $userId = (int) unserialize($_SESSION['currentUser'])->getId();
 
-                $date =  $_SESSION['project']['projectDate'];
-                $date =  preg_match('@(\d+)/(\d+)/(\d+)@', $date, $arr);
-                $date =  $date ? "{$arr[3]}-{$arr[2]}-{$arr[1]}" : date(DBConnect::D_FORMAT, time());
-
-
 
 
                 $newProject = new Project(
@@ -191,7 +187,7 @@ $router->match('GET|POST', '/projects-add|projects-edit(\d+)|projects-edit', fun
                     strAddr :       $_SESSION['project']['strAddr'],
                     projectNo :     $_SESSION['project']['projectNo'],
                     paNo :          $_SESSION['project']['paNo'],
-                    projectDate :   $date,
+                    projectDate :   $_SESSION['project']['projectDate'],
                     localityName :  $_SESSION['project']['localityName'] ?: null,
                     stageName :     $_SESSION['project']['stageName']    ?: null,
                     categoryName :  $_SESSION['project']['categoryName'] ?: null, 
@@ -199,7 +195,12 @@ $router->match('GET|POST', '/projects-add|projects-edit(\d+)|projects-edit', fun
                     userID :        $userId ,
                 );
 
-                //TODO: add project description
+                // --- If info save to db  in infoClient table;
+                if( isset($_SESSION['project']['descriptProject']) && 
+                    !empty($_SESSION['project']['descriptProject']) ) { 
+                        
+                    $newProject->descript('create', $_SESSION['project']['descriptProject']);
+                }
 
             }           
 
@@ -218,7 +219,7 @@ $router->match('GET|POST', '/projects-add|projects-edit(\d+)|projects-edit', fun
                 $currentProject->setProjectDate($_SESSION['project']['projectDate']); 
                 
                 $currentProject->updateProjectToDB();
-                // $currentClient->info('update', $_SESSION['client']['infoClient']); //TODO: update project description
+                $currentProject->descript('update', $_SESSION['project']['descriptProject']);
             }
 
 

@@ -162,6 +162,23 @@ class DBTables {
                 ON DELETE CASCADE
     )ENGINE=InnoDB;';
 
+    // -----------------------------------------------------------------
+
+    const DescriptProject = 'CREATE TABLE IF NOT EXISTS DescriptProject(
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        descript TEXT,
+    
+        userID INT NOT NULL ,
+        CONSTRAINT User_DescriptProject
+                FOREIGN KEY (userID) REFERENCES User (id)
+                ON DELETE CASCADE,
+    
+        projectID INT NOT NULL ,
+        CONSTRAINT User_ProjectID
+                FOREIGN KEY (projectID) REFERENCES Project (id)
+                ON DELETE CASCADE
+    )ENGINE=InnoDB;';
+
 
 
     // -----------------------------------------------------------------

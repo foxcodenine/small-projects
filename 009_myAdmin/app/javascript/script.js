@@ -24,6 +24,7 @@ document.onreadystatechange = function () {                    // <- (A)
         myLoaderBtn(); 
         modalToggle();
         clientsRemoveFromLink();
+        projectsRemoveFromLink();
         sortTables();
         sortTableAddArrow();
 
@@ -47,6 +48,30 @@ function clientsRemoveFromLink () {
             checkbox.checked = 'on';
 
             modalQuestion.textContent = 'Are you sure you want to delete this Client?';        
+
+            document.querySelector('.modalBtn').click();
+            
+        });
+    });
+}
+
+function projectsRemoveFromLink () {
+    let projectsRemoveLinks = document.querySelectorAll('.project-remove-link');
+    let projectsCheckboxs   = document.querySelectorAll('.project-checkbox');
+    let modalQuestion      = document.querySelector('.modal-question-js');
+
+
+
+    projectsRemoveLinks.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+
+            for( let checkbox of projectsCheckboxs) checkbox.checked = false;
+        
+            let id = (e.target.closest('a').id).split('-').at(-1);
+            let checkbox = document.querySelector('#project-id-checkbox-' + id);
+            checkbox.checked = 'on';
+
+            modalQuestion.textContent = 'Are you sure you want to delete this project?';        
 
             document.querySelector('.modalBtn').click();
             
@@ -160,7 +185,7 @@ function modalToggle () {
             menubtn.style['z-index'] = 100;  
             // - Removing Modal          
             modal.style.display = 'none';
-            modalQuestion.textContent = 'Are you sure you want to delete these Clients?';
+            modalQuestion.textContent = document.querySelector('.modal-hidden-message-js').textContent;
         }, 400);
     }
 
