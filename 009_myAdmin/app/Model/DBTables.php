@@ -103,7 +103,7 @@ class DBTables {
             ON DELETE SET NULL,
 
         clientId INT,
-        CONSTRAINT Stage_Client
+        CONSTRAINT Client_Poject
             FOREIGN KEY (clientId) REFERENCES Client (id)
             ON DELETE SET NULL,
 
@@ -157,7 +157,7 @@ class DBTables {
                 ON DELETE CASCADE,
     
         clientID INT NOT NULL ,
-        CONSTRAINT User_ClientID
+        CONSTRAINT Client_InfoClient
                 FOREIGN KEY (clientID) REFERENCES Client (id)
                 ON DELETE CASCADE
     )ENGINE=InnoDB;';
@@ -174,11 +174,28 @@ class DBTables {
                 ON DELETE CASCADE,
     
         projectID INT NOT NULL ,
-        CONSTRAINT User_ProjectID
+        CONSTRAINT Project_DescriptProject
                 FOREIGN KEY (projectID) REFERENCES Project (id)
                 ON DELETE CASCADE
     )ENGINE=InnoDB;';
 
+    // -----------------------------------------------------------------
+
+    const ImageProject = 'CREATE TABLE IF NOT EXISTS ImageProject(
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        urlPath VARCHAR(255) NOT NULL,
+        position INT,
+    
+        userID INT NOT NULL ,
+        CONSTRAINT User_ImageProject
+                FOREIGN KEY (userID) REFERENCES User (id)
+                ON DELETE CASCADE,
+    
+        projectID INT NOT NULL ,
+        CONSTRAINT Project_ImageProject
+                FOREIGN KEY (projectID) REFERENCES Project (id)
+                ON DELETE CASCADE
+    )ENGINE=InnoDB;';
 
 
     // -----------------------------------------------------------------

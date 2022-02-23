@@ -7,13 +7,18 @@ use app\Model\MyCript;
 use app\Model\MyUtilities;
 use app\Model\Project;
 
-$router->match('GET', '/projects', function() {   
+$router->match('GET', '/projects', function() {  
     
-
+    Project::updateProjectList();
 
     $projectList = Project::getProjectList();
 
+    $projectList = MyUtilities::sortTable($projectList);
+
     $pageName = 'projects'; include './app/views/_page.php';
+
+    unset($_SESSION['error']);
+    unset($_SESSION['poject']);
     
     exit;
 });
@@ -28,9 +33,3 @@ $router->match('GET|POST', '/projects-delete', function() {
 });
 
 ////////////////////////////////////////////////////////////////////////
-
-$router->match('GET', '/images', function() {   
-
-    $pageName = 'images'; include './app/views/_page.php';
-    exit;
-});

@@ -405,6 +405,33 @@ class Project {
 	}
     // _________________________________________________________________
 
+	public function fetchImages() {
+
+		try {
+
+			$conn = DBConnect::getConn();
+
+			$sql = 'SELECT id, urlPath FROM ImageProject WHERE projectId = :projectId';
+
+			$stmt = $conn->prepare($sql);
+
+			$stmt->bindValue(':projectId', $this->getId());
+
+			$stmt->execute();
+
+			$result = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+			return $result ?: [];
+
+		} catch (PDOException $e) {
+
+			$msg = "Error Project fetchImages: <br>" . $e->getMessage();
+			error_log($msg);
+			die($msg);
+		}
+	}
+    // _________________________________________________________________
+
 	/** Get the value of id */
 	public function getId() {
 		return $this->id;

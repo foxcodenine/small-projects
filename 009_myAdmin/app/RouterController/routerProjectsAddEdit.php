@@ -10,7 +10,7 @@ use app\Model\Project;
 
 ////////////////////////////////////////////////////////////////////////
 
-$router->match('GET|POST', '/projects-add|projects-edit(\d+)|projects-edit', function($id=null) {   
+$router->match('GET|POST', '/projects-add|/projects-edit(\d+)|/projects-edit', function($id=null) {   
     
     // ----- Get url endpoint
 

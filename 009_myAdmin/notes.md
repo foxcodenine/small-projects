@@ -31,6 +31,14 @@ https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/s3-examples.html
 https://aws.amazon.com/sdk-for-php/
 
 
+## ------ Createing thumbnails -----------------------------------------
+
+https://pqina.nl/blog/creating-thumbnails-with-php/
+https://www.umaryland.edu/cpa/toolbox/web-image-specifications-cheat-sheet/#d.en.356608
+
+https://css-tricks.com/almanac/properties/f/filter/
+
+
 ## ------ Hosting and deploying ----------------------------------------
 
 https

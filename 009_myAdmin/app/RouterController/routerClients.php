@@ -13,31 +13,7 @@ $router->match('GET|POST', '/clients', function() {
 
     $clientList = Client::getClientList();
 
-
-    // ____________________________________________
-
-
-    function sortCallback($a, $b) {
-
-        $method    = MyCript::stringSanitize($_GET['sortBy'] ?? 'getId');
-        $sortOrder = MyCript::stringSanitize($_GET['sortOrder'] ?? 1);
-     
-      
-        if ($a->$method() == $b->$method()) { 
-
-            return 0;
-        } else if ($sortOrder === 'ASC') {
-
-            return ($a->$method() > $b->$method()) ? -1 : 1;
-
-        } else {
-            return ($a->$method() < $b->$method()) ? -1 : 1;
-        }              
-    }
-
-    usort($clientList, "sortCallback");
-
-    // ____________________________________________
+    $clientList = MyUtilities::sortTable($clientList);
     
     $pageName = 'clients'; include './app/views/_page.php';
     

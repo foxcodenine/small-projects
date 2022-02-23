@@ -1,32 +1,19 @@
 
-OK 1a fix project edit date bug
-
-OK 1b fomat date in poject list page
-OK 1c Add both date format functions as methods to project. 
-
-2. Deleting projects
-    OK a. create modal
-    OK b. pop up modal on click
-    OK c. create delete method
-    OK d. create a delete router
-    OK e. update form in project list
-    OK f. delete projects from btn
-    OK g. delete poject from link 
 
 
-OK 3. Project Description
-    OK a. create table
-    OK b. validate data
-    OK c. ceate methods in Project class
-    OK d. input date to db
-
-4. Project sorting functionality 
+OK 4. Project sorting functionality 
 
 5. Project Images
-    a. find how to store image from php to:
+    OK a. set router
+    OK b. display page
+    d. load locally
+    OK e. create db table
+    OK f. create dummy data
+    g. save url to db
+    h. find how to store image from php to:
         i.  AWS bot3
         ii. Digital Ocen store
-    b try to implement both options
+    i try to implement both options
 
 F. Add add json inteface to project  and check client json
 

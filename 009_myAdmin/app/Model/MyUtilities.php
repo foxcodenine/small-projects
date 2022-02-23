@@ -72,6 +72,32 @@ class MyUtilities {
     // -----------------------------------------------------------------
 
 
+    public static function sortTable($arrList) {
+
+        $sortCallback = function ($a, $b) {
+
+            $method    = MyCript::stringSanitize($_GET['sortBy'] ?? 'getId');
+            $sortOrder = MyCript::stringSanitize($_GET['sortOrder'] ?? 1);
+         
+          
+            if ($a->$method() == $b->$method()) { 
+    
+                return 0;
+            } else if ($sortOrder === 'ASC') {
+    
+                return ($a->$method() > $b->$method()) ? -1 : 1;
+    
+            } else {
+                return ($a->$method() < $b->$method()) ? -1 : 1;
+            }              
+        };
+    
+        usort($arrList, $sortCallback);
+        
+        return $arrList;
+    }
+
+
     // -------------------------------------------------------------------------
     // --- Check Database --- Check Database --- Check Database --- Check Databa
     // -------------------------------------------------------------------------

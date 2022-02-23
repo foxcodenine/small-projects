@@ -54,7 +54,7 @@ require './app/views/include/viewHeader.php'; ?>
             break;  
 
         case 'images':
-            $pagePath = './app/views/projects/viewImages.php';
+            $pagePath = './app/views/projects/viewProjectsImages.php';
             break;            
 
         case 'clients':

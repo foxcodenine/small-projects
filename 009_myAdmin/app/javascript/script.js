@@ -33,6 +33,8 @@ document.onreadystatechange = function () {                    // <- (A)
     }
 }
 
+//----------------------------------------------------------------------
+
 function clientsRemoveFromLink () {
     let clientsRemoveLinks = document.querySelectorAll('.client-remove-link');
     let clientsCheckboxs   = document.querySelectorAll('.client-checkbox');
@@ -54,6 +56,8 @@ function clientsRemoveFromLink () {
         });
     });
 }
+
+//----------------------------------------------------------------------
 
 function projectsRemoveFromLink () {
     let projectsRemoveLinks = document.querySelectorAll('.project-remove-link');
@@ -79,65 +83,10 @@ function projectsRemoveFromLink () {
     });
 }
 
-//----------------------------------------------------------------------
-
-function sortTables() {
-    const tableHeadersAnchers = document.querySelectorAll('.table-sort-js');
-    if (tableHeadersAnchers.length < 2) return;
-
-
-    tableHeadersAnchers.forEach(ancher => {        
-        
-        ancher.addEventListener('click', (e)=>{
-            // e.preventDefault()
-      
-            let link = ancher.href;
-
-            console.log(link)
-
-            if (link.endsWith('ASC') && window.location.search.endsWith('ASC') ) {
-                link = link.replace('ASC', 'DESC');  
-                                            
-            } else {
-                link = link.replace('DESC', 'ASC');                
-            }
-            ancher.href = link;              
-
-        })
-    });
-}
-
-
-function sortTableAddArrow() {
-    
-    let params;
-    
-    if (window.location.search) {
-        params = window.location.search;
-    }
-
-    if (!params) return;
-    
-    let [sort, direction] = params.split('&');
-    sort = sort.split('=')[1]
-    direction = direction.split('=')[1]
-
-    let element = document.querySelector(`#${sort}`)
-
-
-    if(element) {
-    
-        if (direction == 'DESC') {
-            element.innerHTML = element.textContent + ' &utrif;';
-
-        } else {
-            element.innerHTML = element.textContent + ' &dtrif;';
-        }
-    }
-}
 
 
 //----------------------------------------------------------------------
+
 
 function modalToggle () {
 
@@ -208,6 +157,69 @@ function modalToggle () {
         closeItem.addEventListener('click', modalOff);
     })
 }
+
+
+//----------------------------------------------------------------------
+
+function sortTables() {
+    const tableHeadersAnchers = document.querySelectorAll('.table-sort-js');
+    if (tableHeadersAnchers.length < 2) return;
+
+
+    tableHeadersAnchers.forEach(ancher => {        
+        
+        ancher.addEventListener('click', (e)=>{
+            // e.preventDefault()
+      
+            let link = ancher.href;
+
+            console.log(link)
+
+            if (link.endsWith('ASC') && window.location.search.endsWith('ASC') ) {
+                link = link.replace('ASC', 'DESC');  
+                                            
+            } else {
+                link = link.replace('DESC', 'ASC');                
+            }
+            ancher.href = link;              
+
+        })
+    });
+}
+
+
+function sortTableAddArrow() {
+    
+    let params;
+    
+    if (window.location.search) {
+        params = window.location.search;
+    }
+
+    if (!params) return;
+    
+    let [sort, direction] = params.split('&');
+    sort = sort.split('=')[1]
+    direction = direction.split('=')[1]
+
+    let element = document.querySelector(`#${sort}`)
+
+
+    if(element) {
+    
+        if (direction == 'DESC') {
+            element.innerHTML = element.textContent + ' &utrif;';
+
+        } else {
+            element.innerHTML = element.textContent + ' &dtrif;';
+        }
+    }
+}
+
+
+//----------------------------------------------------------------------
+
+
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -414,16 +426,19 @@ function closeImagesMenu () {
     let checkBox  = null;
 
     images.forEach(( img, index, array) => {
+
+        let id = img.id.split('-').at(-1);    
         
         document.addEventListener('click', (e) => {
             const frame = e.target.closest('.image__frame');
-
-            if (frame !== null && frame.id === `image-${index+1}`) {
+            
+            if (frame !== null && frame.id === `image-${id}`) {
                 if (openFrame !== frame) {
                     if (checkBox) checkBox.checked = false;
                     openFrame = frame;
-                    checkBox  = document.getElementById(`image-checkbox-${index+1}`);            
+                    checkBox  = document.getElementById(`image-checkbox-${id}`);  
                 }
+
             } else if (frame === null) {
                 if (checkBox) checkBox.checked = false;
             }

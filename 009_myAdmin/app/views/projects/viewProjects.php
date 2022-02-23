@@ -16,23 +16,31 @@
             <thead class="table__thead ">
                 <th class="table__th">select</th>
                 <th class="table__th">links</th>
-                <th class="table__th">DB #</th>
-                <th class="table__th">project</th>
-                <th class="table__th">locality</th>
-                <th class="table__th">client</th>
-                <th class="table__th">project #</th>
-                <th class="table__th">pa #</th>
+        
+                <th class="table__th"><a class="table-sort-js" id="getId"           href="<?= $_ENV['BASE_PATH'] ?>/projects?sortBy=getId&sortOrder=ASC">DB-id</a></th>
+
+                <th class="table__th"><a class="table-sort-js" id="getProjectname"  href="<?= $_ENV['BASE_PATH'] ?>/projects?sortBy=getProjectname&sortOrder=ASC">project</a></th>
+
+                <th class="table__th"><a class="table-sort-js" id="getLocalityName"  href="<?= $_ENV['BASE_PATH'] ?>/projects?sortBy=getLocalityName&sortOrder=ASC">locality</a></th>
+
+                <th class="table__th"><a class="table-sort-js" id="fetchClientName"  href="<?= $_ENV['BASE_PATH'] ?>/projects?sortBy=fetchClientName&sortOrder=ASC">client</a></th>
+
+                <th class="table__th"><a class="table-sort-js" id="getProjectNo"  href="<?= $_ENV['BASE_PATH'] ?>/projects?sortBy=getProjectNo&sortOrder=ASC">project #</a></th>
+
+                <th class="table__th"><a class="table-sort-js" id="getPaNo"  href="<?= $_ENV['BASE_PATH'] ?>/projects?sortBy=getPaNo&sortOrder=ASC">pa #</a></th>
+
                 <th class="table__th">images</th>
-                <th class="table__th">status</th>
-                <th class="table__th">category</th>
-                <th class="table__th">date</th>
-                <th class="table__th">address</th>
+
+                <th class="table__th"><a class="table-sort-js" id="getStageName"  href="<?= $_ENV['BASE_PATH'] ?>/projects?sortBy=getStageName&sortOrder=ASC">stage</a></th>
+
+                <th class="table__th"><a class="table-sort-js" id="getCategoryName"  href="<?= $_ENV['BASE_PATH'] ?>/projects?sortBy=getCategoryName&sortOrder=ASC">category</a></th>
+
+                <th class="table__th"><a class="table-sort-js" id="getProjectDate"  href="<?= $_ENV['BASE_PATH'] ?>/projects?sortBy=getProjectDate&sortOrder=ASC">date</a></th>
+
+                <th class="table__th"><a class="table-sort-js" id="getStrAddr"  href="<?= $_ENV['BASE_PATH'] ?>/projects?sortBy=getStrAddr&sortOrder=ASC">address</a></th>
             </thead>
             
-            <tbody class="table__tbody">
-
-            
-    
+            <tbody class="table__tbody">    
                 
                
                 <!-- ----------------------------------------------- -->
@@ -72,7 +80,7 @@
                     <td class="table__td"><?= $p->getProjectNo() ?></td>
                     <td class="table__td"><?= $p->getPaNo() ?></td>
                     <td class="table__td">
-                        <a class="table__a" href="#"><img id="table-images" class="table__img" src="<?= $p->getCover() ?: './app/static/images/upload_img.png' ?>" alt="default image"></a>
+                        <a class="table__a" href="<?= $_ENV['BASE_PATH'] . '/projects-images-' . $p->getId() ?>"><img id="table-images" class="table__img" src="<?= $p->getCover() ?: './app/static/images/upload_img.png' ?>" alt="default image"></a>
                     </td>
                     <td class="table__td"><?= $p->getStageName() ?></td>
                     <td class="table__td"><?= $p->getCategoryName() ?></td>

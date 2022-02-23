@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS InfoClient (
 
 
 use project_009_myAdmin;
-SET @userID = (SELECT id FROM User WHERE email = 'chis12aug@yahoo.com');
+SET @userID = (SELECT id FROM User WHERE email = 'chris12aug@yahoo.com');
 INSERT INTO Locality (lName, userID) VALUES ('Attard', @userID), ('Zurrieq', @userID), ('Valletta', @userID);
 INSERT INTO Country (cName, userID) VALUES ('Malta', @userID), ('Gozo', @userID), ('UK', @userID);
 
@@ -33,3 +33,20 @@ VALUES
 ('Ms', 'Erika', 'Abdilla', '00124578M', 'PDO', NULL,  '78451256', NULL, '12 Tiq il Harruba', 'ZQR1245','Zurrieq',  'Malta', @userID);
 
 
+
+
+
+use project_009_myAdmin;
+SET @userID = (SELECT id FROM User WHERE email = 'chris12aug@yahoo.com');
+
+INSERT INTO ImageProject (urlPath, position, userID, projectID)
+VALUES
+('/009/app/static/images/samples/project-3/0001.jpg', 1, @userID, 3),
+('/009/app/static/images/samples/project-3/0002.jpg', 1, @userID, 3),
+('/009/app/static/images/samples/project-3/0003.jpg', 1, @userID, 3),
+('/009/app/static/images/samples/project-3/0004.jpg', 1, @userID, 3),
+('/009/app/static/images/samples/project-3/0005.jpg', 1, @userID, 3),
+('/009/app/static/images/samples/project-3/0006.jpg', 1, @userID, 3),
+('/009/app/static/images/samples/project-3/0007.jpg', 1, @userID, 3),
+('/009/app/static/images/samples/project-3/0008.jpg', 1, @userID, 3),
+('/009/app/static/images/samples/project-3/0009.jpg', 1, @userID, 3);
