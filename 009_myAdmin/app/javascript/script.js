@@ -413,7 +413,7 @@ function myTippyFunction () {
     tippy('#table-icon-update',    { content: 'Update'});
     tippy('#table-icon-details', { content: 'Details'});
     tippy('#table-icon-remove',  { content: 'Remove'});
-    tippy('#table-images',       { content: 'Update images'});
+    tippy('#table-images',       { content: 'Images'});
 }
 
 //----------------------------------------------------------------------

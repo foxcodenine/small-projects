@@ -26,9 +26,18 @@ Tutorials
 https://blog.trigent.com/crud-operations-on-amazon-s3-using-php-aws-sdk/
 https://blog.eduonix.com/web-programming-tutorials/learn-s3-using-aws-php-sdk/
 
+https://packagist.org/packages/aws/aws-sdk-php
+$ composer require aws/aws-sdk-php
+$ composer dump-autoload -o
+
+https://www.youtube.com/watch?v=giFKMqZ_d5E
+https://www.youtube.com/watch?v=6fZQHLbNZjY
+
 Documantation
 https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/s3-examples.html
+https://docs.aws.amazon.com/en_cn/sdk-for-php/v3/developer-guide/guide_configuration.html
 https://aws.amazon.com/sdk-for-php/
+
 
 
 ## ------ Createing thumbnails -----------------------------------------

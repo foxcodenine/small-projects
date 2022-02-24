@@ -7,6 +7,7 @@ OK 4. Project sorting functionality
     OK a. set router
     OK b. display page
     d. load locally
+    d. validate
     OK e. create db table
     OK f. create dummy data
     g. save url to db

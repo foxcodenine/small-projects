@@ -7,13 +7,14 @@
         
         <div class="images__upload-box">
         
-            <input  class="images__input" type="file" id="files" name="projectsImages[]" multiple>
-            <button class="images__btn">
+            <input  class="images__input" type="file" id="upload-images" name="projectImages[]" multiple>
+            <button class="images__btn" >
                 <svg class="images__icon"><use href="./app/static/svg/icomoon.svg#icon-upload-10"></use></svg>
             </button>
         </div>
-        <div class="placeholder"></div>
-        <div class="field__error"></div>
+        <div class="images__massage">
+        The maximum number of images per project is 24. Maximum image file size is 2M.
+        </div>
 
     </div>    
     

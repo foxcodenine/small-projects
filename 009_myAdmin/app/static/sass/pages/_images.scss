@@ -70,6 +70,17 @@
         fill: $col-white;
     }
 
+    &__massage {
+        font-family: 'console', monospace;
+        grid-column: 1 / -1;
+        justify-self: end;
+
+        opacity: 0;
+    }
+    &__upload-box:hover ~ &__massage {
+        opacity: 1;
+    }
+
 
 }
 

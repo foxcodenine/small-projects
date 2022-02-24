@@ -1436,6 +1436,15 @@ main.pages {
   height: 2rem;
   fill: #fff;
 }
+.images__massage {
+  font-family: "console", monospace;
+  grid-column: 1/-1;
+  justify-self: end;
+  opacity: 0;
+}
+.images__upload-box:hover ~ .images__massage {
+  opacity: 1;
+}
 
 .image__frame {
   overflow: hidden;

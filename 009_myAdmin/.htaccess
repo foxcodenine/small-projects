@@ -12,3 +12,7 @@ php_flag log_error on
 php_value error_log /var/www/projects/009_myAdmin/.log
 
 # ______________________________________________________________________
+
+php_value max_file_uploads 24
+php_value upload_max_filesize 2M
+php_value post_max_size 50M 

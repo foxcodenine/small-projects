@@ -2,16 +2,17 @@
 
 ////////////////////////////////////////////////////////////////////////
 
+use app\Model\AwsClass;
 use app\Model\DBConnect;
 use app\Model\MyCript;
 use app\Model\MyUtilities;
 use app\Model\Project;
 
-
 ////////////////////////////////////////////////////////////////////////
 
 $router->match('GET', '/projects-images-(\d+)', function($id=null) { 
 
+    ini_set('post_max_size', '25M');
 
     // ----- Check for id
     if(!isset($id)){ 
@@ -46,19 +47,50 @@ $router->match('GET', '/projects-images-(\d+)', function($id=null) {
 $router->match('GET|POST', '/projects-upload-(\d+)', function($id=null) { 
 
     header('Content-Type: application/json');
-
-
-
-    $maxNo_of_img = 24 - $_SESSION['projectImages']['imgsInDb'];
-    unset($_SESSION['projectImages']['imgsInDb']);
-
-    echo($maxNo_of_img);
-
-    // ----- Check for id
-    if(!isset($id)){ 
+  
+    // ----- Check for id or input is empty
+    if(!isset($id) || empty($_FILES['projectImages']['name'][0])  ){ 
         MyUtilities::redirect($_ENV['BASE_PATH']); exit();
     }
 
-    print_r($_FILES);
+    // ----- Paramiters
 
+    $valid_formats = ['image/png' , 'image/jpeg', 'image/gif'];
+
+    $max_number_img_to_upload = $_ENV['IMG_PER_PROJECT'] - $_SESSION['projectImages']['imgsInDb'];
+
+    // print_r($_FILES['projectImages']);  // TODO: REMOVE
+
+    // ----------------
+
+    $tmp_name_arr  = $_FILES['projectImages']['tmp_name'];
+    $tmp_error_arr = $_FILES['projectImages']['error'];
+
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+
+    // ----------------
+
+    $s3client = AwsClass::getS3Client();
+    
+    // ----------------
+
+    foreach ($tmp_name_arr as $index => $tempFile) {
+
+        // --- check qty
+        if (($index + 1) > $max_number_img_to_upload) break;
+
+        // --- check if img in tmp
+        if (!is_uploaded_file($tempFile)) continue;
+
+        // --- check img for error
+        if ( $tmp_error_arr[$index]) continue;
+
+        // --- check img format
+        $fileType = $finfo->file($tempFile);
+        if ( !in_array($fileType, $valid_formats, True) ) continue;
+
+        echo PHP_EOL . $tempFile . ' -> ' . $fileType . ' ' .  $max_number_img_to_upload;
+    }
+
+    unset($_SESSION['projectImages']);
 });
