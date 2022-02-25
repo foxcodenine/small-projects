@@ -21,15 +21,24 @@ $router->match('GET', '/projects-images-(\d+)', function($id=null) {
 
     // ----- Check if project exits
 
+    
+
     if (array_key_exists($id, Project::getProjectList() ) && !isset($_SESSION['project']['id'])) {
         $currentProject = Project::getProjectList()[$id];
 
         // --- Fetch project images
 
-        $projectImages = $currentProject->fetchImages();
+        $projectImages = $currentProject->fetchImagesFromDb();
 
 
         $_SESSION['projectImages']['imgsInDb'] = sizeof($projectImages);
+
+        if ($_SESSION['projectImages']['imgsInDb'] > 0) {
+
+            $imgLastPos  = end($projectImages)->position;
+        }
+
+        $_SESSION['projectImages']['imgLastPos'] = $imgLastPos ?? 0;        
 
 
     } else {
@@ -44,35 +53,45 @@ $router->match('GET', '/projects-images-(\d+)', function($id=null) {
 
 ////////////////////////////////////////////////////////////////////////
 
-$router->match('GET|POST', '/projects-upload-(\d+)', function($id=null) { 
-
-    header('Content-Type: application/json');
+$router->match('POST', '/projects-upload-(\d+)', function($id=null) { 
   
-    // ----- Check for id or input is empty
-    if(!isset($id) || empty($_FILES['projectImages']['name'][0])  ){ 
+    // ----- Check for id
+    if(!isset($id)){ 
         MyUtilities::redirect($_ENV['BASE_PATH']); exit();
     }
 
-    // ----- Paramiters
+        // ----- Check if input is empty
+    if(empty($_FILES['projectImages']['name'][0])  ){ 
+        MyUtilities::redirect($_ENV['BASE_PATH'] . '/projects-images-' . $id); exit();
+    }
+
+    // ----- Set Paramiters
 
     $valid_formats = ['image/png' , 'image/jpeg', 'image/gif'];
 
     $max_number_img_to_upload = $_ENV['IMG_PER_PROJECT'] - $_SESSION['projectImages']['imgsInDb'];
 
-    // print_r($_FILES['projectImages']);  // TODO: REMOVE
-
     // ----------------
 
-    $tmp_name_arr  = $_FILES['projectImages']['tmp_name'];
-    $tmp_error_arr = $_FILES['projectImages']['error'];
+    $tmp_name_arr   = $_FILES['projectImages']['tmp_name'];
+    $error_arr      = $_FILES['projectImages']['error'];
+    $name_arr       = $_FILES['projectImages']['name'];
+
+    $currentProject     = Project::getProjectList()[$id];
+    $projectID          = $currentProject->getId();
+    $img_last_pos_in_db = $_SESSION['projectImages']['imgLastPos'];
+
+    $currentUser = MyUtilities::checkCookieAndReturnUser(); 
+    MyUtilities::userInSessionPage();
+    $userID = $currentUser->getId();
 
     $finfo = new finfo(FILEINFO_MIME_TYPE);
 
     // ----------------
 
-    $s3client = AwsClass::getS3Client();
-    
-    // ----------------
+    // print_r($_FILES['projectImages']);
+
+
 
     foreach ($tmp_name_arr as $index => $tempFile) {
 
@@ -83,14 +102,35 @@ $router->match('GET|POST', '/projects-upload-(\d+)', function($id=null) {
         if (!is_uploaded_file($tempFile)) continue;
 
         // --- check img for error
-        if ( $tmp_error_arr[$index]) continue;
+        if ( $error_arr[$index]) continue;
 
         // --- check img format
         $fileType = $finfo->file($tempFile);
         if ( !in_array($fileType, $valid_formats, True) ) continue;
 
-        echo PHP_EOL . $tempFile . ' -> ' . $fileType . ' ' .  $max_number_img_to_upload;
+
+        // --- upload to AWS
+        $img_code = str_pad((string) rand(0, 999999), 6, '0', STR_PAD_LEFT);
+
+        $img_format = explode('.', $name_arr[$index]);
+        $img_format = end($img_format);
+
+
+        $img_name = "user{$userID}/poject{$projectID}/images/{$img_code}.{$img_format}";          
+
+        $result =  AwsClass::uploadImage($img_name, $tempFile); 
+
+        if ($result["@metadata"]["statusCode"] == '200') {
+
+            $image_url = $result["ObjectURL"]; 
+
+            ++$img_last_pos_in_db;
+
+            $currentProject->saveImagesToDb($image_url, $img_last_pos_in_db);
+        }
     }
 
     unset($_SESSION['projectImages']);
+    MyUtilities::redirect($_ENV['BASE_PATH'] . '/projects-images-' . $id); 
+    exit();
 });

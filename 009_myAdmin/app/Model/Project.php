@@ -405,17 +405,21 @@ class Project {
 	}
     // _________________________________________________________________
 
-	public function fetchImages() {
+	public function saveImagesToDb($urlPath, $position) {
 
 		try {
 
 			$conn = DBConnect::getConn();
 
-			$sql = 'SELECT id, urlPath FROM ImageProject WHERE projectId = :projectId';
+			$sql = 'INSERT INTO ImageProject (urlPath, position, userID, projectID)
+					VALUES (:urlPath, :position, :userID, :projectID)';
 
 			$stmt = $conn->prepare($sql);
 
-			$stmt->bindValue(':projectId', $this->getId());
+			$stmt->bindValue(':urlPath', 	$urlPath);
+			$stmt->bindValue(':position', 	$position);
+			$stmt->bindValue(':userID', 	$this->getUserID());
+			$stmt->bindValue(':projectID', 	$this->getId());
 
 			$stmt->execute();
 
@@ -425,7 +429,39 @@ class Project {
 
 		} catch (PDOException $e) {
 
-			$msg = "Error Project fetchImages: <br>" . $e->getMessage();
+			$msg = "Error Project saveImagesToDb: <br>" . $e->getMessage();
+			error_log($msg);
+			die($msg);
+		}	
+	}
+
+	public function fetchImagesFromDb($direction=null) {
+		// DESC
+
+		try {
+
+			$conn = DBConnect::getConn();
+
+			$sql = 'SELECT id, urlPath, position FROM ImageProject 
+					WHERE projectId = :projectId 
+					ORDER BY position';
+			
+			if (isset($decs) && strtoupper($direction) === 'DESC') $sql .= ' DESC';
+
+			$stmt = $conn->prepare($sql);
+
+			$stmt->bindValue(':projectId', $this->getId());
+
+
+			$stmt->execute();
+
+			$result = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+			return $result ?: [];
+
+		} catch (PDOException $e) {
+
+			$msg = "Error Project fetchImagesFromDb: <br>" . $e->getMessage();
 			error_log($msg);
 			die($msg);
 		}

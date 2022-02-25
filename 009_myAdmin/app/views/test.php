@@ -24,14 +24,17 @@ use app\Model\Cat;
 
 
 
-    $s3Client = AwsClass::getS3Client();
+    // $s3Client = AwsClass::getS3Client();
 
-    $buckets = $s3Client->listBuckets();
-        foreach ($buckets['Buckets'] as $bucket) {
-        echo $bucket['Name'] . "<br>";
-    }
+    // $buckets = $s3Client->listBuckets();
+    //     foreach ($buckets['Buckets'] as $bucket) {
+    //     echo $bucket['Name'] . "<br>";
+    // }
 
+    echo base64_encode('chris12aug@yahoo.com');
+    echo base64_decode(base64_encode('chrismariojimmy@yahoo.com'));
 
+        // Y2hyaXMxMmF1Z0B5YWhvby5jb20=   chris12aug@yahoo.com
     // $wisky = new Cat('Wisky', 9);
     // echo "My cat is called {$wisky->name} and she is {$wisky->age} years old. <br>";  
     

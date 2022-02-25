@@ -4,8 +4,7 @@ namespace app\Model;
 
 use Aws\S3\S3Client;  
 use Aws\Exception\AwsException;
-
-
+use Aws\S3\Exception\S3Exception;
 
 class AwsClass {
 
@@ -42,6 +41,33 @@ class AwsClass {
                 'secret' => $secret
             ]
         ]);         
+    }
+
+    // __________________________________
+
+    public static function uploadImage ($key, $file_Path) {
+
+        if (!isset(self::$s3Client)) { self::init(); }
+
+        try {
+ 
+            $s3Client = self::$s3Client;
+
+            $result = $s3Client->putObject([
+                'Bucket'        => self::$bucket,
+                'Key'           => $key,
+                'SourceFile'    => $file_Path,
+                'ACL'           => 'public-read', // make file 'public'
+            ]);
+
+            return $result;
+
+        } catch (S3Exception $e) {
+
+            $msg = "Error AwsClass getS3Client: <br>" .  $e->getMessage();
+            error_log($msg);
+            die($msg);
+        }
     }
 
     // __________________________________

@@ -42,6 +42,8 @@ class MyUtilities {
 
     public static function topBarUserFullnameRollIcon () {
 
+        if (!isset($_SESSION['currentUser'])) return;
+        
         $currentUser = unserialize($_SESSION['currentUser']);
 
         $firstname = $currentUser->getFirstUserName();
@@ -115,7 +117,7 @@ class MyUtilities {
 
         $stmt = $conn -> prepare($sql);
 
-        $stmt -> bindValue(':email', $email);
+        $stmt -> bindValue(':email', base64_encode($email));
 
         $stmt -> execute();
 

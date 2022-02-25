@@ -114,7 +114,7 @@ $router->match('GET|POST', '/sign-up', function() {
             // usleep(333333);
             // $emailMail->send();
     
-            $newUser->removeNonactivatedUser();  
+            $newUser->removeUserTimer();  
             unset($_SESSION['sign-up']);
         }
 

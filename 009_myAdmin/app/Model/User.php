@@ -59,7 +59,7 @@ class User {
 
             $stmt = $conn -> prepare($sql);
 
-            $stmt -> bindValue(':email', $this->email);
+            $stmt -> bindValue(':email', base64_encode($this->email));
             $stmt -> bindValue(':passHash', $this->passHash);
             $stmt -> bindValue(':accountState', $this->accountState);
             $stmt -> bindValue(':roleGroup', $this->roleGroup);
@@ -102,7 +102,7 @@ class User {
             $stmt -> bindValue(':id', $this->id);
             $stmt -> bindValue(':firstUserName', $this->firstUserName);
             $stmt -> bindValue(':lastUserName', $this->lastUserName);
-            $stmt -> bindValue(':email', $this->email);
+            $stmt -> bindValue(':email', base64_encode($this->email));
             $stmt -> bindValue(':passHash', $this->passHash);
             $stmt -> bindValue(':accountState', $this->accountState);
             $stmt -> bindValue(':roleGroup', $this->roleGroup);
@@ -149,7 +149,9 @@ class User {
         } else if (isset($userEmail)) {
             $sql = 'SELECT * FROM User WHERE email = :email';
             $stmt = $conn -> prepare($sql);
-            $stmt -> bindValue(':email', $userEmail);
+            $stmt -> bindValue(':email', base64_encode($userEmail));
+
+
 
         } else {
             return false;
@@ -165,7 +167,7 @@ class User {
             if (!$stdClass) return false;
                     
             $user = new self (
-                email: $stdClass->email,
+                email:  base64_decode($stdClass->email),
                 passHash: $stdClass->passHash,
                 id: $stdClass->id,
                 firstUserName: $stdClass->firstUserName,
@@ -185,7 +187,7 @@ class User {
     }
     // _________________________________________________________________
 
-    public function removeNonactivatedUser () {
+    public function removeUserTimer () {
 
 
         if (MyUtilities::whoami() === 'productionServer') {
@@ -205,9 +207,10 @@ class User {
         
         $userId = $this->id;
         $passHash = $this->passHash;
-        $time       = $_ENV['REMOVE_UNACTIVATED_TIME'];
+        $time1       = $_ENV['REMOVE_UNACTIVATED_TIME'];
+        $time2       = $_ENV['REMOVE_DEMO_TIME'];
         
-        $command = './app/bash/removeNonactivatedUser.sh' . " {$user} {$password} {$schema} {$userId} " . "'\"" . $passHash . "\"'" . " $time";
+        $command = './app/bash/removeUserTimer' . " {$user} {$password} {$schema} {$userId} " . "'\"" . $passHash . "\"'" . " $time1 $time2";
 
 
         MyUtilities::runBackgroundProsess($command);
