@@ -72,6 +72,34 @@ class AwsClass {
 
     // __________________________________
 
+    public static function removeImage ($key) {
 
+        if (!isset(self::$s3Client)) { self::init(); }
 
+        try {
+
+            $s3Client = self::$s3Client;
+ 
+            $result = $s3Client->deleteObjects([
+                'Bucket'  => self::$bucket,
+                'Delete' => [
+                    'Objects' => [
+                        [
+                            'Key' => $key
+                        ]
+                    ]
+                ]
+            ]);
+
+            return $result;
+
+        } catch (S3Exception $e) {
+
+            $msg = "Error AwsClass getS3Client: <br>" .  $e->getMessage();
+            error_log($msg);
+            die($msg);
+        }
+    }
+
+    // __________________________________
 }

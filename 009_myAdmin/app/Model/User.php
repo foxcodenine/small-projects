@@ -98,7 +98,8 @@ class User {
             ";
 
             $stmt = $conn -> prepare($sql);
-            
+
+         
             $stmt -> bindValue(':id', $this->id);
             $stmt -> bindValue(':firstUserName', $this->firstUserName);
             $stmt -> bindValue(':lastUserName', $this->lastUserName);
@@ -210,7 +211,7 @@ class User {
         $time1       = $_ENV['REMOVE_UNACTIVATED_TIME'];
         $time2       = $_ENV['REMOVE_DEMO_TIME'];
         
-        $command = './app/bash/removeUserTimer' . " {$user} {$password} {$schema} {$userId} " . "'\"" . $passHash . "\"'" . " $time1 $time2";
+        $command = './app/bash/removeUserTimer.sh' . " {$user} {$password} {$schema} {$userId} " . "'\"" . $passHash . "\"'" . " $time1 $time2";
 
 
         MyUtilities::runBackgroundProsess($command);

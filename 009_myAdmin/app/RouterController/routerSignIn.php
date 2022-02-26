@@ -65,14 +65,19 @@ $router->match('GET|POST', '/sign-in', function() {
                 $_SESSION['message']['type'] = 'warning';
                 $_SESSION['resend-email'] = $email;
                 
+                
 
             } else {
+
+                $currentUser->setLastLogin(date(DBConnect::DT_FORMAT, time()));
+                // $currentUser->updateUser();
 
 
                 $_SESSION['currentUser'] = $currentUser;
                 
                 MyUtilities::setCookie($currentUser, $remember);
                 MyUtilities::checkCookieAndReturnUser();
+                
 
                 // _____________________________________________________
 

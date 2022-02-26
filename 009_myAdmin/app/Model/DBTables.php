@@ -185,6 +185,7 @@ class DBTables {
         id INT PRIMARY KEY AUTO_INCREMENT,
         urlPath VARCHAR(255) NOT NULL,
         position INT,
+        code varchar(12),
     
         userID INT NOT NULL ,
         CONSTRAINT User_ImageProject

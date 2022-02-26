@@ -1,20 +1,26 @@
 
+1. add code fild to imagesProject table 
+    OK a. modify db
+    b. input code in table
+    c. check if code exits
+
+OK 2. update user tabble on log in
 
 
-OK 4. Project sorting functionality 
+3. Project Images
 
-5. Project Images
-    OK a. set router
-    OK b. display page
-    d. load locally
-    d. validate
-    OK e. create db table
-    OK f. create dummy data
-    g. save url to db
-    h. find how to store image from php to:
-        i.  AWS bot3
+    a. find how to store image from php to:
+        OK i.  AWS bot3
         ii. Digital Ocen store
-    i try to implement both options
+    
+    b delete image from AWS and DB
+    c download image from AWS
+
+4. Create dummy data
+    Clients
+    Project
+    Images
+
 
 F. Add add json inteface to project  and check client json
 

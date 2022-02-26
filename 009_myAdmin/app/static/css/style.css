@@ -4,6 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap");
+@import url(https://fonts.googleapis.com/css?family=Quattrocento+Sans);
 @keyframes spinAnimation {
   0% {
     transform: rotate(0deg);
@@ -117,21 +118,6 @@ main.pages {
   animation: fadeInAnimation ease-in 0.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
-}
-
-#spinner {
-  position: fixed;
-  z-index: 9999;
-  top: calc(50% - 60px);
-  left: calc(50% - 60px);
-  border: 16px solid #f3f3f3;
-  /* Light grey */
-  border-top: 16px solid #3498db;
-  /* Blue */
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  animation: spinAnimation 2s linear infinite, fadeInAnimation 0.2s linear;
 }
 
 .timer {
@@ -1046,6 +1032,104 @@ main.pages {
 
   .ck-toolbar__separator {
     display: none !important;
+  }
+}
+#spinner {
+  position: fixed;
+  z-index: 9999;
+  top: calc(50% - 60px);
+  left: calc(50% - 60px);
+  border: 4px solid transparent;
+  /* #f3f3f3; Light grey */
+  border-top: 4px solid #051825;
+  /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spinAnimation 1.2s linear infinite, fadeInAnimation 0.2s linear;
+}
+
+/*
+div_box.innerHTML = `        
+<div class="loading">
+<div class="loading-text">
+    <span class="loading-text-words">L</span>
+    <span class="loading-text-words">O</span>
+    <span class="loading-text-words">A</span>
+    <span class="loading-text-words">D</span>
+    <span class="loading-text-words">I</span>
+    <span class="loading-text-words">N</span>
+    <span class="loading-text-words">G</span>
+</div>
+</div>
+`;
+*/
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  z-index: 9999;
+}
+
+.loading-text {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  transform: translateY(-10vh);
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+}
+.loading-text span {
+  display: inline-block;
+  margin: 0 5px;
+  color: #000;
+  text-shadow: 0 0 5px #fff;
+  font-size: 2rem;
+  font-family: "Quattrocento Sans", sans-serif;
+}
+.loading-text span:nth-child(1) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 0s infinite linear alternate;
+}
+.loading-text span:nth-child(2) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 0.2s infinite linear alternate;
+}
+.loading-text span:nth-child(3) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 0.4s infinite linear alternate;
+}
+.loading-text span:nth-child(4) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 0.6s infinite linear alternate;
+}
+.loading-text span:nth-child(5) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 0.8s infinite linear alternate;
+}
+.loading-text span:nth-child(6) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 1s infinite linear alternate;
+}
+.loading-text span:nth-child(7) {
+  filter: blur(0px);
+  animation: blur-text 1.5s 1.2s infinite linear alternate;
+}
+
+@keyframes blur-text {
+  0% {
+    filter: blur(0px);
+  }
+  100% {
+    filter: blur(4px);
   }
 }
 .content {

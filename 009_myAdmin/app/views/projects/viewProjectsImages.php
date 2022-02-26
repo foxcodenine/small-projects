@@ -1,5 +1,5 @@
 <section class="images">
-<form action="<?= $_ENV['BASE_PATH'] . '/projects-upload-' . $currentProject->getId() ?>"  class="images__form" method="POST" enctype="multipart/form-data" >
+<form action="<?= $_ENV['BASE_PATH'] . '/projects-upload-' . $currentProject->getId() ?>"   method="POST" class="images__form" enctype="multipart/form-data" >
 
     <div class="top-pannel">
         <div class="top-pannel__date"><b>Sirens St Paul Bay</b></div>          
@@ -8,7 +8,7 @@
         <div class="images__upload-box">
         
             <input  class="images__input" type="file" id="upload-images" name="projectImages[]" multiple>
-            <button class="images__btn" >
+            <button class="images__btn myLoaderBtn" >
                 <svg class="images__icon"><use href="./app/static/svg/icomoon.svg#icon-upload-10"></use></svg>
             </button>
         </div>
@@ -22,30 +22,30 @@
 
     <?php foreach($projectImages as $image ): ?>
         
-        <div class="image__frame" id="image-<?= $image->id?>">  
+        <div class="image__frame" id="image-<?= $image->getId()?>" test='<?= $image->getCode() ?>' >  
         
             
     
             <a href="#" class="image__link">
-                <img class="image__img" src="<?= $image->urlPath ?>" alt="">
+                <img class="image__img" src="<?= $image->getUrlPath() ?>" alt="">
             </a>
             
-            <input type="checkbox" class="image__checkbox" id="image-checkbox-<?= $image->id ?>">
+            <input type="checkbox" class="image__checkbox" id="image-checkbox-<?= $image->getId() ?>">
     
-            <label class="image__menu image__menu--open" id="image-1-menu" for="image-checkbox-<?=$image->id?>">
+            <label class="image__menu image__menu--open" id="image-1-menu" for="image-checkbox-<?=$image->getId()?>">
                 <svg class="image__menu--open"><use href="./app/static/svg/icomoon.svg#icon-menu-thin"></use></svg>
             </label>
     
-            <label class="image__menu image__menu--close" id="image-1-menu" for="image-checkbox-<?= $image->id ?>">
+            <label class="image__menu image__menu--close" id="image-1-menu" for="image-checkbox-<?= $image->getId() ?>">
                 <svg class="image__menu--open"><use href="./app/static/svg/icomoon.svg#icon-x-mark-thin"></use></svg>
             </label>
     
-            <div class="dropdownmenu dropdownmenu--2 image__dopdownmenu" id="image-<?= $image->id ?>-dropdownmenu">
+            <div class="dropdownmenu dropdownmenu--2 image__dopdownmenu" id="image-<?= $image->getId() ?>-dropdownmenu">
     
                 <ul class="dropdownmenu__list">
     
                     <li class="dropdownmenu__item">
-                        <a href="#" class="dropdownmenu__link">
+                        <a href="<?= $image->getUrlPath() ?>" class="dropdownmenu__link">
                             <svg class="dropdownmenu__icon"><use  xlink:href="./app/static/svg/icomoon.svg#icon-save-thin"></use></svg>
                              Download                
                         </a>

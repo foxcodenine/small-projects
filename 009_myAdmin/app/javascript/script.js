@@ -466,20 +466,39 @@ function closeImagesMenu () {
 
 function myLoaderBtn() {
 
-    const myLoader = document.querySelector('.myLoaderBtn');
+    const myLoaders = document.querySelectorAll('.myLoaderBtn');
 
-    if (!myLoader) return;
+    myLoaders.forEach(myLoader => {
+        
+        if (!myLoader) return;
+        
+        myLoader.addEventListener('click', ()=>{
+            const div_box = document.createElement('div');            
+            
+            // --- useing spinner animation
+            // div_box.innerHTML = '<div id="spinner"></div>';  
+            
+            // --- useing loding animation
+            div_box.innerHTML = `        
+            <div class="loading">
+            <div class="loading-text">
+            <span class="loading-text-words">L</span>
+            <span class="loading-text-words">O</span>
+            <span class="loading-text-words">A</span>
+            <span class="loading-text-words">D</span>
+            <span class="loading-text-words">I</span>
+            <span class="loading-text-words">N</span>
+            <span class="loading-text-words">G</span>
+            </div>
+            </div>
+            `;   
+            document.body.prepend(div_box);   
+            
+            setTimeout(()=>{
+                div_box.remove();
+            }, 10000);
+        });
 
-    myLoader.addEventListener('click', ()=>{
-        const div_box = document.createElement('div');
-
-
-        div_box.innerHTML = '<div id="spinner"></div>';   
-        document.body.prepend(div_box);   
-    
-        setTimeout(()=>{
-            div_box.remove();
-        }, 10000);
     });
 };
 

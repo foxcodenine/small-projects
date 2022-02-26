@@ -70,6 +70,8 @@ class MyUtilities {
         return "./app/static/images/signing/img-sign-{$num}.jpg";
     }
 
+    // -----------------------------------------------------------------
+
 
     // -----------------------------------------------------------------
 
@@ -319,6 +321,7 @@ class MyUtilities {
 
         return $result;
     }
+
 
     
     

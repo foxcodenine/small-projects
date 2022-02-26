@@ -5,7 +5,6 @@ use Bramus\Router\Router;
 $router = new Router;
 
 
-
 // ----- Define routes -------------------------------------------------
 
 

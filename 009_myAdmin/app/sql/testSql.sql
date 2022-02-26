@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS InfoClient (
 
 
 use project_009_myAdmin;
-SET @userID = (SELECT id FROM User WHERE email = 'chris12aug@yahoo.com');
+SET @userID = (SELECT id FROM User WHERE email = 'Y2hyaXMxMmF1Z0B5YWhvby5jb20=');
 INSERT INTO Locality (lName, userID) VALUES ('Attard', @userID), ('Zurrieq', @userID), ('Valletta', @userID);
 INSERT INTO Country (cName, userID) VALUES ('Malta', @userID), ('Gozo', @userID), ('UK', @userID);
 

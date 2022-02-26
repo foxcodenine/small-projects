@@ -76,29 +76,9 @@ main.pages {
 }
 
 
-// --- Spinner ---------------------------------------------------------
-    
-#spinner {
-
-    position:fixed;
-    z-index:9999;
-    top: calc(50% - 60px);
-    left: calc(50% - 60px);
-    
-
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #3498db; /* Blue */
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-
-
-    animation: spinAnimation 2s linear infinite, fadeInAnimation .2s linear;
-}
-    
+  
 
 .timer {
-
     position: absolute;
     right: 3rem;
     bottom: 2rem;
@@ -107,5 +87,4 @@ main.pages {
     z-index: 1000;
     text-shadow: $shadow-5;
 }
-
 

@@ -4,6 +4,7 @@
 
 use app\Model\AwsClass;
 use app\Model\DBConnect;
+use app\Model\ImageProject;
 use app\Model\MyCript;
 use app\Model\MyUtilities;
 use app\Model\Project;
@@ -35,7 +36,7 @@ $router->match('GET', '/projects-images-(\d+)', function($id=null) {
 
         if ($_SESSION['projectImages']['imgsInDb'] > 0) {
 
-            $imgLastPos  = end($projectImages)->position;
+            $imgLastPos  = end($projectImages)->getPosition();
         }
 
         $_SESSION['projectImages']['imgLastPos'] = $imgLastPos ?? 0;        
@@ -53,7 +54,7 @@ $router->match('GET', '/projects-images-(\d+)', function($id=null) {
 
 ////////////////////////////////////////////////////////////////////////
 
-$router->match('POST', '/projects-upload-(\d+)', function($id=null) { 
+$router->match('POST|GET', '/projects-upload-(\d+)', function($id=null) { 
   
     // ----- Check for id
     if(!isset($id)){ 
@@ -62,7 +63,9 @@ $router->match('POST', '/projects-upload-(\d+)', function($id=null) {
 
         // ----- Check if input is empty
     if(empty($_FILES['projectImages']['name'][0])  ){ 
-        MyUtilities::redirect($_ENV['BASE_PATH'] . '/projects-images-' . $id); exit();
+        usleep(1000000); // Delay to display page loader
+        
+        header('location:' . $_ENV['BASE_PATH'] . '/projects-images-' . $id);  exit();
     }
 
     // ----- Set Paramiters
@@ -79,6 +82,7 @@ $router->match('POST', '/projects-upload-(\d+)', function($id=null) {
 
     $currentProject     = Project::getProjectList()[$id];
     $projectID          = $currentProject->getId();
+    
     $img_last_pos_in_db = $_SESSION['projectImages']['imgLastPos'];
 
     $currentUser = MyUtilities::checkCookieAndReturnUser(); 
@@ -87,50 +91,44 @@ $router->match('POST', '/projects-upload-(\d+)', function($id=null) {
 
     $finfo = new finfo(FILEINFO_MIME_TYPE);
 
+
     // ----------------
-
-    // print_r($_FILES['projectImages']);
-
 
 
     foreach ($tmp_name_arr as $index => $tempFile) {
 
-        // --- check qty
+        // --- get max number of img allowed to upload
         if (($index + 1) > $max_number_img_to_upload) break;
 
-        // --- check if img in tmp
+        // --- check if img in tmp folder
         if (!is_uploaded_file($tempFile)) continue;
 
-        // --- check img for error
+        // --- check img for errors
         if ( $error_arr[$index]) continue;
 
-        // --- check img format
+        // --- check img if format is valid
         $fileType = $finfo->file($tempFile);
         if ( !in_array($fileType, $valid_formats, True) ) continue;
 
 
-        // --- upload to AWS
-        $img_code = str_pad((string) rand(0, 999999), 6, '0', STR_PAD_LEFT);
+        // ---  create img string for AWS        
 
-        $img_format = explode('.', $name_arr[$index]);
-        $img_format = end($img_format);
+        $newImageProject = new ImageProject($projectID, $userID);
+        $newImageProject->setPosition(++$img_last_pos_in_db);
+        
 
-
-        $img_name = "user{$userID}/poject{$projectID}/images/{$img_code}.{$img_format}";          
-
-        $result =  AwsClass::uploadImage($img_name, $tempFile); 
+        $result = $newImageProject->uploadToAwa($name_arr[$index] , $tempFile);
 
         if ($result["@metadata"]["statusCode"] == '200') {
 
-            $image_url = $result["ObjectURL"]; 
+            $newImageProject->setUrlPath($result["ObjectURL"]);          
 
-            ++$img_last_pos_in_db;
-
-            $currentProject->saveImagesToDb($image_url, $img_last_pos_in_db);
+            $newImageProject->saveToDb();
         }
     }
 
     unset($_SESSION['projectImages']);
-    MyUtilities::redirect($_ENV['BASE_PATH'] . '/projects-images-' . $id); 
+    usleep(1500000); // Delay to display page loader
+    header('location:' . $_ENV['BASE_PATH'] . '/projects-images-' . $id);  exit(); 
     exit();
 });
