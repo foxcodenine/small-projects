@@ -100,7 +100,7 @@ function modalToggle () {
     const modalCancel = document.querySelector('.modal__cancel');
     const modalClose = document.querySelector('.modal__close');
     const closeElements = [modalCancel, modalClose];
-    let modalQuestion      = document.querySelector('.modal-question-js');
+    let   modalQuestion      = document.querySelector('.modal-question-js');
 
     if (!modal) return;
 
@@ -130,8 +130,8 @@ function modalToggle () {
 
         setTimeout(() => {
             // - Adjusting z-indexes
-            sidemenu.style['z-index'] = 101;
-            menubtn.style['z-index'] = 100;  
+            sidemenu.style['z-index'] = 1010;
+            menubtn.style['z-index'] = 1000;  
             // - Removing Modal          
             modal.style.display = 'none';
             modalQuestion.textContent = document.querySelector('.modal-hidden-message-js').textContent;
@@ -142,8 +142,15 @@ function modalToggle () {
     // ----- EventListeners
 
     modalBtns.forEach((btn) => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function(e) {
             modalOn();
+            
+            const deleteLink = e.target.getAttribute('deletelink');
+            const deleteHref = document.getElementById('modalDeleteLink-js');
+
+            if (deleteLink && deleteHref) {
+                deleteHref.href = deleteLink;
+            }
         })
     });
 

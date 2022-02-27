@@ -39,7 +39,9 @@
         }
     }
 
-    &__link:link, &__link:visited {
+    &__link:link, &__link:visited, &__link {
+        cursor: pointer;
+
         text-decoration: none;
         color: currentColor;
 

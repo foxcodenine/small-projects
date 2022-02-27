@@ -87,6 +87,8 @@ class ImageProject {
 		}	
 	}
 
+	// _________________________________________________________________
+
 	public function removeFromAws() {
 		$userID 	= $this->getUserID();
 		$projectID 	= $this->getProjectID();

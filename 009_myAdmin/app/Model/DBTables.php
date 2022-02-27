@@ -183,6 +183,7 @@ class DBTables {
 
     const ImageProject = 'CREATE TABLE IF NOT EXISTS ImageProject(
         id INT PRIMARY KEY AUTO_INCREMENT,
+        cover BOOLEAN,
         urlPath VARCHAR(255) NOT NULL,
         position INT,
         code varchar(12),

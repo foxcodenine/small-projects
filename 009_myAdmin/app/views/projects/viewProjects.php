@@ -80,7 +80,14 @@
                     <td class="table__td"><?= $p->getProjectNo() ?></td>
                     <td class="table__td"><?= $p->getPaNo() ?></td>
                     <td class="table__td">
-                        <a class="table__a" href="<?= $_ENV['BASE_PATH'] . '/projects-images-' . $p->getId() ?>"><img id="table-images" class="table__img" src="<?= $p->getCover() ?: './app/static/images/upload_img.png' ?>" alt="default image"></a>
+                        <a class="table__a" href="<?= $_ENV['BASE_PATH'] . '/projects-images-' . $p->getId() ?>">
+                            <img id="table-images" 
+                                class="table__img" 
+                                src="<?= '' ?>"
+                                onerror="this.src='<?= $p->getCover() ?: './app/static/images/upload_img.png' ?>'"
+                                alt="default image"
+                            >
+                        </a>
                     </td>
                     <td class="table__td"><?= $p->getStageName() ?></td>
                     <td class="table__td"><?= $p->getCategoryName() ?></td>
@@ -110,7 +117,7 @@
         
             
             <button class="btn btn--light modal__cancel" type="button">cancel</button>
-            <button class="btn btn--red">Confirm</button>
+            <button class="btn btn--red" >Confirm</button>
         </div>
 
     </div>    

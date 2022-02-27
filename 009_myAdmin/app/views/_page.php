@@ -79,6 +79,7 @@ require './app/views/include/viewHeader.php'; ?>
     }
     ?>
     <?php include $pagePath; ?>
+    
 
 <!-- --------------------------------------------------------------- -->
 

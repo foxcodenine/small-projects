@@ -74,7 +74,7 @@
         font-family: 'Inconsolata', 'console', monospace;
         grid-column: 1 / -1;
         justify-self: end;
-
+        margin-bottom: -1.5rem;
         opacity: 0;
     }
     &__upload-box:hover ~ &__massage {

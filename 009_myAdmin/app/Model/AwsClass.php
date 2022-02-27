@@ -64,7 +64,7 @@ class AwsClass {
 
         } catch (S3Exception $e) {
 
-            $msg = "Error AwsClass getS3Client: <br>" .  $e->getMessage();
+            $msg = "Error AwsClass uploadImage: <br>" .  $e->getMessage();
             error_log($msg);
             die($msg);
         }
@@ -84,18 +84,17 @@ class AwsClass {
                 'Bucket'  => self::$bucket,
                 'Delete' => [
                     'Objects' => [
-                        [
-                            'Key' => $key
-                        ]
+                        [ 'Key' => $key ]
                     ]
                 ]
             ]);
+
 
             return $result;
 
         } catch (S3Exception $e) {
 
-            $msg = "Error AwsClass getS3Client: <br>" .  $e->getMessage();
+            $msg = "Error AwsClass removeImage: <br>" .  $e->getMessage();
             error_log($msg);
             die($msg);
         }

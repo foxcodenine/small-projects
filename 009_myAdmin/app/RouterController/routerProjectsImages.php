@@ -54,7 +54,7 @@ $router->match('GET', '/projects-images-(\d+)', function($id=null) {
 
 ////////////////////////////////////////////////////////////////////////
 
-$router->match('POST|GET', '/projects-upload-(\d+)', function($id=null) { 
+$router->match('POST|GET', '/projects-upload-img-(\d+)', function($id=null) { 
   
     // ----- Check for id
     if(!isset($id)){ 
@@ -130,5 +130,37 @@ $router->match('POST|GET', '/projects-upload-(\d+)', function($id=null) {
     unset($_SESSION['projectImages']);
     usleep(1500000); // Delay to display page loader
     header('location:' . $_ENV['BASE_PATH'] . '/projects-images-' . $id);  exit(); 
+    exit();
+});
+
+////////////////////////////////////////////////////////////////////////
+
+$router->match('POST|GET', '/projects-remove-img-(\d+)-([\w \.]+)', function($projectID=null, $imgCode=null) {
+
+    $currentUser = MyUtilities::checkCookieAndReturnUser(); 
+    MyUtilities::userInSessionPage();
+    $userID = $currentUser->getId();
+
+    $result =   AwsClass::removeImage("user{$userID}/poject{$projectID}/images/{$imgCode}");
+    
+    if ($result["@metadata"]["statusCode"] == '200') {
+
+        $conn = DBConnect::getConn();
+
+        $sql  = 'DELETE FROM ImageProject WHERE 
+                    UserID = :UserID AND 
+                    ProjectID = :ProjectID AND 
+                    Code = :Code';
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':UserID', $userID);
+        $stmt->bindValue(':ProjectID', $projectID);
+        $stmt->bindValue(':Code', $imgCode);
+
+        $stmt->execute();
+    }
+
+    header('Location: '. $_ENV['BASE_PATH'] . '/projects-upload-img-' . $projectID);
     exit();
 });

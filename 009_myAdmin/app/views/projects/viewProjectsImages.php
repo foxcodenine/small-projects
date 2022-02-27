@@ -1,8 +1,8 @@
 <section class="images">
-<form action="<?= $_ENV['BASE_PATH'] . '/projects-upload-' . $currentProject->getId() ?>"   method="POST" class="images__form" enctype="multipart/form-data" >
+<form action="<?= $_ENV['BASE_PATH'] . '/projects-upload-img-' . $currentProject->getId() ?>"   method="POST" class="images__form" enctype="multipart/form-data" >
 
     <div class="top-pannel">
-        <div class="top-pannel__date"><b>Sirens St Paul Bay</b></div>          
+        <div class="top-pannel__date"><?= $currentProject->getProjectname() ?> </div>          
      
         
         <div class="images__upload-box">
@@ -57,7 +57,8 @@
                         </a>
                     </li>
                     <li class="dropdownmenu__item">
-                        <a href="#" class="dropdownmenu__link">
+                        <a deleteLink="<?= $_ENV['BASE_PATH'] . '/projects-remove-img-' . $image->getProjectId() . '-' . $image->getCode(); ?>" 
+                            class="dropdownmenu__link modalBtn">
                             <svg class="dropdownmenu__icon"><use  xlink:href="./app/static/svg/icomoon.svg#icon-trash-can-thin"></use></svg>
                             Delete Image      
                         </a>
@@ -82,4 +83,27 @@
     <!-- ----------------------------------------------------------- -->          
 
 </form>
+</section>
+
+
+
+<section class="modal">
+    <div class="modal__content">
+
+        <svg class="modal__close"><use href="./app/static/svg/icomoon.svg#icon-x-mark-thin"></use></svg>
+
+        <div class="modal__title">Delete Confermation </div>
+
+        <p style="display: none;" class="modal-hidden-message-js">Are you sure you want to delete these Projects?</p>
+
+        <div class="modal__question modal-question-js">Are you sure you want to delete this image?</div>
+
+        <div  class="modal__confirmation" method="POST">
+        
+            
+            <button class="btn btn--light modal__cancel" type="button">cancel</button>
+            <a href="" class="btn btn--red myLoaderBtn" id="modalDeleteLink-js">Confirm</a>
+        </div>
+
+    </div>    
 </section>

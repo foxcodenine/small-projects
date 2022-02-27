@@ -89,9 +89,25 @@
         height: 4rem;
         width: 7rem;
         object-fit: cover;
+        transition: all .1s ease;
 
         &:hover {
             border: 1px solid $col-red;
         }
     }
+    &__object {
+        height: 4rem;
+        width: 7rem;
+        object-fit: cover;
+        transition: all .1s ease;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+            border: 1px solid $col-red;
+        }
+    }
+
 }

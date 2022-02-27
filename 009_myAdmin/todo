@@ -1,20 +1,19 @@
 
-1. add code fild to imagesProject table 
-    OK a. modify db
-    b. input code in table
-    c. check if code exits
 
-OK 2. update user tabble on log in
-
-
-3. Project Images
+1. Project Images
 
     a. find how to store image from php to:
         OK i.  AWS bot3
         ii. Digital Ocen store
     
-    b delete image from AWS and DB
-    c download image from AWS
+
+    OK b download image from AWS
+
+    c delete image from AWS and DB
+    
+        i.  create Image delete router
+
+
 
 4. Create dummy data
     Clients
