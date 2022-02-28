@@ -15,6 +15,19 @@ class ImageProject {
     private $projectID;
     private $userID;
 
+	const IMAGE_HANDLERS = [
+		IMAGETYPE_JPEG => [
+			'load' => 'imagecreatefromjpeg',
+			'save' => 'imagejpeg',
+			'quality' => 100
+		],
+		IMAGETYPE_PNG => [
+			'load' => 'imagecreatefrompng',
+			'save' => 'imagepng',
+			'quality' => 0
+		]
+	];
+
 
     public function __construct($projectID=null, $userID=null,
         $id=null, $urlPath=null, $position=null, $code=null ) {
@@ -100,6 +113,100 @@ class ImageProject {
 
     // _________________________________________________________________
 
+	public function createThumbnail() {
+
+		$src = $this->getUrlPath();
+		$dest = "/tmp/{$this->getCode()}";
+		$targetWidth = (int) $_ENV['THUMBNAIL_WIDTH'];
+		$targetHeight = null;
+
+
+		$type = exif_imagetype($src);
+
+		// if no valid type or no handler found -> exit
+		if (!$type || !self::IMAGE_HANDLERS[$type]) {
+			return null;
+		}
+
+		// load the image with the correct loader
+		$image = call_user_func(self::IMAGE_HANDLERS[$type]['load'], $src);
+
+		// no image found at supplied location -> exit
+		if (!$image) {
+			return null;
+		}
+
+		// get original image width and height
+		$width = imagesx($image);
+		$height = imagesy($image);
+
+
+		// maintain aspect ratio when no height set
+		if ($targetHeight == null) {
+
+			// get width to height ratio
+			$ratio = $width / $height;
+	
+			// if is portrait
+			// use ratio to scale height to fit in square
+			if ($width > $height) {
+				$targetHeight = floor($targetWidth / $ratio);
+			}
+			// if is landscape
+			// use ratio to scale width to fit in square
+			else {
+				$targetHeight = $targetWidth;
+				$targetWidth = floor($targetWidth * $ratio);
+			}
+		}
+
+
+
+		// create duplicate image based on calculated target size
+		$thumbnail = imagecreatetruecolor($targetWidth, $targetHeight);
+
+		// set transparency options for  PNGs
+		if ( $type == IMAGETYPE_PNG) {
+	
+			// make image transparent
+			imagecolortransparent(
+				$thumbnail,
+				imagecolorallocate($thumbnail, 0, 0, 0)
+			);
+	
+			// additional settings for PNGs
+			if ($type == IMAGETYPE_PNG) {
+				imagealphablending($thumbnail, false);
+				imagesavealpha($thumbnail, true);
+			}
+		}
+	
+		// copy entire source image to duplicate image and resize
+		imagecopyresampled(
+			$thumbnail,
+			$image,
+			0, 0, 0, 0,
+			$targetWidth, $targetHeight,
+			$width, $height
+		);
+
+		call_user_func(
+			self::IMAGE_HANDLERS[$type]['save'],
+			$thumbnail,
+			$dest,
+			self::IMAGE_HANDLERS[$type]['quality']			
+		);
+
+		$aws_str = "user{$this->getUserID()}/poject{$this->getProjectID()}/thumbnails/{$this->getCode()}";
+
+		return  AwsClass::uploadImage($aws_str, $dest);
+	}
+
+
+
+
+    // _________________________________________________________________
+
 
 
     public static function createImageCode ($img_format)  {
@@ -159,6 +266,11 @@ class ImageProject {
 		$this->id = $id;
 
 		return $this;
+	}
+
+	/** Get the value of urlPath */
+	public function getThumbnail() {
+		return str_replace('images', 'thumbnails', $this->urlPath);
 	}
 
 	/** Get the value of urlPath */

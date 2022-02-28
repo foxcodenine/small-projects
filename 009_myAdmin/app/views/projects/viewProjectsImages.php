@@ -27,7 +27,7 @@
             
     
             <a href="#" class="image__link">
-                <img class="image__img" src="<?= $image->getUrlPath() ?>" alt="">
+                <img class="image__img" src="<?= $image->getThumbnail() ?>" alt="">
             </a>
             
             <input type="checkbox" class="image__checkbox" id="image-checkbox-<?= $image->getId() ?>">

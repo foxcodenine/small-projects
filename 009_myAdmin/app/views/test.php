@@ -14,7 +14,8 @@
 use app\Model\AwsClass;
 use app\Model\Cat;
     use app\Model\DBConnect;
-    use app\Model\MyCript;
+use app\Model\ImageProject;
+use app\Model\MyCript;
     use app\Model\MyHelperClass;
     use app\Model\Project;
     use app\Model\User;
@@ -31,8 +32,8 @@ use app\Model\Cat;
     //     echo $bucket['Name'] . "<br>";
     // }
 
-    echo base64_encode('chris12aug@yahoo.com');
-    echo base64_decode(base64_encode('chrismariojimmy@yahoo.com'));
+    // echo base64_encode('chris12aug@yahoo.com');
+    // echo base64_decode(base64_encode('chrismariojimmy@yahoo.com'));
 
         // Y2hyaXMxMmF1Z0B5YWhvby5jb20=   chris12aug@yahoo.com
     // $wisky = new Cat('Wisky', 9);
@@ -74,10 +75,10 @@ use app\Model\Cat;
     // var_dump(Project::formatDateForDisplay());
 
 
+
+
+
     
-
-
-
 ?>
 </body>
 </html>

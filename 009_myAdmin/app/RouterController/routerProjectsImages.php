@@ -36,7 +36,8 @@ $router->match('GET', '/projects-images-(\d+)', function($id=null) {
 
         if ($_SESSION['projectImages']['imgsInDb'] > 0) {
 
-            $imgLastPos  = end($projectImages)->getPosition();
+            $imgLastPos  = end($projectImages)->getPosition(); // TODO: Remove
+            // $imgLastPos  = $projectImages->bottom();
         }
 
         $_SESSION['projectImages']['imgLastPos'] = $imgLastPos ?? 0;        
@@ -70,7 +71,7 @@ $router->match('POST|GET', '/projects-upload-img-(\d+)', function($id=null) {
 
     // ----- Set Paramiters
 
-    $valid_formats = ['image/png' , 'image/jpeg', 'image/gif'];
+    $valid_formats = ['image/png' , 'image/jpeg'];
 
     $max_number_img_to_upload = $_ENV['IMG_PER_PROJECT'] - $_SESSION['projectImages']['imgsInDb'];
 
@@ -124,6 +125,8 @@ $router->match('POST|GET', '/projects-upload-img-(\d+)', function($id=null) {
             $newImageProject->setUrlPath($result["ObjectURL"]);          
 
             $newImageProject->saveToDb();
+
+            $newImageProject->createThumbnail();
         }
     }
 
@@ -144,6 +147,8 @@ $router->match('POST|GET', '/projects-remove-img-(\d+)-([\w \.]+)', function($pr
     $result =   AwsClass::removeImage("user{$userID}/poject{$projectID}/images/{$imgCode}");
     
     if ($result["@metadata"]["statusCode"] == '200') {
+
+        AwsClass::removeImage("user{$userID}/poject{$projectID}/thumbnails/{$imgCode}");
 
         $conn = DBConnect::getConn();
 

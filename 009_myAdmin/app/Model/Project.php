@@ -7,6 +7,7 @@ use DateTime;
 use Exception;
 use PDO;
 use PDOException;
+use SplDoublyLinkedList;
 
 class Project {
     private $id;
@@ -430,7 +431,18 @@ class Project {
 
 			$result = $stmt->fetchAll();
 
-			return $result ?: [];
+			return $result ?: []; // TODO: Remove
+
+			// $splDoubleLinkedList =  new SplDoublyLinkedList;
+
+			// foreach($result as $r) {
+			// 	$splDoubleLinkedList->push($r);
+			// }
+			// header('Content-Type: application/json');	
+			// var_dump($splDoubleLinkedList);
+			// exit();
+			// return $splDoubleLinkedList;
+
 
 		} catch (PDOException $e) {
 

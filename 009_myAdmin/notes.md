@@ -16,6 +16,12 @@ https://github.com/ckeditor/ckeditor4
 https://computingforgeeks.com/install-and-use-firewalld-on-ubuntu/
 https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-centos-7
 
+
+## image display and slider
+https://www.youtube.com/watch?v=QghhoJBdw7A
+https://www.youtube.com/watch?v=KcdBOoK3Pfw
+https://www.youtube.com/watch?v=TSRtBISvsh4
+
 ## ------  DigitalOcean Spaces -----------------------------------------
 
 https://www.digitalocean.com/community/tools/adapting-an-existing-aws-s3-application-to-digitalocean-spaces
