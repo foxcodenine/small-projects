@@ -18,11 +18,11 @@ $router->match('GET', '/projects-images-(\d+)', function($id=null) {
     // ----- Check for id
     if(!isset($id)){ 
         MyUtilities::redirect($_ENV['BASE_PATH']); exit();
+    } else {
+        $id = MyCript::stringSanitize($id);
     }
 
-    // ----- Check if project exits
-
-    
+    // ----- Check if project exits    
 
     if (array_key_exists($id, Project::getProjectList() ) && !isset($_SESSION['project']['id'])) {
         $currentProject = Project::getProjectList()[$id];
@@ -40,9 +40,46 @@ $router->match('GET', '/projects-images-(\d+)', function($id=null) {
             // $imgLastPos  = $projectImages->bottom();
         }
 
-        $_SESSION['projectImages']['imgLastPos'] = $imgLastPos ?? 0;        
+        $_SESSION['projectImages']['imgLastPos'] = $imgLastPos ?? 0; 
 
 
+
+        // --- Set project cover
+
+        if (isset($_GET['setAsProjectCover']) && !empty(trim(isset($_GET['setAsProjectCover'])))) {
+
+            $imgID = MyCript::stringSanitize(($_GET['setAsProjectCover']));
+            unset($_GET['setAsProjectCover']);
+
+            $_SESSION['projectImageCover']['currentImages']  = serialize($projectImages[$imgID]);
+            $_SESSION['projectImageCover']['currentProject'] = serialize($currentProject);
+
+            header('Location: ' . $_ENV['BASE_PATH'] . '/projects-set-cover');
+
+
+        } else {
+
+            $projectCover = $currentProject->getCover();
+            
+            if((!isset($projectCover) || empty($projectCover )) && (bool) count($projectImages)) {
+
+                // 'if project have images but cover not set';
+                
+                $currentProject->setCover(current($projectImages)->getUrlPath());
+                $currentProject->updateProjectToDB();
+            
+                current($projectImages)->setCover(True);
+                current($projectImages)->updateImageToDB();
+
+            } else if (!count($projectImages)) {
+
+                // 'if project have no images';
+                
+            } else {
+                // 'cover is alraedy set';
+            }
+        }          
+        
     } else {
         MyUtilities::redirect($_ENV['BASE_PATH']);
         exit();
@@ -60,6 +97,8 @@ $router->match('POST|GET', '/projects-upload-img-(\d+)', function($id=null) {
     // ----- Check for id
     if(!isset($id)){ 
         MyUtilities::redirect($_ENV['BASE_PATH']); exit();
+    } else {
+        $id = MyCript::stringSanitize($id);
     }
 
         // ----- Check if input is empty
@@ -138,11 +177,16 @@ $router->match('POST|GET', '/projects-upload-img-(\d+)', function($id=null) {
 
 ////////////////////////////////////////////////////////////////////////
 
-$router->match('POST|GET', '/projects-remove-img-(\d+)-([\w \.]+)', function($projectID=null, $imgCode=null) {
+$router->match('POST|GET', '/projects-remove-img-(\d+)-([\w \.]+)-(\d*)', function($projectID=null, $imgCode=null, $isCover=null) {
+
+
 
     $currentUser = MyUtilities::checkCookieAndReturnUser(); 
     MyUtilities::userInSessionPage();
     $userID = $currentUser->getId();
+
+    $projectID = MyCript::stringSanitize($projectID);
+    $imgCode   = MyCript::stringSanitize($imgCode);
 
     $result =   AwsClass::removeImage("user{$userID}/poject{$projectID}/images/{$imgCode}");
     
@@ -164,8 +208,46 @@ $router->match('POST|GET', '/projects-remove-img-(\d+)-([\w \.]+)', function($pr
         $stmt->bindValue(':Code', $imgCode);
 
         $stmt->execute();
+
+
+        if ($isCover) {
+            $sql = 'UPDATE Project SET cover = NULL WHERE id = :id';
+            $stmt = $conn->prepare($sql);
+            $stmt->bindValue(':id', $projectID);
+            $stmt->execute();
+        } 
+
+        
     }
 
     header('Location: '. $_ENV['BASE_PATH'] . '/projects-upload-img-' . $projectID);
     exit();
 });
+
+////////////////////////////////////////////////////////////////////////
+
+$router->match('POST|GET', '/projects-set-cover', function() {
+
+    
+    $currentProject = unserialize($_SESSION['projectImageCover']['currentProject']);
+    $currentImage   = unserialize($_SESSION['projectImageCover']['currentImages']);
+    unset($_SESSION['projectImageCover']);
+
+    if ( isset($currentProject) && $currentProject->getId() && 
+         isset($currentImage)   && $currentImage->getId()) {
+
+        ImageProject::removeCoverFromDb($currentProject->getId());
+
+        $currentProject->setCover($currentImage->getUrlPath());
+        $currentProject->updateProjectToDB();
+    
+        $currentImage->setCover(True);
+        $currentImage->updateImageToDB();
+    
+    } 
+
+    header('Location: '. $_ENV['BASE_PATH'] . '/projects-upload-img-' . $currentProject->getId());
+    exit();
+});
+
+////////////////////////////////////////////////////////////////////////

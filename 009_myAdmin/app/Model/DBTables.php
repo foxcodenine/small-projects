@@ -86,6 +86,7 @@ class DBTables {
         paNo VARCHAR(50),
         projectDate DATE,
         cover VARCHAR(255),
+        hosted BOOLEAN,
 
         localityName VARCHAR(100) ,
         CONSTRAINT Locality_Poject

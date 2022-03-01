@@ -9,7 +9,8 @@ use app\Model\MyCript;
 
 $router->match('GET|POST', '/clients-add|clients-edit(\d+)|clients-edit', function($id=null) {
 
-
+    $id = MyCript::stringSanitize($id);
+    
     // ----- Get url endpoint
 
     $arrURL = explode('/', $_SERVER['REQUEST_URI']);

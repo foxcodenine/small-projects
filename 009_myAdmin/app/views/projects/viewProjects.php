@@ -83,8 +83,8 @@
                         <a class="table__a" href="<?= $_ENV['BASE_PATH'] . '/projects-images-' . $p->getId() ?>">
                             <img id="table-images" 
                                 class="table__img" 
-                                src="<?= '' ?>"
-                                onerror="this.src='<?= $p->getCover() ?: './app/static/images/upload_img.png' ?>'"
+                                src="<?= $p->getThumbnail() ?: '' ?>"
+                                onerror="this.src='<?= './app/static/images/upload_img.png' ?>'"
                                 alt="default image"
                             >
                         </a>

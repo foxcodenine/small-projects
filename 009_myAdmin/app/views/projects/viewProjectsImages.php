@@ -27,7 +27,10 @@
             
     
             <a href="#" class="image__link">
-                <img class="image__img" src="<?= $image->getThumbnail() ?>" alt="">
+                <img class="image__img" 
+                src="<?= $image->getThumbnail() ?>" 
+                onerror="this.src='<?= './app/static/images/image_not_found.png' ?>'" alt=""
+                >
             </a>
             
             <input type="checkbox" class="image__checkbox" id="image-checkbox-<?= $image->getId() ?>">
@@ -51,13 +54,15 @@
                         </a>
                     </li>
                     <li class="dropdownmenu__item">
-                        <a href="#" class="dropdownmenu__link">
+                        <a 
+                            href="<?= $_ENV['BASE_PATH'] . '/projects-images-' . $currentProject->getId() . '?setAsProjectCover=' . $image->getId()?>" 
+                            class="dropdownmenu__link myLoaderBtn">
                             <svg class="dropdownmenu__icon"><use  xlink:href="./app/static/svg/icomoon.svg#icon-picture-thin"></use></svg>
-                             Make Project Cover                
+                            Make Project Cover                
                         </a>
                     </li>
                     <li class="dropdownmenu__item">
-                        <a deleteLink="<?= $_ENV['BASE_PATH'] . '/projects-remove-img-' . $image->getProjectId() . '-' . $image->getCode(); ?>" 
+                        <a deleteLink="<?= $_ENV['BASE_PATH'] . '/projects-remove-img-' . $image->getProjectId() . '-' . $image->getCode() . '-' . $image->getCover() ?>" 
                             class="dropdownmenu__link modalBtn">
                             <svg class="dropdownmenu__icon"><use  xlink:href="./app/static/svg/icomoon.svg#icon-trash-can-thin"></use></svg>
                             Delete Image      

@@ -1,21 +1,19 @@
 
+OK 1. set cover
 
-1. Project Images
+OK 2 set cover through router
 
-    a. find how to store image from php to:
-        OK i.  AWS bot3
-        ii. Digital Ocen store
-    
+OK 3. save as cover in ImageProject
 
-    OK b download image from AWS
+OK 4.  remove old cover
 
-    c delete image from AWS and DB
-    
-        i.  create Image delete router
+OK add border to cover image
 
-2. create thumbnails
+5. Auto cover method
 
-3. set cover
+6. Add hosted field to projects
+
+7. Delete Project remove all image from aws
 
 4. Create dummy data
     Clients

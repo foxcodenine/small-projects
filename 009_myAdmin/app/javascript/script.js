@@ -503,7 +503,7 @@ function myLoaderBtn() {
             
             setTimeout(()=>{
                 div_box.remove();
-            }, 10000);
+            }, 600000);
         });
 
     });

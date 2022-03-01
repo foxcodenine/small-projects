@@ -26,21 +26,30 @@ class AwsClass {
 
     public static function init () {
 
-        self::$bucket = $_ENV['AWS_S3_BUCKET'];
-        self::$region = MyCript::decrypt($_ENV['AWS_REGION']);
+        try {
 
-        $region = self::$region;
-        $key    = MyCript::decrypt($_ENV['AWS_ACCESS_KEY_ID']);
-        $secret = MyCript::decrypt($_ENV['AWS_SECRET_ACCESS_KEY']);
-        
-        self::$s3Client = new S3Client([  
-            'version' => 'latest',
-            'region' => $region,
-            'credentials' => [
-                'key' => $key,
-                'secret' => $secret
-            ]
-        ]);         
+            self::$bucket = $_ENV['AWS_S3_BUCKET'];
+            self::$region = MyCript::decrypt($_ENV['AWS_REGION']);
+
+            $region = self::$region;
+            $key    = MyCript::decrypt($_ENV['AWS_ACCESS_KEY_ID']);
+            $secret = MyCript::decrypt($_ENV['AWS_SECRET_ACCESS_KEY']);
+            
+            self::$s3Client = new S3Client([  
+                'version' => 'latest',
+                'region' => $region,
+                'credentials' => [
+                    'key' => $key,
+                    'secret' => $secret
+                ]
+            ]); 
+
+        } catch (S3Exception $e) {
+
+            $msg = "Error AwsClass init: <br>" .  $e->getMessage();
+            error_log($msg);
+            die($msg);
+        }        
     }
 
     // __________________________________

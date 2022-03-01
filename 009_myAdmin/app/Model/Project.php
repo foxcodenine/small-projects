@@ -17,6 +17,7 @@ class Project {
     private $paNo;
     private $projectDate;
     private $cover;
+	private $hosted;
     private $localityName;
     private $stageName;
     private $categoryName;
@@ -33,7 +34,7 @@ class Project {
 	public function __construct( $projectname, 
 		$id=null, $strAddr=null, $projectNo=null, $paNo=null, $projectDate=null, 
 		$cover=null, $localityName=null, $stageName=null, $categoryName=null, 
-		$clientId=null, $userID=null
+		$clientId=null, $userID=null, $hosted=null
 	) {
 		$this->setId($id); 
 		$this->setProjectname($projectname); 
@@ -42,6 +43,7 @@ class Project {
 		$this->setPaNo($paNo); 
 		$this->setProjectDate($projectDate); 		
 		$this->setCover($cover); 		
+		$this->setHosted($hosted); 		
 		$this->setLocalityName($localityName); 
 		$this->setStageName($stageName); 
 		$this->setCategoryName($categoryName); 
@@ -117,10 +119,10 @@ class Project {
 
 			$sql = 'INSERT INTO Project (
 				projectname, strAddr, projectNo, paNo,  projectDate, cover,
-                localityName, stageName, categoryName, clientId, userID
+                hosted, localityName, stageName, categoryName, clientId, userID
 			) VALUES (
 				:projectname, :strAddr, :projectNo, :paNo,  :projectDate, :cover,
-                :localityName, :stageName, :categoryName, :clientId, :userID
+                :hosted, :localityName, :stageName, :categoryName, :clientId, :userID
 			)';
 
 			$stmt = $conn->prepare($sql);
@@ -134,6 +136,7 @@ class Project {
 			$stmt -> bindValue(':paNo', 		$this->getPaNo());
 			$stmt -> bindValue(':projectDate', 	$this->getProjectDate());
 			$stmt -> bindValue(':cover', 		$this->getCover());
+			$stmt -> bindValue(':hosted', 		$this->getHosted());
 			$stmt -> bindValue(':localityName', $this->getLocalityName());
 			$stmt -> bindValue(':stageName', 	$this->getStageName());
 			$stmt -> bindValue(':categoryName', $this->getCategoryName());
@@ -154,6 +157,9 @@ class Project {
 
 	public function updateProjectToDB () {
 
+
+		// echo $this->getProjectDate(); exit();
+
 		try {
 
 			$conn = DBConnect::getConn();
@@ -167,7 +173,9 @@ class Project {
 				paNo = :paNo,  
 				stageName = :stageName, 
 				categoryName = :categoryName, 
-				projectDate = :projectDate
+				projectDate = :projectDate,
+				cover = :cover,
+				hosted = :hosted
 			WHERE id = :id';
 
 			$stmt = $conn->prepare($sql);
@@ -177,6 +185,7 @@ class Project {
 			$stageName    = empty($this->getStageName())    ? null : $this->getStageName();
 			$clientId     = empty($this->getClientId())     ? null : $this->getClientId();
 
+			
 			$projectdate = $this->formatDateForDB();
 			$this->setProjectDate($projectdate);
 
@@ -191,12 +200,14 @@ class Project {
 			$stmt->bindValue(':stageName', 		$stageName); 
 			$stmt->bindValue(':categoryName', 	$categoryName); 
 			$stmt->bindValue(':projectDate', 	$this->getProjectDate());
+			$stmt->bindValue(':cover', 			$this->getCover());
+			$stmt -> bindValue(':hosted', 		$this->getHosted());
 
 			$stmt -> execute();
 
 
 		} catch (PDOException $e) {
-			$msg = "Error Client updateClient: <br>" . $e->getMessage();
+			$msg = "Error Project updateProjectToDB: <br>" . $e->getMessage();
 			error_log($msg);
 			die($msg);
 		} 
@@ -317,7 +328,7 @@ class Project {
 
 	public function formatDateForDB() {
 		$date =  preg_match('@(\d+)/(\d+)/(\d+)@', $this->getProjectDate(), $arr);
-		return $date ? "{$arr[3]}-{$arr[2]}-{$arr[1]}" : false;
+		return $date ? "{$arr[3]}-{$arr[2]}-{$arr[1]}" : $this->getProjectDate();
 	}
 
 	// _________________________________________________________________
@@ -370,7 +381,8 @@ class Project {
 		foreach($result as $p) {
 			$project = new self( $p->projectname, 
 				$p->id, $p->strAddr, $p->projectNo, $p->paNo,  $p->projectDate, $p->cover,
-				$p->localityName, $p->stageName, $p->categoryName, $p->clientId, $p->userID 
+				$p->localityName, $p->stageName, $p->categoryName, $p->clientId, $p->userID, 
+				$p->hosted
 			);
 
 			self::$ProjectList[$project->getId()] = $project; 				
@@ -431,18 +443,14 @@ class Project {
 
 			$result = $stmt->fetchAll();
 
-			return $result ?: []; // TODO: Remove
 
-			// $splDoubleLinkedList =  new SplDoublyLinkedList;
+			$imageList = [];
 
-			// foreach($result as $r) {
-			// 	$splDoubleLinkedList->push($r);
-			// }
-			// header('Content-Type: application/json');	
-			// var_dump($splDoubleLinkedList);
-			// exit();
-			// return $splDoubleLinkedList;
+			foreach($result as $img) {
+				$imageList[$img->getId()] = $img;
+			}
 
+			return $imageList; 
 
 		} catch (PDOException $e) {
 
@@ -582,6 +590,22 @@ class Project {
 	/** Set the value of cover */
 	public function setCover($cover) {
 		$this->cover = $cover;
+		return $this;
+	}
+
+	public function getThumbnail() {
+		return str_replace('images', 'thumbnails', $this->cover);
+	}
+
+	/** Get the value of hosted */
+	public function getHosted() {
+		return $this->hosted;
+	}
+
+	/** Set the value of hosted */
+	public function setHosted($hosted) {
+		$this->hosted = $hosted;
+
 		return $this;
 	}
 }

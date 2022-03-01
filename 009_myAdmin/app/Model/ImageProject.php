@@ -12,6 +12,7 @@ class ImageProject {
     private $urlPath;
     private $position;
     private $code;
+    private $cover;
     private $projectID;
     private $userID;
 
@@ -30,17 +31,60 @@ class ImageProject {
 
 
     public function __construct($projectID=null, $userID=null,
-        $id=null, $urlPath=null, $position=null, $code=null ) {
+        $id=null, $urlPath=null, $position=null, $code=null, $cover=null ) {
 
         $this->setId($id);
         $this->setUrlPath($urlPath);
         $this->setPosition($position);
         $this->setCode($code);
+        $this->setCover($cover);
         $this->setProjectID($projectID);
         $this->setUserID($userID);
         
         return $this;
     }
+
+    // _________________________________________________________________
+
+
+    public function updateImageToDB() {
+
+		try {
+
+			$conn = DBConnect::getConn();
+
+			$sql = 'UPDATE ImageProject SET 
+						urlPath 	= :urlPath,
+						position 	= :position,
+						code		= :code,
+						cover		= :cover, 
+						userID		= :userID,
+						projectID	= :projectID
+					WHERE id = :id';
+
+			$stmt = $conn->prepare($sql);
+
+			$stmt->bindValue(':id', 		$this->getId());
+			$stmt->bindValue(':urlPath', 	$this->getUrlPath());
+			$stmt->bindValue(':position', 	$this->getPosition());
+			$stmt->bindValue(':code', 		$this->getCode());
+			$stmt->bindValue(':cover', 		$this->getCover());
+			$stmt->bindValue(':userID', 	$this->getUserID());
+			$stmt->bindValue(':projectID', 	$this->getProjectID());
+
+			$stmt->execute();
+
+		} catch (PDOException $e) {
+
+			$msg = "Error ImageProject updateImageToDB: <br>" . $e->getMessage();
+			error_log($msg);
+			die($msg);
+		}
+        
+        return $this;
+    }
+
+
 
     // _________________________________________________________________
 
@@ -70,7 +114,7 @@ class ImageProject {
     }
 
 
-
+	// _________________________________________________________________
 
 	public function saveToDb() {
 
@@ -78,23 +122,26 @@ class ImageProject {
 
 			$conn = DBConnect::getConn();
 
-			$sql = 'INSERT INTO ImageProject (urlPath, position, code,  userID, projectID)
-					VALUES (:urlPath, :position, :code, :userID, :projectID)';
+			$sql = 'INSERT INTO ImageProject (urlPath, position, code,  cover, userID,  projectID)
+					VALUES (:urlPath, :position, :code, :cover, :userID, :projectID)';
 
 			$stmt = $conn->prepare($sql);
 
 			$stmt->bindValue(':urlPath', 	$this->getUrlPath());
 			$stmt->bindValue(':position', 	$this->getPosition());
 			$stmt->bindValue(':code', 		$this->getCode());
+			$stmt->bindValue(':cover', 		$this->getCover());
 			$stmt->bindValue(':userID', 	$this->getUserID());
 			$stmt->bindValue(':projectID', 	$this->getProjectID());
+
+			$this->setId($conn->lastInsertId());
 
 			$stmt->execute();
 
 
 		} catch (PDOException $e) {
 
-			$msg = "Error Project saveImagesToDb: <br>" . $e->getMessage();
+			$msg = "Error ImageProject saveToDb: <br>" . $e->getMessage();
 			error_log($msg);
 			die($msg);
 		}	
@@ -102,13 +149,17 @@ class ImageProject {
 
 	// _________________________________________________________________
 
-	public function removeFromAws() {
-		$userID 	= $this->getUserID();
-		$projectID 	= $this->getProjectID();
-		$code 		= $this->getCode();
+	// public function removeFromAws() {
+	// 	$userID 	= $this->getUserID();
+	// 	$projectID 	= $this->getProjectID();
+	// 	$code 		= $this->getCode();
 
-		return  AwsClass::removeImage("user{$userID}/poject{$projectID}/images/{$code}"); 
-	}
+	// 	return  AwsClass::removeImage("user{$userID}/poject{$projectID}/images/{$code}"); 
+	// }
+
+    // _________________________________________________________________	
+
+
 
 
     // _________________________________________________________________
@@ -240,18 +291,101 @@ class ImageProject {
 
 
     public static function updateCodeList() {
-        $conn = DBConnect::getConn();
-        $sql  = 'SELECT code FROM ImageProject';
 
-        $stmt = $conn->prepare($sql);
+		try {
 
-        $stmt->execute();
+			$conn = DBConnect::getConn();
+			$sql  = 'SELECT code FROM ImageProject';
 
-        $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+			$stmt = $conn->prepare($sql);
 
-        self::$codeList = array_map(function($img){ return $img->code; }, $result);
+			$stmt->execute();
+
+			$result = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+			self::$codeList = array_map(function($img){ return $img->code; }, $result);
+
+		} catch (PDOException $e) {
+
+			$msg = "Error ImageProject updateCodeList: <br>" . $e->getMessage();
+			error_log($msg);
+			die($msg);
+		}
     }
 
+    // _________________________________________________________________
+
+	public static function removeAllProjectImagesFromDb ($id) {
+
+		try {
+
+			$conn = DBConnect::getConn();
+
+			$sql = 'DELETE FROM ImageProject WHERE ProjectID = :ProjectID';
+
+			$stmt = $conn->prepare($sql);
+
+			$stmt->bindValue(':ProjectID', $id);
+
+		} catch (PDOException $e) {
+
+			$msg = "Error ImageProject removeProjectCover: <br>" . $e->getMessage();
+			error_log($msg);
+			die($msg);
+		}
+	}
+
+    // _________________________________________________________________
+
+	public static function removeCoverFromDb ($id) {
+
+		try {
+
+			$conn = DBConnect::getConn();
+
+			$sql = 'UPDATE ImageProject SET cover = NULL WHERE ProjectID = :ProjectID';
+
+			$stmt = $conn->prepare($sql);
+
+			$stmt->bindValue(':ProjectID', $id);
+
+			$stmt->execute();
+
+		} catch (PDOException $e) {
+
+			$msg = "Error ImageProject removeProjectCover: <br>" . $e->getMessage();
+			error_log($msg);
+			die($msg);
+		}
+	}
+
+    // _________________________________________________________________
+
+	public static function coverIsSet ($id) {
+
+		try {
+
+			$conn = DBConnect::getConn();
+
+			$sql = 'SELECT * FROM ImageProject WHERE ProjectID = :ProjectID AND cover = 1 LIMIT 1' ;
+
+			$stmt = $conn->prepare($sql);
+
+			$stmt->bindValue(':ProjectID', $id);
+
+			$stmt->execute();
+
+			$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+			return (bool) count($result);
+
+		} catch (PDOException $e) {
+
+			$msg = "Error ImageProject removeProjectCover: <br>" . $e->getMessage();
+			error_log($msg);
+			die($msg);
+		}
+	}
 
     // _________________________________________________________________
 
@@ -268,7 +402,7 @@ class ImageProject {
 		return $this;
 	}
 
-	/** Get the value of urlPath */
+
 	public function getThumbnail() {
 		return str_replace('images', 'thumbnails', $this->urlPath);
 	}
@@ -329,6 +463,18 @@ class ImageProject {
 	/** Set the value of userID */
 	public function setUserID($userID) {
 		$this->userID = $userID;
+
+		return $this;
+	}
+
+	/** Get the value of cover */
+	public function getCover() {
+		return $this->cover;
+	}
+
+	/** Set the value of cover */
+	public function setCover($cover) {
+		$this->cover = $cover;
 
 		return $this;
 	}

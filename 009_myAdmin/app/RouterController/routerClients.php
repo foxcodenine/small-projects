@@ -27,6 +27,8 @@ $router->match('GET|POST', '/clients', function() {
 
 $router->match('GET', '/clients-details(\d+)', function($id=0) {
 
+    $id = MyCript::stringSanitize($id);
+
     Client::updateClientList();
 
     $client = Client::getClientList()[$id] ?? null;

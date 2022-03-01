@@ -11,9 +11,12 @@ use app\Model\Project;
 ////////////////////////////////////////////////////////////////////////
 
 $router->match('GET|POST', '/projects-add|/projects-edit(\d+)|/projects-edit', function($id=null) {   
+
+    $id = MyCript::stringSanitize($id);
     
     // ----- Get url endpoint
 
+    
     $arrURL = explode('/', $_SERVER['REQUEST_URI']);
     $endpointURL = end($arrURL);
 
