@@ -117,7 +117,7 @@
         
             
             <button class="btn btn--light modal__cancel" type="button">cancel</button>
-            <button class="btn btn--red" >Confirm</button>
+            <button class="btn btn--red myLoaderBtn" >Confirm</button>
         </div>
 
     </div>    

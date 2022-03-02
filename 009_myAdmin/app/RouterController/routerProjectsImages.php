@@ -44,9 +44,9 @@ $router->match('GET', '/projects-images-(\d+)', function($id=null) {
 
 
 
-        // --- Set project cover
+        // --- Change project cover Or Auto set project cover
 
-        if (isset($_GET['setAsProjectCover']) && !empty(trim(isset($_GET['setAsProjectCover'])))) {
+        if (isset($_GET['setAsProjectCover']) && !empty(trim($_GET['setAsProjectCover']))) {
 
             $imgID = MyCript::stringSanitize(($_GET['setAsProjectCover']));
             unset($_GET['setAsProjectCover']);
@@ -78,7 +78,52 @@ $router->match('GET', '/projects-images-(\d+)', function($id=null) {
             } else {
                 // 'cover is alraedy set';
             }
-        }          
+        }  
+        
+        // --- Swap position of images
+
+        if (isset($_GET['imgSwap']) ) {
+
+            $imgId = (int) MyCript::stringSanitize($_GET['imgSwap']['id']);
+            $direction   = MyCript::stringSanitize($_GET['imgSwap']['dir']);
+
+            unset($_GET['imgSwap']);
+
+            reset($projectImages);
+            while (current($projectImages) && current($projectImages)->getId() != $imgId) next($projectImages);
+
+            if (current($projectImages) && in_array($direction, ['prev', 'next'])) {
+
+                $imgA = current($projectImages);
+                $imgB = $direction($projectImages);
+
+                $posA = (int) $imgA->getPosition();
+                $posB = (int) $imgB->getPosition();
+
+                $imgA->setPosition($posB);
+                $imgB->setPosition($posA);
+
+                $imgA->updateImageToDB();
+                $imgB->updateImageToDB();
+
+                $projectImages[$imgA->getId()] = $imgB;
+                $projectImages[$imgB->getId()] = $imgA;
+
+                
+                // --- [ This JS Code is cleaing the get parameters from url addess ]  
+
+                echo "<script>
+                
+                history.pushState(
+                    history.state, 
+                    `MyAdmin`, 
+                    `{$_ENV['BASE_PATH']}/projects-images-{$currentProject->getId()}`);
+
+                </script>";
+                                
+            }
+
+        }
         
     } else {
         MyUtilities::redirect($_ENV['BASE_PATH']);
@@ -251,3 +296,5 @@ $router->match('POST|GET', '/projects-set-cover', function() {
 });
 
 ////////////////////////////////////////////////////////////////////////
+
+

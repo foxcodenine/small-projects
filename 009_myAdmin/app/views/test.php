@@ -74,8 +74,15 @@ use app\Model\MyCript;
 
     // var_dump(Project::formatDateForDisplay());
 
+    header('Content-Type: application/json');
 
+    $s3Client = AwsClass::getS3Client();
+    $keys = $s3Client->listObjects([
+        'Bucket' => $_ENV['AWS_S3_BUCKET'],
+        'Prefix' => 'user30/poject1/images/'
+    ]); 
 
+    print_r($keys);
 
 
     

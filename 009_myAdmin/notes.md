@@ -44,6 +44,9 @@ https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/s3-examples.html
 https://docs.aws.amazon.com/en_cn/sdk-for-php/v3/developer-guide/guide_configuration.html
 https://aws.amazon.com/sdk-for-php/
 
+Amazon Simple Storage Service (php)
+https://docs.aws.amazon.com/aws-sdk-php/v3/api/api-s3-2006-03-01.html#listobjects
+
 
 
 ## ------ Createing thumbnails -----------------------------------------
@@ -187,6 +190,8 @@ You might need too Enable PHP mail() function on Ubuntu
 
 
 ## ------ JS Script ----------------------------------------------------
+
+https://attacomsian.com/blog/javascript-update-url-without-page-reload
 
 https://christopheraue.net/design/fading-pages-on-load-and-unload
 

@@ -78,6 +78,37 @@ class DBTables {
 
     // -----------------------------------------------------------------
 
+    const Client = ' CREATE TABLE IF NOT EXISTS Client (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        title VARCHAR(6),
+        firstname VARCHAR(100) NOT NULL,
+        lastname VARCHAR(100) NOT NULL,
+        idCard VARCHAR(50),
+        company VARCHAR(255),
+        email VARCHAR(100),
+        phone VARCHAR(25),
+        mobile VARCHAR(25),
+        strAddr VARCHAR(255),
+        postcode VARCHAR(50),
+
+        localityName VARCHAR(100) ,
+        CONSTRAINT Locality_Client
+            FOREIGN KEY (localityName) REFERENCES Locality (lName)
+            ON DELETE SET NULL,
+
+        countryName VARCHAR(100) ,
+        CONSTRAINT Country_Client
+            FOREIGN KEY (countryName) REFERENCES Country (cName)
+            ON DELETE SET NULL,
+
+        userID INT NOT NULL ,
+        CONSTRAINT User_Client
+            FOREIGN KEY (userID) REFERENCES User (id)
+            ON DELETE CASCADE
+    )ENGINE=InnoDB;';
+
+    // -----------------------------------------------------------------
+    
     const Poject = 'CREATE TABLE IF NOT EXISTS Project (
         id INT PRIMARY KEY AUTO_INCREMENT,
         projectname VARCHAR(100) NOT NULL,
@@ -117,36 +148,6 @@ class DBTables {
 
     // -----------------------------------------------------------------
 
-    const Client = ' CREATE TABLE IF NOT EXISTS Client (
-        id INT PRIMARY KEY AUTO_INCREMENT,
-        title VARCHAR(6),
-        firstname VARCHAR(100) NOT NULL,
-        lastname VARCHAR(100) NOT NULL,
-        idCard VARCHAR(50),
-        company VARCHAR(255),
-        email VARCHAR(100),
-        phone VARCHAR(25),
-        mobile VARCHAR(25),
-        strAddr VARCHAR(255),
-        postcode VARCHAR(50),
-
-        localityName VARCHAR(100) ,
-        CONSTRAINT Locality_Client
-            FOREIGN KEY (localityName) REFERENCES Locality (lName)
-            ON DELETE SET NULL,
-
-        countryName VARCHAR(100) ,
-        CONSTRAINT Country_Client
-            FOREIGN KEY (countryName) REFERENCES Country (cName)
-            ON DELETE SET NULL,
-
-        userID INT NOT NULL ,
-        CONSTRAINT User_Client
-            FOREIGN KEY (userID) REFERENCES User (id)
-            ON DELETE CASCADE
-    )ENGINE=InnoDB;';
-
-    // -----------------------------------------------------------------
 
     const InfoClient = 'CREATE TABLE IF NOT EXISTS InfoClient (
         id INT PRIMARY KEY AUTO_INCREMENT,

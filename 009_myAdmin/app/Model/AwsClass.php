@@ -110,4 +110,58 @@ class AwsClass {
     }
 
     // __________________________________
+    
+    public static function deleteProjectsImagesFromAWS (...$projectIds) {
+
+        if (empty($projectIds)) return;
+
+        if (!isset(self::$s3Client)) { self::init(); }
+
+        try {
+
+            $s3Client = self::$s3Client;
+
+            $currentUser = unserialize($_SESSION['currentUser']);
+            $userId = $currentUser->getId();
+
+            $bucket = $_ENV['AWS_S3_BUCKET'];
+
+
+            foreach ($projectIds as $pId) {
+
+                // 1. List the project objects in AWS
+
+                $objects = $s3Client->listObjects([
+                    'Bucket' => $bucket,
+                    'Prefix' => "user{$userId}/poject{$pId}/"
+                ]);
+
+                // 2. Delete all project objects from AWS.
+
+                if (!$objects['Contents']) continue;
+
+                foreach ($objects['Contents'] as $imgObj) {
+                    $s3Client->deleteObjects([
+                        'Bucket'  => $bucket,
+                        'Delete' => [
+                            'Objects' => [
+                                [
+                                    'Key' => $imgObj['Key']
+                                ]
+                            ]
+                        ]
+                    ]);
+                }
+            }
+
+
+        } catch (S3Exception $e) {
+
+            $msg = "Error AwsClass removeImage: <br>" .  $e->getMessage();
+            error_log($msg);
+            die($msg);
+        }
+    }
+
+    // __________________________________
 }

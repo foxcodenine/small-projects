@@ -2,6 +2,7 @@
 
 ////////////////////////////////////////////////////////////////////////
 
+use app\Model\AwsClass;
 use app\Model\DBConnect;
 use app\Model\MyCript;
 use app\Model\MyUtilities;
@@ -27,9 +28,11 @@ $router->match('GET', '/projects', function() {
 
 $router->match('GET|POST', '/projects-delete', function() {
 
-    Project::deleteProjectsFromDB(...$_POST['projectsDeleteList']);
+    Project::deleteProjectsFromDB(...$_POST['projectsDeleteList']);    
+    AwsClass::deleteProjectsImagesFromAWS(...$_POST['projectsDeleteList']);  
+    unset($_POST['projectsDeleteList']);  
     MyUtilities::redirect($_ENV['BASE_PATH'] . '/projects');
-
+    
 });
 
 ////////////////////////////////////////////////////////////////////////
