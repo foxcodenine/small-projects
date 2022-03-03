@@ -22,6 +22,8 @@ https://www.youtube.com/watch?v=QghhoJBdw7A
 https://www.youtube.com/watch?v=KcdBOoK3Pfw
 https://www.youtube.com/watch?v=TSRtBISvsh4
 
+https://splidejs.com/guides/getting-started/
+
 ## ------  DigitalOcean Spaces -----------------------------------------
 
 https://www.digitalocean.com/community/tools/adapting-an-existing-aws-s3-application-to-digitalocean-spaces
@@ -72,6 +74,7 @@ https://www.namecheap.com/support/knowledgebase/article.aspx/319/2237/how-can-i-
 ## ------ Ideas --------------------------------------------------------
 
 https://support.anghami.com/hc/en-us
+https://www.mjmda.eu/portfolio/pipeline/binomial/
 
 
 
@@ -125,7 +128,11 @@ note:
 In the first part we are restricting access  from to / foward.
 And granting from  /var/www/html onwards.
 
+## ------ PHP Extention that required installation on server -----------
 
+    $ sudo apt-get install php8.0-gd
+    $ sudo apt install php8.0-xmlwriter
+    $ sudo systemctl restart apache2
 
 ## ------ PHP Pacages --------------------------------------------------
 

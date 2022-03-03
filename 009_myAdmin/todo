@@ -1,18 +1,15 @@
-OK 3. add swap  functionalty to project images
 
-OK 4. add border to cover image
+1. start working on dashboard
 
-OK 5. Delete Project remove all image from aws
+ok i.      Display Projects
+ii.     Display corrent time
+iii.    Work on buttons
+iv.     Work on User time-out
 
-OK 6. Add hosted field to projects
 
-sudo apt-get install php8.0-gd
-sudo apt install php8.0-xmlwriter
-sudo systemctl restart apache2
+2. in viewImageProject open image
 
-remove outerProjectImages JS bug
-
-start working on dashboard
+3. Create Project Page
 
 4. Create dummy data
     Clients

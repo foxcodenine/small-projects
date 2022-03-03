@@ -19,6 +19,7 @@ class User {
     private $signUpDate;
     private $lastLogin;
     private $token;
+  
 
     // _________________________________________________________________
 
@@ -36,6 +37,7 @@ class User {
             $this->signUpDate = $signUpDate;
             $this->lastLogin = $lastLogin;
             $this->token = $token;
+         
             
             if (!$this->id) { $this->addUserToDB(); }
 
@@ -66,6 +68,7 @@ class User {
             $stmt -> bindValue(':signUpDate', $this->signUpDate);
             $stmt -> bindValue(':firstUserName', $this->firstUserName);
             $stmt -> bindValue(':lastUserName', $this->lastUserName);
+          
 
             $stmt -> execute();
             $this->id = $conn->lastInsertId();
@@ -110,7 +113,7 @@ class User {
             $stmt -> bindValue(':signUpDate', $this->signUpDate);
             $stmt -> bindValue(':lastLogin', $this->lastLogin);
             $stmt -> bindValue(':token', $this->token);
-
+            
             $stmt -> execute();
 
         } catch (PDOException $e) {
@@ -153,11 +156,9 @@ class User {
             $stmt -> bindValue(':email', base64_encode($userEmail));
 
 
-
         } else {
             return false;
         }
-
 
         try {
         
@@ -166,6 +167,8 @@ class User {
             $stdClass = $stmt -> fetch();
 
             if (!$stdClass) return false;
+
+
                     
             $user = new self (
                 email:  base64_decode($stdClass->email),
@@ -177,7 +180,7 @@ class User {
                 roleGroup: $stdClass->roleGroup,
                 signUpDate: $stdClass->signUpDate,
                 lastLogin: $stdClass->lastLogin,
-                token: $stdClass->token,
+                token: $stdClass->token                
             );
 
             return $user;
@@ -332,4 +335,5 @@ class User {
 		$this->token = $token;
 		return $this;
 	}
+
 }

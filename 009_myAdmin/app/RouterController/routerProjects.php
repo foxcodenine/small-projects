@@ -14,8 +14,6 @@ $router->match('GET', '/projects', function() {
 
     $projectList = Project::getProjectList();
 
-    $projectList = MyUtilities::sortTable($projectList);
-
     $pageName = 'projects'; include './app/views/_page.php';
 
     unset($_SESSION['error']);

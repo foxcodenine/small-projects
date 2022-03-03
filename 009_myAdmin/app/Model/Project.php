@@ -355,9 +355,9 @@ class Project {
 	// _________________________________________________________________
 
 	public static function updateProjectList() {
-		if (!isset($_SESSION['currentUser']) || empty($_SESSION['currentUser']))  {
-			MyUtilities::redirect($_ENV['BASE_PATH']);	exit();
-		}
+
+		MyUtilities::checkCookieAndReturnUser();
+
 		// _____________________________________
 
 		self::$ProjectList = array();

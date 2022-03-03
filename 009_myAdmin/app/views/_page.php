@@ -42,7 +42,7 @@ require './app/views/include/viewHeader.php'; ?>
     switch ($pageName) {
 
         case 'dashboard':   
-            $pagePath = './app/views/viewDashboard.php';
+            $pagePath = './app/views/dashboard/viewDashboard.php';
             break;  
 
         case 'projects':

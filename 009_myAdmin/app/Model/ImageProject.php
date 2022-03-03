@@ -20,7 +20,7 @@ class ImageProject {
 		IMAGETYPE_JPEG => [
 			'load' => 'imagecreatefromjpeg',
 			'save' => 'imagejpeg',
-			'quality' => 100
+			'quality' => 72,
 		],
 		IMAGETYPE_PNG => [
 			'load' => 'imagecreatefrompng',
