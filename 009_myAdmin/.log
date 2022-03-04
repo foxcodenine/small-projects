@@ -576,3 +576,1082 @@ Stack trace:
 #8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
 #9 {main}
   thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 12:12:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(351): app\Model\Project::updateProjectList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(11): app\Model\Project::getProjectList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(31): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 12:47:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(351): app\Model\Project::updateProjectList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(11): app\Model\Project::getProjectList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(31): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 13:02:05 Europe/Berlin] PHP Parse error:  syntax error, unexpected end of file, expecting "elseif" or "else" or "endif" in /home/foxcodenine/projects/009_myAdmin/app/views/dashboard/viewDashboard.php on line 52
+[03-Mar-2022 13:02:25 Europe/Berlin] PHP Parse error:  syntax error, unexpected end of file, expecting "elseif" or "else" or "endif" in /home/foxcodenine/projects/009_myAdmin/app/views/dashboard/viewDashboard.php on line 52
+[03-Mar-2022 13:16:59 Europe/Berlin] PHP Warning:  include(./app/RouterController/routerDashboard.php): Failed to open stream: No such file or directory in /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php on line 14
+[03-Mar-2022 13:16:59 Europe/Berlin] PHP Warning:  include(): Failed opening './app/RouterController/routerDashboard.php' for inclusion (include_path='.:/usr/share/php') in /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php on line 14
+[03-Mar-2022 13:34:06 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(351): app\Model\Project::updateProjectList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(11): app\Model\Project::getProjectList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 13:35:39 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(351): app\Model\Project::updateProjectList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(11): app\Model\Project::getProjectList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 13:40:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(351): app\Model\Project::updateProjectList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(11): app\Model\Project::getProjectList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 13:43:17 Europe/Berlin] PHP Warning:  Undefined array key "c" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 16
+[03-Mar-2022 14:46:22 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(351): app\Model\Project::updateProjectList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(14): app\Model\Project::getProjectList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 14:49:54 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:133
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(133): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 133
+[03-Mar-2022 14:50:19 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:133
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(133): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 133
+[03-Mar-2022 14:51:01 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'project_009_myAdmin.Projects' doesn't exist in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:133
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(133): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 133
+[03-Mar-2022 14:51:19 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'project_009_myAdmin.Projects' doesn't exist in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:133
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(133): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 133
+[03-Mar-2022 14:52:30 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:133
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(133): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 133
+[03-Mar-2022 14:54:45 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:133
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(133): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 133
+[03-Mar-2022 14:56:20 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:133
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(133): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 133
+[03-Mar-2022 14:58:57 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:137
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(137): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 137
+[03-Mar-2022 14:59:02 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:137
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(137): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 137
+[03-Mar-2022 14:59:32 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:137
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(137): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 137
+[03-Mar-2022 14:59:33 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:137
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(137): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 137
+[03-Mar-2022 14:59:34 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:137
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(137): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 137
+[03-Mar-2022 14:59:37 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:137
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(137): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 137
+[03-Mar-2022 14:59:45 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:137
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(137): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 137
+[03-Mar-2022 14:59:47 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:137
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(137): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 137
+[03-Mar-2022 14:59:48 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:137
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(137): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 137
+[03-Mar-2022 14:59:48 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:137
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(137): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 137
+[03-Mar-2022 14:59:49 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:137
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(137): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 137
+[03-Mar-2022 14:59:50 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:137
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(137): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 137
+[03-Mar-2022 14:59:51 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:137
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(137): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 137
+[03-Mar-2022 14:59:54 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:137
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(137): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 137
+[03-Mar-2022 15:00:15 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:137
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(137): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 137
+[03-Mar-2022 15:00:16 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:137
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(137): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 137
+[03-Mar-2022 15:00:17 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:137
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(137): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 137
+[03-Mar-2022 15:00:41 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(351): app\Model\Project::updateProjectList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(14): app\Model\Project::getProjectList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 15:00:43 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:137
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(137): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 137
+[03-Mar-2022 15:00:45 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:137
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(137): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 137
+[03-Mar-2022 15:00:46 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:137
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(137): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 137
+[03-Mar-2022 15:00:47 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:137
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(137): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 137
+[03-Mar-2022 15:00:48 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:137
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(137): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 137
+[03-Mar-2022 15:01:07 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:137
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(137): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 137
+[03-Mar-2022 15:02:27 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:137
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(137): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 137
+[03-Mar-2022 15:02:29 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php:137
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(137): PDOStatement->execute()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php on line 137
+[03-Mar-2022 17:47:17 Europe/Berlin] PHP Warning:  Undefined array key 3 in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 324
+[03-Mar-2022 17:47:17 Europe/Berlin] PHP Warning:  Undefined array key 2 in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 324
+[03-Mar-2022 17:47:17 Europe/Berlin] PHP Warning:  Undefined array key 1 in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 324
+[03-Mar-2022 17:47:17 Europe/Berlin] PHP Fatal error:  Uncaught Exception: DateTime::__construct(): Failed to parse time string (--) at position 0 (-): Unexpected character in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:324
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(324): DateTime->__construct()
+#1 /home/foxcodenine/projects/009_myAdmin/app/views/projects/viewProjects.php(94): app\Model\Project->formatDateForDisplay()
+#2 /home/foxcodenine/projects/009_myAdmin/app/views/_page.php(81): include('...')
+#3 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(17): include('...')
+#4 [internal function]: {closure}()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#7 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#8 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#9 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#10 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#11 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 324
+[03-Mar-2022 19:02:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(351): app\Model\Project::updateProjectList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(14): app\Model\Project::getProjectList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 19:04:01 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(351): app\Model\Project::updateProjectList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(14): app\Model\Project::getProjectList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 19:06:51 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(351): app\Model\Project::updateProjectList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(14): app\Model\Project::getProjectList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 19:09:34 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(351): app\Model\Project::updateProjectList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(14): app\Model\Project::getProjectList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 19:27:27 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(351): app\Model\Project::updateProjectList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjectsImages.php(27): app\Model\Project::getProjectList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 19:30:48 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 19:36:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(351): app\Model\Project::updateProjectList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjectsImages.php(27): app\Model\Project::getProjectList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 19:38:15 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 19:42:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 19:45:24 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(351): app\Model\Project::updateProjectList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjectsImages.php(27): app\Model\Project::getProjectList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 19:50:45 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 20:02:54 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 20:08:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 20:10:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 20:11:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(351): app\Model\Project::updateProjectList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjectsImages.php(27): app\Model\Project::getProjectList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 20:12:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 20:14:40 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 20:16:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 20:20:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 20:28:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 20:30:21 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 20:31:16 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 20:32:01 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 20:33:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 20:34:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 20:34:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(351): app\Model\Project::updateProjectList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjectsImages.php(27): app\Model\Project::getProjectList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 20:35:30 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 20:38:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 20:39:17 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(351): app\Model\Project::updateProjectList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjectsImages.php(27): app\Model\Project::getProjectList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 20:39:39 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(351): app\Model\Project::updateProjectList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjectsImages.php(27): app\Model\Project::getProjectList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 20:40:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 20:42:59 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(351): app\Model\Project::updateProjectList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(14): app\Model\Project::getProjectList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 20:49:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(351): app\Model\Project::updateProjectList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjectsImages.php(27): app\Model\Project::getProjectList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 20:58:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 21:00:34 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 21:02:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 21:04:19 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 21:08:28 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 21:13:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 21:14:05 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 21:17:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 21:19:05 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php:338
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerClients.php(12): app\Model\Client::updateClientList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 338
+[03-Mar-2022 21:19:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 21:20:06 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(351): app\Model\Project::updateProjectList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjectsImages.php(27): app\Model\Project::getProjectList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 21:24:01 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(351): app\Model\Project::updateProjectList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(14): app\Model\Project::getProjectList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 21:24:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(351): app\Model\Project::updateProjectList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(14): app\Model\Project::getProjectList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369
+[03-Mar-2022 22:53:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on bool in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:369
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(351): app\Model\Project::updateProjectList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(14): app\Model\Project::getProjectList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 369

@@ -74,8 +74,8 @@
                     </td>
 
                     <td class="table__td"><?= $p->getId() ?></td>
-                    <td class="table__td"><?= $p->getProjectName() ?></td>
-                    <td class="table__td"><?= $p->getLocalityName() ?></td>
+                    <td class="table__td"><?= stripslashes($p->getProjectName()) ?></td>
+                    <td class="table__td"><?= stripslashes($p->getLocalityName()) ?></td>
                     <td class="table__td"><?= $p->fetchClientName() ?></td>
                     <td class="table__td"><?= $p->getProjectNo() ?></td>
                     <td class="table__td"><?= $p->getPaNo() ?></td>
@@ -92,7 +92,7 @@
                     <td class="table__td"><?= $p->getStageName() ?></td>
                     <td class="table__td"><?= $p->getCategoryName() ?></td>
                     <td class="table__td"><?= $p->formatDateForDisplay() ?></td>
-                    <td class="table__td"><?= $p->getStrAddr() ?>, <?= $p->getLocalityName() ?></td>   
+                    <td class="table__td"><?= stripslashes( $p->getStrAddr()) ?>, <?= stripslashes($p->getLocalityName()) ?></td>   
 
                 </tr>
                 <?php endforeach; ?>

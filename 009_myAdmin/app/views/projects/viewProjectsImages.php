@@ -22,14 +22,14 @@
 
     <?php foreach($projectImages as $image ): ?>
         
-        <div    class="image__frame <?php if ($image->getCover()) echo 'image__frame--cover' ?>" 
+        <div    class="image__frame lazy_img_js <?php if ($image->getCover()) echo 'image__frame--cover' ?>" 
                 id="image-<?= $image->getId()?>" 
                 test='<?= $image->getCode() ?>' >  
         
             
     
             <a href="#" class="image__link">
-                <img class="image__img" 
+                <img class="image__img  " 
                 src="<?= $image->getThumbnail() ?>" 
                 onerror="this.src='<?= './app/static/images/image_not_found.png' ?>'" alt=""
                 >

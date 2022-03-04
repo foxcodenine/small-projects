@@ -79,7 +79,7 @@ div_box.innerHTML = `
 		@for $i from 0 through 6 {
 			&:nth-child(#{$i + 1}) {
 				filter: blur(0px);
-				animation: blur-text 1.5s (#{$i/5})+s infinite linear alternate;
+				animation: blur-text 1.5s (#{calc($i / 5)})+s infinite linear alternate;
 			}
 		}
 	}

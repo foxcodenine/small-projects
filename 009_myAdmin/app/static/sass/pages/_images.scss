@@ -91,11 +91,13 @@
 .image {
 
 
-
+    
     &__frame {
         overflow: hidden;   
         position: relative;
         border-radius: $border-radius;
+
+        opacity: 0; 
 
         &:nth-of-type(2) > .image__arrow > .image__arrow--left {            
             display: none;
@@ -111,10 +113,10 @@
         &--cover {
             // border: .1rem solid rgb(255, 145, 0);
             filter: grayscale(100%) brightness(90%) sepia(90%) hue-rotate(-50deg) saturate(100%) contrast(1);
+
             
             &:hover {
                 
-                // border: .1rem solid #e09e9f;
                 filter: brightness(1) ;   
             }
         }
@@ -133,16 +135,18 @@
         
         z-index: 10;
 
-        filter: brightness(1.5) grayscale(0.5) sepia(0.19) invert(0.14);;  
+        filter: brightness(1.5) grayscale(0.5) sepia(0.19) invert(0.14);  
         transform: scale(1.05);
+        
+
+    
         transition: all .2s ease;
-
-
+  
 
         &:hover {
             transform: scale(1);
             filter: brightness(1.1) ;   
-        }
+           }
 
     }
 

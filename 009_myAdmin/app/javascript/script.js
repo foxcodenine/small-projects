@@ -27,6 +27,8 @@ document.onreadystatechange = function () {                    // <- (A)
         projectsRemoveFromLink();
         sortTables();
         sortTableAddArrow();
+        dashboardDatetime();
+        lazyStyles ();
 
 
         // -------------------------------------------------------------        
@@ -508,6 +510,105 @@ function myLoaderBtn() {
 
     });
 };
+
+
+//----------------------------------------------------------------------
+
+function dashboardDatetime() {
+
+    const dateElement = document.querySelector('.dashboardDate-js');
+
+    if (!dateElement) return;
+
+    // _____________________________________
+
+    innerfunction ();
+
+    // _____________________________________
+
+    setInterval(function(){
+
+        innerfunction ();        
+    }, 1000*15);
+
+    // _____________________________________
+
+    function innerfunction () {
+        const today = new Date();
+
+        let options = { weekday: 'short'};
+        const dayOfWeek = new Intl.DateTimeFormat('en-US', options).format(today)
+
+        options = { month: 'short'};
+        const month = new Intl.DateTimeFormat('en-US', options).format(today);
+
+        const day = today.getDay();
+
+        let houre = today.getHours();
+
+        let minute = today.getMinutes().toString().padStart(2, '0');        
+        minute = minute.toString().padStart(2, '0');
+
+        const meridiem = houre < 12 ? 'AM' : 'PM';
+        houre = houre > 12 ? houre - 12 : houre;
+
+        let dateMarkup = `${dayOfWeek}, ${day} ${month} <b>${houre}:${minute}${meridiem}</b>`;
+
+        dateElement.innerHTML = dateMarkup;
+    }
+    // _____________________________________
+
+
+    
+};
+
+
+
+function lazyStyles() {
+
+    let dashfames = document.querySelectorAll('.lazy_dash_js');
+
+    let timer = 100;
+
+    dashfames.forEach(function(famer) {
+
+        famer.style.opacity = 0;
+        famer.style.transition = 'opacity 2.5s';
+
+        timer += 200;
+        setTimeout(()=>{
+
+            famer.style.opacity = 1;
+
+        }, timer);
+    });
+
+    // ______________________________________________
+
+    let imgs = document.querySelectorAll('.lazy_img_js');
+
+    imgs.forEach(function(img) {
+
+        img.style.opacity = 0;
+        img.style.transition = 'all 1s';
+
+
+        timer += 200;
+        setTimeout(()=>{
+
+            img.style.opacity = 1;
+
+        }, 300);
+
+        console.log(img);
+        
+
+    });
+
+
+}
+
+
 
 
 //----------------------------------------------------------------------
