@@ -1,5 +1,6 @@
 <?php
 use app\Model\DBTables;
+use app\Model\MyCript;
 use app\Model\MyUtilities;
 use app\Model\Project;
 
@@ -16,10 +17,26 @@ $router->match('GET', '/test', function() {
 
 ////////////////////////////////////////////////////////////////////////
 
-$router->match('GET', '/tables', function() {
+$router->match('GET', '/table/(\w+)', function($action) {
+
+    $action = MyCript::stringSanitize($action);
     
-    $GLOBALS['endpoint']  = 'tables'; 
-    DBTables::createTables();
-    header("Location: " . $_ENV['BASE_PATH']);
+    switch ($action) {
+        case 'create':
+            DBTables::createTables();
+            break;
+
+        case 'drop':
+            DBTables::dropTables();
+            break;
+
+        case 'populate':
+            DBTables::populateTables('chris12aug@yahoo.com');
+            break;
+    }
+
+    echo $action;
+    
+    // header("Location: " . $_ENV['BASE_PATH']);
     exit();
 });

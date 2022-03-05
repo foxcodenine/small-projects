@@ -13,10 +13,10 @@
     <div class="field__group">
         <label class="field__label" for="locality">locality</label>
         <div class="field__error"><?= $errorLocalityName; ?></div>
-        <input type="text" class="field__input" id="locality" list="locationList" name="localityName" value='<?= $_SESSION['project']['localityName'] ?? '' ?>' >
+        <input type="text" class="field__input" id="locality" list="locationList" name="localityName" value="<?= (stripslashes($_SESSION['project']['localityName'])) ?? '' ?>" >
         <datalist id="locationList">
             <?php foreach ($listLocality as $obj): ?>
-            <option value="<?= $obj->lName ?>">  
+            <option value="<?= stripslashes($obj->lName) ?>">  
             <?php endforeach; ?>
         </datalist>
         <svg class="field__down-arrow">
@@ -27,7 +27,7 @@
     <div class="field__group">
         <label class="field__label" for="street address">street address</label>
         <div class="field__error"><?= $errorStrAddr; ?></div>
-        <input type="text" class="field__input" id="street address" name="strAddr" value='<?= $_SESSION['project']['strAddr'] ?? '' ?>'>
+        <input type="text" class="field__input" id="street address" name="strAddr" value="<?= stripslashes($_SESSION['project']['strAddr']) ?? '' ?>" >
     </div>
 
     <div class="field__group">

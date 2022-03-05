@@ -2,6 +2,8 @@
 
 .sidemenu {
     background-color: $col-primary;
+
+    background-image: linear-gradient(95deg, lighten($col-primary, 5%) ,$col-primary 50%,  lighten($col-primary, 5%));
     display: inline-block;
     color: lighten($color: $col-gray-4, $amount: 5%);
     border-right: $border-1;

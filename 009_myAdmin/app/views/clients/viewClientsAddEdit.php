@@ -65,7 +65,7 @@
     <div class="field__group">
         <label class="field__label" for="strAddr">street address</label>
         <div class="field__error"><?= $errorStrAddr; ?></div>
-        <input type="text" class="field__input" id="strAddr" name="strAddr" value='<?= $_SESSION['client']['strAddr'] ?? '' ?>'>
+        <input type="text" class="field__input" id="strAddr" name="strAddr" value='<?= stripslashes($_SESSION['client']['strAddr']) ?? '' ?>'>
     </div>
 
     <div class="field__group">
@@ -74,7 +74,7 @@
         <input type="text" class="field__input" id="locality" list="locationList" name="locality" value='<?= $_SESSION['client']['locality'] ?? '' ?>'>
         <datalist id="locationList">
             <?php foreach ($listLocality as $obj): ?>
-            <option value="<?= $obj->lName ?>">  
+            <option value="<?= stripslashes($obj->lName) ?>">  
             <?php endforeach; ?>
         </datalist>
         <svg class="field__down-arrow">

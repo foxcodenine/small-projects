@@ -28,6 +28,10 @@ https://splidejs.com/guides/getting-started/
 
 https://www.digitalocean.com/community/tools/adapting-an-existing-aws-s3-application-to-digitalocean-spaces
 
+## ------ Bash ---------------------------------------------------------
+
+https://ryanstutorials.net/bash-scripting-tutorial/bash-if-statements.php
+
 ## ------ AWS S3 -------------------------------------------------------
 
 Tutorials

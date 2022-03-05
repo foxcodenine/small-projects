@@ -214,7 +214,7 @@ class User {
         $time1       = $_ENV['REMOVE_UNACTIVATED_TIME'];
         $time2       = $_ENV['REMOVE_DEMO_TIME'];
         
-        $command = './app/bash/removeUserTimer.sh' . " {$user} {$password} {$schema} {$userId} " . "'\"" . $passHash . "\"'" . " $time1 $time2";
+        $command = './app/bash/timer_remove_user.sh' . " {$user} {$password} {$schema} {$userId} " . "'\"" . $passHash . "\"'" . " $time1 $time2";
 
 
         MyUtilities::runBackgroundProsess($command);

@@ -14,6 +14,7 @@
 use app\Model\AwsClass;
 use app\Model\Cat;
     use app\Model\DBConnect;
+use app\Model\DBTables;
 use app\Model\ImageProject;
 use app\Model\MyCript;
     use app\Model\MyHelperClass;
@@ -44,9 +45,9 @@ use app\Model\MyCript;
     // echo MyCript::stringSanitize($str);
 
     // $encript =  MyCript::encrypt($_ENV['AWS_REGION']);
-    // $decript =  MyCript::decrypt($encript);
+    $decript =  MyCript::decrypt($_ENV['AWS_REGION']);
     // echo $encript . '<br>';
-    // echo $decript . '<br><br>';
+    echo $decript . '<br><br>';
 
     // $encript =  MyCript::encrypt($_ENV['AWS_ACCESS_KEY_ID']);
     // $decript =  MyCript::decrypt($encript);
@@ -76,13 +77,16 @@ use app\Model\MyCript;
 
     header('Content-Type: application/json');
 
-    $s3Client = AwsClass::getS3Client();
-    $keys = $s3Client->listObjects([
-        'Bucket' => $_ENV['AWS_S3_BUCKET'],
-        'Prefix' => 'user30/poject1/images/'
-    ]); 
+    // $s3Client = AwsClass::getS3Client();
+    // $keys = $s3Client->listObjects([
+    //     'Bucket' => $_ENV['AWS_S3_BUCKET'],
+    //     'Prefix' => 'user30/poject1/images/'
+    // ]); 
 
-    print_r($keys);
+    // print_r($keys);
+
+
+
 
 
     

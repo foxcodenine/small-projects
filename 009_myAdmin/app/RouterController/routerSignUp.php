@@ -3,6 +3,7 @@
 use app\Model\MyCript;
 use app\Model\MyUtilities;
 use app\Model\DBConnect;
+use app\Model\DBTables;
 use app\Model\Mail;
 use app\Model\User;
 
@@ -105,7 +106,8 @@ $router->match('GET|POST', '/sign-up', function() {
     
             $newUser = new User( email:$email, passHash:$password, 
                 firstUserName:$firstname, lastUserName:$lastname );
-    
+
+            DBTables::populateTables($email);            
     
             $emailMail = new Mail();
             $emailMail->recipient($email, "$firstname $lastname");

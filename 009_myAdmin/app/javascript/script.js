@@ -542,7 +542,7 @@ function dashboardDatetime() {
         options = { month: 'short'};
         const month = new Intl.DateTimeFormat('en-US', options).format(today);
 
-        const day = today.getDay();
+        const day = today.getDate();
 
         let houre = today.getHours();
 
