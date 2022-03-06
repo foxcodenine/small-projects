@@ -213,12 +213,20 @@ class User {
         $passHash = $this->passHash;
         $time1       = $_ENV['REMOVE_UNACTIVATED_TIME'];
         $time2       = $_ENV['REMOVE_DEMO_TIME'];
+
+        $aws_key_id  = MyCript::decrypt($_ENV['AWS_ACCESS_KEY_ID']);
+        $aws_secret  = MyCript::decrypt($_ENV['AWS_SECRET_ACCESS_KEY']);
+        $aws_region  = MyCript::decrypt($_ENV['AWS_REGION']);
+        $aws_bucket  = $_ENV['AWS_S3_BUCKET'];
+
         
-        $command = './app/bash/timer_remove_user.sh' . " {$user} {$password} {$schema} {$userId} " . "'\"" . $passHash . "\"'" . " $time1 $time2";
+        $command  = "./app/bash/timer_remove_user.sh";
+        $command .= " {$user} {$password} {$schema} {$userId} "; 
+        $command .= " '\"" . $passHash . "\"'" . " $time1 $time2 ";
+        $command .= " $aws_key_id $aws_secret $aws_region $aws_bucket";
 
 
         MyUtilities::runBackgroundProsess($command);
-
     }
 
     // _________________________________________________________________

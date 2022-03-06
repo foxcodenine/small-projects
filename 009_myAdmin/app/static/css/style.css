@@ -619,6 +619,117 @@ main.pages {
   min-width: 9rem !important;
 }
 
+:root {
+  --modal-img-width: 100rem;
+  --modal-img-hight: 66rem;
+}
+
+.img-modal {
+  transition: all 0.5s;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: grid;
+  display: none;
+  padding: 5.5rem;
+  grid-template-columns: 1fr var(--modal-img-width) 1fr;
+  grid-template-rows: 1fr var(--modal-img-hight) 1fr;
+  justify-content: center;
+  align-items: center;
+}
+.img-modal__frame {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  border: #fff 0.1rem solid;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.img-modal__slider {
+  display: flex;
+  width: max-content;
+  transform: translateX(0);
+}
+.img-modal__pic {
+  object-fit: cover;
+  width: var(--modal-img-width);
+  height: var(--modal-img-hight);
+}
+.img-modal__close {
+  cursor: pointer;
+  z-index: 501;
+  grid-row: 2/3;
+  grid-column: 2/3;
+  transform: translate(3rem, 0rem);
+  align-self: start;
+  justify-self: end;
+  color: #fff;
+}
+.img-modal__close:hover {
+  color: #E74C3C;
+}
+.img-modal__right, .img-modal__left {
+  cursor: grabbing;
+  z-index: 500;
+  grid-row: 2/3;
+  grid-column: 2/3;
+  align-self: center;
+  background-color: rgba(27, 38, 49, 0.5);
+  height: 100%;
+  padding: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.img-modal__right:hover, .img-modal__left:hover {
+  color: #E74C3C;
+}
+.img-modal__right {
+  transform: translateX(-0.1rem);
+  justify-self: end;
+  border-bottom-right-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+.img-modal__left {
+  transform: translateX(0.1rem);
+  justify-self: start;
+  border-bottom-left-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+}
+.img-modal__arrow-icon {
+  fill: currentColor;
+  width: 1.8rem;
+  height: 1.8rem;
+  opacity: 0.8;
+}
+.img-modal__arrow-icon:hover {
+  color: #E74C3C;
+}
+.img-modal__dotes {
+  display: flex;
+  gap: 1rem;
+  grid-row: 2/3;
+  grid-column: 2/3;
+  align-self: end;
+  justify-self: center;
+  z-index: 501;
+  margin-bottom: 1rem;
+}
+.img-modal__dote {
+  width: 1rem;
+  height: 1rem;
+  fill: rgba(255, 255, 255, 0.5);
+}
+.img-modal__dote--active {
+  fill: rgba(231, 76, 60, 0.5);
+}
+
 .sidemenu {
   background-color: #58b3f0;
   background-image: linear-gradient(95deg, #6fbef2, #58b3f0 50%, #6fbef2);

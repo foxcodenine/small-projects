@@ -459,6 +459,7 @@ class MyUtilities {
     public static function userInSessionPage() {
         if (!isset($_SESSION['currentUser'])) {
             self::redirect($_ENV['BASE_PATH'] . '/sign-in');
+            exit();
         } 
     }
 

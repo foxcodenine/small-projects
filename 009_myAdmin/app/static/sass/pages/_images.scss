@@ -89,8 +89,6 @@
 }
 
 .image {
-
-
     
     &__frame {
         overflow: hidden;   
@@ -120,8 +118,6 @@
                 filter: brightness(1) ;   
             }
         }
-
-
     }
 
     
@@ -212,8 +208,7 @@
 
         &--right svg{
             transform: rotate(90deg);            
-        }
-        
+        }        
     }
 
     &__arrow-icon {
@@ -225,8 +220,7 @@
         
         &:hover {
             fill: $col-red;
-        }
-        
+        }        
     }
 
     &__checkbox {

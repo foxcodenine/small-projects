@@ -1,26 +1,18 @@
-OK fix day bug
-1. start working on dashboard
-
-delete all image when remove user
-
-OK i.      Display Projects
-OK ii.     Display corrent time
-iii.    Work on buttons
-            Delete btn
-                modal
-            Add btn
-            remove btn
-iv.     Work on User time-out
 
 
-2. in viewImageProject open image
+1 delete all image when remove user
 
-3. Create Project Page
 
-4. Create dummy data
-    Clients
-    Project
-    Images
+2 Work on User time-out
+
+
+3 In viewImageProject open image
+
+4 Create Project Page
+
+5 esc close modal
+
+
 
 
 F. Add add json inteface to project  and check client project images json

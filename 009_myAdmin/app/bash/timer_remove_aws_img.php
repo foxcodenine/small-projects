@@ -1,13 +1,13 @@
 <?php
 
-require '../../vendor/autoload.php';
+require './vendor/autoload.php';
 use Aws\S3\S3Client;  
 
 $key    = $_SERVER['argv'][1];
 $secret = $_SERVER['argv'][2];
 $region = $_SERVER['argv'][3];
 $bucket = $_SERVER['argv'][4];
-$user =   $_SERVER['argv'][5];
+$userId =   $_SERVER['argv'][5];
 
 
 
@@ -20,5 +20,8 @@ $s3Client = new S3Client([
     ]
 ]);
 
-print_r($_SERVER['argv']);
+
+$s3Client->deleteMatchingObjects($bucket, "user{$userId}");
+
+// print_r($_SERVER['argv']);
 

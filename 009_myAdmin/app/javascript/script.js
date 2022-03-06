@@ -88,7 +88,55 @@ function projectsRemoveFromLink () {
 
 
 //----------------------------------------------------------------------
+modalImgToggle ();
 
+function modalImgToggle () {
+    const imagesFormJs  = document.querySelector('.images__form-js');
+    const sidemenu     = document.querySelector('#sidemenu');
+    const menubtn      = document.querySelector('.menu-btn');
+    const imgModal    = document.querySelector('.img-modal');
+    
+
+    function modalOn() {
+        sidemenu.style['z-index'] = 0;
+        menubtn.style['z-index'] = 0;
+        
+        imgModal.style.display = 'grid';
+
+        setTimeout (function(){ imgModal.style.opacity = 1; }, 50);
+    }
+
+    function modalOff() {
+        imgModal.style.opacity = 0;
+
+        setTimeout (function(){ 
+            sidemenu.style['z-index'] = 101;
+            menubtn.style['z-index'] = 100;
+            imgModal.style.display = 'none';
+         }, 500);
+    }
+
+    imgModal.addEventListener('click', function(e) {
+        if (e.target.closest('.img-modal__pic')) return;
+        if (e.target.closest('.img-modal__dotes')) return;
+        if (e.target.closest('.img-modal__left')) return;
+        if (e.target.closest('.img-modal__right')) return;
+
+
+        modalOff()
+    });
+
+
+    imagesFormJs.addEventListener('click', function(e) {
+        // e.preventDefault();
+
+        if (e.target.closest('.image__img')) {
+
+            console.log('open');
+            modalOn();
+        } 
+    });
+}
 
 function modalToggle () {
 
@@ -600,8 +648,7 @@ function lazyStyles() {
 
         }, 300);
 
-        console.log(img);
-        
+       
 
     });
 

@@ -54,6 +54,9 @@ $router->match('GET|POST', '/projects-add|/projects-edit(\d+)|/projects-edit', f
             $_SESSION['project']['stageName']       = $currentProject->getStageName();
             $_SESSION['project']['categoryName']    = $currentProject->getCategoryName();
 
+            $_SESSION['project']['projectname']     = stripslashes($_SESSION['project']['projectname']);
+            $_SESSION['project']['localityName']    = stripslashes($_SESSION['project']['localityName']);
+            $_SESSION['project']['strAddr']         = stripslashes($_SESSION['project']['strAddr']);
 
             if ($currentProject->getProjectDate()) {
                 $_SESSION['project']['projectDate']  = $currentProject->formatDateForForm();

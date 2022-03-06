@@ -56,6 +56,9 @@ $router->match('GET|POST', '/clients-add|clients-edit(\d+)|clients-edit', functi
                 $_SESSION['client']['country']  = $currentClient->getCountryName() ?? '';
                 $_SESSION['client']['postcode'] = $currentClient->getPostcode() ?? '';
 
+                $_SESSION['client']['strAddr'] = stripslashes($_SESSION['client']['strAddr']);
+                $_SESSION['client']['locality'] = stripslashes($_SESSION['client']['locality']);
+
                 $_SESSION['client']['infoClient'] = $currentClient->info('read');
      
             } else {

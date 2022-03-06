@@ -1,5 +1,5 @@
 <section class="images">
-<form action="<?= $_ENV['BASE_PATH'] . '/projects-upload-img-' . $currentProject->getId() ?>"   method="POST" class="images__form" enctype="multipart/form-data" >
+<form action="<?= $_ENV['BASE_PATH'] . '/projects-upload-img-' . $currentProject->getId() ?>"  method="POST" class="images__form images__form-js" enctype="multipart/form-data" >
 
     <div class="top-pannel">
         <div class="top-pannel__date"><?= $currentProject->getProjectname() ?> </div>          
@@ -115,4 +115,27 @@
         </div>
 
     </div>    
+</section>
+
+<section class="img-modal">
+    <div class="img-modal__frame">
+        <div class="img-modal__slider">
+
+        <?php foreach($projectImages as $m ): ?>
+            <img src="<?= $m->getUrlPath() ?>" class="img-modal__pic img-modal-pic-js<?= $m->getId() ?>" data-img-modal="<?= $m->getId() ?>">
+        <?php endforeach ?>
+        </div>
+      
+    </div>  
+
+    <div class="img-modal__close"><svg class="img-modal__arrow-icon"><use href="./app/static/svg/icomoon.svg#icon-x-mark-thin"></use></svg></div>
+    <div class="img-modal__left"><svg  class="img-modal__arrow-icon"><use href="./app/static/svg/icomoon.svg#icon-arrow-64"></use></svg></div>
+    <div class="img-modal__right"><svg class="img-modal__arrow-icon"><use href="./app/static/svg/icomoon.svg#icon-arrow-25"></use></svg></div>
+    
+    <div class="img-modal__dotes">
+        <?php foreach($projectImages as $m ): ?>
+        <svg class="img-modal__dote"><use href="./app/static/svg/icomoon.svg#icon-circle-1"></use></svg>
+        <?php endforeach ?>
+    </div>
+
 </section>
