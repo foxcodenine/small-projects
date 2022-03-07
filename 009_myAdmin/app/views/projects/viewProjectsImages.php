@@ -19,7 +19,7 @@
     </div>    
     
     <!-- ----------------------------------------------------------- -->
-
+    <?php $index = 0; ?>
     <?php foreach($projectImages as $image ): ?>
         
         <div    class="image__frame lazy_img_js <?php if ($image->getCover()) echo 'image__frame--cover' ?>" 
@@ -32,6 +32,7 @@
                 <img class="image__img  " 
                 src="<?= $image->getThumbnail() ?>" 
                 onerror="this.src='<?= './app/static/images/image_not_found.png' ?>'" alt=""
+                data-imgIndexJs="<?= $index ?>"
                 >
             </a>
             
@@ -86,8 +87,9 @@
                 
             </div>
         </div>      
-    
+        <?php ++$index; ?>
         <?php endforeach; ?>
+        <div class="last-modal-img-index" style="display: none;" data-imgIndexJs="<?= $index; ?>"></div>
 
     <!-- ----------------------------------------------------------- -->          
 
@@ -122,7 +124,7 @@
         <div class="img-modal__slider">
 
         <?php foreach($projectImages as $m ): ?>
-            <img src="<?= $m->getUrlPath() ?>" class="img-modal__pic img-modal-pic-js<?= $m->getId() ?>" data-img-modal="<?= $m->getId() ?>">
+            <img src="<?= $m->getUrlPath() ?>" class="img-modal__pic img-modal-pic-js<?= $m->getId() ?>">
         <?php endforeach ?>
         </div>
       
@@ -133,9 +135,9 @@
     <div class="img-modal__right"><svg class="img-modal__arrow-icon"><use href="./app/static/svg/icomoon.svg#icon-arrow-25"></use></svg></div>
     
     <div class="img-modal__dotes">
-        <?php foreach($projectImages as $m ): ?>
-        <svg class="img-modal__dote"><use href="./app/static/svg/icomoon.svg#icon-circle-1"></use></svg>
-        <?php endforeach ?>
+        <?php $i = 0; foreach($projectImages as $v ): ?>
+        <svg class="img-modal__dote img-modal__dote--<?=$i?>" data-doteIndexJs="<?=$i?>"><use href="./app/static/svg/icomoon.svg#icon-circle-1"></use></svg>
+        <?php ++$i; endforeach ?>
     </div>
 
 </section>

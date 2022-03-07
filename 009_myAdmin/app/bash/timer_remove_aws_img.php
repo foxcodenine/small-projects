@@ -23,5 +23,5 @@ $s3Client = new S3Client([
 
 $s3Client->deleteMatchingObjects($bucket, "user{$userId}");
 
-// print_r($_SERVER['argv']);
+
 

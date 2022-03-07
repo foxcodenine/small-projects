@@ -86,13 +86,23 @@
     }
 }
 
+////////////////////////////////////////////////////////////////////////
 
 :root {
-    --modal-img-width: 100rem;
-    --modal-img-hight: 66rem;
+    --modal-img-width: 110rem;
+    --modal-img-hight: 72.6rem;
+    --modal-image-slide-by: 0;
+    --modal-image-slider-transition: .4s;
+
+    @include respond ($bp-largest) { --modal-img-width: 90rem;  --modal-img-hight: 59.4rem; }
+    @include respond ($bp-larg)    { --modal-img-width: 70rem;  --modal-img-hight: 46.2rem; }
+    @include respond ($bp-medium)  { --modal-img-width: 50rem;  --modal-img-hight: 33rem; }
+    @include respond ($bp-small)   { --modal-img-width: 46rem;  --modal-img-hight: 33rem; }
+    @include respond ($bp-smaller) { --modal-img-width: 38rem;  --modal-img-hight: 27.75rem; }
+
 }
 
-////////////////////////////////////////////////////////////////////////
+
 
 .img-modal {
 
@@ -130,7 +140,8 @@
         display: flex;
         width: max-content;
 
-        transform: translateX(0);
+        transform: translateX(var(--modal-image-slide-by));
+        transition: all var(--modal-image-slider-transition)  ease-out;
   
     }
     &__pic {
@@ -153,6 +164,8 @@
         &:hover {
             color: $col-red;
         }
+
+        @include respond ($bp-larg)    { display: none; }
         
     }
 
@@ -216,9 +229,12 @@
         justify-self: center;
         z-index: 501;
         margin-bottom: 1rem;
+
+        @include respond ($bp-small)    { max-width: 90%; flex-wrap: wrap; justify-content: center;}
     }
 
     &__dote {
+        cursor: pointer;
         width: 1rem;
         height: 1rem;
         fill: rgba($col-white, .5);

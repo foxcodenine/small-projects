@@ -59,4 +59,3 @@ fi
 
 exit 0;
 
-# ./timer_remove_user.sh sparrow umbrella project_009_myAdmin '79' '22' 1 2 AKIA2RWPVJZEULDYMMLF 6t4WXbdoHV0shy95YnIfAY0vVwa4aFgO2wj2916Z  eu-central-1 foxcode-project-009

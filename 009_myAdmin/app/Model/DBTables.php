@@ -217,7 +217,7 @@ class DBTables {
     static function dropTables () {
         $oClass = new \ReflectionClass(__CLASS__);
         $tablesArr = array_reverse(array_keys($oClass->getConstants()));
-        array_pop($tablesArr);
+        // array_pop($tablesArr);
 
         $tablesStr = implode(', ', $tablesArr);
         $sql = 'DROP TABLE IF EXISTS ' . $tablesStr;

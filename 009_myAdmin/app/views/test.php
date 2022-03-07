@@ -43,11 +43,17 @@ use app\Model\MyCript;
     // -----------------------------------------------------------------
     // $str = '<title>Example document: XSS Doc</title>';
     // echo MyCript::stringSanitize($str);
+   
 
-    // $encript =  MyCript::encrypt($_ENV['AWS_REGION']);
-    $decript =  MyCript::decrypt($_ENV['AWS_REGION']);
+    // $encript =  MyCript::encrypt($_ENV['AWS_ACCESS_KEY_ID']);
+    // $decript =  MyCript::decrypt($encript);
     // echo $encript . '<br>';
-    echo $decript . '<br><br>';
+    // echo $decript . '<br><br>';
+
+    // $encript =  MyCript::encrypt($_ENV['AWS_SECRET_ACCESS_KEY']);
+    // $decript =  MyCript::decrypt($encript);
+    // echo $encript . '<br>';
+    // echo $decript . '<br><br>';
 
     // $encript =  MyCript::encrypt($_ENV['AWS_ACCESS_KEY_ID']);
     // $decript =  MyCript::decrypt($encript);
@@ -75,7 +81,7 @@ use app\Model\MyCript;
 
     // var_dump(Project::formatDateForDisplay());
 
-    header('Content-Type: application/json');
+    // header('Content-Type: application/json');
 
     // $s3Client = AwsClass::getS3Client();
     // $keys = $s3Client->listObjects([
