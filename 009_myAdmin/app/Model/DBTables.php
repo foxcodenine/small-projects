@@ -232,7 +232,7 @@ class DBTables {
 
         SET @userID = (SELECT id FROM User WHERE email = '$email');
 
-        INSERT INTO Locality (lName, userID) VALUES ('Attard', @userID), ('Zurrieq', @userID), ('Valletta', @userID), ('Victoia', @userID), ("St Paul's Bay", @userID);
+        INSERT INTO Locality (lName, userID) VALUES ('Attard', @userID), ('Zurrieq', @userID), ('Valletta', @userID), ('Victoia', @userID), ("St Paul\'s Bay", @userID);
         INSERT INTO Country  (cName, userID) VALUES ('Malta', @userID), ('Gozo', @userID), ('UK', @userID);
         INSERT INTO Stage    (sName, userID) VALUES ('Complete', @userID), ('Inprogress', @userID), ('Final stage', @userID);
         INSERT INTO Category (yName, userID) VALUES ('Residential', @userID), ('Commercial', @userID), ('Public', @userID);

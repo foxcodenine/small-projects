@@ -83,8 +83,7 @@
                 <a href="<?= $_ENV['BASE_PATH'] . '/projects-images-' . $currentProject->getId() . '?imgSwap%5Bid%5D=' . $image->getId() . '&imgSwap%5Bdir%5D=next'?>" 
                     class="image__arrow--right">
                     <svg class="image__arrow-icon"><use href="./app/static/svg/icomoon.svg#icon-triangle-4"></use></svg>
-                </a>      
-                
+                </a>                 
             </div>
         </div>      
         <?php ++$index; ?>

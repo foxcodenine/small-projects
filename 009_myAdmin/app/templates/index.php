@@ -133,7 +133,7 @@
 
 
 
-        <?php include './clients_details.html' ?>
+        <?php include './group.html' ?>
 
 
 

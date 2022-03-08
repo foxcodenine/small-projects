@@ -6,3 +6,4 @@
 <script src="./app/javascript/ckeditor4/ckeditor.js"></script>
 <script src="./app/javascript/jquery.js"></script>
 <script src="./app/javascript/script.js"></script>
+<script src="./app/javascript/scriptModalImages.js"></script>

@@ -788,7 +788,7 @@ main.pages {
   top: 0;
   bottom: 0;
   padding-top: 1rem;
-  transition: all 0.2s ease;
+  transition: all 0.1s ease;
   width: 5rem;
   top: 5.4rem;
   left: 0;
@@ -1610,7 +1610,7 @@ div_box.innerHTML = `
 .group__item p {
   font-weight: 600;
   letter-spacing: 0.1rem;
-  font-size: 1.8;
+  font-size: 1.8rem;
   margin-right: auto;
 }
 .group__item svg {
@@ -1749,7 +1749,7 @@ div_box.innerHTML = `
   z-index: 10;
   filter: brightness(1.5) grayscale(0.5) sepia(0.19) invert(0.14);
   transform: scale(1.05);
-  transition: all 0.2s ease;
+  transition: all 0.1s ease;
 }
 .image__img:hover {
   transform: scale(1);

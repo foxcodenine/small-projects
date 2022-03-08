@@ -1,23 +1,8 @@
 
-[05-Mar-2022 20:59:32 Europe/Berlin] PHP Warning:  Undefined array key "project" in /home/foxcodenine/projects/009_myAdmin/app/views/projects/viewProjectsAddEdit.php on line 16
-[05-Mar-2022 20:59:32 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in /home/foxcodenine/projects/009_myAdmin/app/views/projects/viewProjectsAddEdit.php on line 16
-[05-Mar-2022 20:59:32 Europe/Berlin] PHP Warning:  Undefined array key "project" in /home/foxcodenine/projects/009_myAdmin/app/views/projects/viewProjectsAddEdit.php on line 30
-[05-Mar-2022 20:59:32 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in /home/foxcodenine/projects/009_myAdmin/app/views/projects/viewProjectsAddEdit.php on line 30
-[05-Mar-2022 21:01:14 Europe/Berlin] PHP Warning:  Undefined array key "project" in /home/foxcodenine/projects/009_myAdmin/app/views/projects/viewProjectsAddEdit.php on line 16
-[05-Mar-2022 21:01:14 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in /home/foxcodenine/projects/009_myAdmin/app/views/projects/viewProjectsAddEdit.php on line 16
-[05-Mar-2022 21:01:14 Europe/Berlin] PHP Warning:  Undefined array key "project" in /home/foxcodenine/projects/009_myAdmin/app/views/projects/viewProjectsAddEdit.php on line 30
-[05-Mar-2022 21:01:14 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in /home/foxcodenine/projects/009_myAdmin/app/views/projects/viewProjectsAddEdit.php on line 30
-[05-Mar-2022 21:01:37 Europe/Berlin] PHP Warning:  Undefined array key "project" in /home/foxcodenine/projects/009_myAdmin/app/views/projects/viewProjectsAddEdit.php on line 16
-[05-Mar-2022 21:01:37 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in /home/foxcodenine/projects/009_myAdmin/app/views/projects/viewProjectsAddEdit.php on line 16
-[05-Mar-2022 21:01:37 Europe/Berlin] PHP Warning:  Undefined array key "project" in /home/foxcodenine/projects/009_myAdmin/app/views/projects/viewProjectsAddEdit.php on line 30
-[05-Mar-2022 21:01:37 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in /home/foxcodenine/projects/009_myAdmin/app/views/projects/viewProjectsAddEdit.php on line 30
-[05-Mar-2022 21:01:40 Europe/Berlin] PHP Warning:  Undefined array key "client" in /home/foxcodenine/projects/009_myAdmin/app/views/clients/viewClientsAddEdit.php on line 68
-[05-Mar-2022 21:01:40 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in /home/foxcodenine/projects/009_myAdmin/app/views/clients/viewClientsAddEdit.php on line 68
-[06-Mar-2022 11:51:47 Europe/Berlin] PHP Warning:  Undefined variable $m in /home/foxcodenine/projects/009_myAdmin/app/views/projects/viewProjectsImages.php on line 35
-[06-Mar-2022 11:51:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on null in /home/foxcodenine/projects/009_myAdmin/app/views/projects/viewProjectsImages.php:35
+[07-Mar-2022 17:18:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Cannot instantiate abstract class app\Model\Collection in /home/foxcodenine/projects/009_myAdmin/app/Model/Collection.php:55
 Stack trace:
-#0 /home/foxcodenine/projects/009_myAdmin/app/views/_page.php(81): include()
-#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjectsImages.php(134): include('...')
+#0 /home/foxcodenine/projects/009_myAdmin/app/views/test.php(96): app\Model\Collection::getList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(13): include('...')
 #2 [internal function]: {closure}()
 #3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
 #4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
@@ -26,4 +11,44 @@ Stack trace:
 #7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
 #8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
 #9 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/views/projects/viewProjectsImages.php on line 35
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Collection.php on line 55
+[07-Mar-2022 17:20:06 Europe/Berlin] PHP Fatal error:  Uncaught Error: Cannot instantiate abstract class app\Model\Collection in /home/foxcodenine/projects/009_myAdmin/app/Model/Collection.php:55
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/views/test.php(102): app\Model\Collection::getList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(13): include('...')
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Collection.php on line 55
+[07-Mar-2022 17:20:21 Europe/Berlin] PHP Fatal error:  Uncaught Error: Cannot instantiate abstract class app\Model\Collection in /home/foxcodenine/projects/009_myAdmin/app/Model/Collection.php:55
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/views/test.php(102): app\Model\Collection::getList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(13): include('...')
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Collection.php on line 55
+[07-Mar-2022 17:21:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Cannot instantiate abstract class app\Model\Collection in /home/foxcodenine/projects/009_myAdmin/app/Model/Collection.php:55
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/views/test.php(102): app\Model\Collection::getList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(13): include('...')
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Collection.php on line 55
+[07-Mar-2022 17:40:56 Europe/Berlin] PHP Parse error:  syntax error, unexpected token ")" in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewCollections.php on line 34
