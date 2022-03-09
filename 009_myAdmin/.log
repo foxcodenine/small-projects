@@ -52,3 +52,74 @@ Stack trace:
 #9 {main}
   thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Collection.php on line 55
 [07-Mar-2022 17:40:56 Europe/Berlin] PHP Parse error:  syntax error, unexpected token ")" in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewCollections.php on line 34
+[08-Mar-2022 13:17:26 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/foxcodenine/projects/009_myAdmin/app/Model/Collection.php:49
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Collection.php(49): PDOStatement->execute()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(52): app\Model\Collection::getList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Collection.php on line 49
+[08-Mar-2022 15:41:52 Europe/Berlin] PHP Warning:  Undefined array key "subbmit" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php on line 61
+[08-Mar-2022 15:53:11 Europe/Berlin] PHP Warning:  Undefined array key "action" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php on line 66
+[08-Mar-2022 15:53:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Cannot instantiate abstract class app\Model\Collection in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php:73
+Stack trace:
+#0 [internal function]: {closure}()
+#1 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#4 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#5 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#6 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#7 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php on line 73
+[08-Mar-2022 16:00:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Category" not found in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php:54
+Stack trace:
+#0 [internal function]: {closure}()
+#1 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#4 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#5 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#6 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#7 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php on line 54
+[08-Mar-2022 16:01:00 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Category" not found in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php:54
+Stack trace:
+#0 [internal function]: {closure}()
+#1 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#4 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#5 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#6 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#7 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php on line 54
+[08-Mar-2022 16:01:25 Europe/Berlin] PHP Warning:  Undefined variable $objList in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewCollections.php on line 19
+[08-Mar-2022 16:01:25 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewCollections.php on line 19
+[08-Mar-2022 16:01:35 Europe/Berlin] PHP Warning:  Undefined variable $objList in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewCollections.php on line 19
+[08-Mar-2022 16:01:35 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewCollections.php on line 19
+[08-Mar-2022 16:01:40 Europe/Berlin] PHP Warning:  Undefined variable $objList in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewCollections.php on line 19
+[08-Mar-2022 16:01:40 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewCollections.php on line 19
+[08-Mar-2022 16:03:38 Europe/Berlin] Error Collection addToDb: <br>SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[08-Mar-2022 16:04:25 Europe/Berlin] Error Collection addToDb: <br>SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VALUSE ('Birzebbuga', '86')' at line 1
+[08-Mar-2022 16:05:12 Europe/Berlin] Error Collection addToDb: <br>SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Birzebbuga-86' for key 'Locality.unique_cName_userID'
+[08-Mar-2022 17:07:24 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "ClassAlias" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php:77
+Stack trace:
+#0 [internal function]: {closure}()
+#1 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#4 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(33): Bramus\Router\Router->run()
+#5 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#6 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#7 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php on line 77
+[08-Mar-2022 17:08:34 Europe/Berlin] PHP Warning:  Cannot declare class ClassAlias, because the name is already in use in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php on line 77
+[08-Mar-2022 17:08:38 Europe/Berlin] PHP Warning:  Cannot declare class ClassAlias, because the name is already in use in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php on line 77
+[08-Mar-2022 17:08:44 Europe/Berlin] PHP Warning:  Cannot declare class ClassAlias, because the name is already in use in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php on line 77

@@ -6,10 +6,9 @@ use app\Model\DBConnect;
 use Exception;
 use PDO;
 use PDOException;
-
 use JsonSerializable;
 
-// abstract
+
 abstract class Collection  {
 
     protected static $tableName;
@@ -20,22 +19,29 @@ abstract class Collection  {
     protected $name;
     protected $userID;
 
-    public function __construct ($id, $name, $userID) {
+    public function __construct ($id=NULL, $name=NULL, $userID=NULL) {
         
         $this->setId($id);
         $this->setName($name);
         $this->setUserID($userID);
+
+
+		if (!isset($id) || empty($id)) {
+			$this->addToDb();
+		}
         
         return $this;
     }
 
+	// __________________________________________
 
     public static function getList () {
 
         $conn = DBConnect::getConn();
 
         $sql =  "SELECT id, " . static::$fieldName . " as 'name',  userID ";
-        $sql .= "FROM " . static::$tableName . " WHERE userID = :userID";
+        $sql .= "FROM " . static::$tableName . " WHERE userID = :userID ";
+        $sql .= "ORDER BY name";
 
         $stmt = $conn->prepare($sql);
 
@@ -52,13 +58,71 @@ abstract class Collection  {
         $list = [];
 
         foreach ($results as $r) {
-            $list[$r->id] =  new static($r->id, $r->name, $r->userID);
+            $list[$r->id] =  new static($r->id, stripslashes($r->name), $r->userID);
         }
 
         return $list;
     }
      
+	// __________________________________________
 
+
+	public static function isInDb($name) {
+		try {
+			$conn = DBConnect::getConn();
+
+			$sql =  "SELECT * FROM " . static::$tableName;
+			$sql .= " WHERE " . static::$fieldName ."=:nname AND";
+			$sql .= " userID = :userID LIMIT 1";
+
+			$stmt = $conn->prepare($sql);
+
+			$userId = unserialize($_SESSION['currentUser'])->getID();
+
+
+			$stmt->bindValue(':nname', $name, PDO::PARAM_STR);
+			$stmt->bindValue(':userID', $userId, PDO::PARAM_INT);
+	
+			$stmt->execute();
+
+			$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+			return (bool) $result; 
+
+		} catch (PDOException $e) {
+			$msg = "Error Collection isInDb: <br>" . $e->getMessage();
+			error_log($msg);
+			die($msg);
+		}
+	}
+	
+	// __________________________________________
+
+	public function addToDb () {
+
+		try {
+			$conn = DBConnect::getConn();
+
+			$sql =  "INSERT INTO " . static::$tableName;
+			$sql .= " ( " . static::$fieldName .", userID ) VALUES";
+			$sql .= " (:name, :userID)";
+
+			$stmt = $conn->prepare($sql);
+
+			$stmt->bindValue(':name',  $this->getName());
+			$stmt->bindValue(':userID', $this->getUserID());
+
+			$stmt->execute();
+			$this->id = $conn->lastInsertId();	
+
+
+		} catch (PDOException $e) {
+			$msg = "Error Collection addToDb: <br>" . $e->getMessage();
+			error_log($msg);
+			die($msg);
+		}
+		
+	}
 
 
 

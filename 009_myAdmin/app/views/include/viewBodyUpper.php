@@ -94,19 +94,19 @@
 
     <div class="sidemenu__line"></div>
 
-    <a href="#" class="sidemenu__item sidemenu__close">                
+    <a href="<?= $_ENV['BASE_PATH'] ?>/category" class="sidemenu__item sidemenu__close">                
         <svg class="sidemenu__icon"><use xlink:href="./app/static/svg/icomoon.svg#icon-layers"></use></svg>              
-        <div class="sidemenu__text">Categories</div>
+        <div class="sidemenu__text">Category</div>
     </a>
 
-    <a href="#" class="sidemenu__item sidemenu__close">                
+    <a href="<?= $_ENV['BASE_PATH'] ?>/stage"" class="sidemenu__item sidemenu__close">                
         <svg class="sidemenu__icon"><use xlink:href="./app/static/svg/icomoon.svg#icon-linegraph"></use></svg>              
-        <div class="sidemenu__text">Status</div>
+        <div class="sidemenu__text">Stage</div>
     </a>
 
-    <a href="#" class="sidemenu__item sidemenu__close">                
+    <a href="<?= $_ENV['BASE_PATH'] ?>/locality"" class="sidemenu__item sidemenu__close">                
         <svg class="sidemenu__icon"><use xlink:href="./app/static/svg/icomoon.svg#icon-map-pin"></use></svg>              
-        <div class="sidemenu__text">Locations</div>
+        <div class="sidemenu__text">Locality</div>
     </a>    
     
     <div class="sidemenu__line"></div>

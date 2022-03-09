@@ -193,7 +193,7 @@ class MyUtilities {
         
         // -----------------------------------------------------
 
-        $userID = unserialize($_SESSION['currentUser'])->getID();
+        $userID = unserialize($_SESSION['currentUser'])->getId();
         
         $conn = DBConnect::getConn();
 
