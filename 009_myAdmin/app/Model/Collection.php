@@ -124,10 +124,118 @@ abstract class Collection  {
 		
 	}
 
+	// -----------------------------------------------------------------
+
+	public function rename () {
+		
+		try {
+			$conn = DBConnect::getConn();
+
+			$sql  = "UPDATE " . static::$tableName;
+			$sql .= " SET "   . static::$fieldName . "=:name";
+			$sql .= " WHERE userId=:userID  AND id=:id";
 
 
+
+			$stmt = $conn->prepare($sql);
+
+			$stmt->bindValue(':id',     $this->getId());
+			$stmt->bindValue(':name',   $this->getName());
+			$stmt->bindValue(':userID', $this->getUserID());
+
+			$stmt->execute();
+
+		} catch (PDOException $e) {
+			$msg = "Error Collection rename: <br>" . $e->getMessage();
+			error_log($msg);
+			die($msg);
+		}
+	}
 
     // -----------------------------------------------------------------
+
+	public static function deleteFromDb ($nname) {		
+
+		try {
+
+			$conn = DBConnect::getConn();
+
+			$sql  = "DELETE FROM " . static::$tableName;
+			$sql .= " WHERE " . static::$fieldName . '=:nname AND userID=:userID';
+	
+			$currentUser = MyUtilities::checkCookieAndReturnUser(); 
+			MyUtilities::userInSessionPage();
+			$userId = $currentUser->getId();
+	
+			$stmt = $conn->prepare($sql);
+	
+			$stmt->bindValue(':nname' ,   $nname);
+			$stmt->bindValue(':userID' ,  $userId);
+	
+			$stmt->execute();
+
+		} catch (PDOException $e) {
+
+			$msg = "Error Collection deleteFromDb: <br>" . $e->getMessage();
+			error_log($msg);
+			die($msg);
+		}
+	}
+
+    // -----------------------------------------------------------------
+
+	public static function replaceProjectCollectionInDb ($search, $replace) {
+
+		$columnName = strtolower(static::$tableName) . 'Name';
+
+
+		$conn = DBConnect::getConn();
+		
+		$sql =  	' UPDATE Project'; 
+		$sql .=		' SET '    . $columnName  . '=:rreplace';
+		$sql .=		' WHERE '  . $columnName  . '=:ssearch';
+		$sql .=		' AND  userID=:userID';
+		
+		
+		$innerFunction = function ($sql) use ($conn, $search, $replace) {
+
+				try {
+					$stmt = $conn->prepare($sql);
+
+					$currentUser = MyUtilities::checkCookieAndReturnUser(); 
+					MyUtilities::userInSessionPage();
+					$userId = $currentUser->getId();
+
+					$stmt->bindValue(':rreplace',  $replace);
+					$stmt->bindValue(':ssearch' ,  $search);
+					$stmt->bindValue(':userID'  ,  $userId);
+
+					$stmt->execute();
+
+				} catch (PDOException $e) {
+					$msg = "Error Collection replaceProjectCollectionInDb: <br>" . $e->getMessage();
+					error_log($msg);
+					die($msg);
+				}
+		};			
+		
+		if (static::$tableName === 'Locality') {
+			$innerFunction($sql);
+			$newSql = substr_replace($sql, 'Client', 8, 7);
+			$innerFunction($newSql);
+			
+		} else if (static::$tableName === 'Country'){
+			$newSql = substr_replace($sql, 'Client', 8, 7);
+			$innerFunction($newSql);
+			
+		} else {
+			$innerFunction($sql);
+		}
+	}
+
+	// -----------------------------------------------------------------
+	
+
 
 
 	/** Get the value of id */

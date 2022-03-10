@@ -48,6 +48,7 @@ require './app/views/include/viewHeader.php'; ?>
         case 'locality':   
         case 'category':   
         case 'stage':   
+        case 'country':   
             $pagePath = './app/views/others/viewCollections.php';
             break;  
 

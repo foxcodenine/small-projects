@@ -10,6 +10,8 @@
     grid-template-rows:  auto auto auto 1fr;
     gap: 4rem;  
     grid-auto-flow: dense;
+
+
     
     @include respond ($bp-larg) {
         grid-template-columns: 2fr;
@@ -17,11 +19,12 @@
 
 
     & > * {
-        background-color: $col-white;
+        background-color: rgba($col-white, .5);
         padding: 2rem 3rem;
         border: $border-1;
         border-radius: $border-radius;
         color: $col-text;
+        box-shadow: $shadow-2;
     }
 
     &__title {
@@ -63,6 +66,7 @@
         grid-row: 1 / -1;
         min-height: calc(100% - 4rem);
         align-self: start;
+        
 
         @include respond ($bp-larg) {
             grid-row: -2 / -1;

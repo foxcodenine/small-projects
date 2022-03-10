@@ -12,7 +12,8 @@
     position: absolute;
     left: 0;
     top: 0;
-    bottom: 0;
+    // bottom: 0;
+    height: 100%;
     
     padding-top: 1rem;
     transition: all .1s ease;
@@ -25,7 +26,7 @@
     z-index: 100;
 
     @include respond ($bp-medium) { 
-        bottom: auto;
+        height: max-content;
         padding-bottom: 2rem;
         border-bottom: $border-1;
     }
@@ -70,7 +71,12 @@
         fill: currentColor;        
         stroke-width: 1;
         stroke: currentColor;   
-        filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));    
+        filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));  
+        // filter: drop-shadow($shadow-6);  
+        
+        &--thin {
+            stroke-width: .2;
+        }
     }
 
     &__text {        
@@ -91,5 +97,11 @@
         background-color:  rgba( $col-black, .5);
         height: 1px;
         margin: 1rem 0;
+
+        &--last {
+            @include respond ($bp-medium) { 
+                display: none;
+            }
+        }
     }
 }

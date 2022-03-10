@@ -149,10 +149,11 @@ function modalImages () {
 
     // -------------------
 
-    const btnPressEventListener = containerModal.addEventListener('keydown', function(e) {
+    const btnPressEventListener = window.addEventListener('keydown', function(e) {
         // e.preventDefault();
+        console.log(123);
 
-        if (modalState !== 'Open') return;
+        // if (modalState !== 'Open') return;
 
         switch (e.key) {
 

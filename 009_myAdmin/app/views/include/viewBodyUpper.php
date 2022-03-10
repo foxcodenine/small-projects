@@ -108,8 +108,13 @@
         <svg class="sidemenu__icon"><use xlink:href="./app/static/svg/icomoon.svg#icon-map-pin"></use></svg>              
         <div class="sidemenu__text">Locality</div>
     </a>    
+
+    <a href="<?= $_ENV['BASE_PATH'] ?>/country"" class="sidemenu__item sidemenu__close">                
+        <svg class="sidemenu__icon sidemenu__icon--thin"><use xlink:href="./app/static/svg/icomoon.svg#icon-glob-thin"></use></svg>              
+        <div class="sidemenu__text">Country</div>
+    </a>    
     
-    <div class="sidemenu__line"></div>
+    <div class="sidemenu__line sidemenu__line--last"></div>
 
 </div>
 

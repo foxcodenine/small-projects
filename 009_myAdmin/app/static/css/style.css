@@ -604,6 +604,7 @@ main.pages {
 .modal__title {
   font-size: 2.3rem;
   margin-bottom: 0.7rem;
+  text-transform: capitalize;
 }
 .modal__question {
   font-size: 1.6rem;
@@ -786,7 +787,7 @@ main.pages {
   position: absolute;
   left: 0;
   top: 0;
-  bottom: 0;
+  height: 100%;
   padding-top: 1rem;
   transition: all 0.1s ease;
   width: 5rem;
@@ -796,7 +797,7 @@ main.pages {
 }
 @media only screen and (max-width: 50em) {
   .sidemenu {
-    bottom: auto;
+    height: max-content;
     padding-bottom: 2rem;
     border-bottom: rgba(27, 38, 49, 0.5) 0.1rem solid;
   }
@@ -839,6 +840,9 @@ main.pages {
   stroke: currentColor;
   filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.4));
 }
+.sidemenu__icon--thin {
+  stroke-width: 0.2;
+}
 .sidemenu__text {
   visibility: hidden;
   width: 0;
@@ -857,6 +861,11 @@ main.pages {
   background-color: rgba(27, 38, 49, 0.5);
   height: 1px;
   margin: 1rem 0;
+}
+@media only screen and (max-width: 50em) {
+  .sidemenu__line--last {
+    display: none;
+  }
 }
 
 .table {
@@ -1516,7 +1525,7 @@ div_box.innerHTML = `
   height: 84%;
   width: 100%;
   object-fit: cover;
-  box-shadow: 0 1rem 3rem rgba(255, 255, 255, 0.35);
+  box-shadow: 0.1rem 0.1rem 0.1rem rgba(255, 255, 255, 0.6);
   filter: brightness(110%) saturate(110%) contrast(1.1);
 }
 .frame__box {
@@ -1564,11 +1573,12 @@ div_box.innerHTML = `
   }
 }
 .group > * {
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.5);
   padding: 2rem 3rem;
   border: rgba(27, 38, 49, 0.5) 0.1rem solid;
   border-radius: 0.5rem;
   color: rgba(27, 38, 49, 0.9);
+  box-shadow: 0 1rem 1rem rgba(27, 38, 49, 0.1);
 }
 .group__title {
   margin-left: 0.3rem;

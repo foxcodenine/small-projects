@@ -13,6 +13,8 @@ use app\Model\Project;
 $router->match('GET|POST', '/projects-add|/projects-edit(\d+)|/projects-edit', function($id=null) {   
 
     $id = MyCript::stringSanitize($id);
+
+    
     
     // ----- Get url endpoint
 
@@ -234,8 +236,9 @@ $router->match('GET|POST', '/projects-add|/projects-edit(\d+)|/projects-edit', f
             MyUtilities::redirect($_ENV['BASE_PATH'] . '/projects');            
         }       
 
-        
-        MyUtilities::redirect($_ENV['BASE_PATH'] . '/projects-add');
+      
+        // MyUtilities::redirect($_ENV['BASE_PATH'] . '/projects-add');
+        MyUtilities::redirect(strtok($_SERVER["REQUEST_URI"],'?'));
         exit();
     
     }
