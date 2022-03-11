@@ -67,10 +67,10 @@ $col-border-1:  rgba( $col-black, .5);
 
 $col-primary: #7999a7;
 $col-primary: #5aceff;
-$col-primary: #11A9ED;
-$col-primary: #7e9194;
-$col-primary: #7cbfd3;
-$col-primary: #58b3f0;
+// $col-primary: #11A9ED;
+// $col-primary: #7e9194;
+// $col-primary: #7cbfd3;
+// $col-primary: #58b3f0;
 // $col-primary: #5190cc;
 // $col-primary: #4de6b3;
 
@@ -94,7 +94,9 @@ $shadow-4: 0 1rem 3rem rgba($col-black,  .3);
 $shadow-5: .1rem .1rem .1rem rgba($col-white,  .6);
 $shadow-6: .1rem .1rem .1rem rgba($col-white,  .7);
 $shadow-7: 0 1rem 3rem rgb($col-white, .35);
+$shadow-8: .0rem .3rem .5rem rgba($col-black,  .15);
+$shadow-9: 0 2rem 1.7rem -1.7rem rgba(rgb(9, 2, 59), .2);
 
 
 
-$border-radius: .5rem;
+$border-radius: .3rem;

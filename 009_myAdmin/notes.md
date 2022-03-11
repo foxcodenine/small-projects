@@ -79,6 +79,8 @@ https://www.namecheap.com/support/knowledgebase/article.aspx/319/2237/how-can-i-
 
 https://support.anghami.com/hc/en-us
 https://www.mjmda.eu/portfolio/pipeline/binomial/
+https://www.mjmda.eu/portfolio/pipeline/old-spine-new-space/
+https://www.model.mt/house51
 
 
 

@@ -1,4 +1,8 @@
 validate Delete
+add disclamer
+terms and conditions
+
+fix to rename method
 
 1 Collection Crud:
     OK a. create
@@ -45,3 +49,19 @@ X. create a Deploy folder
 ------------------------------------------------------------------------
 
 header('Content-Type: application/json');
+
+
+
+
+
+Disclaimer,  
+
+The purpose of this application is only meant for testing and learning. 
+
+Each account will automatically deleted after the 12 horse and any material entered or uploaded will be lost. 
+
+To provide a better user expires this account has already been  prefiled in advance with sample data which may contain copyright material that the use of which may not always been specifically authored by the copyright owner.
+
+This application set cookies on your device, which are required to enable the basic site functionality.
+
+By clicking Accept you are Understanding and Agreeing to these Terms and Condition 

@@ -19,27 +19,32 @@
 
 
     & > * {
-        background-color: rgba($col-white, .5);
+        background-color: rgba($col-white, 0.3);
+        // background-color: rgba($col-bg-y, 0.2);
         padding: 2rem 3rem;
-        border: $border-1;
+        // border: $border-1;
+        // border-top: 1rem solid currentColor;
         border-radius: $border-radius;
         color: $col-text;
-        box-shadow: $shadow-2;
+        box-shadow:  $shadow-8, $shadow-9;
     }
 
     &__title {
         
         margin-left: .3rem;
+        margin-bottom: .2rem;
         font-size: 2.2rem;
         font-family: $font-display;        
         font-weight: 200;
         text-transform: capitalize;
+
+        text-shadow: 2px 3px 3px rgb(0 0 0 / 0.4);
         
         b { font-weight: 600; }
 
         &--mid {
             position: absolute;
-            top: -1.5em;
+            top: -3.7rem;
             left: 0;
 
         }
@@ -81,6 +86,7 @@
         display: flex;
         align-items: center;
         cursor: pointer;
+        background-color: rgba($col-white, .5);
         
         gap: 1.5rem;
         padding: .5rem 1rem;
@@ -102,7 +108,12 @@
         }
 
         &--1 {background-color: $col-hover-1;}
-        &:hover {background-color: lighten($col-primary, 20%)}
+        &:hover {background-color: lighten($col-hover-2, 25%)}
+
+        &:active {
+            background-color: lighten($col-hover-2, 3%);
+            color: $col-red;
+        }
     }
 
     &__box {

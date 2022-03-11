@@ -18,16 +18,15 @@
             
             <!-- --------------------------------------------------- -->
             <?php $i = true; foreach($objList as $ol): ?>
-                <li class="group__item group__item--<?= $i ?>" data-collactionName="<?= $ol->getName() ?>">
+                <li class="group__item group__item--<?= $i ?>" data-collactionName="<?= $ol->getName() ?>" data-collectionItem="<?= $ol->getId() ?>">
 
                     <p><?= $ol->getName() ?></p>
-                    <a href="#" class="icon__link" id="table-icon-rename">
+                    <!-- <a href="#" class="icon__link" id="table-icon-rename">
                         <svg class="icon__svg"> <use xlink:href="./app/static/svg/icomoon.svg#icon-text-3"></use></svg>
                     </a>
                     <a href="#" class="icon__link" id="table-icon-delete">
                         <svg class="icon__svg"> <use xlink:href="./app/static/svg/icomoon.svg#icon-x-mark-1"></use></svg>
-                    </a>
-
+                    </a> -->
                 </li>
             <?php $i = !$i; endforeach ?>
             <!-- --------------------------------------------------- -->
@@ -56,7 +55,7 @@
             <select class="group__select" name="collection[rename1]" id="collection-select-rename1-js">
                 <option value="0">no <?= $pageName ?> selected</option>
                 <?php foreach($objList as $ol): ?>
-                    <option value="<?=$ol->getId()?>" ><?= $ol->getName() ?></option>
+                    <option id="collectionRename<?=$ol->getId()?>" value="<?=$ol->getId()?>" ><?= $ol->getName() ?></option>
                 <?php endforeach ?>
             </select>
             <input type="text" class="group__input" name="collection[rename2]" id="collection-select-rename2-js">
@@ -73,7 +72,9 @@
             <select class="group__select" name="collection[delete]" id="collection-select-delete-js">
             <option value="0">no <?= $pageName ?> selected</option>
                 <?php foreach($objList as $ol): ?>
-                    <option class="collection-Option-Js-<?= $ol->getName() ?>"><?= $ol->getName() ?></option>
+                    <option id="collectionDelete<?=$ol->getId()?>">
+                        <?= $ol->getName() ?>
+                    </option>
                 <?php endforeach ?>
             </select>
             <div class="group__select">
@@ -125,6 +126,27 @@
 
 
 <script>
+    function collentionPageList() {
+        const page = document.getElementById('sectionCollection');
+        if (!page) return;
+
+        const collectionList = document.querySelector('.group__list');
+
+        collectionList.addEventListener('click', function(e) {
+            
+            if(e.target.closest('.group__item')){
+                const collectionId = e.target.closest('.group__item').dataset.collectionitem;
+
+                const collectionDelete = document.getElementById(`collectionDelete${collectionId}`);
+                const collectionRename = document.getElementById(`collectionRename${collectionId}`);
+
+                collectionDelete.selected = true;
+                collectionRename.selected = true;
+            }
+        });
+
+        
+    }
     function collectionPageForm() {
 
         const page = document.getElementById('sectionCollection');
@@ -179,11 +201,10 @@
                 }
 
                 modalSubmitBtn.value = action;
-            })
-
-            
+            })            
         }
     }
     collectionPageForm();
+    collentionPageList();
 </script>
 

@@ -131,6 +131,8 @@ abstract class Collection  {
 		try {
 			$conn = DBConnect::getConn();
 
+			DBConnect::execSql('SET FOREIGN_KEY_CHECKS=0;');
+
 			$sql  = "UPDATE " . static::$tableName;
 			$sql .= " SET "   . static::$fieldName . "=:name";
 			$sql .= " WHERE userId=:userID  AND id=:id";
@@ -144,6 +146,7 @@ abstract class Collection  {
 			$stmt->bindValue(':userID', $this->getUserID());
 
 			$stmt->execute();
+			DBConnect::execSql('SET FOREIGN_KEY_CHECKS=1;');
 
 		} catch (PDOException $e) {
 			$msg = "Error Collection rename: <br>" . $e->getMessage();

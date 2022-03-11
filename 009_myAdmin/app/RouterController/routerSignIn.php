@@ -49,11 +49,15 @@ $router->match('GET|POST', '/sign-in', function() {
         if ($email && $password) {
 
             if ($email_in_db = MyUtilities::emailInDB($email)) {
+                
+                $currentUser      = User::getUserById_Email (null, $email);
+                $pass_is_correct  = MyCript::passVerify($currentUser->getPassHash(), $password);
+                $user_activated   = $currentUser->getAccountState() === 'Activated';
+                $first_time_login = !(bool) $currentUser->getLastLogin();
 
-                $currentUser = User::getUserById_Email (null, $email);
-                $pass_is_correct = MyCript::passVerify($currentUser->getPassHash(), $password);
-                $user_activated  = $currentUser->getAccountState() === 'Activated';
             }
+
+
 
             if (!$email_in_db || !$pass_is_correct) {
                 $_SESSION['message']['content'] = "Your email and password do not match. <br> Please try again.";
@@ -63,21 +67,29 @@ $router->match('GET|POST', '/sign-in', function() {
                 $_SESSION['message']['content'] = "You Haven't Activated Your Account Yet. <br> 
                 Kindly check your mail. <a class='sign__resend-link myLoaderBtn' href='{$_ENV['BASE_PATH']}/resend-email'>Resend email</a>";
                 $_SESSION['message']['type'] = 'warning';
-                $_SESSION['resend-email'] = $email;
-                
-                
+                $_SESSION['resend-email'] = $email;               
+                          
 
             } else {
 
-                $currentUser->setLastLogin(date(DBConnect::DT_FORMAT, time()));
-                // $currentUser->updateUser();
+                if ($first_time_login) {
+
+                    $_SESSION['currentUser'] = MyUtilities::setUserInSession($currentUser);
+                    // do code
+       
+                } else {
 
 
-                $_SESSION['currentUser'] = $currentUser;
-                
-                MyUtilities::setCookie($currentUser, $remember);
-                MyUtilities::checkCookieAndReturnUser();
-                
+
+                    $currentUser->setLastLogin(date(DBConnect::DT_FORMAT, time()));
+                    // $currentUser->updateUser();
+
+
+                    $_SESSION['currentUser'] = MyUtilities::setUserInSession($currentUser);
+                    
+                    MyUtilities::setCookie($currentUser, $remember);
+                    MyUtilities::checkCookieAndReturnUser();
+                }
 
                 // _____________________________________________________
 
