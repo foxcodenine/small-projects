@@ -117,4 +117,29 @@
         @include link-1;
         cursor: pointer;
     }
+
+    &__disclaimer-text {
+        font-size: 1.8rem;
+        font-weight: 300;
+        line-height: 1.5;
+        margin-bottom: 2rem;
+    }
+
+    &__btn-group {
+        margin-top: 2rem;
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+        gap: 2rem;
+    }
+
+    &__disclaimer-bg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: $col-disclaimer-bg;
+    }
 }

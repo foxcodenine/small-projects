@@ -56,4 +56,14 @@
         </div>           
 
     </form>
+
+    <div class="myadmin-ribbon-container">
+        <div id="corner-ribbon">
+        <div>
+            <div>
+            <div></div>
+            </div>
+        </div>
+        </div>
+    </div>
 </div>

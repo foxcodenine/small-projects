@@ -74,18 +74,24 @@ $router->match('GET|POST', '/sign-in', function() {
 
                 if ($first_time_login) {
 
-                    $_SESSION['currentUser'] = MyUtilities::setUserInSession($currentUser);
-                    // do code
+                    // var_dump($currentUser); exit();
+
+                    MyUtilities::setUserInSession($currentUser);
+
+
+                    $_SESSION['remember'] = $remember;
+
+                    
+
+                    header('Location: ' . $_ENV['BASE_PATH'] . '/disclaimer');
+                    exit();
        
                 } else {
 
-
-
                     $currentUser->setLastLogin(date(DBConnect::DT_FORMAT, time()));
-                    // $currentUser->updateUser();
+                    $currentUser->updateUser();
 
-
-                    $_SESSION['currentUser'] = MyUtilities::setUserInSession($currentUser);
+                    MyUtilities::setUserInSession($currentUser);
                     
                     MyUtilities::setCookie($currentUser, $remember);
                     MyUtilities::checkCookieAndReturnUser();

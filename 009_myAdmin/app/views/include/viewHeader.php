@@ -19,11 +19,13 @@
 
 
 
-    if ($pageName !== 'sign_up' && $pageName !== 'sign_in') {
+    if ($pageName !== 'sign_up' && $pageName !== 'sign_in' && $pageName !== 'disclaimer') {
 
         MyUtilities::checkCookieAndReturnUser();
         MyUtilities::userInSessionPage();
+
     } else {
+        
         MyUtilities::checkCookieAndReturnUser();
         MyUtilities::userInSessionSigning();
     }    
