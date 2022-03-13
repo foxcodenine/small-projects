@@ -33,7 +33,13 @@
         <li class="dropdownmenu__item">
             <a href="#" class="dropdownmenu__link">
                 <svg class="dropdownmenu__icon"><use  xlink:href="./app/static/svg/icomoon.svg#icon-gears"></use></svg>
-                Settings      
+                Settings 
+            </a>
+        </li>
+        <li class="dropdownmenu__item">
+            <a href="./terms" class="dropdownmenu__link">
+                <svg class="dropdownmenu__icon"><use  xlink:href="./app/static/svg/icomoon.svg#icon-warning-thin"></use></svg>
+                Terms      
             </a>
         </li>
         <li class="dropdownmenu__item">

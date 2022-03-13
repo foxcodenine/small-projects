@@ -7,3 +7,5 @@
 <script src="./app/javascript/jquery.js"></script>
 <script src="./app/javascript/script.js"></script>
 <script src="./app/javascript/scriptModalImages.js"></script>
+<script src="./app/javascript/scriptDisclamer.js"></script>
+<script src="./app/javascript/scriptCollections.js"></script>

@@ -27,7 +27,6 @@ $router->match('GET', '/test', function() {
 $router->match('GET|POST', '/disclaimer', function() {
 
     
-
     if (!isset($_SESSION['currentUser'])) header('Location: ' . $_ENV['BASE_PATH'] . '/sign-up');
     $currentUser = unserialize($_SESSION['currentUser']);
     
@@ -36,7 +35,7 @@ $router->match('GET|POST', '/disclaimer', function() {
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        
+    
 
         $disclaimerBtn = $_POST['disclaimerBtn'] ?? 'reject';
 
@@ -67,7 +66,6 @@ $router->match('GET|POST', '/disclaimer', function() {
     
     $pageName = 'disclaimer'; include './app/views/_page.php';  
     $_SESSION['currentUser'] = serialize($currentUser);
-
     
     unset($_SESSION['sign-in']);
     unset($_SESSION['message']);
@@ -75,6 +73,18 @@ $router->match('GET|POST', '/disclaimer', function() {
     exit;
 
 });
+
+
+$router->match('GET', '/terms', function() {
+
+    
+        
+    $pageName = 'terms'; include './app/views/_page.php';  
+
+    exit;
+
+});
+
 
 ////////////////////////////////////////////////////////////////////////
 

@@ -13,10 +13,10 @@ require './app/views/include/viewHeader.php'; ?>
 <!-- --- Body ------------------------------------------------------ -->
 
 <body>
-<div class="content">
-
+<!-- <div class="content"> -->
+ 
     <?php 
-    if ($pageName !== 'sign_up' && $pageName !== 'sign_in' && $pageName !== 'disclaimer') {
+    if ($pageName !== 'sign_up' && $pageName !== 'sign_in' && $pageName !== 'disclaimer' && $pageName !== 'terms') {
         
         // Checking if user is loged in;
         MyUtilities::checkCookieAndReturnUser();
@@ -27,11 +27,11 @@ require './app/views/include/viewHeader.php'; ?>
 
         // Inserting top and side bars
         require './app/views/include/viewBodyUpper.php';
-        echo '<main  class="pages pageTransition">';
+        echo '<div class="content"><main  class="pages pageTransition">';
         
         
     } else {
-        echo '<main>';
+        echo '<div class="content content--2"><main>';
         MyUtilities::checkCookieAndReturnUser();
     }    
     ?>      
@@ -85,6 +85,7 @@ require './app/views/include/viewHeader.php'; ?>
             break;            
 
         case 'disclaimer':
+        case 'terms':
             $pagePath = './app/views/sign/viewDisclaimer.php';
             break;            
     }

@@ -19,10 +19,12 @@
 
 
 
-    if ($pageName !== 'sign_up' && $pageName !== 'sign_in' && $pageName !== 'disclaimer') {
+    if ($pageName !== 'sign_up' && $pageName !== 'sign_in' && $pageName !== 'disclaimer' && $pageName !== 'terms') {
 
         MyUtilities::checkCookieAndReturnUser();
         MyUtilities::userInSessionPage();
+
+    } else if ($pageName === 'terms') {
 
     } else {
         

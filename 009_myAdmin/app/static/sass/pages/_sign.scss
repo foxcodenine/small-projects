@@ -142,4 +142,9 @@
         left: 0;
         background-color: $col-disclaimer-bg;
     }
+
+    &__transition{
+        opacity: 0;
+        transition: all .5s ease;
+    }
 }
