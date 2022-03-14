@@ -41,7 +41,7 @@
     <div class="group__add">
         <div class="group__title"><b>Add</b> new <?= $pageName ?></div>
         <div class="group__box">
-            <input type="text" class="group__input" name="collection[name]">
+            <input type="text" class="group__input" name="collection[name]" value="<?= $collectionAdd ?>">
             <button class="btn btn--dark" type="submit" name="collection[action]" value="add">Add</button>
         </div>
         <div class="group__error"><?= $errorCollectionAdd ?></div>
@@ -55,10 +55,12 @@
             <select class="group__select" name="collection[rename1]" id="collection-select-rename1-js">
                 <option value="0">no <?= $pageName ?> selected</option>
                 <?php foreach($objList as $ol): ?>
-                    <option id="collectionRename<?=$ol->getId()?>" value="<?=$ol->getId()?>" ><?= $ol->getName() ?></option>
+                    <option id="collectionRename<?=$ol->getId()?>" value="<?=$ol->getId()?>" <?php if ($ol->getId() === $collectionRename1 ) echo ' selected ';?>>
+                    <?= $ol->getName() ?>
+                    </option>
                 <?php endforeach ?>
             </select>
-            <input type="text" class="group__input" name="collection[rename2]" id="collection-select-rename2-js">
+            <input type="text" class="group__input" name="collection[rename2]" id="collection-select-rename2-js" value="<?= $collectionRename2 ?>">
             <button class="btn btn--dark modalBtn" type="button" name="collection[action]" value="rename" >Rename</button>
         </div>
         <div class="group__error"><?= $errorCollectionRename ?></div>
@@ -69,23 +71,27 @@
     <div class="class__delete">
         <div class="group__title"><b>Delete</b></div>        
         <div class="group__box">
+
             <select class="group__select" name="collection[delete]" id="collection-select-delete-js">
             <option value="0">no <?= $pageName ?> selected</option>
                 <?php foreach($objList as $ol): ?>
-                    <option id="collectionDelete<?=$ol->getId()?>">
+                    <option   <?php echo "id=collectionDelete{$ol->getId()}"; if ($ol->getName() === $collectionDelete) echo ' selected '; ?> >
                         <?= $ol->getName() ?>
                     </option>
                 <?php endforeach ?>
             </select>
+            
             <div class="group__select">
             <div class="group__title group__title--mid"><b></b>replace with</div>
+
             <select  class="group__select--inner" name="collection[replace]" id="collection-select-replace-js">
                 <option value="0">field empty</option>
                 <?php foreach($objList as $ol): ?>
-                    <option value="<?=$ol->getName()?>"><b><?= $ol->getName() ?></b></option>
+                    <option  <?php echo "value='{$ol->getName()}'"; if($ol->getName() === $collectionReplace) echo ' selected '; ?> ><b><?= $ol->getName() ?></b></option>
                 <?php endforeach ?>
                 
             </select>
+
             </div>
             <button class="btn btn--red modalBtn" type="button" name="collection[action]" value="delete" >Delete</button>
         </div>

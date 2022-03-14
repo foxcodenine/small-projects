@@ -9,7 +9,7 @@
     border-right: $border-1;
     border-top: $border-1;
     
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     // bottom: 0;
@@ -32,7 +32,7 @@
     }
 
     @include respond ($bp-smaller) { 
-        top: 5.3rem;
+        top: 5.5rem;
     }
     
 

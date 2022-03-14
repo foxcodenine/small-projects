@@ -37,6 +37,17 @@ require './app/views/include/viewHeader.php'; ?>
     ?>      
 
 <!-- --------------------------------------------------------------- -->
+
+    <?php
+
+    if ($pageName !== 'locality') { unset($_SESSION['locality']); }
+    if ($pageName !== 'stage') { unset($_SESSION['stage']); }
+    if ($pageName !== 'category') { unset($_SESSION['category']); }
+    if ($pageName !== 'country') { unset($_SESSION['country']); }
+    
+    ?>
+
+<!-- --------------------------------------------------------------- -->
     <?php
     $pagePath = '';
     switch ($pageName) {

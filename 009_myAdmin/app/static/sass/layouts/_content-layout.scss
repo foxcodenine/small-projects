@@ -9,21 +9,24 @@
 
     background-size: cover;
     background-position: center;
-
-        min-height: 100vh;
+        // margin-top: 5.5em;
+        transform: translateY(5.5rem);
+        
 
         min-width: fit-content;
-        min-height: 100%;
+        // min-height: 100%;
 
         position: relative;
 
     
-    // &--2 {
-    //     background-image:   
-    //     linear-gradient( to right bottom,  rgba($col-white, .7),  rgba($col-white, .7)), 
-    //     linear-gradient( to right bottom,  rgba(yellow, .0),  rgba($col-blue, .2)), 
-    //     url(../images/backgrounds/bg2.jpg);        
-    // }
+    &--2 {
+        // background-image:   
+        // linear-gradient( to right bottom,  rgba($col-white, .7),  rgba($col-white, .7)), 
+        // linear-gradient( to right bottom,  rgba(yellow, .0),  rgba($col-blue, .2)), 
+        // url(../images/backgrounds/bg2.jpg);   
+        min-height: 100vh;    
+        transform: translateY(0rem); 
+    }
 }
 
 

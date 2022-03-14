@@ -126,10 +126,18 @@ abstract class Collection  {
 
 	// -----------------------------------------------------------------
 
-	public function rename () {
+	public function rename ($newName) {
 		
 		try {
+			$oldName = $this->getName();
+			$this->setName($newName);
+
+
+			// ____________________________________________
+
+			
 			$conn = DBConnect::getConn();
+			
 
 			DBConnect::execSql('SET FOREIGN_KEY_CHECKS=0;');
 
@@ -146,6 +154,13 @@ abstract class Collection  {
 			$stmt->bindValue(':userID', $this->getUserID());
 
 			$stmt->execute();
+
+			// ____________________________________________
+
+			self::replaceProjectCollectionInDb($oldName, $newName);
+
+			// ____________________________________________
+
 			DBConnect::execSql('SET FOREIGN_KEY_CHECKS=1;');
 
 		} catch (PDOException $e) {

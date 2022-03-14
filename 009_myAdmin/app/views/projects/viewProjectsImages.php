@@ -17,6 +17,8 @@
         </div>
 
     </div>    
+
+
     
     <!-- ----------------------------------------------------------- -->
     <?php $index = 0; ?>
@@ -98,7 +100,9 @@
 
 
 <section class="modal">
+
     <div class="modal__content">
+        
 
         <svg class="modal__close"><use href="./app/static/svg/icomoon.svg#icon-x-mark-thin"></use></svg>
 
@@ -119,10 +123,14 @@
 </section>
 
 <section class="img-modal">
+<div class="img-modal__buffer"><?php foreach($projectImages as $image ): ?> <img class=""  src="<?= $image->getUrlPath() ?>"><?php endforeach; ?></div>
+
     <div class="img-modal__frame">
+
         <div class="img-modal__slider">
 
         <?php foreach($projectImages as $m ): ?>
+            
             <img src="<?= $m->getUrlPath() ?>" class="img-modal__pic img-modal-pic-js<?= $m->getId() ?>">
         <?php endforeach ?>
         </div>
@@ -139,4 +147,6 @@
         <?php ++$i; endforeach ?>
     </div>
 
+
 </section>
+

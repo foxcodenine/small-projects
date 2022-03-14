@@ -90,8 +90,8 @@
 ////////////////////////////////////////////////////////////////////////
 
 :root {
-    --modal-img-width: 110rem;
-    --modal-img-hight: 72.6rem;
+    --modal-img-width: 100rem;
+    --modal-img-hight: 66.6rem;
     --modal-image-slide-by: 0;
     --modal-image-slider-transition: .4s;
 
@@ -107,7 +107,7 @@
 
 .img-modal {
 
-    transition: all .5s;
+    transition: all .5s ease;
     opacity: 0;
     
     position: fixed;
@@ -125,7 +125,7 @@
     padding: 5.5rem;
 
     grid-template-columns: 1fr var(--modal-img-width) 1fr;
-    grid-template-rows:    1fr var(--modal-img-hight) 1fr;
+    grid-template-rows:    calc((70vh - var(--modal-img-hight))/2) var(--modal-img-hight) 1fr;
 
     justify-content: center;
     align-items: center;
@@ -245,6 +245,23 @@
 
         &--active {
             fill: rgba($col-red, .5);
+        }
+    }
+
+    &__buffer {
+        position: absolute;
+
+        top: 0;
+        left: 0;
+        // visibility: hidden;
+        opacity: 0;
+        z-index: 500;
+        width: 100%;
+
+        img {
+            float: left;
+            height: 12rem;
+            width: 20rem;
         }
     }
 }
