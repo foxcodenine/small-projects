@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../static/css/style.css">
     <title>MyAdmin</title>
 </head>
-<body>
+<body style="transform: translateY(-55px)">
     <div class="content">
 
         <!-- ------------------------------------------------------- -->
