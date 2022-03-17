@@ -9,6 +9,7 @@
     <title>MyAdmin</title>
 </head>
 <body style="transform: translateY(-55px)">
+    <!-- style="transform: translateY(-55px)" -->
     <div class="content">
 
         <!-- ------------------------------------------------------- -->

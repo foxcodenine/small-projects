@@ -1,1 +1,44 @@
 
+[16-Mar-2022 13:37:50 Europe/Berlin] PHP Warning:  include(./app/views/sign/viewProjectsDetails.php): Failed to open stream: No such file or directory in /home/foxcodenine/projects/009_myAdmin/app/views/_page.php on line 108
+[16-Mar-2022 13:37:50 Europe/Berlin] PHP Warning:  include(): Failed opening './app/views/sign/viewProjectsDetails.php' for inclusion (include_path='.:/usr/share/php') in /home/foxcodenine/projects/009_myAdmin/app/views/_page.php on line 108
+[16-Mar-2022 14:21:17 Europe/Berlin] PHP Fatal error:  Uncaught ValueError: Path cannot be empty in /home/foxcodenine/projects/009_myAdmin/app/views/_page.php:108
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(121): include()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/views/_page.php on line 108
+[16-Mar-2022 14:22:30 Europe/Berlin] PHP Warning:  include(./app/views/others/viewSeach.php): Failed to open stream: No such file or directory in /home/foxcodenine/projects/009_myAdmin/app/views/_page.php on line 112
+[16-Mar-2022 14:22:30 Europe/Berlin] PHP Warning:  include(): Failed opening './app/views/others/viewSeach.php' for inclusion (include_path='.:/usr/share/php') in /home/foxcodenine/projects/009_myAdmin/app/views/_page.php on line 112
+[16-Mar-2022 14:22:52 Europe/Berlin] PHP Warning:  include(./app/views/others/viewSeach.php): Failed to open stream: No such file or directory in /home/foxcodenine/projects/009_myAdmin/app/views/_page.php on line 112
+[16-Mar-2022 14:22:52 Europe/Berlin] PHP Warning:  include(): Failed opening './app/views/others/viewSeach.php' for inclusion (include_path='.:/usr/share/php') in /home/foxcodenine/projects/009_myAdmin/app/views/_page.php on line 112
+[16-Mar-2022 15:00:08 Europe/Berlin] PHP Warning:  include(./viewSearchClients): Failed to open stream: No such file or directory in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 20
+[16-Mar-2022 15:00:08 Europe/Berlin] PHP Warning:  include(): Failed opening './viewSearchClients' for inclusion (include_path='.:/usr/share/php') in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 20
+[16-Mar-2022 15:00:34 Europe/Berlin] PHP Warning:  include(./app/views/others/viewSearchClients): Failed to open stream: No such file or directory in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 20
+[16-Mar-2022 15:00:34 Europe/Berlin] PHP Warning:  include(): Failed opening './app/views/others/viewSearchClients' for inclusion (include_path='.:/usr/share/php') in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 20
+[16-Mar-2022 15:01:27 Europe/Berlin] PHP Warning:  Undefined variable $clientList in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearchClients.php on line 25
+[16-Mar-2022 15:01:27 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearchClients.php on line 25
+[16-Mar-2022 15:08:32 Europe/Berlin] PHP Warning:  Undefined variable $clientList in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearchClients.php on line 25
+[16-Mar-2022 15:08:32 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearchClients.php on line 25
+[16-Mar-2022 15:11:00 Europe/Berlin] PHP Warning:  Undefined variable $clientList in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearchClients.php on line 25
+[16-Mar-2022 15:11:00 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearchClients.php on line 25
+[16-Mar-2022 15:11:29 Europe/Berlin] PHP Warning:  include(./app/views/others/viewSearchClients.php): Failed to open stream: No such file or directory in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 20
+[16-Mar-2022 15:11:29 Europe/Berlin] PHP Warning:  include(): Failed opening './app/views/others/viewSearchClients.php' for inclusion (include_path='.:/usr/share/php') in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 20
+[16-Mar-2022 15:11:50 Europe/Berlin] PHP Warning:  Undefined variable $clientList in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewClientsTable.php on line 25
+[16-Mar-2022 15:11:50 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewClientsTable.php on line 25
+[16-Mar-2022 15:13:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Client" not found in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php:120
+Stack trace:
+#0 [internal function]: {closure}()
+#1 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#4 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
+#5 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#6 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#7 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php on line 120

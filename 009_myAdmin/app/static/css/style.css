@@ -1661,6 +1661,65 @@ div_box.innerHTML = `
   }
 }
 
+.search {
+  color: rgba(27, 38, 49, 0.9);
+  font-family: "Source Sans Pro", sans-serif;
+  color: rgba(27, 38, 49, 0.9);
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.4rem;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 0.3rem;
+  border: rgba(27, 38, 49, 0.5) 0.1rem solid;
+  max-width: calc(100vw - 15rem);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, auto);
+  gap: 2rem;
+}
+@media only screen and (max-width: 50em) {
+  .search {
+    max-width: calc(100vw - 10rem);
+  }
+}
+.search__query-form {
+  grid-row: 3/4;
+  grid-column: 1/-1;
+  display: flex;
+}
+.search__btn--1 {
+  width: 23rem;
+}
+.search__form {
+  grid-row: 1/-1;
+  grid-column: 1/-1;
+  display: grid;
+  grid-template: subgrid;
+  gap: 2rem;
+}
+.search__tabs {
+  display: flex;
+  gap: 4rem;
+  border-bottom: rgba(27, 38, 49, 0.5) 0.1rem solid;
+}
+.search__tab, .search__tab:link, .search__tab:visited {
+  color: rgba(27, 38, 49, 0.9);
+  text-decoration: none;
+  font-size: 2.3rem;
+  font-weight: 600;
+  padding: 0.6rem 0rem;
+}
+.search__tab--active, .search__tab--active:link, .search__tab--active:visited {
+  color: #4e58ee !important;
+  border-bottom: 0.5rem currentColor solid !important;
+}
+.search__errors {
+  color: #E74C3C;
+}
+.search__placeholder {
+  height: 5rem;
+}
+
 .dashboard__form {
   display: grid;
   grid-template-rows: repeat(1, max-content);
@@ -2039,7 +2098,7 @@ div_box.innerHTML = `
 .pro_details__container {
   width: 96rem;
   max-width: 85vw;
-  margin: 5rem auto;
+  margin: 4rem auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   row-gap: 5rem;
@@ -2048,6 +2107,7 @@ div_box.innerHTML = `
 @media only screen and (max-width: 37.5em) {
   .pro_details__container {
     grid-template-columns: repeat(1, 1fr);
+    margin: -3rem auto 2rem auto;
   }
 }
 .pro_details__cover {
@@ -2106,13 +2166,16 @@ div_box.innerHTML = `
 @media only screen and (max-width: 37.5em) {
   .pro_details__address {
     text-align: center;
+    color: rgba(0, 63, 90, 0.7);
   }
 }
 @media only screen and (max-width: 37.5em) {
   .pro_details__client {
     text-align: center;
-    margin-bottom: 1rem;
-    padding-bottom: 3.5rem;
+    margin-bottom: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid rgba(0, 63, 90, 0.25);
+    color: rgba(0, 63, 90, 0.7);
   }
 }
 .pro_details__numbers {

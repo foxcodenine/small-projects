@@ -69,7 +69,7 @@
         <div class="sidemenu__text">Dashbord</div>
     </a>
     
-    <a href="<?= $_ENV['BASE_PATH'] ?>/images" class="sidemenu__item">              
+    <a href="<?= $_ENV['BASE_PATH'] ?>/search" class="sidemenu__item">              
         <svg class="sidemenu__icon"><use xlink:href="./app/static/svg/icomoon.svg#icon-telescope"></use></svg>  
         <div class="sidemenu__text">Search</div>
     </a>
@@ -126,6 +126,6 @@
 
 <!-- ------------------------------------------------------- -->
 
-<div class="timer" id="timer">Your session will expire in 05:12:55</div>
+<!-- <div class="timer" id="timer">Your session will expire in 05:12:55</div> -->
 
 <!-- ------------------------------------------------------- -->

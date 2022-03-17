@@ -1,0 +1,90 @@
+@use '../abstracts/' as *;
+
+
+
+.search  {
+    color: $col-text;
+    font-family: $font-primary;
+
+    color: $col-text;
+    font-family: $font-primary;
+
+    font-size: 1.4rem;
+    background-color: $col-white;
+    padding: 2rem;
+    border-radius: $border-radius;
+    border: $border-1;
+
+    max-width: calc(100vw - 15rem);
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, auto);
+    gap: 2rem;    
+
+    @include respond($bp-medium) {
+        max-width: calc(100vw - 10rem);
+    }
+
+
+    &__query-form {
+        grid-row: 3 / 4;
+        grid-column: 1 / -1; 
+        // border: solid blueviolet 3px;
+
+        display: flex;
+    }
+
+    &__btn--1 {
+        width: 23rem;
+    }
+    
+    
+    &__form {
+        grid-row: 1 / -1;
+        grid-column: 1 / -1;
+
+        display: grid;
+        // grid-template-columns: subgrid;
+        grid-template: subgrid;
+        gap: 2rem; 
+
+        // & > * {
+        //     border: dashed 1px crimson;
+        // }
+        
+    }
+
+
+    &__tabs {
+        display: flex;
+        gap: 4rem;
+        border-bottom: $border-1;
+    }
+
+    &__tab, &__tab:link, &__tab:visited {
+        
+        color: $col-text;
+        text-decoration: none;
+        font-size: 2.3rem;
+        font-weight: 600;
+        padding: .6rem 0rem;
+
+
+    }
+    &__tab--active, &__tab--active:link, &__tab--active:visited  {    
+        color: $col-active-blue !important;
+        border-bottom: .5rem currentColor solid !important;
+    }
+
+    &__errors {
+        color: $col-red;
+       
+    }
+
+    &__placeholder {
+        height: 5rem;
+    }
+
+
+}

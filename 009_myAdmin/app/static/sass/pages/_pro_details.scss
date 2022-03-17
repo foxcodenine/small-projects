@@ -3,13 +3,14 @@
 
 .pro_details {
 
+
     &__container {
         // border: 1px dashed $col-text;
 
         width: 96rem;
         max-width: 85vw;
 
-        margin: 5rem auto;
+        margin: 4rem auto;
 
         display: grid;
         grid-template-columns: repeat(2, 1fr); 
@@ -20,6 +21,8 @@
 
         @include respond ($bp-small) {
             grid-template-columns: repeat(1, 1fr); 
+
+            margin: -3rem auto 2rem auto;
         }
     
 
@@ -86,15 +89,17 @@
     &__address {
         @include respond ($bp-small) {
             text-align: center;
+            color: rgba(darken($col-primary, 50%), .7);
         }
     }
 
     &__client {  
         @include respond ($bp-small) {
             text-align: center;
-            margin-bottom: 1rem;
-            padding-bottom: 3.5rem;
-            // border-bottom: 1px solid rgba($col-text, .4);
+            margin-bottom: 4rem;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid rgba(darken($col-primary, 50%), .25);
+            color: rgba(darken($col-primary, 50%), .7);
         }      
     }
 
@@ -103,6 +108,7 @@
         font-size: 1.4rem;
         display: flex;
         gap: 2rem;
+        
 
 
 
@@ -131,8 +137,8 @@
         }
     }
 
-    &__icon {
-    }
+    // &__icon {
+    // }
 
     &__btn {
         margin-top: auto;

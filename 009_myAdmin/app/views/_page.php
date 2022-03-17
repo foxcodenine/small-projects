@@ -56,6 +56,10 @@ require './app/views/include/viewHeader.php'; ?>
             $pagePath = './app/views/others/viewDashboard.php';
             break;  
 
+        case 'search':   
+            $pagePath = './app/views/others/viewSearch.php';
+            break;  
+
         case 'locality':   
         case 'category':   
         case 'stage':   
@@ -73,6 +77,10 @@ require './app/views/include/viewHeader.php'; ?>
 
         case 'images':
             $pagePath = './app/views/projects/viewProjectsImages.php';
+            break;            
+
+        case 'detail':
+            $pagePath = './app/views/projects/viewProjectsDetails.php';
             break;            
 
         case 'clients':
@@ -110,7 +118,7 @@ require './app/views/include/viewHeader.php'; ?>
 
 </div>
 
-    <?php require './app/views/include/viewBodyScripts.php'; ?>
+    <?php  require './app/views/include/viewBodyScripts.php'; ?>
 
 </body>
 </html>

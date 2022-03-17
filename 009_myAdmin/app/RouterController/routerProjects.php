@@ -34,3 +34,13 @@ $router->match('GET|POST', '/projects-delete', function() {
 });
 
 ////////////////////////////////////////////////////////////////////////
+
+$router->match('GET', '/projects-detail-1', function() {  
+    
+
+    $pageName = 'detail'; include './app/views/_page.php';
+   
+    exit;
+});
+
+////////////////////////////////////////////////////////////////////////

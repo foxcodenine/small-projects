@@ -6,6 +6,7 @@ use app\Model\Project;
 use app\Model\Collection;
 use app\Model\Locality;
 use app\Model\Category;
+use app\Model\Client;
 use app\Model\Stage;
 use app\Model\Country;
 use app\Model\DBConnect;
@@ -111,3 +112,22 @@ $router->match('GET', '/table/(\w+)', function($action) {
     // header("Location: " . $_ENV['BASE_PATH']);
     exit();
 });
+
+
+////////////////////////////////////////////////////////////////////////
+
+$router->match('GET', '/search', function() {  
+    
+    Client::updateClientList();
+
+    $clientList = Client::getClientList();
+
+    $clientList = MyUtilities::sortTable($clientList);
+
+    $pageName = 'search'; include './app/views/_page.php';
+   
+    exit;
+});
+
+
+////////////////////////////////////////////////////////////////////////
