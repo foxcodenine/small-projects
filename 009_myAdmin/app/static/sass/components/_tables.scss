@@ -56,8 +56,13 @@
         cursor: move;      
 
         @supports (cursor: -moz-grab) {
-            cursor: grab;
-        }        
+            cursor: move;
+            &:focus, &:active  {
+                cursor: grab;
+            }
+        }  
+        
+     
     }
 
     &__tr {

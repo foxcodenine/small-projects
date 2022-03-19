@@ -9,3 +9,4 @@
 <script src="./app/javascript/scriptModalImages.js"></script>
 <script src="./app/javascript/scriptDisclamer.js"></script>
 <script src="./app/javascript/scriptCollections.js"></script>
+<script src="./app/javascript/scriptSearchPage.js"></script>

@@ -191,6 +191,7 @@
         display: flex;
         gap: 4rem;
         border-bottom: $border-1;
+        
     }
     
     &__tab, &__tab:link, &__tab:visited {
@@ -200,6 +201,7 @@
         font-size: 2.3rem;
         font-weight: 600;
         padding: .6rem 0rem;
+        cursor: pointer !important;
         
         
     }
@@ -236,8 +238,6 @@
         }
     }
     
-    &__hidden {
-        display: none;
-    }
+    &__hidden { display: none; }
     
 }

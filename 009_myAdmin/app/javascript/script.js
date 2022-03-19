@@ -114,8 +114,10 @@ function modalToggle () {
         modal.style['background-color'] = 'rgba(1,1,1,0.15)'.replace(/[^,]+(?=\))/, '0.15');
 
         // --- Adjusting z-indexes
-        sidemenu.style['z-index'] = 0;
-        menubtn.style['z-index'] = 0;
+        // sidemenu.style['z-index'] = 0;
+        // menubtn.style['z-index'] = 0;
+        sidemenu.style['pointer-events'] = 'none';  
+        menubtn.style['pointer-events'] = 'none';
         
         // --- Displaying Modal
         modal.style.display = 'grid';
@@ -132,7 +134,9 @@ function modalToggle () {
         setTimeout(() => {
             // - Adjusting z-indexes
             sidemenu.style['z-index'] = 1010;
-            menubtn.style['z-index'] = 1000;  
+            menubtn.style['z-index'] = 1000; 
+            sidemenu.style['pointer-events'] = 'Auto';  
+            menubtn.style['pointer-events'] = 'Auto'; 
             // - Removing Modal          
             modal.style.display = 'none';
             modalQuestion.textContent = document.querySelector('.modal-hidden-message-js').textContent;
@@ -205,7 +209,7 @@ function sortTableAddArrow() {
 
     if (!params) return;
     
-    let [sort, direction] = params.split('&');
+    let [ sort, table, direction] = params.split('&');
     sort = sort.split('=')[1]
     direction = direction.split('=')[1]
 
@@ -374,43 +378,45 @@ function formatDateInput() {
 function scrollTable () {
 
     
-    const table = document.querySelector('#table-container'); 
+    const tables = document.querySelectorAll('.table__container'); 
     
-    if (!table) return;
+    if (!tables) return;
 
 
-    let myMouse = { 'down': 0, 'position' : 0 , 'scroll' : false  };
+    tables.forEach(function(table){
+        let myMouse = { 'down': 0, 'position' : 0 , 'scroll' : false  };
 
-    let scrollCurrentPosition;
+        let scrollCurrentPosition;
 
-    // --- When mouse pressed down over the table
-    table.addEventListener('mousedown', (e) => {
-        myMouse.down = e.clientX;
-        myMouse.scroll = true;
-        scrollCurrentPosition = table.scrollLeft;
+        // --- When mouse pressed down over the table
+        table.addEventListener('mousedown', (e) => {
+            myMouse.down = e.clientX;
+            myMouse.scroll = true;
+            scrollCurrentPosition = table.scrollLeft;
 
-    });  
+        });  
 
-    // --- When mouse is lifted over the table
-    table.addEventListener('mouseup', (e) => {
-        myMouse.scroll = false;
-    }); 
-
-    // --- When mouse is moving inside the table
-    table.addEventListener('mousemove', (e) => {
-        myMouse.position = e.clientX;
-
-        if (myMouse.scroll) {            
-            table.scrollLeft = scrollCurrentPosition + (myMouse.position - myMouse.down) * -1;            
-        }
-    });
-
-    // --- When mouse leave the table
-    document.addEventListener('mousemove', (e) => {
-        if (! e.target.closest("#table-container")) {
+        // --- When mouse is lifted over the table
+        table.addEventListener('mouseup', (e) => {
             myMouse.scroll = false;
-        }
-    });
+        }); 
+
+        // --- When mouse is moving inside the table
+        table.addEventListener('mousemove', (e) => {
+            myMouse.position = e.clientX;
+
+            if (myMouse.scroll) {            
+                table.scrollLeft = scrollCurrentPosition + (myMouse.position - myMouse.down) * -1;            
+            }
+        });
+
+        // --- When mouse leave the table
+        document.addEventListener('mousemove', (e) => {
+            if (! e.target.closest(".table__container")) {
+                myMouse.scroll = false;
+            }
+        });
+    })
 };
 
 //----------------------------------------------------------------------

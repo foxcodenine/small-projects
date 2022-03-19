@@ -9,9 +9,12 @@
             <button class="btn btn--red modalBtn" type="button">remove client</button>
         </div>
     </div>
+
+    <!-- ----------------------------------------------------------- -->
     
     <?php require './app/views/tables/viewClientsTable.php'?>
 
+    <!-- ----------------------------------------------------------- -->
 
 
 <section class="modal">

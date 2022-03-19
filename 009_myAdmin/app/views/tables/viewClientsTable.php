@@ -1,21 +1,21 @@
-<div class="table__container" id="table-container">
+<div class="table__container" id="table-container-client">
 
 <table class="table ">
     <thead class="table__thead ">
         <th class="table__th">chk</th>
         <th class="table__th">btn-s</th>
-        <th class="table__th"><a class="table-sort-js" id="getId"           href="<?= $_ENV['BASE_PATH'] ?>/clients?By=getId&sortOrder=ASC">db-id</a></th>
-        <th class="table__th"><a class="table-sort-js" id="getFirstname"    href="<?= $_ENV['BASE_PATH'] ?>/clients?sortBy=getFirstname&sortOrder=ASC">firstname</a></th>
-        <th class="table__th"><a class="table-sort-js" id="getLastname"     href="<?= $_ENV['BASE_PATH'] ?>/clients?sortBy=getLastname&sortOrder=ASC">lastname</a></th>
-        <th class="table__th"><a class="table-sort-js" id="getIdCard"       href="<?= $_ENV['BASE_PATH'] ?>/clients?sortBy=getIdCard&sortOrder=ASC">id-no</a></th>
-        <th class="table__th"><a class="table-sort-js" id="getCompany"      href="<?= $_ENV['BASE_PATH'] ?>/clients?sortBy=getCompany&sortOrder=ASC">company</a></th>
-        <th class="table__th"><a class="table-sort-js" id="getEmail"        href="<?= $_ENV['BASE_PATH'] ?>/clients?sortBy=getEmail&sortOrder=ASC">email</a></th>
-        <th class="table__th"><a class="table-sort-js" id="getPhone"        href="<?= $_ENV['BASE_PATH'] ?>/clients?sortBy=getPhone&sortOrder=ASC">phone</a></th>
-        <th class="table__th"><a class="table-sort-js" id="getMobile"       href="<?= $_ENV['BASE_PATH'] ?>/clients?sortBy=getMobile&sortOrder=ASC">mobile</a></th>
-        <th class="table__th"><a class="table-sort-js" id="getStrAddr"      href="<?= $_ENV['BASE_PATH'] ?>/clients?sortBy=getStrAddr&sortOrder=ASC">street address</a></th>
-        <th class="table__th"><a class="table-sort-js" id="getLocalityName" href="<?= $_ENV['BASE_PATH'] ?>/clients?sortBy=getLocalityName&sortOrder=ASC">locality</a></th>
-        <th class="table__th"><a class="table-sort-js" id="getCountryName"  href="<?= $_ENV['BASE_PATH'] ?>/clients?sortBy=getCountryName&sortOrder=ASC">country</a></th>
-        <th class="table__th"><a class="table-sort-js" id="getPostcode"     href="<?= $_ENV['BASE_PATH'] ?>/clients?sortBy=getPostcode&sortOrder=ASC">postcode</a></th>
+        <th class="table__th"><a class="table-sort-js" id="getId"           href="?By=getId&sortTable=Client&sortOrder=ASC">db-id</a></th>
+        <th class="table__th"><a class="table-sort-js" id="getFirstname"    href="?sortBy=getFirstname&sortTable=Client&sortOrder=ASC">firstname</a></th>
+        <th class="table__th"><a class="table-sort-js" id="getLastname"     href="?sortBy=getLastname&sortTable=Client&sortOrder=ASC">lastname</a></th>
+        <th class="table__th"><a class="table-sort-js" id="getIdCard"       href="?sortBy=getIdCard&sortTable=Client&sortOrder=ASC">id-no</a></th>
+        <th class="table__th"><a class="table-sort-js" id="getCompany"      href="?sortBy=getCompany&sortTable=Client&sortOrder=ASC">company</a></th>
+        <th class="table__th"><a class="table-sort-js" id="getEmail"        href="?sortBy=getEmail&sortTable=Client&sortOrder=ASC">email</a></th>
+        <th class="table__th"><a class="table-sort-js" id="getPhone"        href="?sortBy=getPhone&sortTable=Client&sortOrder=ASC">phone</a></th>
+        <th class="table__th"><a class="table-sort-js" id="getMobile"       href="?sortBy=getMobile&sortTable=Client&sortOrder=ASC">mobile</a></th>
+        <th class="table__th"><a class="table-sort-js" id="getStrAddr"      href="?sortBy=getStrAddr&sortTable=Client&sortOrder=ASC">street address</a></th>
+        <th class="table__th"><a class="table-sort-js" id="getLocalityName" href="?sortBy=getLocalityName&sortTable=Client&sortOrder=ASC">locality</a></th>
+        <th class="table__th"><a class="table-sort-js" id="getCountryName"  href="?sortBy=getCountryName&sortTable=Client&sortOrder=ASC">country</a></th>
+        <th class="table__th"><a class="table-sort-js" id="getPostcode"     href="?sortBy=getPostcode&sortTable=Client&sortOrder=ASC">postcode</a></th>
     </thead>
     
     <tbody class="table__tbody">

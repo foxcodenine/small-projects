@@ -116,13 +116,42 @@ $router->match('GET', '/table/(\w+)', function($action) {
 
 ////////////////////////////////////////////////////////////////////////
 
-$router->match('GET', '/search', function() {  
+$router->match('GET|POST', '/search', function() {  
+
+    // -------------------------------------------------
     
     Client::updateClientList();
 
     $clientList = Client::getClientList();
 
-    $clientList = MyUtilities::sortTable($clientList);
+    // -------------------------------------------------
+
+    $table = $_GET['sortTable'] ?? false;
+
+    $table = MyCript::stringSanitize($table);
+
+    if ($table === 'Client') {
+        $clientList = MyUtilities::sortTable($clientList);
+    }
+
+    
+
+    // -------------------------------------------------
+
+    Project::updateProjectList();
+
+    $projectList = Project::getProjectList();
+
+
+    if ($table === 'Project') {
+        $projectList = MyUtilities::sortTable($projectList);
+    }
+
+   
+    
+    
+
+    // -------------------------------------------------
 
     $pageName = 'search'; include './app/views/_page.php';
    

@@ -13,6 +13,8 @@ $router->match('GET', '/projects', function() {
     Project::updateProjectList();
 
     $projectList = Project::getProjectList();
+    
+    $projectList = MyUtilities::sortTable($projectList);
 
     $pageName = 'projects'; include './app/views/_page.php';
 

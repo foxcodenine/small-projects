@@ -1,8 +1,9 @@
 <section class="search">
 
     <!-- /////////////////////////////////////////////////////////// -->
+    <!-- Search Clients form -->
 
-    <form action="" class="search__query-form search__hidden">
+    <form id="serch-query-form-client" action="" class="search__query-form ">
 
         <div class="search__fields">
             <input type="text" class="search__field" placeholder="firstname">
@@ -12,8 +13,30 @@
             <input type="text" class="search__field" placeholder="email">
             <input type="text" class="search__field" placeholder="phone / mobile">
             <input type="text" class="search__field search__field--span2" placeholder="street address">
-            <input type="text" class="search__field" placeholder="locality">
-            <input type="text" class="search__field" placeholder="country">
+
+            <div class=" search__field search__field--select">
+                <select name="" id="" class="search__select" id="client" required>
+                    <option value="" selected hidden">Locality...</option>
+                    <option value="">Dorothy Cassar</option>
+                    <option value="">Joelle Ellul</option>
+                    <option value="">Danine Leonardi</option>
+                </select>
+                <svg class="search__down-arrow">
+                    <use xlink:href="./app/static/svg/icomoon.svg#icon-arrow_drop_down"></use>
+                </svg>
+            </div>
+            
+            <div class=" search__field search__field--select" >
+                <select name="" id="" class="search__select" id="client" required>
+                    <option value="" selected hidden">Country...</option>
+                    <option value="">Dorothy Cassar</option>
+                    <option value="">Joelle Ellul</option>
+                    <option value="">Danine Leonardi</option>
+                </select>
+                <svg class="search__down-arrow">
+                    <use xlink:href="./app/static/svg/icomoon.svg#icon-arrow_drop_down"></use>
+                </svg>
+            </div>
 
             <button class="btn btn--dark search__btn--1" type="button">search</button>
         </div>
@@ -21,8 +44,9 @@
     </form>
 
     <!-- /////////////////////////////////////////////////////////// -->
+    <!-- Search Project form -->
 
-    <form action="" class="search__query-form ">
+    <form id="serch-query-form-project" action="" class="search__query-form search__hidden">
 
         <div class="search__fields">
             
@@ -95,7 +119,7 @@
 
     <!-- /////////////////////////////////////////////////////////// -->
 
-    <form action=""  class="search__form" method="POST">
+    <form  action=""  class="search__form" method="POST">
 
     <!-- 1 --------------------------------------------------------- -->
 
@@ -112,19 +136,23 @@
     <!-- 2 --------------------------------------------------------- -->
 
 
-        <div class="search__tabs">
-            <a href="" class="search__tab search__tab--active">Clients</a>
-            <a href="" class="search__tab">Projects</a>
+        <div   id="search-tabs"         class="search__tabs" >
+            <a id="search-client-tab"   class="search__tab search__tab--active" >Clients</a>
+            <a id="search-project-tab"  class="search__tab search__tab--active" >Projects</a>
         </div>
 
     <!-- 3 --------------------------------------------------------- -->
 
-        <div class="search__errors">
-            error placeholder! .... error placeholder! ....
+
+        <div class="search__errors" id="search-errors-client">
+            clients error placeholder! .... clients error placeholder! ....
+        </div>
+
+        <div class="search__errors search__hidden" id="search-errors-project">
+            projects error placeholder! .... projects error placeholder! ....
         </div>
 
         
-
     <!-- 4 --------------------------------------------------------- -->
 
         <div class="search__placeholder"></div>
@@ -133,6 +161,7 @@
 
 
         <?php require './app/views/tables/viewClientsTable.php'?>
+        <?php require './app/views/tables/viewProjectsTable.php'?>
 
 
     <!-- 6 --------------------------------------------------------- -->
@@ -159,6 +188,7 @@
         </section>
 
     </form>
+
 
     <!-- /////////////////////////////////////////////////////////// -->
 

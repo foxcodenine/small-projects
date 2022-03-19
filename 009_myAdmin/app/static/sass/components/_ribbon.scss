@@ -39,11 +39,11 @@
     /* ----- Ribbon Container ---------------------------------------*/ 
     #corner-ribbon > div > div {
     background : transparent;
-    height     : 190px;
-    width      : 190px;
+    height     : 19rem;
+    width      : 19rem;
     position   : absolute;
-    top        : -4px;
-    left       : 4px;
+    top        : -0.4rem;
+    left       : 0.4rem;
     overflow   : hidden;
     
     }
@@ -52,12 +52,12 @@
     #corner-ribbon > div > div:before {
     content               : "";
     display               : block;
-    -webkit-border-radius : 10px 10px 0px 0px;
-    border-radius         : 10px 10px 0px 0px;
-    width                 : 50px;
-    height                : 5px;
+    -webkit-border-radius : 1rem 1rem 0rem 0rem;
+    border-radius         : 1rem 1rem 0rem 0rem;
+    width                 : 5rem;
+    height                : 0.5rem;
     position              : absolute;
-    right                 : 76px;
+    right                 : 7.6rem;
     transform: scale(.85);
     
     background: rgb(0,138,59); /* Old browsers */
@@ -72,13 +72,13 @@
     #corner-ribbon > div > div:after {
     content               : "";
     display               : block;
-    -webkit-border-radius : 0px 10px 10px 0px;
-    border-radius         : 0px 10px 10px 0px;
-    width                 : 10px;
-    height                : 50px;
+    -webkit-border-radius : 0rem 1rem 1rem 0rem;
+    border-radius         : 0rem 1rem 1rem 0rem;
+    width                 : 1rem;
+    height                : 5rem;
     position              : absolute;
-    right                 : -1.5px;
-    top                   : 75px;
+    right                 : -0.15rem;
+    top                   : 7.5rem;
     transform: scale(.8);
     
     background: rgb(15,51,10); /* Old browsers */
@@ -93,11 +93,11 @@
     /* ----- Ribbon ---------------------------------------*/ 
     #corner-ribbon > div > div > div {
     
-    width              : 195px;
-    height             : 30px;
+    width              : 19.5rem;
+    height             : 3rem;
     position           : relative;
-    top                : 40px;
-    right              : -50px;
+    top                : 4rem;
+    right              : -5rem;
     z-index            : 1;
     overflow           : hidden;
     transform          :rotate(45deg)scale(.93);
@@ -120,11 +120,11 @@
     #corner-ribbon > div > div > div:before {
     content           : "";
     display           : block;
-    height            : 65px;
-    width             : 10px;
+    height            : 6.5rem;
+    width             : 1rem;
     position          : relative;
-    top               : -13px;
-    left              : 10px;
+    top               : -1.3rem;
+    left              : 1rem;
     transform         : rotate(45deg);
     -ms-transform     : rotate(45deg);
     -moz-transform    : rotate(45deg);
@@ -142,10 +142,10 @@
     #corner-ribbon > div > div > div:after {
     content           : "";
     display           : block;
-    height            : 72px;
-    width             : 13px;
+    height            : 7.2rem;
+    width             : 1.3rem;
     position          : relative;
-    bottom            : 90px;
+    bottom            : 9rem;
     left              : 145px;
     transform         : rotate(45deg);
     -ms-transform     : rotate(45deg);

@@ -62,7 +62,7 @@
 
 <!-- --- Sidemenu -------------------------------------------------- -->
 
-<div class="sidemenu" id="sidemenu" >
+<div class="sidemenu" id="sidemenu" disabled>
     
     <a href="<?= $_ENV['BASE_PATH'] ?>" class="sidemenu__item">              
         <svg class="sidemenu__icon"><use xlink:href="./app/static/svg/icomoon.svg#icon-home"></use></svg>  
