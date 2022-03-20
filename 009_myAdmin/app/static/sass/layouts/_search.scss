@@ -20,7 +20,7 @@
 
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(5, auto);
+    grid-template-rows:   5rem 7.5rem  auto  1fr;
     gap: 2rem;    
 
     @include respond($bp-medium) {
@@ -45,6 +45,7 @@
    
             border-bottom: none;
             padding-bottom: 0rem;
+            margin-top: 3.5rem;
         }
         @include respond (460) { 
             padding: 2rem 0 0 0;
@@ -54,12 +55,12 @@
     
     &__btn--1 {
 
-        grid-row: 1 / 2;
+        grid-row: 2 / 3;
         grid-column: -2 / -1;    
 
         @include respond (821) { 
             grid-row: auto;
-            order: 1;
+            order: 2;
             grid-column: -3 / -1; 
         }
 
@@ -70,9 +71,28 @@
         @include respond (460) { 
             grid-column: span 1; 
             grid-row: span 1; 
+        }        
+    }
+
+    &__btn--2 {
+
+        grid-row: 1 / 2;
+        grid-column: -2 / -1;    
+
+        @include respond (821) { 
+            grid-row: auto;
+            order: 1;
+            grid-column: span 2; 
         }
 
-        
+        @include respond (612) { 
+            // grid-column: -3 / -1; 
+        }
+
+        @include respond (460) { 
+            grid-column: span 1; 
+            grid-row: span 1; 
+        }        
     }
 
     &__fields {
@@ -222,18 +242,32 @@
             height: 12rem;
         }
         @include respond (1010) { 
-            height: 15rem;
+            height: 12rem;
         }
         @include respond (850) { 
             height: 18rem;
         }
-        @include respond (772) { 
-            height: 21rem;
+        @include respond (800) { 
+            height: 15rem;
         }
-        @include respond (612) { 
-            height: 24rem;
+        @include respond (715) { 
+            height: 18rem;
         }
+        @include respond (567) { 
+            height: 25rem;
+        }
+        @include respond (500) { 
+            height: 27rem;
+        }
+
         @include respond (460) { 
+            height: 44rem;
+        }
+
+        @include respond (414) { 
+            height: 42rem;
+        }
+        @include respond (400) { 
             height: 38rem;
         }
     }

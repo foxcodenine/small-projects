@@ -1,13 +1,14 @@
 @use '../abstracts/' as *;
 
 .icon {
-    &__link:link, &__link:visited {
+    &__link:link, &__link:visited, & {
         cursor: pointer;
         text-decoration: none;
         color: currentColor;
     }
 
     &__svg {
+        cursor: pointer;
         width: 1.5rem;
         height: 1.5rem;
         fill: currentColor;

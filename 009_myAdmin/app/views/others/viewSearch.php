@@ -3,19 +3,20 @@
     <!-- /////////////////////////////////////////////////////////// -->
     <!-- Search Clients form -->
 
-    <form id="serch-query-form-client" action="" class="search__query-form ">
+    <form id="serch-query-form-client" action="?sortBy=&sortTable=Client&sortOrder=" class="search__query-form" method="POST" novalidate>
 
-        <div class="search__fields">
-            <input type="text" class="search__field" placeholder="firstname">
-            <input type="text" class="search__field" placeholder="lastname">
-            <input type="text" class="search__field" placeholder="id">
-            <input type="text" class="search__field" placeholder="company">
-            <input type="text" class="search__field" placeholder="email">
-            <input type="text" class="search__field" placeholder="phone / mobile">
-            <input type="text" class="search__field search__field--span2" placeholder="street address">
+        <div class="search__fields" id="search-fields-client">
+
+            <input type="text" class="search__field" placeholder="firstname" name="fistname">
+            <input type="text" class="search__field" placeholder="lastname" name="lastname">
+            <input type="text" class="search__field" placeholder="id"name="idCard">
+            <input type="text" class="search__field" placeholder="company" name="company">
+            <input type="text" class="search__field" placeholder="email" name="email">
+            <input type="text" class="search__field" placeholder="phone / mobile" name="phoneMobile">
+            <input type="text" class="search__field search__field--span2" placeholder="street address" name="strAddr">
 
             <div class=" search__field search__field--select">
-                <select name="" id="" class="search__select" id="client" required>
+                <select class="search__select" id="client" required name="locality">
                     <option value="" selected hidden">Locality...</option>
                     <option value="">Dorothy Cassar</option>
                     <option value="">Joelle Ellul</option>
@@ -27,7 +28,7 @@
             </div>
             
             <div class=" search__field search__field--select" >
-                <select name="" id="" class="search__select" id="client" required>
+                <select class="search__select" id="client" required name="country">
                     <option value="" selected hidden">Country...</option>
                     <option value="">Dorothy Cassar</option>
                     <option value="">Joelle Ellul</option>
@@ -38,7 +39,8 @@
                 </svg>
             </div>
 
-            <button class="btn btn--dark search__btn--1" type="button">search</button>
+            <button class="btn btn--dark search__btn--1" type="submit" name="searchBtn" value='client' >search</button>
+            <button class="btn btn--light search__btn--2" type="button" id="search-clear-btn-client">clear</button>
         </div>
 
     </form>
@@ -46,14 +48,15 @@
     <!-- /////////////////////////////////////////////////////////// -->
     <!-- Search Project form -->
 
-    <form id="serch-query-form-project" action="" class="search__query-form search__hidden">
 
-        <div class="search__fields">
+    <form id="serch-query-form-project" action="?sortBy=&sortTable=Project&sortOrder=" class="search__query-form" method="POST" novalidate>
+
+        <div class="search__fields" id="search-fields-project">
             
-            <input type="text" class="search__field search__field--span2" placeholder="Project Name">
+            <input type="text" class="search__field search__field--span2" placeholder="Project Name" name="projectname">
 
             <div class=" search__field search__field--span2 search__field--select" >
-                <select name="" id="" class="search__select" id="client" required>
+                <select class="search__select" id="client" required name="client">
                     <option value="" selected hidden">Client...</option>
                     <option value="">Dorothy Cassar</option>
                     <option value="">Joelle Ellul</option>
@@ -64,11 +67,11 @@
                 </svg>
             </div>
 
-            <input type="text" class="search__field " placeholder="Street Address">
+            <input type="text" class="search__field " placeholder="Street Address" name="strAddr">
             
 
             <div class=" search__field search__field--select">
-                <select name="" id="" class="search__select" id="client" required>
+                <select class="search__select" id="client" required name="locality">
                     <option value="" selected hidden">Locality...</option>
                     <option value="">Dorothy Cassar</option>
                     <option value="">Joelle Ellul</option>
@@ -80,11 +83,11 @@
             </div>
 
 
-            <input type="text" class="search__field" placeholder="Project No">
-            <input type="text" class="search__field" placeholder="PA No">
+            <input type="text" class="search__field" placeholder="Project No" name="projectNo">
+            <input type="text" class="search__field" placeholder="PA No" name="paNo">
 
             <div class=" search__field  search__field--select">
-                <select name="" id="" class="search__select" id="client" required>
+                <select class="search__select" id="client" required name="stage">
                     <option value="" selected hidden">Stage...</option>
                     <option value="">Dorothy Cassar</option>
                     <option value="">Joelle Ellul</option>
@@ -96,7 +99,7 @@
             </div>
             
             <div class=" search__field  search__field--select" >
-                <select name="" id="" class="search__select" id="client"  required>
+                <select class="search__select" id="client"  required name="category">
                     <option value="" selected hidden">Category...</option>
                     <option value="">Dorothy Cassar</option>
                     <option value="">Joelle Ellul</option>
@@ -109,7 +112,8 @@
 
 
 
-            <button class="btn btn--dark search__btn--1" type="button">search</button>
+            <button class="btn btn--dark search__btn--1" type="submit" name="searchBtn" value='project' >search</button>
+            <button class="btn btn--light search__btn--2" type="button" id="search-clear-btn-project">clear</button>
 
         </div>
 
@@ -188,6 +192,8 @@
         </section>
 
     </form>
+
+    <?php if(isset($testData)) print_r($testData) ?>
 
 
     <!-- /////////////////////////////////////////////////////////// -->

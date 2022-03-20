@@ -2,6 +2,7 @@
 
 namespace app\Model;
 
+use app\Model\Trait\TraitSearch;
 use app\Model\DBConnect;
 use Exception;
 use PDO;
@@ -26,6 +27,10 @@ class Client  implements JsonSerializable {
     private $userID;
 
 	public static $ClientList = null;
+
+	// _________________________________________________________________
+
+	use TraitSearch;
 
     // _________________________________________________________________
 

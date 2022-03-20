@@ -213,6 +213,8 @@ function sortTableAddArrow() {
     sort = sort.split('=')[1]
     direction = direction.split('=')[1]
 
+    if (sort === '' || !direction === '') return;
+
     let element = document.querySelector(`#${sort}`)
 
 

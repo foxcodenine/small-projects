@@ -383,3 +383,163 @@ Stack trace:
 #9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
 #10 {main}
   thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
+[19-Mar-2022 17:01:40 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Client::() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
+Stack trace:
+#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
+#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
+#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(27): app\Model\MyUtilities::sortTable()
+#3 [internal function]: {closure}()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(35): Bramus\Router\Router->run()
+#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#10 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
+[19-Mar-2022 17:02:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Client::() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
+Stack trace:
+#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
+#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
+#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(27): app\Model\MyUtilities::sortTable()
+#3 [internal function]: {closure}()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(35): Bramus\Router\Router->run()
+#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#10 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
+[19-Mar-2022 17:02:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Client::() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
+Stack trace:
+#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
+#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
+#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(27): app\Model\MyUtilities::sortTable()
+#3 [internal function]: {closure}()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(35): Bramus\Router\Router->run()
+#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#10 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
+[19-Mar-2022 17:39:21 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Client::() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:89
+Stack trace:
+#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
+#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(101): usort()
+#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(27): app\Model\MyUtilities::sortTable()
+#3 [internal function]: {closure}()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(35): Bramus\Router\Router->run()
+#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#10 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 89
+[19-Mar-2022 21:15:20 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'project_009_myAdmin.Clients' doesn't exist in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php:58
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php(58): PDOStatement->execute()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(66): app\Model\Client::getSearchList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(35): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 58
+[19-Mar-2022 21:15:29 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'project_009_myAdmin.Clients' doesn't exist in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php:58
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php(58): PDOStatement->execute()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(66): app\Model\Client::getSearchList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(35): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 58
+[19-Mar-2022 21:19:21 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%'James'%' at line 1 in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php:62
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php(62): PDOStatement->execute()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(66): app\Model\Client::getSearchList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(35): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 62
+[19-Mar-2022 21:19:37 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%{'James'}%' at line 1 in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php:62
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php(62): PDOStatement->execute()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(66): app\Model\Client::getSearchList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(35): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 62
+[19-Mar-2022 21:19:45 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '% 'James' %' at line 1 in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php:62
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php(62): PDOStatement->execute()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(66): app\Model\Client::getSearchList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(35): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 62
+[19-Mar-2022 21:21:33 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%'5'% AND firstname LIKE 'James'' at line 1 in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php:62
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php(62): PDOStatement->execute()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(66): app\Model\Client::getSearchList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(35): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 62
+[19-Mar-2022 21:23:42 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%'James'%' at line 1 in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php:62
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php(62): PDOStatement->execute()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(66): app\Model\Client::getSearchList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(35): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 62
+[19-Mar-2022 21:25:00 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php:62
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php(62): PDOStatement->execute()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(66): app\Model\Client::getSearchList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(35): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 62

@@ -82,6 +82,8 @@ class MyUtilities {
 
             $method    = MyCript::stringSanitize($_GET['sortBy'] ?? 'getId');
             $sortOrder = MyCript::stringSanitize($_GET['sortOrder'] ?? 1);
+
+            if (!(bool) $method) return;
          
           
             if ($a->$method() == $b->$method()) { 

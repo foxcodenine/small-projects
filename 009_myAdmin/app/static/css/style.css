@@ -464,12 +464,13 @@ main.pages {
   fill: currentColor;
 }
 
-.icon__link:link, .icon__link:visited {
+.icon__link:link, .icon__link:visited, .icon {
   cursor: pointer;
   text-decoration: none;
   color: currentColor;
 }
 .icon__svg {
+  cursor: pointer;
   width: 1.5rem;
   height: 1.5rem;
   fill: currentColor;
@@ -1678,7 +1679,7 @@ div_box.innerHTML = `
   max-width: calc(100vw - 15rem);
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(5, auto);
+  grid-template-rows: 5rem 7.5rem auto 1fr;
   gap: 2rem;
 }
 @media only screen and (max-width: 50em) {
@@ -1698,6 +1699,7 @@ div_box.innerHTML = `
   .search__query-form {
     border-bottom: none;
     padding-bottom: 0rem;
+    margin-top: 3.5rem;
   }
 }
 @media only screen and (max-width: 28.75em) {
@@ -1706,13 +1708,13 @@ div_box.innerHTML = `
   }
 }
 .search__btn--1 {
-  grid-row: 1/2;
+  grid-row: 2/3;
   grid-column: -2/-1;
 }
 @media only screen and (max-width: 51.3125em) {
   .search__btn--1 {
     grid-row: auto;
-    order: 1;
+    order: 2;
     grid-column: -3/-1;
   }
 }
@@ -1723,6 +1725,23 @@ div_box.innerHTML = `
 }
 @media only screen and (max-width: 28.75em) {
   .search__btn--1 {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+.search__btn--2 {
+  grid-row: 1/2;
+  grid-column: -2/-1;
+}
+@media only screen and (max-width: 51.3125em) {
+  .search__btn--2 {
+    grid-row: auto;
+    order: 1;
+    grid-column: span 2;
+  }
+}
+@media only screen and (max-width: 28.75em) {
+  .search__btn--2 {
     grid-column: span 1;
     grid-row: span 1;
   }
@@ -1843,7 +1862,7 @@ div_box.innerHTML = `
 }
 @media only screen and (max-width: 63.125em) {
   .search__placeholder {
-    height: 15rem;
+    height: 12rem;
   }
 }
 @media only screen and (max-width: 53.125em) {
@@ -1851,17 +1870,37 @@ div_box.innerHTML = `
     height: 18rem;
   }
 }
-@media only screen and (max-width: 48.25em) {
+@media only screen and (max-width: 50em) {
   .search__placeholder {
-    height: 21rem;
+    height: 15rem;
   }
 }
-@media only screen and (max-width: 38.25em) {
+@media only screen and (max-width: 44.6875em) {
   .search__placeholder {
-    height: 24rem;
+    height: 18rem;
+  }
+}
+@media only screen and (max-width: 35.4375em) {
+  .search__placeholder {
+    height: 25rem;
+  }
+}
+@media only screen and (max-width: 31.25em) {
+  .search__placeholder {
+    height: 27rem;
   }
 }
 @media only screen and (max-width: 28.75em) {
+  .search__placeholder {
+    height: 44rem;
+  }
+}
+@media only screen and (max-width: 25.875em) {
+  .search__placeholder {
+    height: 42rem;
+  }
+}
+@media only screen and (max-width: 25em) {
   .search__placeholder {
     height: 38rem;
   }

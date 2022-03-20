@@ -4,8 +4,10 @@
 2 design
     project detail page
     search page
-        i.  complet both form fields
-        ii. create switching mechanisem with js
+
+        iii. create  clear field button
+        iv.  add js to clear field button
+        
     settings page
 
 

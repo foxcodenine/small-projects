@@ -1,6 +1,69 @@
 "use strict";
 
 searchTabToggle();
+clearfields();
+
+// _____________________________________________________________________
+
+function clearfields() {
+
+    const clearClientBtn  = document.querySelector('#search-clear-btn-client');
+    const clearProjectBtn = document.querySelector('#search-clear-btn-project');
+
+    const clearClientFields  = document.querySelector('#search-fields-client');
+    const clearProjectFields = document.querySelector('#search-fields-project');
+
+    // --------------------------------
+
+    if (!clearProjectFields && !clearClientFields) return;
+
+
+    // --------------------------------
+    // --- inner functions
+
+    function resetInput (inputNodeList) {
+
+        inputNodeList.forEach(input => {
+            input.value = '';
+        });
+
+    }
+
+    function resetSelect (selectNodeList) {
+
+        selectNodeList.forEach( select => {
+            select.selectedIndex = 0;
+        });
+
+    }
+
+    // --------------------------------
+    // --- event listeners
+
+    clearClientBtn.addEventListener('click', function() {
+        
+        const inputes = clearClientFields.querySelectorAll('input');        
+        resetInput(inputes);
+
+        const selects = clearClientFields.querySelectorAll('select');
+        resetSelect(selects);
+
+    });
+
+    clearProjectBtn.addEventListener('click', function() {
+
+        const inputes = clearProjectFields.querySelectorAll('input');        
+        resetInput(inputes);
+
+        const selects = clearProjectFields.querySelectorAll('select');
+        resetSelect(selects);
+    });
+
+}
+
+
+
+// _____________________________________________________________________
 
 function searchTabToggle () {
     
@@ -22,9 +85,7 @@ function searchTabToggle () {
     // _________________________________________________________________
 
     
-
     let params;
-
     
     if (window.location.search) {
         params = window.location.search;
@@ -35,9 +96,7 @@ function searchTabToggle () {
     if (params) {
 
         [ sort, table, direction] = params.split('&');
-    } 
-
-    
+    }     
     
 
     if (table === 'sortTable=Project') {
@@ -52,11 +111,8 @@ function searchTabToggle () {
         projectTable.classList.add('search__hidden');
         projectTab.classList.remove('search__tab--active');
         projectForm.classList.add('search__hidden');
-        clientForm.classList.remove('search__hidden');
-        
+        clientForm.classList.remove('search__hidden');        
     }
-
-
     
 
     // _________________________________________________________________
@@ -85,9 +141,7 @@ function searchTabToggle () {
 
     tabs.addEventListener('click', function (e) {
 
-        let tab = e.target.closest('a');
-
-        
+        let tab = e.target.closest('a');        
         
         if (!tab)  return;
 
