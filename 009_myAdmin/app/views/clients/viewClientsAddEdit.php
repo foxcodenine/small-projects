@@ -69,9 +69,9 @@
     </div>
 
     <div class="field__group">
-        <label class="field__label" for="locality">locality</label>
+        <label class="field__label" for="locality">locality </label>
         <div class="field__error"><?= $errorLocality; ?></div>
-        <input type="text" class="field__input" id="locality" list="locationList" name="locality" value='<?= $_SESSION['client']['locality'] ?? '' ?>'>
+        <input type="text" class="field__input" id="locality" list="locationList" name="locality" value='<?= htmlentities($_SESSION['client']['locality'] ?? '',ENT_QUOTES) ?>'>
         <datalist id="locationList">
             <?php foreach ($listLocality as $obj): ?>
             <option value="<?= stripslashes($obj->lName) ?>">  
@@ -88,7 +88,7 @@
         <input type="text" class="field__input" id="country" list="countryList" name="country"  value='<?= $_SESSION['client']['country'] ?? '' ?>'>
         <datalist id="countryList">
             <?php foreach ($listCountry as $obj): ?>
-            <option value="<?= $obj->cName ?>">  
+            <option value="<?= stripslashes($obj->cName) ?>">  
             <?php endforeach; ?>
         </datalist>
         <svg class="field__down-arrow">

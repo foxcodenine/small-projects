@@ -1,5 +1,12 @@
 <section class="search">
 
+<?php
+
+use app\Model\MyCript;
+use app\Model\MyUtilities;
+
+?>
+
     <!-- /////////////////////////////////////////////////////////// -->
     <!-- Search Clients form -->
 
@@ -7,7 +14,7 @@
 
         <div class="search__fields" id="search-fields-client">
 
-            <input type="text" class="search__field" placeholder="firstname" name="fistname">
+            <input type="text" class="search__field" placeholder="firstname" name="firstname">
             <input type="text" class="search__field" placeholder="lastname" name="lastname">
             <input type="text" class="search__field" placeholder="id"name="idCard">
             <input type="text" class="search__field" placeholder="company" name="company">
@@ -18,9 +25,11 @@
             <div class=" search__field search__field--select">
                 <select class="search__select" id="client" required name="locality">
                     <option value="" selected hidden">Locality...</option>
-                    <option value="">Dorothy Cassar</option>
-                    <option value="">Joelle Ellul</option>
-                    <option value="">Danine Leonardi</option>
+
+                    <?php foreach($listLocality as $l): ?>
+                        <option value="<?= $l->lName ?>"><?= stripslashes($l->lName);  ?></option>
+                    <?php endforeach ?>
+s
                 </select>
                 <svg class="search__down-arrow">
                     <use xlink:href="./app/static/svg/icomoon.svg#icon-arrow_drop_down"></use>
@@ -30,9 +39,9 @@
             <div class=" search__field search__field--select" >
                 <select class="search__select" id="client" required name="country">
                     <option value="" selected hidden">Country...</option>
-                    <option value="">Dorothy Cassar</option>
-                    <option value="">Joelle Ellul</option>
-                    <option value="">Danine Leonardi</option>
+                    <?php foreach($listCountry as $c): ?>
+                        <option value="<?= $c->cName ?>"><?= stripslashes($c->cName);  ?></option>
+                    <?php endforeach ?>
                 </select>
                 <svg class="search__down-arrow">
                     <use xlink:href="./app/static/svg/icomoon.svg#icon-arrow_drop_down"></use>
@@ -73,9 +82,11 @@
             <div class=" search__field search__field--select">
                 <select class="search__select" id="client" required name="locality">
                     <option value="" selected hidden">Locality...</option>
-                    <option value="">Dorothy Cassar</option>
-                    <option value="">Joelle Ellul</option>
-                    <option value="">Danine Leonardi</option>
+
+                    <?php foreach($listLocality as $l): ?>
+                        <option value=""><?= stripslashes($l->lName);  ?></option>
+                    <?php endforeach ?>
+                    
                 </select>
                 <svg class="search__down-arrow">
                     <use xlink:href="./app/static/svg/icomoon.svg#icon-arrow_drop_down"></use>

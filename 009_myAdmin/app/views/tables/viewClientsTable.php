@@ -55,13 +55,13 @@
             <td class="table__td"><?= $client->getFirstname(); ?></td>
             <td class="table__td"><?= $client->getLastname(); ?></td>
             <td class="table__td"><?= $client->getIdCard(); ?></td>
-            <td class="table__td"><?= $client->getCompany(); ?></td>
+            <td class="table__td"><?= stripslashes($client->getCompany()); ?></td>
             <td class="table__td"><?= $client->getEmail(); ?></td>
             <td class="table__td"><?= $client->getPhone(); ?></td>
             <td class="table__td"><?= $client->getMobile(); ?></td>
-            <td class="table__td"><?= $client->getStrAddr(); ?></td>
-            <td class="table__td"><?= $client->getLocalityName(); ?></td>
-            <td class="table__td"><?= $client->getCountryName(); ?></td>
+            <td class="table__td"><?= stripslashes($client->getStrAddr()); ?></td>
+            <td class="table__td"><?= stripslashes($client->getLocalityName()); ?></td>
+            <td class="table__td"><?= stripslashes($client->getCountryName()); ?></td>
             <td class="table__td"><?= $client->getPostcode(); ?></td>
         </tr>
 

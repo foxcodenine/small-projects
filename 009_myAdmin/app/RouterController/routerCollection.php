@@ -50,13 +50,20 @@ $router->match('GET|POST', 'locality|category|stage|country', function() {
     $errorCollectionAdd      = $_SESSION['collectionError']['add'] ?? false;
     $errorCollectionRename   = $_SESSION['collectionError']['rename'] ?? false;
     $errorCollectionDelete   = $_SESSION['collectionError']['delete'] ?? false;
+
+    $errorCollectionAdd      = stripslashes($errorCollectionAdd);
+    $errorCollectionRename   = stripslashes($errorCollectionRename);
+    $errorCollectionDelete   = stripslashes($errorCollectionDelete);
+
     unset($_SESSION['collectionError']);
 
-    $collectionAdd     = $_SESSION[$pageName]['add']     ?? '';      //ok
+    $collectionAdd     = $_SESSION[$pageName]['add']     ?? '';      
+    $collectionAdd     = stripslashes($collectionAdd);      
     $collectionRename1 = $_SESSION[$pageName]['rename1'] ?? '';
-    $collectionRename2 = $_SESSION[$pageName]['rename2'] ?? '';      //ok
-    $collectionDelete  = $_SESSION[$pageName]['delete']  ?? '';      //ok
-    $collectionReplace = $_SESSION[$pageName]['replace'] ?? '';      //ok 
+    $collectionRename2 = $_SESSION[$pageName]['rename2'] ?? '';      
+    $collectionRename2 = stripslashes($collectionRename2);      
+    $collectionDelete  = $_SESSION[$pageName]['delete']  ?? '';      
+    $collectionReplace = $_SESSION[$pageName]['replace'] ?? '';       
     
 
 
@@ -161,10 +168,14 @@ $router->match('GET|POST', 'locality|category|stage|country', function() {
 
         if ($action === 'delete') {
 
+            // echo "$delete $replace "; exit();
+
             
             unset($_SESSION[$pageName]);
             $_SESSION[$pageName]['delete'] = $delete  ?? false;
             $_SESSION[$pageName]['replace'] = $replace  ?? false;
+
+            
 
 
             if (!$delete || !ClassAlias::isInDb($delete)) {

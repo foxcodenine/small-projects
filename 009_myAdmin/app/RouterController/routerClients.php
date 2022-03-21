@@ -53,10 +53,10 @@ $router->match('GET', '/clients-details(\d+)', function($id=0) {
 
     // -----------------------
 
-    $clientStrAddr = $client->getStrAddr() ? $client->getStrAddr() . ' &nbsp; &nbsp; ' : false;
+    $clientStrAddr      = $client->getStrAddr() ? $client->getStrAddr() . ' &nbsp; &nbsp; ' : false;
     $clientLocalityName = $client->getLocalityName() ? $client->getLocalityName() . ' &nbsp; &nbsp; ' : false;
-    $clientPostcode = $client->getPostcode() ? $client->getPostcode() . ' &nbsp; &nbsp; ' : false;
-    $clientCountryName = $client->getCountryName() ?: false;
+    $clientPostcode     = $client->getPostcode() ? $client->getPostcode() . ' &nbsp; &nbsp; ' : false;
+    $clientCountryName  = $client->getCountryName() ?: false;
 
     $clientAddress = trim(
         "$clientStrAddr $clientLocalityName ".

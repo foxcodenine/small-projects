@@ -75,9 +75,7 @@
             <select class="group__select" name="collection[delete]" id="collection-select-delete-js">
             <option value="0">no <?= $pageName ?> selected</option>
                 <?php foreach($objList as $ol): ?>
-                    <option   <?php echo "id=collectionDelete{$ol->getId()}"; if ($ol->getName() === $collectionDelete) echo ' selected '; ?> >
-                        <?= $ol->getName() ?>
-                    </option>
+                    <option   <?php echo "id=collectionDelete{$ol->getId()}"; if ($ol->getName() === stripslashes($collectionDelete)) echo ' selected '; ?> > <?= $ol->getName() ?></option>
                 <?php endforeach ?>
             </select>
             
@@ -87,7 +85,7 @@
             <select  class="group__select--inner" name="collection[replace]" id="collection-select-replace-js">
                 <option value="0">field empty</option>
                 <?php foreach($objList as $ol): ?>
-                    <option  <?php echo "value='{$ol->getName()}'"; if($ol->getName() === $collectionReplace) echo ' selected '; ?> ><b><?= $ol->getName() ?></b></option>
+                    <option  <?php  if($ol->getName() === stripslashes($collectionDelete)) echo ' selected '; ?> ><?= $ol->getName() ?></option>
                 <?php endforeach ?>
                 
             </select>

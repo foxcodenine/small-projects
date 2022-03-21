@@ -16,7 +16,7 @@
         <input type="text" class="field__input" id="locality" list="locationList" name="localityName" value="<?= $_SESSION['project']['localityName'] ?? '' ?>" >
         <datalist id="locationList">
             <?php foreach ($listLocality as $obj): ?>
-            <option value="<?= $obj->lName ?>">  
+            <option value="<?= stripslashes($obj->lName) ?>">  
             <?php endforeach; ?>
         </datalist>
         <svg class="field__down-arrow">
@@ -72,7 +72,7 @@
             <!-- <option value="Finished"> -->
             <!-- <option value="Canceled"> -->
             <?php foreach ($listStage as $obj): ?>
-            <option value="<?= $obj->sName ?>">  
+            <option value="<?= stripslashes($obj->sName) ?>">  
             <?php endforeach; ?>
         </datalist>
         <svg class="field__down-arrow"><use  xlink:href="./app/static/svg/icomoon.svg#icon-arrow_drop_down"></use></svg>
@@ -87,7 +87,7 @@
             <!-- <option value="Public"> -->
             <!-- <option value="Industrial"> -->
             <?php foreach ($listCategoy as $obj): ?>
-            <option value="<?= $obj->yName ?>">  
+            <option value="<?= stripslashes($obj->yName) ?>">  
             <?php endforeach; ?>
         </datalist>
         <svg class="field__down-arrow"><use  xlink:href="./app/static/svg/icomoon.svg#icon-arrow_drop_down"></use></svg>
