@@ -14,22 +14,24 @@ use app\Model\MyUtilities;
 
         <div class="search__fields" id="search-fields-client">
 
-            <input type="text" class="search__field" placeholder="firstname" name="firstname">
-            <input type="text" class="search__field" placeholder="lastname" name="lastname">
-            <input type="text" class="search__field" placeholder="id"name="idCard">
-            <input type="text" class="search__field" placeholder="company" name="company">
-            <input type="text" class="search__field" placeholder="email" name="email">
-            <input type="text" class="search__field" placeholder="phone / mobile" name="phoneMobile">
-            <input type="text" class="search__field search__field--span2" placeholder="street address" name="strAddr">
+            <input type="text" class="search__field" placeholder="firstname" name="firstname" value="<?=$firstname?>">
+            <input type="text" class="search__field" placeholder="lastname" name="lastname" value="<?=$lastname?>">
+            <input type="text" class="search__field" placeholder="id"name="idCard" value="<?=$idCard?>">
+            <input type="text" class="search__field" placeholder="company" name="company" value="<?=$company?>">
+            <input type="text" class="search__field" placeholder="email" name="email" value="<?=$email?>">
+            <input type="text" class="search__field" placeholder="phone / mobile" name="phoneMobile" value="<?=$phoneMobile?>">
+            <input type="text" class="search__field search__field--span2" placeholder="street address" name="strAddr" value="<?=$strAddrCli?>">
 
             <div class=" search__field search__field--select">
                 <select class="search__select" id="client" required name="locality">
                     <option value="" selected hidden">Locality...</option>
 
                     <?php foreach($listLocality as $l): ?>
-                        <option value="<?= $l->lName ?>"><?= stripslashes($l->lName);  ?></option>
+                        <option value="<?= $l->lName ?>" <?php if ($l->lName === $localityNCli) echo 'selected' ?> >
+                            <?= stripslashes($l->lName);  ?>
+                        </option>
                     <?php endforeach ?>
-s
+
                 </select>
                 <svg class="search__down-arrow">
                     <use xlink:href="./app/static/svg/icomoon.svg#icon-arrow_drop_down"></use>
@@ -39,9 +41,13 @@ s
             <div class=" search__field search__field--select" >
                 <select class="search__select" id="client" required name="country">
                     <option value="" selected hidden">Country...</option>
+
                     <?php foreach($listCountry as $c): ?>
-                        <option value="<?= $c->cName ?>"><?= stripslashes($c->cName);  ?></option>
+                        <option value="<?= $c->cName ?>" <?php if ($c->cName === $countryName) echo 'selected' ?> >
+                            <?= stripslashes($c->cName);  ?>
+                        </option>
                     <?php endforeach ?>
+
                 </select>
                 <svg class="search__down-arrow">
                     <use xlink:href="./app/static/svg/icomoon.svg#icon-arrow_drop_down"></use>
@@ -62,29 +68,35 @@ s
 
         <div class="search__fields" id="search-fields-project">
             
-            <input type="text" class="search__field search__field--span2" placeholder="Project Name" name="projectname">
+            <input type="text" class="search__field search__field--span2" placeholder="Project Name" name="projectname" value="<?=$projectname?>">
 
             <div class=" search__field search__field--span2 search__field--select" >
-                <select class="search__select" id="client" required name="client">
+                <select class="search__select" id="client" required name="clientId">
                     <option value="" selected hidden">Client...</option>
-                    <option value="">Dorothy Cassar</option>
-                    <option value="">Joelle Ellul</option>
-                    <option value="">Danine Leonardi</option>
+
+                    <?php foreach($listClient as $obj): ?>
+                        <option value="<?= $obj->id ?>" <?php if ($obj->id === $clientId) echo 'selected' ?> >
+                            <?= stripslashes("{$obj->id} - {$obj->firstname} {$obj->lastname}");  ?>
+                        </option>
+                    <?php endforeach ?>
+
                 </select>
                 <svg class="search__down-arrow">
                     <use xlink:href="./app/static/svg/icomoon.svg#icon-arrow_drop_down"></use>
                 </svg>
             </div>
 
-            <input type="text" class="search__field " placeholder="Street Address" name="strAddr">
+            <input type="text" class="search__field " placeholder="Street Address" name="strAddr" value="<?=$strAddrPro?>" >
             
 
             <div class=" search__field search__field--select">
-                <select class="search__select" id="client" required name="locality">
+                <select class="search__select" id="client" required name="localityName">
                     <option value="" selected hidden">Locality...</option>
 
                     <?php foreach($listLocality as $l): ?>
-                        <option value=""><?= stripslashes($l->lName);  ?></option>
+                        <option value="<?= $l->lName ?>" <?php if ( $l->lName === $localityNPro ) echo 'selected' ?> > 
+                            <?= stripslashes($l->lName);  ?> 
+                        </option>
                     <?php endforeach ?>
                     
                 </select>
@@ -94,15 +106,19 @@ s
             </div>
 
 
-            <input type="text" class="search__field" placeholder="Project No" name="projectNo">
-            <input type="text" class="search__field" placeholder="PA No" name="paNo">
+            <input type="text" class="search__field" placeholder="Project No" name="projectNo" value="<?=$projectNo?>">
+            <input type="text" class="search__field" placeholder="PA No" name="paNo" value="<?=$paNo?>" >
 
             <div class=" search__field  search__field--select">
-                <select class="search__select" id="client" required name="stage">
+                <select class="search__select" id="client" required name="stageName">
                     <option value="" selected hidden">Stage...</option>
-                    <option value="">Dorothy Cassar</option>
-                    <option value="">Joelle Ellul</option>
-                    <option value="">Danine Leonardi</option>
+
+                    <?php foreach($listStage as $s): ?>
+                        <option value="<?= $s->sName ?>" <?php if ( $s->sName === $stageName ) echo 'selected' ?> > 
+                            <?= stripslashes($s->sName);  ?>
+                        </option>
+                    <?php endforeach ?>
+
                 </select>
                 <svg class="search__down-arrow">
                     <use xlink:href="./app/static/svg/icomoon.svg#icon-arrow_drop_down"></use>
@@ -110,11 +126,15 @@ s
             </div>
             
             <div class=" search__field  search__field--select" >
-                <select class="search__select" id="client"  required name="category">
+                <select class="search__select" id="client"  required name="categoryName">
                     <option value="" selected hidden">Category...</option>
-                    <option value="">Dorothy Cassar</option>
-                    <option value="">Joelle Ellul</option>
-                    <option value="">Danine Leonardi</option>
+
+                    <?php foreach($listCategory as $y): ?>
+                        <option value="<?= $y->yName ?>" <?php if ( $y->yName === $categoryName ) echo 'selected' ?> >  
+                            <?= stripslashes($y->yName);  ?>
+                        </option>
+                    <?php endforeach ?>
+
                 </select>
                 <svg class="search__down-arrow">
                     <use xlink:href="./app/static/svg/icomoon.svg#icon-arrow_drop_down"></use>
@@ -204,7 +224,8 @@ s
 
     </form>
 
-    <?php if(isset($testData)) print_r($testData) ?>
+    <?php echo '<br> Clients:  '; if(isset($testDataClient)) print_r($testDataClient) ?>
+    <?php echo '<br> Projects: '; if(isset($testDataProject)) print_r($testDataProject) ?>
 
 
     <!-- /////////////////////////////////////////////////////////// -->

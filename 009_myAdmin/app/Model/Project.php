@@ -2,6 +2,7 @@
 
 namespace app\Model;
 
+use app\Model\Trait\TraitSearch;
 use app\Model\DBConnect;
 use DateTime;
 use Exception;
@@ -27,9 +28,12 @@ class Project {
 	private static $ProjectList = null;
 
 	
+	// _________________________________________________________________
 
+	use TraitSearch;
 
     // _________________________________________________________________
+
 
 	public function __construct( $projectname, 
 		$id=null, $strAddr=null, $projectNo=null, $paNo=null, $projectDate=null, 

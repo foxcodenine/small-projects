@@ -44,21 +44,47 @@ $router->match('GET|POST', '/search', function() {
     $listLocality = MyUtilities::fetchOptionsFromDB('locality');
     $listCountry  = MyUtilities::fetchOptionsFromDB('country');
     $listStage    = MyUtilities::fetchOptionsFromDB('stage');
-    $listCategoy  = MyUtilities::fetchOptionsFromDB('category');
-    $listClients  = MyUtilities::fetchOptionsFromDB('client');
+    $listCategory = MyUtilities::fetchOptionsFromDB('category');
+    $listClient   = MyUtilities::fetchOptionsFromDB('client');
      
+
+    // -----------------------------------------------------------------
+    // --- Clear featch session variables
+
+    $firstname    = $_SESSION['srch']['cli']['firstname'] ?? '';
+    $lastname     = $_SESSION['srch']['cli']['lastname'] ?? '';
+    $idCard       = $_SESSION['srch']['cli']['idCard'] ?? '';
+    $company      = $_SESSION['srch']['cli']['company'] ?? '';
+    $email        = $_SESSION['srch']['cli']['email'] ?? '';
+    $phoneMobile  = $_SESSION['srch']['cli']['phoneMobile'] ?? '';
+    $strAddrCli   = $_SESSION['srch']['cli']['strAddr'] ?? '';
+    $localityNCli = $_SESSION['srch']['cli']['localityName'] ?? '';
+    $countryName  = $_SESSION['srch']['cli']['countryName'] ?? '';
+
+    $projectname  = $_SESSION['srch']['pro']['projectname'] ?? '';
+    $clientId     = $_SESSION['srch']['pro']['clientId'] ?? '';
+    $strAddrPro   = $_SESSION['srch']['pro']['strAddr'] ?? '';
+    $localityNPro = $_SESSION['srch']['pro']['localityName'] ?? '';
+    $projectNo    = $_SESSION['srch']['pro']['projectNo'] ?? '';
+    $paNo         = $_SESSION['srch']['pro']['paNo'] ?? '';
+    $stageName    = $_SESSION['srch']['pro']['stageName'] ?? '';
+    $categoryName = $_SESSION['srch']['pro']['categoryName'] ?? '';
+
+    $testDataClient  = $_SESSION['srch']['cli']['list'] ?? false;
+    $testDataProject = $_SESSION['srch']['pro']['list'] ?? false;
+
+    unset($_SESSION['srch']);
+
 
     // -----------------------------------------------------------------
     // --- Clear search array
 
-    $clientsSeachFields = $projectSeachFields = ['localityName'  =>  '1x2x3x4x'];
+    $clientSearchFields = $projectSearchFields = ['localityName'  =>  '1x2x3x4x'];
 
     // -----------------------------------------------------------------
     // --- Post Method
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-        $testData = $_POST['searchBtn'] ?? false;
 
         $searchBtn = $_POST['searchBtn'] ?? false;
         $searchBtn = MyCript::stringSanitize($searchBtn);
@@ -67,58 +93,99 @@ $router->match('GET|POST', '/search', function() {
 
         if ($searchBtn === 'client') {
 
-            $clientsSeachFields = [ 
-                'firstname' => $_POST['firstname'] ?? false ,
-                'lastname'  => $_POST['lastname'] ?? false  ,
-                'idCard'    => $_POST['idCard'] ?? false  ,
-                'company'   => $_POST['company'] ?? false  ,
-                'email'     => $_POST['email'] ?? false  ,
-                'phone'     => $_POST['phoneMobile'] ?? false  ,
-                'mobile'    => $_POST['phoneMobile'] ?? false  ,
-                'strAddr'   => $_POST['strAddr'] ?? false  ,
+            $clientSearchFields = [ 
+                'firstname'     => $_POST['firstname'] ?? false ,
+                'lastname'      => $_POST['lastname'] ?? false  ,
+                'idCard'        => $_POST['idCard'] ?? false  ,
+                'company'       => $_POST['company'] ?? false  ,
+                'email'         => $_POST['email'] ?? false  ,
+                'phone'         => $_POST['phoneMobile'] ?? false  ,
+                'mobile'        => $_POST['phoneMobile'] ?? false  ,
+                'strAddr'       => $_POST['strAddr'] ?? false  ,
                 'localityName'  => $_POST['locality'] ?? false  ,
                 'countryName'   => $_POST['country'] ?? false 
             ];
+
+            list (
+                'firstname'     => $_SESSION['srch']['cli']['firstname'],
+                'lastname'      => $_SESSION['srch']['cli']['lastname'],
+                'idCard'        => $_SESSION['srch']['cli']['idCard'],
+                'company'       => $_SESSION['srch']['cli']['company'],
+                'email'         => $_SESSION['srch']['cli']['email'],
+                'phone'         => $_SESSION['srch']['cli']['phoneMobile'],
+                'mobile'        => $_SESSION['srch']['cli']['phoneMobile'],
+                'strAddr'       => $_SESSION['srch']['cli']['strAddr'],
+                'localityName'  => $_SESSION['srch']['cli']['localityName'] ,
+                'countryName'   => $_SESSION['srch']['cli']['countryName']
+            )= $clientSearchFields;
+            
+  
             
 
-            array_walk($clientsSeachFields, function(&$v, $k) {
+            array_walk($clientSearchFields, function(&$v, $k) {
                 $v = trim(htmlentities($v));
                 $v = $v === '' ? false : $v;
-            });
-
-            $testData = Client::getSearchList('Client', $clientsSeachFields);
-
+            });            
         }
 
         // --- Post Project
 
-        if ($searchBtn === 'poject') {
-
-            $projectSeachFields = [
-                'projectname'   => $_POST['firstname'] ?? false,
+        if ($searchBtn === 'project') {
+            
+            $projectSearchFields = [
+                'projectname'   => $_POST['projectname'] ?? false,
+                'clientId'      => $_POST['clientId'] ?? false,
                 'strAddr'       => $_POST['strAddr'] ?? false,
-                'projectNo'     => $_POST['projectNo'] ?? false,
-                'projectDate'   => $_POST['projectDate'] ?? false,
                 'localityName'  => $_POST['localityName'] ?? false,
+                'projectNo'     => $_POST['projectNo'] ?? false,
+                'paNo'          => $_POST['paNo'] ?? false,
                 'stageName'     => $_POST['stageName'] ?? false,
                 'categoryName'  => $_POST['categoryName'] ?? false,
-                'clientId'      => $_POST['clientId'] ?? false
             ];
 
-            array_walk($clientsSeachFields, function(&$v, $k) {
+            list (
+                'projectname'   => $_SESSION['srch']['pro']['projectname'],
+                'clientId'      => $_SESSION['srch']['pro']['clientId'],
+                'strAddr'       => $_SESSION['srch']['pro']['strAddr'],
+                'localityName'  => $_SESSION['srch']['pro']['localityName'],
+                'projectNo'     => $_SESSION['srch']['pro']['projectNo'],
+                'paNo'          => $_SESSION['srch']['pro']['paNo'],
+                'stageName'     => $_SESSION['srch']['pro']['stageName'],
+                'categoryName'  => $_SESSION['srch']['pro']['categoryName'],
+            ) = $projectSearchFields;
+
+
+                
+            array_walk($projectSearchFields, function(&$v, $k) {
                 $v = trim(htmlentities($v));
                 $v = $v === '' ? false : $v;
-            });
-
+            });            
         }
+                
+        $_SESSION['srch']['cli']['list'] = Client::getSearchList('Client', $clientSearchFields);
+        $_SESSION['srch']['pro']['list'] = Project::getSearchList('Project', $projectSearchFields);
 
-        $testData = Client::getSearchList('Client', $clientsSeachFields);
+
+        // -------------------------------------------------------------
+        // --- Redirect from POST to fetch SESSION data
+
+        $redirect_url  = $_ENV['BASE_PATH'];
+        $redirect_url .= $searchBtn === 'client' ? 
+                        '/search?sortBy=&sortTable=Client&sortOrder=' : 
+                        '/search?sortBy=&sortTable=Project&sortOrder=';
+        
+        
+        header('Location: ' .  $redirect_url);
+        // header('Location: ' .  $_SERVER["REQUEST_URI"]);
     }
 
     // -----------------------------------------------------------------
 
     
-    // $testData = $clientsSeachFields;
+    // $_SESSION['srch']['cli'];
+    //  = $_SESSION['srch']['pro'];
+
+
 
 
 

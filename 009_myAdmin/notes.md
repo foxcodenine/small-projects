@@ -26,6 +26,8 @@ https://splidejs.com/guides/getting-started/
 
 ## ------  DigitalOcean Spaces -----------------------------------------
 
+https://docs.digitalocean.com/products/spaces/resources/s3-sdk-examples/
+
 https://www.digitalocean.com/community/tools/adapting-an-existing-aws-s3-application-to-digitalocean-spaces
 
 ## ------ Bash ---------------------------------------------------------

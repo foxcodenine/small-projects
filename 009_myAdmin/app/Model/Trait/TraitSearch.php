@@ -22,7 +22,7 @@ trait TraitSearch {
         $whiteList = [
             'firstname', 'lastname', 'idCard', 'company', 'email', 
             'phone', 'mobile', 'strAddr', 'postcode', 'localityName', 
-            'countryName', 'projectname', 'projectNo', 'projectDate',
+            'countryName', 'projectname', 'projectNo', 'paNo',
             'stageName', 'categoryName', 'clientId' 
         ];
 
@@ -44,16 +44,13 @@ trait TraitSearch {
 
                 $sql .= "  AND (phone LIKE CONCAT('%', :phone, '%') OR mobile LIKE CONCAT('%', :mobile, '%'))";
 
-                echo $sql;
+                echo $sql;                
 
-                
-
-            } else if ($column === 'localityName' || $column === 'countryName') {
+            } else if (in_array($column, ['countryName', 'localityName'])) {
 
                 $sql .= " AND $column = :$column";
 
-            }
-            
+            }             
             else {
                 
                 $sql .= " AND $column LIKE CONCAT('%', :$column, '%')";
