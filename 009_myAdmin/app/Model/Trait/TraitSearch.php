@@ -14,7 +14,6 @@ trait TraitSearch {
     public static function getSearchList ($tableName, $fieldsArray = []) {
 
 
-
         $currentUser = MyUtilities::checkCookieAndReturnUser(); 
 		MyUtilities::userInSessionPage();
 		$userID = $currentUser->getId();
@@ -26,7 +25,7 @@ trait TraitSearch {
             'stageName', 'categoryName', 'clientId' 
         ];
 
-        $sql  = "SELECT id FROM $tableName WHERE userID = :userID";
+        $sql  = "SELECT * FROM $tableName WHERE userID = :userID";
 
 
         // ____________________________________________________________
@@ -58,13 +57,11 @@ trait TraitSearch {
             
         }
 
-
         // ____________________________________________________________
         // --- get connection
 
         $conn = DBConnect::getConn();
-        $stmt = $conn->prepare($sql);
-        
+        $stmt = $conn->prepare($sql);        
 
         // ____________________________________________________________
         // --- binding
@@ -84,9 +81,26 @@ trait TraitSearch {
         
         $stmt->execute();
 
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);        
+        $result = $stmt->fetchAll(PDO::FETCH_OBJ);        
  
-        return $result;
-              
+        
+        // return $result;
+        self::saveResaltInList($result);
+
+
+        if (__CLASS__ === 'app\Model\Client') {
+
+             $_SESSION['search-client-list'] = serialize(self::$ClientList);
+        }
+
+
+        if (__CLASS__ === 'app\Model\Project') {
+
+            // exit();
+
+            $_SESSION['search-project-list'] = serialize(self::$ProjectList);
+        }
+
+        
     }
 }

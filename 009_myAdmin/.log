@@ -1,448 +1,10 @@
 
-[18-Mar-2022 14:58:34 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Project::getEmail() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
+[22-Mar-2022 16:49:40 Europe/Berlin] PHP Parse error:  syntax error, unexpected token ",", expecting ":" in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 391
+[22-Mar-2022 17:09:22 Europe/Berlin] PHP Warning:  Undefined variable $List in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 393
+[22-Mar-2022 17:09:22 Europe/Berlin] PHP Fatal error:  Uncaught Error: Access to undeclared static property app\Model\Project::$ in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:393
 Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(135): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[18-Mar-2022 14:59:08 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Project::getEmail() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(135): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[18-Mar-2022 14:59:36 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Project::getEmail() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(135): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[18-Mar-2022 15:00:02 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Project::getEmail() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(135): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[18-Mar-2022 15:02:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Client::getProjectname() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(127): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[18-Mar-2022 15:02:45 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Client::getProjectname() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(127): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[18-Mar-2022 15:04:22 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Client::getProjectname() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(127): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[18-Mar-2022 15:05:02 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Client::getProjectname() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(127): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[18-Mar-2022 15:06:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Client::getProjectname() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(127): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[18-Mar-2022 15:06:24 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Client::getPaNo() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(127): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[18-Mar-2022 15:06:27 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Client::getProjectDate() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(127): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[18-Mar-2022 15:09:22 Europe/Berlin] PHP Warning:  Undefined variable $clientList in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewClientsTable.php on line 25
-[18-Mar-2022 15:09:22 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewClientsTable.php on line 25
-[18-Mar-2022 15:09:23 Europe/Berlin] PHP Warning:  Undefined variable $clientList in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewClientsTable.php on line 25
-[18-Mar-2022 15:09:23 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewClientsTable.php on line 25
-[18-Mar-2022 15:09:24 Europe/Berlin] PHP Warning:  Undefined variable $clientList in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewClientsTable.php on line 25
-[18-Mar-2022 15:09:24 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewClientsTable.php on line 25
-[18-Mar-2022 15:09:25 Europe/Berlin] PHP Warning:  Undefined variable $clientList in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewClientsTable.php on line 25
-[18-Mar-2022 15:09:25 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewClientsTable.php on line 25
-[18-Mar-2022 15:09:25 Europe/Berlin] PHP Warning:  Undefined variable $clientList in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewClientsTable.php on line 25
-[18-Mar-2022 15:09:25 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewClientsTable.php on line 25
-[18-Mar-2022 15:09:26 Europe/Berlin] PHP Warning:  Undefined variable $clientList in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewClientsTable.php on line 25
-[18-Mar-2022 15:09:26 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewClientsTable.php on line 25
-[18-Mar-2022 15:09:27 Europe/Berlin] PHP Warning:  Undefined variable $clientList in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewClientsTable.php on line 25
-[18-Mar-2022 15:09:27 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewClientsTable.php on line 25
-[18-Mar-2022 15:09:27 Europe/Berlin] PHP Warning:  Undefined variable $clientList in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewClientsTable.php on line 25
-[18-Mar-2022 15:09:27 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewClientsTable.php on line 25
-[18-Mar-2022 15:11:47 Europe/Berlin] PHP Warning:  Undefined variable $clientList in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewClientsTable.php on line 25
-[18-Mar-2022 15:11:47 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewClientsTable.php on line 25
-[18-Mar-2022 15:11:47 Europe/Berlin] PHP Warning:  Undefined variable $projectList in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewProjectsTable.php on line 36
-[18-Mar-2022 15:11:47 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewProjectsTable.php on line 36
-[18-Mar-2022 15:45:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Client::getProjectname() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(127): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[18-Mar-2022 16:00:43 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Project::getFirstname() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(141): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[18-Mar-2022 16:00:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Project::getFirstname() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(141): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[18-Mar-2022 16:00:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Project::getLastname() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(141): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[18-Mar-2022 16:01:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Project::getFirstname() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(141): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[18-Mar-2022 16:01:17 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Client::getProjectname() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(130): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[18-Mar-2022 16:01:49 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Project::getCompany() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(141): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[18-Mar-2022 16:03:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Project::getIdCard() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(141): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[18-Mar-2022 16:34:38 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Project::getFirstname() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(143): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[18-Mar-2022 16:37:34 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Project::getFirstname() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(143): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[18-Mar-2022 16:37:45 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Project::getFirstname() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(143): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[18-Mar-2022 16:37:56 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Project::getFirstname() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(143): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[18-Mar-2022 16:41:08 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Project::getFirstname() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(143): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[18-Mar-2022 16:43:00 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Project::getFirstname() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(143): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[18-Mar-2022 16:53:53 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Project::getIdCard() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerBasic.php(143): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(34): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[19-Mar-2022 17:01:40 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Client::() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(27): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(35): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[19-Mar-2022 17:02:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Client::() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(27): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(35): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[19-Mar-2022 17:02:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Client::() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:87
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(99): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(27): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(35): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 87
-[19-Mar-2022 17:39:21 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Client::() in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:89
-Stack trace:
-#0 [internal function]: app\Model\MyUtilities::app\Model\{closure}()
-#1 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(101): usort()
-#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(27): app\Model\MyUtilities::sortTable()
-#3 [internal function]: {closure}()
-#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
-#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
-#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
-#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(35): Bramus\Router\Router->run()
-#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
-#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
-#10 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 89
-[19-Mar-2022 21:15:20 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'project_009_myAdmin.Clients' doesn't exist in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php:58
-Stack trace:
-#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php(58): PDOStatement->execute()
-#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(66): app\Model\Client::getSearchList()
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(385): app\Model\Project::saveResaltInList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
 #2 [internal function]: {closure}()
 #3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
 #4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
@@ -451,11 +13,11 @@ Stack trace:
 #7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
 #8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
 #9 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 58
-[19-Mar-2022 21:15:29 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'project_009_myAdmin.Clients' doesn't exist in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php:58
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 393
+[22-Mar-2022 17:09:43 Europe/Berlin] PHP Fatal error:  Uncaught Error: Access to undeclared static property app\Model\Project::$ in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:395
 Stack trace:
-#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php(58): PDOStatement->execute()
-#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(66): app\Model\Client::getSearchList()
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(385): app\Model\Project::saveResaltInList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
 #2 [internal function]: {closure}()
 #3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
 #4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
@@ -464,11 +26,11 @@ Stack trace:
 #7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
 #8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
 #9 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 58
-[19-Mar-2022 21:19:21 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%'James'%' at line 1 in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php:62
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 395
+[22-Mar-2022 17:11:43 Europe/Berlin] PHP Fatal error:  Uncaught Error: Access to undeclared static property app\Model\Project::$ in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:395
 Stack trace:
-#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php(62): PDOStatement->execute()
-#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(66): app\Model\Client::getSearchList()
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(385): app\Model\Project::saveResaltInList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
 #2 [internal function]: {closure}()
 #3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
 #4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
@@ -477,11 +39,11 @@ Stack trace:
 #7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
 #8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
 #9 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 62
-[19-Mar-2022 21:19:37 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%{'James'}%' at line 1 in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php:62
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 395
+[22-Mar-2022 17:11:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Access to undeclared static property app\Model\Project::$ in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:395
 Stack trace:
-#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php(62): PDOStatement->execute()
-#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(66): app\Model\Client::getSearchList()
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(385): app\Model\Project::saveResaltInList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
 #2 [internal function]: {closure}()
 #3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
 #4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
@@ -490,11 +52,11 @@ Stack trace:
 #7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
 #8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
 #9 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 62
-[19-Mar-2022 21:19:45 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '% 'James' %' at line 1 in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php:62
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 395
+[22-Mar-2022 17:11:45 Europe/Berlin] PHP Fatal error:  Uncaught Error: Access to undeclared static property app\Model\Project::$ in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:395
 Stack trace:
-#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php(62): PDOStatement->execute()
-#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(66): app\Model\Client::getSearchList()
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(385): app\Model\Project::saveResaltInList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
 #2 [internal function]: {closure}()
 #3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
 #4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
@@ -503,11 +65,11 @@ Stack trace:
 #7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
 #8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
 #9 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 62
-[19-Mar-2022 21:21:33 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%'5'% AND firstname LIKE 'James'' at line 1 in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php:62
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 395
+[22-Mar-2022 17:12:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Access to undeclared static property app\Model\Project::$$ProjectList in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:395
 Stack trace:
-#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php(62): PDOStatement->execute()
-#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(66): app\Model\Client::getSearchList()
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(385): app\Model\Project::saveResaltInList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
 #2 [internal function]: {closure}()
 #3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
 #4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
@@ -516,11 +78,11 @@ Stack trace:
 #7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
 #8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
 #9 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 62
-[19-Mar-2022 21:23:42 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%'James'%' at line 1 in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php:62
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 395
+[22-Mar-2022 17:12:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Access to undeclared static property app\Model\Project::$ in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:395
 Stack trace:
-#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php(62): PDOStatement->execute()
-#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(66): app\Model\Client::getSearchList()
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(385): app\Model\Project::saveResaltInList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
 #2 [internal function]: {closure}()
 #3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
 #4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
@@ -529,11 +91,11 @@ Stack trace:
 #7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
 #8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
 #9 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 62
-[19-Mar-2022 21:25:00 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php:62
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 395
+[22-Mar-2022 17:12:59 Europe/Berlin] PHP Fatal error:  Uncaught Error: Access to undeclared static property app\Model\Project::$ in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:395
 Stack trace:
-#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php(62): PDOStatement->execute()
-#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(66): app\Model\Client::getSearchList()
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(385): app\Model\Project::saveResaltInList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
 #2 [internal function]: {closure}()
 #3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
 #4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
@@ -542,27 +104,11 @@ Stack trace:
 #7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
 #8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
 #9 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 62
-[20-Mar-2022 18:02:04 Europe/Berlin] PHP Warning:  {closure}(): Argument #2 ($k) must be passed by reference, value given in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 73
-[20-Mar-2022 18:02:04 Europe/Berlin] PHP Warning:  {closure}(): Argument #2 ($k) must be passed by reference, value given in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 73
-[20-Mar-2022 18:02:04 Europe/Berlin] PHP Warning:  {closure}(): Argument #2 ($k) must be passed by reference, value given in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 73
-[20-Mar-2022 18:02:04 Europe/Berlin] PHP Warning:  {closure}(): Argument #2 ($k) must be passed by reference, value given in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 73
-[20-Mar-2022 18:02:04 Europe/Berlin] PHP Warning:  {closure}(): Argument #2 ($k) must be passed by reference, value given in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 73
-[20-Mar-2022 18:02:04 Europe/Berlin] PHP Warning:  {closure}(): Argument #2 ($k) must be passed by reference, value given in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 73
-[20-Mar-2022 18:02:04 Europe/Berlin] PHP Warning:  {closure}(): Argument #2 ($k) must be passed by reference, value given in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 73
-[20-Mar-2022 18:02:04 Europe/Berlin] PHP Warning:  {closure}(): Argument #2 ($k) must be passed by reference, value given in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 73
-[20-Mar-2022 18:02:04 Europe/Berlin] PHP Warning:  {closure}(): Argument #2 ($k) must be passed by reference, value given in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 73
-[20-Mar-2022 18:02:04 Europe/Berlin] PHP Warning:  {closure}(): Argument #2 ($k) must be passed by reference, value given in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 73
-[20-Mar-2022 18:08:41 Europe/Berlin] PHP Warning:  Undefined variable $clientsSeachFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 85
-[20-Mar-2022 18:08:41 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 35
-[20-Mar-2022 18:08:41 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 53
-[20-Mar-2022 18:12:45 Europe/Berlin] PHP Warning:  Undefined variable $clientsSeachFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 85
-[20-Mar-2022 18:12:45 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 35
-[20-Mar-2022 18:12:45 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 53
-[20-Mar-2022 19:04:24 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php:81
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 395
+[22-Mar-2022 17:13:21 Europe/Berlin] PHP Fatal error:  Uncaught Error: Access to undeclared static property app\Model\Project::$ in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:395
 Stack trace:
-#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php(81): PDOStatement->execute()
-#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(87): app\Model\Client::getSearchList()
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(385): app\Model\Project::saveResaltInList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
 #2 [internal function]: {closure}()
 #3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
 #4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
@@ -571,11 +117,11 @@ Stack trace:
 #7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
 #8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
 #9 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 81
-[20-Mar-2022 19:05:20 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php:81
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 395
+[22-Mar-2022 17:14:21 Europe/Berlin] PHP Fatal error:  Uncaught Error: Undefined constant "app\Model\self" in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:393
 Stack trace:
-#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php(81): PDOStatement->execute()
-#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(87): app\Model\Client::getSearchList()
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(385): app\Model\Project::saveResaltInList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
 #2 [internal function]: {closure}()
 #3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
 #4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
@@ -584,11 +130,11 @@ Stack trace:
 #7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
 #8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
 #9 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 81
-[20-Mar-2022 21:26:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method stdClass::getLocalityName() in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php:23
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 393
+[22-Mar-2022 17:17:21 Europe/Berlin] PHP Fatal error:  Uncaught Error: Access to undeclared static property app\Model\Project::$$ProjectList in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:395
 Stack trace:
-#0 /home/foxcodenine/projects/009_myAdmin/app/views/_page.php(112): include()
-#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(127): include('...')
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(385): app\Model\Project::saveResaltInList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
 #2 [internal function]: {closure}()
 #3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
 #4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
@@ -597,15 +143,11 @@ Stack trace:
 #7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
 #8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
 #9 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 23
-[20-Mar-2022 21:50:41 Europe/Berlin] PHP Warning:  Array to string conversion in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerCollection.php on line 178
-[20-Mar-2022 21:50:41 Europe/Berlin] PHP Warning:  Array to string conversion in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerCollection.php on line 178
-[20-Mar-2022 21:50:49 Europe/Berlin] PHP Warning:  Array to string conversion in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerCollection.php on line 178
-[20-Mar-2022 21:50:49 Europe/Berlin] PHP Warning:  Array to string conversion in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerCollection.php on line 178
-[20-Mar-2022 22:39:45 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php:84
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 395
+[22-Mar-2022 17:17:36 Europe/Berlin] PHP Fatal error:  Uncaught Error: Access to undeclared static property app\Model\Project::$ in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:395
 Stack trace:
-#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php(84): PDOStatement->execute()
-#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(89): app\Model\Client::getSearchList()
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(385): app\Model\Project::saveResaltInList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(13): app\Model\Project::updateProjectList()
 #2 [internal function]: {closure}()
 #3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
 #4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
@@ -614,11 +156,194 @@ Stack trace:
 #7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
 #8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
 #9 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 84
-[20-Mar-2022 22:39:58 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php:84
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 395
+[22-Mar-2022 17:29:08 Europe/Berlin] PHP Warning:  Attempt to read property "firstname" on array in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:29:08 Europe/Berlin] PHP Warning:  Attempt to read property "lastname" on array in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:29:08 Europe/Berlin] PHP Warning:  Attempt to read property "id" on array in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:29:08 Europe/Berlin] PHP Warning:  Attempt to read property "title" on array in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:29:08 Europe/Berlin] PHP Warning:  Attempt to read property "idCard" on array in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:29:08 Europe/Berlin] PHP Warning:  Attempt to read property "company" on array in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:29:08 Europe/Berlin] PHP Warning:  Attempt to read property "email" on array in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:29:08 Europe/Berlin] PHP Warning:  Attempt to read property "phone" on array in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:29:08 Europe/Berlin] PHP Warning:  Attempt to read property "mobile" on array in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:29:08 Europe/Berlin] PHP Warning:  Attempt to read property "strAddr" on array in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:29:08 Europe/Berlin] PHP Warning:  Attempt to read property "postcode" on array in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:29:08 Europe/Berlin] PHP Warning:  Attempt to read property "localityName" on array in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:29:08 Europe/Berlin] PHP Warning:  Attempt to read property "countryName" on array in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:29:08 Europe/Berlin] PHP Warning:  Attempt to read property "userID" on array in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:29:08 Europe/Berlin] Error Client __construct: <br>SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'firstname' cannot be null
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$firstname in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$lastname in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$title in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$idCard in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$company in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$email in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$phone in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$mobile in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$strAddr in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$postcode in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$localityName in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$countryName in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$userID in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$firstname in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$lastname in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$title in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$idCard in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$company in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$email in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$phone in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$mobile in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$strAddr in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$postcode in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$localityName in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$countryName in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$userID in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$firstname in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$lastname in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$title in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$idCard in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$company in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$email in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$phone in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$mobile in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$strAddr in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$postcode in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$localityName in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$countryName in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$userID in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:03 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php:365) in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 178
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$firstname in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$lastname in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$title in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$idCard in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$company in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$email in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$phone in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$mobile in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$strAddr in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$postcode in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$localityName in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$countryName in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$userID in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$firstname in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$lastname in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$title in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$idCard in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$company in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$email in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$phone in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$mobile in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$strAddr in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$postcode in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$localityName in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$countryName in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$userID in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$firstname in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$lastname in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$title in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$idCard in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$company in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$email in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$phone in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$mobile in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$strAddr in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$postcode in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$localityName in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$countryName in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$userID in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:30:09 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php:365) in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 178
+[22-Mar-2022 17:31:19 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$firstname in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:19 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$lastname in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:19 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$title in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:19 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$idCard in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:19 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$company in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:19 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$email in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:19 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$phone in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:19 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$mobile in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:19 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$strAddr in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:19 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$postcode in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:19 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$localityName in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:19 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$countryName in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:19 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$userID in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:21 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$firstname in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:21 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$lastname in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:21 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$title in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:21 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$idCard in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:21 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$company in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:21 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$email in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:21 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$phone in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:21 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$mobile in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:21 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$strAddr in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:21 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$postcode in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:21 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$localityName in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:21 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$countryName in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:21 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$userID in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:29 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$firstname in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:29 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$lastname in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:29 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$title in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:29 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$idCard in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:29 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$company in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:29 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$email in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:29 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$phone in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:29 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$mobile in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:29 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$strAddr in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:29 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$postcode in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:29 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$localityName in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:29 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$countryName in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:29 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$userID in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$firstname in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$lastname in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$title in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$idCard in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$company in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$email in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$phone in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$mobile in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$strAddr in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$postcode in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$localityName in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$countryName in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$userID in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$firstname in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$lastname in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$title in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$idCard in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$company in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$email in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$phone in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$mobile in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$strAddr in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$postcode in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$localityName in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$countryName in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$userID in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$firstname in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$lastname in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$title in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$idCard in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$company in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$email in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$phone in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 364
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$mobile in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$strAddr in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$postcode in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$localityName in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$countryName in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$userID in /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php on line 365
+[22-Mar-2022 17:31:33 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/foxcodenine/projects/009_myAdmin/app/Model/Client.php:365) in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 178
+[22-Mar-2022 17:46:34 Europe/Berlin] PHP Notice:  unserialize(): Error at offset 0 of 2 bytes in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 18
+[22-Mar-2022 17:46:34 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, bool given in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewClientsTable.php on line 25
+[22-Mar-2022 17:47:01 Europe/Berlin] PHP Warning:  Undefined array key "srch" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 18
+[22-Mar-2022 17:47:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 18
+[22-Mar-2022 17:47:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 18
+[22-Mar-2022 17:47:01 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, bool given in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewClientsTable.php on line 25
+[22-Mar-2022 17:47:17 Europe/Berlin] PHP Notice:  unserialize(): Error at offset 0 of 4 bytes in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 18
+[22-Mar-2022 17:47:17 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, bool given in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewClientsTable.php on line 25
+[22-Mar-2022 17:47:23 Europe/Berlin] PHP Notice:  unserialize(): Error at offset 0 of 4 bytes in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 18
+[22-Mar-2022 17:47:23 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: usort(): Argument #1 ($array) must be of type array, bool given in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:101
 Stack trace:
-#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php(84): PDOStatement->execute()
-#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(89): app\Model\Client::getSearchList()
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(101): usort()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(27): app\Model\MyUtilities::sortTable()
 #2 [internal function]: {closure}()
 #3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
 #4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
@@ -627,231 +352,123 @@ Stack trace:
 #7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
 #8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
 #9 {main}
-  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 84
-[21-Mar-2022 14:00:35 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:00:35 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:00:35 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:00:59 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:00:59 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:00:59 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:01:00 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:01:00 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:01:00 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:03:15 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:03:15 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:03:15 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:03:43 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:03:43 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:03:43 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:03:51 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:03:51 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:03:51 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:03:58 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:03:58 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:03:58 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:04:08 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:04:08 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:04:08 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:05:51 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:05:51 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:05:51 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:05:54 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:05:54 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:05:54 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:05:55 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:05:55 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:05:55 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:08:25 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:08:25 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:08:25 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:08:26 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:08:26 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:08:26 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:09:04 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:09:04 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:09:04 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:09:31 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:09:31 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:09:31 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:09:32 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:09:32 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:09:32 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:09:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:09:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:09:33 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:09:37 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:09:37 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:09:37 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:10:05 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:10:05 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:10:05 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:11:48 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:11:48 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:11:48 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:11:56 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:11:56 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:11:56 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:11:57 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:11:57 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:11:57 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:11:58 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:11:58 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:11:58 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:12:13 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:12:13 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:12:13 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:12:18 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:12:18 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:12:18 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:12:27 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:12:27 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:12:27 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:12:32 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:12:32 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:12:32 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:12:38 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:12:38 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:12:38 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:12:42 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:12:42 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:12:42 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:12:46 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:12:46 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:12:46 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:13:00 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:13:00 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:13:00 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:14:12 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:14:12 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:14:12 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:14:30 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:14:30 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:14:30 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:14:37 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:14:37 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:14:37 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:16:48 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:16:48 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:16:48 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:17:04 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:17:04 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:17:04 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:17:10 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:17:10 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:17:10 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:17:18 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:17:18 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:17:18 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:17:53 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:17:53 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:17:53 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:17:58 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:17:58 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:17:58 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:19:17 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:19:17 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:19:17 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:19:20 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:19:20 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:19:20 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:19:23 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:19:23 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:19:23 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:19:43 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:19:43 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:19:43 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:19:45 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:19:45 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:19:45 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:19:51 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:19:51 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:19:51 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:20:48 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:20:48 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:20:48 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:20:53 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:20:53 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:20:53 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:21:42 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:21:42 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:21:42 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:21:45 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:21:45 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:21:45 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:21:47 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:21:47 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:21:47 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:21:51 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:21:51 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:21:51 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:21:55 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:21:55 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:21:55 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:22:13 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:22:13 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:22:13 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:22:17 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:22:17 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 14:22:17 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 74
-[21-Mar-2022 15:33:14 Europe/Berlin] PHP Warning:  Undefined array key "cli" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 146
-[21-Mar-2022 15:39:55 Europe/Berlin] PHP Warning:  Undefined array key "srch" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 65
-[21-Mar-2022 15:39:55 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 65
-[21-Mar-2022 15:39:55 Europe/Berlin] PHP Warning:  Undefined array key "srch" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 166
-[21-Mar-2022 15:39:55 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 166
-[21-Mar-2022 15:39:55 Europe/Berlin] PHP Warning:  Undefined array key "srch" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 167
-[21-Mar-2022 15:39:55 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 167
-[21-Mar-2022 15:40:35 Europe/Berlin] PHP Warning:  Undefined array key "firstname" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 55
-[21-Mar-2022 15:40:35 Europe/Berlin] PHP Warning:  Undefined array key "lastname" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 56
-[21-Mar-2022 15:40:35 Europe/Berlin] PHP Warning:  Undefined array key "idCard" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 57
-[21-Mar-2022 15:40:35 Europe/Berlin] PHP Warning:  Undefined array key "company" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 58
-[21-Mar-2022 15:40:35 Europe/Berlin] PHP Warning:  Undefined array key "email" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 59
-[21-Mar-2022 15:40:35 Europe/Berlin] PHP Warning:  Undefined array key "phone" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 60
-[21-Mar-2022 15:40:35 Europe/Berlin] PHP Warning:  Undefined array key "mobile" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 61
-[21-Mar-2022 15:40:35 Europe/Berlin] PHP Warning:  Undefined array key "strAddr" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 62
-[21-Mar-2022 15:40:35 Europe/Berlin] PHP Warning:  Undefined array key "localityName" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 63
-[21-Mar-2022 15:40:35 Europe/Berlin] PHP Warning:  Undefined array key "countryName" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 64
-[21-Mar-2022 15:40:35 Europe/Berlin] PHP Warning:  Undefined array key "srch" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 167
-[21-Mar-2022 15:40:35 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 167
-[21-Mar-2022 15:40:35 Europe/Berlin] PHP Warning:  Undefined array key "srch" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 168
-[21-Mar-2022 15:40:35 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 168
-[21-Mar-2022 15:41:50 Europe/Berlin] PHP Warning:  Undefined array key "firstname" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 55
-[21-Mar-2022 15:41:50 Europe/Berlin] PHP Warning:  Undefined array key "lastname" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 56
-[21-Mar-2022 15:41:50 Europe/Berlin] PHP Warning:  Undefined array key "idCard" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 57
-[21-Mar-2022 15:41:50 Europe/Berlin] PHP Warning:  Undefined array key "company" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 58
-[21-Mar-2022 15:41:50 Europe/Berlin] PHP Warning:  Undefined array key "email" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 59
-[21-Mar-2022 15:41:50 Europe/Berlin] PHP Warning:  Undefined array key "phone" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 60
-[21-Mar-2022 15:41:50 Europe/Berlin] PHP Warning:  Undefined array key "mobile" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 61
-[21-Mar-2022 15:41:50 Europe/Berlin] PHP Warning:  Undefined array key "strAddr" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 62
-[21-Mar-2022 15:41:50 Europe/Berlin] PHP Warning:  Undefined array key "localityName" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 63
-[21-Mar-2022 15:41:50 Europe/Berlin] PHP Warning:  Undefined array key "countryName" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 64
-[21-Mar-2022 15:41:50 Europe/Berlin] PHP Warning:  Undefined array key "srch" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 167
-[21-Mar-2022 15:41:50 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 167
-[21-Mar-2022 15:41:50 Europe/Berlin] PHP Warning:  Undefined array key "srch" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 168
-[21-Mar-2022 15:41:50 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 168
-[21-Mar-2022 15:41:58 Europe/Berlin] PHP Warning:  Undefined array key "firstname" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 55
-[21-Mar-2022 15:41:58 Europe/Berlin] PHP Warning:  Undefined array key "lastname" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 56
-[21-Mar-2022 15:41:58 Europe/Berlin] PHP Warning:  Undefined array key "idCard" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 57
-[21-Mar-2022 15:41:58 Europe/Berlin] PHP Warning:  Undefined array key "company" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 58
-[21-Mar-2022 15:41:58 Europe/Berlin] PHP Warning:  Undefined array key "email" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 59
-[21-Mar-2022 15:41:58 Europe/Berlin] PHP Warning:  Undefined array key "phone" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 60
-[21-Mar-2022 15:41:58 Europe/Berlin] PHP Warning:  Undefined array key "mobile" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 61
-[21-Mar-2022 15:41:58 Europe/Berlin] PHP Warning:  Undefined array key "strAddr" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 62
-[21-Mar-2022 15:41:58 Europe/Berlin] PHP Warning:  Undefined array key "localityName" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 63
-[21-Mar-2022 15:41:58 Europe/Berlin] PHP Warning:  Undefined array key "countryName" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 64
-[21-Mar-2022 15:41:58 Europe/Berlin] PHP Warning:  Undefined array key "srch" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 167
-[21-Mar-2022 15:41:58 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 167
-[21-Mar-2022 15:41:58 Europe/Berlin] PHP Warning:  Undefined array key "srch" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 168
-[21-Mar-2022 15:41:58 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 168
-[21-Mar-2022 16:01:41 Europe/Berlin] PHP Warning:  Undefined array key "srch" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 171
-[21-Mar-2022 16:01:41 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 171
-[21-Mar-2022 16:01:41 Europe/Berlin] PHP Warning:  Undefined array key "srch" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 172
-[21-Mar-2022 16:01:41 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 172
-[21-Mar-2022 16:02:07 Europe/Berlin] PHP Warning:  Undefined array key "srch" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 171
-[21-Mar-2022 16:02:07 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 171
-[21-Mar-2022 16:02:07 Europe/Berlin] PHP Warning:  Undefined array key "srch" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 172
-[21-Mar-2022 16:02:07 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 172
-[21-Mar-2022 16:02:09 Europe/Berlin] PHP Warning:  Undefined array key "srch" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 171
-[21-Mar-2022 16:02:09 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 171
-[21-Mar-2022 16:02:09 Europe/Berlin] PHP Warning:  Undefined array key "srch" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 172
-[21-Mar-2022 16:02:09 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 172
-[21-Mar-2022 16:25:25 Europe/Berlin] PHP Warning:  Undefined array key "BASE_PATH" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 170
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 101
+[22-Mar-2022 17:49:04 Europe/Berlin] PHP Notice:  unserialize(): Error at offset 0 of 2 bytes in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 18
+[22-Mar-2022 17:49:04 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, bool given in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewClientsTable.php on line 25
+[22-Mar-2022 17:49:06 Europe/Berlin] PHP Notice:  unserialize(): Error at offset 0 of 2 bytes in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 18
+[22-Mar-2022 17:49:06 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: usort(): Argument #1 ($array) must be of type array, bool given in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:101
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php(101): usort()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php(27): app\Model\MyUtilities::sortTable()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(35): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 101
+[22-Mar-2022 17:50:50 Europe/Berlin] PHP Warning:  Undefined array key "list" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 20
+[22-Mar-2022 18:00:28 Europe/Berlin] PHP Warning:  Undefined variable $clientSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 165
+[22-Mar-2022 18:00:28 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:00:28 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:00:46 Europe/Berlin] PHP Warning:  Undefined variable $clientSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 165
+[22-Mar-2022 18:00:46 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:00:46 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:02:54 Europe/Berlin] PHP Warning:  Undefined variable $projectSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 168
+[22-Mar-2022 18:02:54 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:02:54 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:03:00 Europe/Berlin] PHP Warning:  Undefined variable $projectSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 168
+[22-Mar-2022 18:03:00 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:03:00 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:03:12 Europe/Berlin] PHP Warning:  Undefined variable $projectSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 168
+[22-Mar-2022 18:03:12 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:03:12 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:03:16 Europe/Berlin] PHP Warning:  Undefined variable $projectSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 168
+[22-Mar-2022 18:03:16 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:03:16 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:03:22 Europe/Berlin] PHP Warning:  Undefined variable $projectSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 168
+[22-Mar-2022 18:03:22 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:03:22 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:03:24 Europe/Berlin] PHP Warning:  Undefined variable $projectSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 168
+[22-Mar-2022 18:03:24 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:03:24 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:03:30 Europe/Berlin] PHP Warning:  Undefined variable $projectSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 168
+[22-Mar-2022 18:03:30 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:03:30 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:03:47 Europe/Berlin] PHP Warning:  Undefined variable $clientSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 167
+[22-Mar-2022 18:03:47 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:03:47 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:03:56 Europe/Berlin] PHP Warning:  Undefined variable $clientSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 167
+[22-Mar-2022 18:03:56 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:03:56 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:06:02 Europe/Berlin] PHP Warning:  Undefined variable $clientSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 166
+[22-Mar-2022 18:06:02 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:06:02 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:06:10 Europe/Berlin] PHP Warning:  Undefined variable $clientSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 166
+[22-Mar-2022 18:06:10 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:06:10 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:06:27 Europe/Berlin] PHP Warning:  Undefined variable $projectSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 167
+[22-Mar-2022 18:06:27 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:06:27 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:06:39 Europe/Berlin] PHP Warning:  Undefined variable $clientSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 166
+[22-Mar-2022 18:06:39 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:06:39 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:06:55 Europe/Berlin] PHP Warning:  Undefined variable $clientSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 166
+[22-Mar-2022 18:06:55 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:06:55 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:07:00 Europe/Berlin] PHP Warning:  Undefined variable $projectSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 167
+[22-Mar-2022 18:07:00 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:07:00 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:07:15 Europe/Berlin] PHP Warning:  Undefined variable $projectSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 167
+[22-Mar-2022 18:07:15 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:07:15 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:07:32 Europe/Berlin] PHP Warning:  Undefined variable $clientSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 166
+[22-Mar-2022 18:07:32 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:07:32 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:07:38 Europe/Berlin] PHP Warning:  Undefined variable $clientSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 166
+[22-Mar-2022 18:07:38 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:07:38 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:07:41 Europe/Berlin] PHP Warning:  Undefined variable $clientSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 166
+[22-Mar-2022 18:07:41 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:07:41 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:07:47 Europe/Berlin] PHP Warning:  Undefined variable $projectSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 167
+[22-Mar-2022 18:07:47 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:07:47 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:07:58 Europe/Berlin] PHP Warning:  Undefined variable $clientSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 166
+[22-Mar-2022 18:07:58 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:07:58 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:08:33 Europe/Berlin] PHP Warning:  Undefined variable $projectSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 167
+[22-Mar-2022 18:08:33 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:08:33 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:08:46 Europe/Berlin] PHP Warning:  Undefined variable $clientSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 166
+[22-Mar-2022 18:08:46 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:08:46 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:09:52 Europe/Berlin] PHP Warning:  Undefined variable $clientSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 166
+[22-Mar-2022 18:09:52 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:09:52 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:11:19 Europe/Berlin] PHP Warning:  Undefined variable $projectSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 167
+[22-Mar-2022 18:11:19 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:11:19 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:11:27 Europe/Berlin] PHP Warning:  Undefined variable $clientSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 166
+[22-Mar-2022 18:11:27 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:11:27 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:13:29 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/views/tables/viewClientsTable.php on line 25
+[22-Mar-2022 18:14:02 Europe/Berlin] PHP Warning:  Undefined variable $projectSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 167
+[22-Mar-2022 18:14:02 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:14:02 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:15:12 Europe/Berlin] PHP Warning:  Undefined variable $projectSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 167
+[22-Mar-2022 18:15:12 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:15:12 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:15:33 Europe/Berlin] PHP Warning:  Undefined variable $clientSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 166
+[22-Mar-2022 18:15:33 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:15:33 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:15:38 Europe/Berlin] PHP Warning:  Undefined variable $projectSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 167
+[22-Mar-2022 18:15:38 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:15:38 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:15:51 Europe/Berlin] PHP Warning:  Undefined variable $projectSearchFields in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSearch.php on line 167
+[22-Mar-2022 18:15:51 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 34
+[22-Mar-2022 18:15:51 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
+[22-Mar-2022 18:22:23 Europe/Berlin] PHP Warning:  Undefined variable $_SESSION in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 382
+[22-Mar-2022 18:22:50 Europe/Berlin] PHP Warning:  Undefined variable $_SESSION in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 382

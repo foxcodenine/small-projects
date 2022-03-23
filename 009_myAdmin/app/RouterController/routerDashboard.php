@@ -1,6 +1,7 @@
 <?php
 
 use app\Model\AwsClass;
+use app\Model\Client;
 use app\Model\DBConnect;
 use app\Model\DBTables;
 use app\Model\MyCript;
@@ -12,6 +13,15 @@ use app\Model\Project;
 $router->match('GET', '/', function() {
 
     $projectList = Project::getProjectList();
+
+
+    // ----- Init Search Page Session
+    
+    if (!isset($_SESSION['search-client-list'])) {
+        $_SESSION['search-client-list']  = serialize(Client::getClientList());
+        $_SESSION['search-project-list'] = serialize($projectList);
+    }
+    
 
 
     // ----- Change change dashboard display

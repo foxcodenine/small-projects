@@ -224,8 +224,8 @@ use app\Model\MyUtilities;
 
     </form>
 
-    <?php echo '<br> Clients:  '; if(isset($testDataClient)) print_r($testDataClient) ?>
-    <?php echo '<br> Projects: '; if(isset($testDataProject)) print_r($testDataProject) ?>
+    <?php // echo '<br> Clients:  '; if(isset($testDataClient)) print_r($testDataClient) ?>
+    <?php // echo '<br> Projects: '; if(isset($testDataProject)) print_r($testDataProject) ?>
 
 
     <!-- /////////////////////////////////////////////////////////// -->

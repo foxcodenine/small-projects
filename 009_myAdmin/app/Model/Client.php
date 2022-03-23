@@ -352,6 +352,13 @@ class Client  implements JsonSerializable {
 
 		$result = $stmt->fetchAll(PDO::FETCH_OBJ);
 
+		self::saveResaltInList($result);
+	}
+
+	public static function saveResaltInList ($result) {
+
+		static::$ClientList = [];
+
 		foreach($result as $c) {
 			$client = new self(
 				$c->firstname, $c->lastname, $c->id, $c->title,  $c->idCard, $c->company, $c->email, $c->phone,  

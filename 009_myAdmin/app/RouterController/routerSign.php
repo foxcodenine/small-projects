@@ -17,6 +17,10 @@ $router->match('GET', '/sign-out', function() {
     } else {
         $currentUser = null;
     }
+
+    unset($_SESSION['search-client-list']);
+    unset($_SESSION['search-project-list']);
+
     
     MyUtilities::unsetCookie($currentUser);
     MyUtilities::redirect($_ENV['BASE_PATH'] . '/sign-in');

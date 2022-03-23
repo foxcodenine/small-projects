@@ -11,17 +11,16 @@ use app\Model\Client;
 
 $router->match('GET|POST', '/search', function() {  
 
+    $table = $_GET['sortTable'] ?? false;
+    $table = MyCript::stringSanitize($table);
+
     // -------------------------------------------------
     
-    Client::updateClientList();
+    // Client::updateClientList();
 
-    $clientList = Client::getClientList();
-
-    // -------------------------------------------------
-
-    $table = $_GET['sortTable'] ?? false;
-
-    $table = MyCript::stringSanitize($table);
+    $clientList = $_SESSION['search-client-list'] ?? 'a:0:{}';
+    $clientList = unserialize($clientList);
+    
 
     if ($table === 'Client') {
         $clientList = MyUtilities::sortTable($clientList);
@@ -29,9 +28,11 @@ $router->match('GET|POST', '/search', function() {
          
     // -------------------------------------------------
 
-    Project::updateProjectList();
+    // Project::updateProjectList();
 
-    $projectList = Project::getProjectList();
+
+    $projectList = $_SESSION['search-project-list'] ?? 'a:0:{}';
+    $projectList = unserialize($projectList);
 
 
     if ($table === 'Project') {
@@ -79,7 +80,7 @@ $router->match('GET|POST', '/search', function() {
     // -----------------------------------------------------------------
     // --- Clear search array
 
-    $clientSearchFields = $projectSearchFields = ['localityName'  =>  '1x2x3x4x'];
+    // $clientSearchFields = $projectSearchFields = ['localityName'  =>  '1x2x3x4x'];
 
     // -----------------------------------------------------------------
     // --- Post Method
@@ -125,7 +126,9 @@ $router->match('GET|POST', '/search', function() {
             array_walk($clientSearchFields, function(&$v, $k) {
                 $v = trim(htmlentities($v));
                 $v = $v === '' ? false : $v;
-            });            
+            });   
+            
+            Client::getSearchList('Client', $clientSearchFields);
         }
 
         // --- Post Project
@@ -159,11 +162,13 @@ $router->match('GET|POST', '/search', function() {
             array_walk($projectSearchFields, function(&$v, $k) {
                 $v = trim(htmlentities($v));
                 $v = $v === '' ? false : $v;
-            });            
+            });  
+            
+            Project::getSearchList('Project', $projectSearchFields);
         }
                 
-        $_SESSION['srch']['cli']['list'] = Client::getSearchList('Client', $clientSearchFields);
-        $_SESSION['srch']['pro']['list'] = Project::getSearchList('Project', $projectSearchFields);
+        
+        
 
 
         // -------------------------------------------------------------
@@ -184,9 +189,6 @@ $router->match('GET|POST', '/search', function() {
     
     // $_SESSION['srch']['cli'];
     //  = $_SESSION['srch']['pro'];
-
-
-
 
 
     // -----------------------------------------------------------------

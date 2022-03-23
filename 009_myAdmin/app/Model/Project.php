@@ -382,6 +382,19 @@ class Project {
 
 		$result = $stmt->fetchAll(PDO::FETCH_OBJ);
 
+		self::saveResaltInList($result);
+
+	}
+
+	public static function saveResaltInList ($result) {
+
+		// if ('app\Model\Project' === static::class) $List = 'ProjectList';
+		// if ('app\Model\Client'  === static::class) $List = 'ClientList';
+		// static::$$List = [];
+
+		static::$ProjectList = [];
+
+
 		foreach($result as $p) {
 			$project = new self( $p->projectname, 
 				$p->id, $p->strAddr, $p->projectNo, $p->paNo,  $p->projectDate, $p->cover,
@@ -389,7 +402,7 @@ class Project {
 				$p->hosted
 			);
 
-			self::$ProjectList[$project->getId()] = $project; 				
+			static::$ProjectList[$project->getId()] = $project; 				
 		}
 	}
 
