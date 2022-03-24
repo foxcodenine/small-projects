@@ -163,7 +163,7 @@ use app\Model\MyUtilities;
 
             <div class="top-pannel__buttons">
                 <a href="<?= $_ENV['BASE_PATH'] ?>/clients-add" class="btn btn--light">add new client</a>
-                <button class="btn btn--red modalBtn" type="button">remove client</button>
+                <button class="btn btn--red modalBtn searchRemoveBtn" type="button">remove client</button>
             </div>
         </div>
 
@@ -180,11 +180,13 @@ use app\Model\MyUtilities;
 
 
         <div class="search__errors" id="search-errors-client">
-            clients error placeholder! .... clients error placeholder! ....
+            <!-- clients error placeholder! .... clients error placeholder! .... -->
+            <?php echo $clientErrorMessage ?>
         </div>
 
-        <div class="search__errors search__hidden" id="search-errors-project">
-            projects error placeholder! .... projects error placeholder! ....
+        <div class="search__errors" id="search-errors-project">
+            <!-- projects error placeholder! .... projects error placeholder! .... -->
+            <?php echo $projectErrorMessage ?>
         </div>
 
         
@@ -213,8 +215,7 @@ use app\Model\MyUtilities;
                 <div class="modal__question modal-question-js">Are you sure you want to delete these Projects?</div>
 
                 <div  class="modal__confirmation" method="POST">
-                
-                    
+                                   
                     <button class="btn btn--light modal__cancel" type="button">cancel</button>
                     <button class="btn btn--red myLoaderBtn" >Confirm</button>
                 </div>

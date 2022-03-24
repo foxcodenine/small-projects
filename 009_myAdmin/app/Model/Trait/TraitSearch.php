@@ -13,10 +13,15 @@ trait TraitSearch {
 
     public static function getSearchList ($tableName, $fieldsArray = []) {
 
+        // _____________________________________________________________
+        // --- fetch user id
 
         $currentUser = MyUtilities::checkCookieAndReturnUser(); 
 		MyUtilities::userInSessionPage();
 		$userID = $currentUser->getId();
+
+        // _____________________________________________________________
+        // --- creating array for whitelist filtering
 
         $whiteList = [
             'firstname', 'lastname', 'idCard', 'company', 'email', 
@@ -25,11 +30,10 @@ trait TraitSearch {
             'stageName', 'categoryName', 'clientId' 
         ];
 
+        // _____________________________________________________________
+        // --- creating sql string
+
         $sql  = "SELECT * FROM $tableName WHERE userID = :userID";
-
-
-        // ____________________________________________________________
-
 
         foreach ($fieldsArray as $column => $value) {
 
@@ -64,7 +68,7 @@ trait TraitSearch {
         $stmt = $conn->prepare($sql);        
 
         // ____________________________________________________________
-        // --- binding
+        // --- binding values
 
         $stmt->bindValue(':userID', $userID);
 
@@ -78,29 +82,32 @@ trait TraitSearch {
 
         $stmt->bindValue(':userID', $userID); 
         
+        // ____________________________________________________________
+        // --- executing
         
         $stmt->execute();
 
         $result = $stmt->fetchAll(PDO::FETCH_OBJ);        
  
-        
-        // return $result;
+        // ____________________________________________________________
+        // --- Saving result in $ClientList or $ProjectList
+
         self::saveResaltInList($result);
+
+        // ____________________________________________________________
+        // --- Saving list in session according Class
 
 
         if (__CLASS__ === 'app\Model\Client') {
-
              $_SESSION['search-client-list'] = serialize(self::$ClientList);
         }
 
 
         if (__CLASS__ === 'app\Model\Project') {
-
-            // exit();
-
             $_SESSION['search-project-list'] = serialize(self::$ProjectList);
         }
-
+        
+        // ____________________________________________________________
         
     }
 }

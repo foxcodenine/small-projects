@@ -1,11 +1,9 @@
 <?php
 
-
 use app\Model\MyCript;
 use app\Model\MyUtilities;
 use app\Model\Project;
 use app\Model\Client;
-
 
 
 
@@ -14,33 +12,28 @@ $router->match('GET|POST', '/search', function() {
     $table = $_GET['sortTable'] ?? false;
     $table = MyCript::stringSanitize($table);
 
-    // -------------------------------------------------
-    
-    // Client::updateClientList();
+    // -------------------------------------------------    
+    // --- Fetching clients object list from session & sorting
 
     $clientList = $_SESSION['search-client-list'] ?? 'a:0:{}';
-    $clientList = unserialize($clientList);
-    
+    $clientList = unserialize($clientList);    
 
     if ($table === 'Client') {
         $clientList = MyUtilities::sortTable($clientList);
     }    
          
     // -------------------------------------------------
-
-    // Project::updateProjectList();
-
+    // --- Fetching project object list from session & sorting
 
     $projectList = $_SESSION['search-project-list'] ?? 'a:0:{}';
     $projectList = unserialize($projectList);
-
 
     if ($table === 'Project') {
         $projectList = MyUtilities::sortTable($projectList);
     }
 
     // -----------------------------------------------------------------
-    // --- Get select options
+    // --- Fetching select options
 
     $listLocality = MyUtilities::fetchOptionsFromDB('locality');
     $listCountry  = MyUtilities::fetchOptionsFromDB('country');
@@ -50,7 +43,7 @@ $router->match('GET|POST', '/search', function() {
      
 
     // -----------------------------------------------------------------
-    // --- Clear featch session variables
+    // --- Fetching input values from session 
 
     $firstname    = $_SESSION['srch']['cli']['firstname'] ?? '';
     $lastname     = $_SESSION['srch']['cli']['lastname'] ?? '';
@@ -71,28 +64,29 @@ $router->match('GET|POST', '/search', function() {
     $stageName    = $_SESSION['srch']['pro']['stageName'] ?? '';
     $categoryName = $_SESSION['srch']['pro']['categoryName'] ?? '';
 
-    $testDataClient  = $_SESSION['srch']['cli']['list'] ?? false;
-    $testDataProject = $_SESSION['srch']['pro']['list'] ?? false;
-
+    // $testDataClient  = $_SESSION['srch']['cli']['list'] ?? false;
+    // $testDataProject = $_SESSION['srch']['pro']['list'] ?? false;
     unset($_SESSION['srch']);
 
+    // ----------------------------------------------------------------- 
+    // --- Error message 
+
+    $projectErrorMessage = count($projectList) < 1 ? 'Your search yielded no results!': '&nbsp;';
+    $clientErrorMessage  = count($clientList)  < 1 ? 'Your search yielded no results!': '&nbsp;';
 
     // -----------------------------------------------------------------
-    // --- Clear search array
-
-    // $clientSearchFields = $projectSearchFields = ['localityName'  =>  '1x2x3x4x'];
-
-    // -----------------------------------------------------------------
-    // --- Post Method
+    // ----------- Post Method
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $searchBtn = $_POST['searchBtn'] ?? false;
         $searchBtn = MyCript::stringSanitize($searchBtn);
 
-        // --- Post Client
+        // ------- Post Client
 
         if ($searchBtn === 'client') {
+
+            // --- Saving post data in array 
 
             $clientSearchFields = [ 
                 'firstname'     => $_POST['firstname'] ?? false ,
@@ -107,6 +101,8 @@ $router->match('GET|POST', '/search', function() {
                 'countryName'   => $_POST['country'] ?? false 
             ];
 
+            // --- Saving post data in session
+
             list (
                 'firstname'     => $_SESSION['srch']['cli']['firstname'],
                 'lastname'      => $_SESSION['srch']['cli']['lastname'],
@@ -120,21 +116,24 @@ $router->match('GET|POST', '/search', function() {
                 'countryName'   => $_SESSION['srch']['cli']['countryName']
             )= $clientSearchFields;
             
-  
-            
+            // --- Sanitizing  data                         
 
             array_walk($clientSearchFields, function(&$v, $k) {
                 $v = trim(htmlentities($v));
                 $v = $v === '' ? false : $v;
-            });   
+            });  
+            
+            // --- Creating ClientList from data 
             
             Client::getSearchList('Client', $clientSearchFields);
         }
 
-        // --- Post Project
+        // ------- Post Project
 
         if ($searchBtn === 'project') {
-            
+
+            // --- Saving post data in array 
+
             $projectSearchFields = [
                 'projectname'   => $_POST['projectname'] ?? false,
                 'clientId'      => $_POST['clientId'] ?? false,
@@ -145,6 +144,8 @@ $router->match('GET|POST', '/search', function() {
                 'stageName'     => $_POST['stageName'] ?? false,
                 'categoryName'  => $_POST['categoryName'] ?? false,
             ];
+
+            // --- Saving post data in session
 
             list (
                 'projectname'   => $_SESSION['srch']['pro']['projectname'],
@@ -157,16 +158,17 @@ $router->match('GET|POST', '/search', function() {
                 'categoryName'  => $_SESSION['srch']['pro']['categoryName'],
             ) = $projectSearchFields;
 
-
+            // --- Sanitizing  data 
                 
             array_walk($projectSearchFields, function(&$v, $k) {
                 $v = trim(htmlentities($v));
                 $v = $v === '' ? false : $v;
-            });  
+            }); 
+            
+            // --- Creating ProjectList from data
             
             Project::getSearchList('Project', $projectSearchFields);
-        }
-                
+        }               
         
         
 
@@ -186,15 +188,9 @@ $router->match('GET|POST', '/search', function() {
 
     // -----------------------------------------------------------------
 
-    
-    // $_SESSION['srch']['cli'];
-    //  = $_SESSION['srch']['pro'];
-
-
-    // -----------------------------------------------------------------
 
     $pageName = 'search'; include './app/views/_page.php';
-   
+    
     exit;
 });
 

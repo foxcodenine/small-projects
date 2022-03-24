@@ -2,6 +2,19 @@
 
 searchTabToggle();
 clearfields();
+// etMessageInSearchDeleteModal();
+
+// _____________________________________________________________________
+
+// function setMessageInSearchDeleteModal() {
+
+//     const projectsMessage = document.querySelector('.modal-hidden-message-js2');
+//     const clientsMessage  = document.querySelector('.modal-hidden-message-js');
+
+//     if (!projectsMessage) return;
+
+
+// }
 
 // _____________________________________________________________________
 
@@ -12,6 +25,8 @@ function clearfields() {
 
     const clearClientFields  = document.querySelector('#search-fields-client');
     const clearProjectFields = document.querySelector('#search-fields-project');
+
+
 
     // --------------------------------
 
@@ -80,6 +95,14 @@ function searchTabToggle () {
     const clientTable = document.getElementById('table-container-client');
     const projectTable = document.getElementById('table-container-project');
 
+    const searchRemoveBtn = document.querySelector('.searchRemoveBtn');
+
+    const modalHiddenMessage = document.querySelector('.modal-hidden-message-js');
+    const modalQuestion      = document.querySelector('.modal-question-js');
+
+    let messageClient = 'Are you sure you want to delete these Clients?';
+    let messageProject = 'Are you sure you want to delete these Projects?';
+
     if (!tabs) return;
 
     // _________________________________________________________________
@@ -105,13 +128,23 @@ function searchTabToggle () {
         clientTab.classList.remove('search__tab--active');
         clientForm.classList.add('search__hidden');
         projectForm.classList.remove('search__hidden');
+        clientError.classList.add('search__hidden'); 
+
+        modalHiddenMessage.textContent = messageProject;
+        modalQuestion.textContent = messageProject;
+        searchRemoveBtn.textContent = 'remove project';
 
     } else {
 
         projectTable.classList.add('search__hidden');
         projectTab.classList.remove('search__tab--active');
         projectForm.classList.add('search__hidden');
-        clientForm.classList.remove('search__hidden');        
+        clientForm.classList.remove('search__hidden');   
+        projectError.classList.add('search__hidden'); 
+        
+        modalHiddenMessage.textContent = messageClient;
+        modalQuestion.textContent = messageClient;
+        searchRemoveBtn.textContent = 'remove client';
     }
     
 
@@ -154,8 +187,11 @@ function searchTabToggle () {
             clientTab.classList.add('search__tab--active');
             clientForm.classList.remove('search__hidden');
             clientError.classList.remove('search__hidden');
-
             clientTable.classList.remove('search__hidden');
+
+            modalHiddenMessage.textContent = messageClient;
+            modalQuestion.textContent = messageClient;
+            searchRemoveBtn.textContent = 'remove client';   
             
 
 
@@ -165,6 +201,11 @@ function searchTabToggle () {
             projectForm.classList.remove('search__hidden');
             projectError.classList.remove('search__hidden');
             projectTable.classList.remove('search__hidden');
+
+            modalHiddenMessage.textContent = messageProject;
+            modalQuestion.textContent = messageProject;
+            searchRemoveBtn.textContent = 'remove project';
+            
 
         }       
 

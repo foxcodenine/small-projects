@@ -472,3 +472,5 @@ Stack trace:
 [22-Mar-2022 18:15:51 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in /home/foxcodenine/projects/009_myAdmin/app/Model/Trait/TraitSearch.php on line 71
 [22-Mar-2022 18:22:23 Europe/Berlin] PHP Warning:  Undefined variable $_SESSION in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 382
 [22-Mar-2022 18:22:50 Europe/Berlin] PHP Warning:  Undefined variable $_SESSION in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 382
+[23-Mar-2022 16:21:06 Europe/Berlin] PHP Warning:  Undefined variable $clientErrorMessag in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 184
+[23-Mar-2022 16:21:06 Europe/Berlin] PHP Warning:  Undefined variable $projectErrorMessag in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 189
