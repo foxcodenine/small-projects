@@ -1,12 +1,14 @@
 <?php
 
-namespace app\Model;
+namespace app\Model\Abstract;
 
 use app\Model\DBConnect;
+use app\Model\MyUtilities;
 use Exception;
 use PDO;
 use PDOException;
 use JsonSerializable;
+
 
 
 abstract class Collection  {
