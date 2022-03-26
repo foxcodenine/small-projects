@@ -6,28 +6,28 @@
 
 
     
-        <img class="pro_details__cover" src="./app/static/images/signing/img-sign-14.jpg" alt="">
+        <img class="pro_details__cover" src="<?= $pro->getCover() ?>" alt="">
 
         <div class="pro_details__group">
-            <h3 class="pro_details__name">Sirens complex</h3>
-            <h3 class="pro_details__address">61 koala st Edward Street Birzebbuga</h3>
-            <h3 class="pro_details__client">Chistopher Farrugia</h3>
+            <h3 class="pro_details__name"><?= $pro->getProjectName() ?></h3>
+            <h3 class="pro_details__address"><?= $pro->getStrAddr() ?>, <?= $pro->getLocalityName() ?></h3>
+            <h3 class="pro_details__client"><?= $pro->fetchClientName() ?></h3>
 
             <div class="pro_details__numbers">
-                <span>PA No: <b>1248/2022</b></span>
-                <span>PROJECT No: <b>1248/2022</b></span>
+                <span><b><?= $pro->getPaNo() ?: '##/####' ?></b></span>
+                <span>PROJECT No: <b><?= $pro->getProjectNo() ?: '####/####' ?></b></span>
             </div>
 
             <div class="pro_details__date">
                 <svg class="pro_details__icon icon__svg"> <use xlink:href="./app/static/svg/icomoon.svg#icon-clock-thin"></use></svg>
-                <span>&nbsp; January 04, 2022 1:25:36 PM</span>
+                <span>&nbsp; <?= $pro->getProjectDate() ?> January 04, 2022 1:25:36 PM</span>
                 
             </div>
 
             <div class="pro_details__btn">
                 <button class="btn btn--light">Edit</button>
                 <button class="btn btn--light">Images</button>
-                <button class="btn btn--light">Project</button>
+                <button class="btn btn--light">Projects</button>
             </div>
         </div>
 

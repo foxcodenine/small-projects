@@ -37,8 +37,27 @@ $router->match('GET|POST', '/projects-delete', function() {
 
 ////////////////////////////////////////////////////////////////////////
 
-$router->match('GET', '/projects-detail-1', function() {  
+$router->match('GET', '/projects-detail-(\d+)', function($id) {  
     
+    
+    $projectId = (int) MyCript::stringSanitize($id);
+    // header('Content-Type: application/json');
+
+
+    $projectList = Project::getProjectList();    
+
+
+    $pro = $projectList[$projectId] ?? false;
+
+
+    // // print_r($projectId);
+    // // print_r($projectList);
+    // print_r($pro); 
+    // exit();
+
+    if (!$pro) {
+        header('location: ' . $_ENV['BASE_PATH']);
+    }
 
     $pageName = 'detail'; include './app/views/_page.php';
    
@@ -46,3 +65,9 @@ $router->match('GET', '/projects-detail-1', function() {
 });
 
 ////////////////////////////////////////////////////////////////////////
+
+
+$router->set404(function() {
+    header('HTTP/1.1 404 Not Found');
+    echo '... do something special here';
+});

@@ -50,7 +50,7 @@
                     <a href="<?= $_ENV['BASE_PATH'] ?>/projects-edit<?= $p->getId() ?>" class="icon__link" id="table-icon-update">
                         <svg class="icon__svg"> <use xlink:href="./app/static/svg/icomoon.svg#icon-pencil-10"></use></svg>
                     </a>
-                    <a href="#" class="icon__link" id="table-icon-details">
+                    <a href="<?= $_ENV['BASE_PATH'] ?>/projects-detail-<?= $p->getId() ?>" class="icon__link" id="table-icon-details">
                         <svg class="icon__svg"> <use xlink:href="./app/static/svg/icomoon.svg#icon-view-12"></use></svg>
                     </a>
                     <a class="icon__link  project-remove-link" id="project-id-link-<?= $p->getId(); ?>">

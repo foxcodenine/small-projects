@@ -806,9 +806,9 @@ main.pages {
   padding-top: 1rem;
   transition: all 0.1s ease;
   width: 5rem;
-  top: 5.4rem;
+  top: 5.45rem;
   left: 0;
-  z-index: 100;
+  z-index: 500;
 }
 @media only screen and (max-width: 50em) {
   .sidemenu {
@@ -874,7 +874,7 @@ main.pages {
 .sidemenu__line {
   width: 100%;
   background-color: rgba(27, 38, 49, 0.5);
-  height: 1px;
+  height: 0.05rem;
   margin: 1rem 0;
 }
 @media only screen and (max-width: 50em) {
@@ -2422,6 +2422,7 @@ div_box.innerHTML = `
   grid-column: 1/-1;
   line-height: 1.5;
   font-weight: 300;
+  text-align: justify;
 }
 
 .sign {

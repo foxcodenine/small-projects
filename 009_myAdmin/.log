@@ -474,3 +474,45 @@ Stack trace:
 [22-Mar-2022 18:22:50 Europe/Berlin] PHP Warning:  Undefined variable $_SESSION in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 382
 [23-Mar-2022 16:21:06 Europe/Berlin] PHP Warning:  Undefined variable $clientErrorMessag in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 184
 [23-Mar-2022 16:21:06 Europe/Berlin] PHP Warning:  Undefined variable $projectErrorMessag in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSearch.php on line 189
+[25-Mar-2022 14:13:59 Europe/Berlin] PHP Warning:  Undefined array key 8 in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php on line 53
+[25-Mar-2022 14:33:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function getCover() in /home/foxcodenine/projects/009_myAdmin/app/views/projects/viewProjectsDetails.php:22
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/views/_page.php(112): include()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(62): include('...')
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(35): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/views/projects/viewProjectsDetails.php on line 22
+[25-Mar-2022 14:33:37 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function getCover() in /home/foxcodenine/projects/009_myAdmin/app/views/projects/viewProjectsDetails.php:9
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/views/_page.php(112): include()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(62): include('...')
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(35): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/views/projects/viewProjectsDetails.php on line 9
+[25-Mar-2022 14:35:19 Europe/Berlin] PHP Warning:  Undefined property: app\Model\Project::$getStrAddr in /home/foxcodenine/projects/009_myAdmin/app/views/projects/viewProjectsDetails.php on line 13
+[25-Mar-2022 14:35:19 Europe/Berlin] PHP Warning:  Undefined property: app\Model\Project::$getLocalityName in /home/foxcodenine/projects/009_myAdmin/app/views/projects/viewProjectsDetails.php on line 13
+[25-Mar-2022 14:45:36 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method app\Model\Project::getDate() in /home/foxcodenine/projects/009_myAdmin/app/views/projects/viewProjectsDetails.php:23
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/views/_page.php(112): include()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerProjects.php(62): include('...')
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(35): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/views/projects/viewProjectsDetails.php on line 23

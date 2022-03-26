@@ -132,16 +132,7 @@
 
 
 
-
-
         <?php include './details.html' ?>
-
-
-
-
-
-
-
 
 
 

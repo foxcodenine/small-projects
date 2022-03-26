@@ -20,10 +20,10 @@
 
     width: 5rem;
 
-    top: 5.4rem;
+    top: 5.45rem;
     left: 0;
 
-    z-index: 100;
+    z-index: 500;
 
     @include respond ($bp-medium) { 
         height: max-content;
@@ -95,7 +95,7 @@
     &__line {
         width: 100%;
         background-color:  rgba( $col-black, .5);
-        height: 1px;
+        height: .05rem;
         margin: 1rem 0;
 
         &--last {
