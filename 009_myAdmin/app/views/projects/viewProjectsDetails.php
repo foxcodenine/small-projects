@@ -9,50 +9,27 @@
         <img class="pro_details__cover" src="<?= $pro->getCover() ?>" alt="">
 
         <div class="pro_details__group">
-            <h3 class="pro_details__name"><?= $pro->getProjectName() ?></h3>
-            <h3 class="pro_details__address"><?= $pro->getStrAddr() ?>, <?= $pro->getLocalityName() ?></h3>
+            <h3 class="pro_details__name"><?= $projectName ?></h3>
+            <h3 class="pro_details__address"><?= $addressStr ?></h3>
             <h3 class="pro_details__client"><?= $pro->fetchClientName() ?></h3>
 
             <div class="pro_details__numbers">
-                <span><b><?= $pro->getPaNo() ?: '##/####' ?></b></span>
-                <span>PROJECT No: <b><?= $pro->getProjectNo() ?: '####/####' ?></b></span>
+                <?= $numberStr ?>
             </div>
 
             <div class="pro_details__date">
                 <svg class="pro_details__icon icon__svg"> <use xlink:href="./app/static/svg/icomoon.svg#icon-clock-thin"></use></svg>
-                <span>&nbsp; <?= $pro->getProjectDate() ?> January 04, 2022 1:25:36 PM</span>
+                <span>&nbsp; <?= $projectDate ?></span>
                 
             </div>
 
-            <div class="pro_details__btn">
-                <button class="btn btn--light">Edit</button>
-                <button class="btn btn--light">Images</button>
-                <button class="btn btn--light">Projects</button>
-            </div>
+            <form class="pro_details__btn" method="POST">
+                <a href="<?= $projectEditLink ?>" class="btn btn--light">Edit</a>
+                <a href="<?= $projectImgsLink ?>" class="btn btn--light">Images</a>
+                <a href="<?= $projectsLink?>" class="btn btn--light">Projects</a>                
+                <button class="btn btn--light" type="submit" name="proDetailsHostBtn" value="1"><?= $hostBtn ?></button>
+            </form>
         </div>
 
-
-        <p class="pro_details__content">
-            Contrary to popular belief, Lorem Ipsum is not simply random text. It 
-            has roots in a piece of classical Latin literature from 45 BC, making 
-            it over 2000 years old. Richard McClintock, a Latin professor at 
-            Hampden-Sydney College in Virginia, looked up one of the more obscure
-            Latin words, consectetur, from a Lorem Ipsum passage, and going through 
-            the cites of the word in classical literature, discovered the undoubtable
-            source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus 
-            Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 
-            45 BC. This book is a treatise on the theory of ethics, very popular during 
-            the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..",
-            comes from a line in section 1.10.32.
-
-            The standard chunk of Lorem Ipsum used since the 1500s is reproduced 
-            below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus 
-            Bonorum et Malorum" by Cicero are also reproduced in their exact original 
-            form, accompanied by English versions from the 1914 translation by 
-            H. Rackham.
-        </p> 
-        
-
-   
-
+        <?php echo $projectContent?> 
 </section>

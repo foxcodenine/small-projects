@@ -49,20 +49,79 @@ $router->match('GET', '/projects-detail-(\d+)', function($id) {
 
     $pro = $projectList[$projectId] ?? false;
 
+    // _________________________________________________________________
 
-    // // print_r($projectId);
-    // // print_r($projectList);
-    // print_r($pro); 
-    // exit();
 
     if (!$pro) {
         header('location: ' . $_ENV['BASE_PATH']);
     }
 
+    // _________________________________________________________________
+    // --- Set variables for view page
+
+    $projectName = stripslashes($pro->getProjectName());
+
+
+    $addressStr = [];
+    if ($pro->getStrAddr()) array_push($addressStr, $pro->getStrAddr());
+    if ($pro->getLocalityName()) array_push($addressStr, $pro->getLocalityName());
+    $addressStr = stripslashes(implode(', &nbsp; ', $addressStr));
+
+    $paNo = $pro->getPaNo() ? "<span><b>{$pro->getPaNo()}</b></span>" : false;
+    $projectNo =  $pro->getProjectNo() ? "<b>{$pro->getProjectNo()}</b>" : false;
+
+    $numberStr = '';
+    if ($paNo) $numberStr .= $paNo . ' &nbsp; &nbsp; ';
+    if ($paNo) $numberStr .= '<span>PROJECT No: ' . $projectNo . '</span>';
+
+    
+    $dateObject         = DateTime::createFromFormat('Y-m-d', $pro->getProjectDate());
+    $projectDate        = $dateObject->format('F j, o');
+
+    $projectEditLink    = "{$_ENV['BASE_PATH']}/projects-edit{$pro->getId()}";
+    $projectImgsLink    = "{$_ENV['BASE_PATH']}/projects-images-{$pro->getId()}";
+    $projectsLink       = "{$_ENV['BASE_PATH']}/projects";
+
+    $projectContent     = htmlspecialchars_decode($pro->descript('read'));
+    $projectContent     = substr_replace($projectContent, '<p class="pro_details__content">', 0, 3);
+
+    $hostBtn            = $pro->getHosted() ? 'Un-Host' : 'Host';
+ 
+
     $pageName = 'detail'; include './app/views/_page.php';
    
     exit;
 });
+
+
+$router->match('POST', '/projects-detail-(\d+)', function($id) {  
+    
+    
+    $projectId = (int) MyCript::stringSanitize($id);
+    $projectList = Project::getProjectList();   
+    $pro = $projectList[$projectId] ?? false;
+
+    // _________________________________________________________________
+
+    if (!$pro) {
+
+        header('location: ' . $_ENV['BASE_PATH']);
+    } else {
+
+        $hosted = (bool) $pro->getHosted();
+        $hosted = (int) !$hosted;
+
+        $pro->setHosted($hosted);
+        $pro->updateProjectToDB();
+    }
+
+    // _________________________________________________________________ 
+
+    header('location: ' . $_ENV['BASE_PATH'] . '/projects-detail-' . $projectId);
+    exit;
+});
+
+
 
 ////////////////////////////////////////////////////////////////////////
 

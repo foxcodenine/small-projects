@@ -29,7 +29,12 @@
 
         @include respond ($bp-smaller) {
             margin-top:  1.8vw;
-            margin-right: calc(calc(calc(100vw - calc(46rem + var(--width-side-img))) / 2) + 21.2rem);
+            
+        }
+
+        @include respond(420) {
+            display: none;         
+        
         }
 
 
@@ -101,8 +106,8 @@
     z-index            : 1;
     overflow           : hidden;
     transform          :rotate(45deg)scale(.93);
-    box-shadow         : inset 0px 0px 0px 8px rgb(45, 56, 156),inset 0px 0px 0px 4px rgba(0,0,0,0.5),inset 0px 0px 0px 5px rgba(255,255,255,0.4), 0px 21px 5px -18px rgba(0,0,0,0.8); 
-    box-shadow         : inset 0px 0px 1px 1px rgba(255, 255, 255, 0.4),inset 0px 0px 0px 1px rgba(0,0,0,0.3),inset 0px 0px 0px 0px rgba(255,255,255,0.4), -7px 12px 8px -14px rgba(0,0,0,0.8); 
+    box-shadow         : inset 0rem 0rem 0rem .8rem rgb(45, 56, 156),inset 0rem 0rem 0rem .4rem rgba(0,0,0,0.5),inset 0rem 0rem 0rem .5rem rgba(255,255,255,0.4), 0rem 2.1rem .5rem -1.8rem rgba(0,0,0,0.8); 
+    box-shadow         : inset 0rem 0rem .1rem .1rem rgba(255, 255, 255, 0.4),inset 0rem 0rem 0rem .1rem rgba(0,0,0,0.3),inset 0rem 0rem 0rem 0rem rgba(255,255,255,0.4), -.7rem 1.2rem .8rem -1.4rem rgba(0,0,0,0.8); 
 
 
     /* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -146,7 +151,7 @@
     width             : 1.3rem;
     position          : relative;
     bottom            : 9rem;
-    left              : 145px;
+    left              : 14.5rem;
     transform         : rotate(45deg);
     -ms-transform     : rotate(45deg);
     -moz-transform    : rotate(45deg);

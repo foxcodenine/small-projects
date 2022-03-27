@@ -106,24 +106,8 @@
     &__numbers {
         margin-top: 2rem;
         font-size: 1.4rem;
-        display: flex;
-        gap: 2rem;
-        
-
-
-
-        @include respond ($bp-medium) {
-            flex-wrap: wrap; 
-            gap: .7rem;
-
-            & > * {  flex: 0 0 100%; }
-        }
-
-        @include respond ($bp-small) {
-            display: inline-block;
-            & > * {  margin-right: 2rem; }
-            
-        }   
+        display: inline-block;
+        & > * {  margin-right: 2rem; }   
     }
 
     &__date {
@@ -133,7 +117,6 @@
 
         @include respond ($bp-larg) {
             font-size: 1.6rem;            
-
         }
     }
 
@@ -144,9 +127,18 @@
         margin-top: auto;
         display: flex;
         gap: 2rem;
+        flex-wrap: wrap;
+
+        @include respond ($bp-larg) {
+            
+            gap: 1rem;           
+        }
+        
 
         & > * {
             flex: 1;
+            font-weight: 500;
+            min-width: 9rem;
         }
 
         @include respond ($bp-medium) {
@@ -165,5 +157,6 @@
         line-height: 1.5;
         font-weight: 300;
         text-align: justify;
+        width: 100%;
     }
 }

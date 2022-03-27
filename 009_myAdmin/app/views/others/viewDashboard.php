@@ -22,7 +22,7 @@
 
     <div class="frame lazy_dash_js">
         
-        <a href="#">
+        <a href="<?= $_ENV['BASE_PATH'] . '/projects-detail-' . $p->getId() ?>">
             <img class="frame__img" 
                  src="<?= $p->getThumbnail() ?>" 
                  onerror="this.src='<?= './app/static/images/image_not_found.png' ?>'" 
