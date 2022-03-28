@@ -2189,7 +2189,7 @@ div_box.innerHTML = `
 .image__frame:nth-of-type(2) > .image__arrow > .image__arrow--right {
   margin-left: auto;
 }
-.image__frame:last-of-type > .image__arrow > .image__arrow--right {
+.image__frame:nth-last-of-type(2) > .image__arrow > .image__arrow--right {
   display: none;
 }
 .image__frame--cover {

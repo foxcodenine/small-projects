@@ -83,13 +83,13 @@ $router->match('GET', '/projects-detail-(\d+)', function($id) {
     $projectsLink       = "{$_ENV['BASE_PATH']}/projects";
 
     $projectContent     = htmlspecialchars_decode($pro->descript('read'));
-    $projectContent     = substr_replace($projectContent, '<p class="pro_details__content">', 0, 3);
+    // $projectContent     = substr_replace($projectContent, '<p class="pro_details__content">', 0, 3);
+    $projectContent     = '<div class="pro_details__content">' . $projectContent . '</div>';
 
     $hostBtn            = $pro->getHosted() ? 'Un-Host' : 'Host';
  
 
-    $pageName = 'detail'; include './app/views/_page.php';
-   
+    $pageName = 'detail'; include './app/views/_page.php';   
     exit;
 });
 

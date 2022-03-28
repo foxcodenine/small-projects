@@ -30,6 +30,7 @@ $router->match('GET', '/projects-images-(\d+)', function($id=null) {
         // --- Fetch project images
 
         $projectImages = $currentProject->fetchImagesFromDb();
+        
 
 
         $_SESSION['projectImages']['imgsInDb'] = sizeof($projectImages);

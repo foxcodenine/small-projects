@@ -11,13 +11,13 @@
 <body>
 <?php
 
-use app\Model\AwsClass;
-use app\Model\Cat;
-use app\Model\Collection;
-use app\Model\DBConnect;
-use app\Model\DBTables;
-use app\Model\ImageProject;
-use app\Model\MyCript;
+    use app\Model\AwsClass;
+    use app\Model\Cat;
+    use app\Model\Collection;
+    use app\Model\DBConnect;
+    use app\Model\DBTables;
+    use app\Model\ImageProject;
+    use app\Model\MyCript;
     use app\Model\MyHelperClass;
     use app\Model\Project;
     use app\Model\User;
@@ -82,7 +82,7 @@ use app\Model\MyCript;
 
     // var_dump(Project::formatDateForDisplay());
 
-    header('Content-Type: application/json');
+    // header('Content-Type: application/json');
 
     // $s3Client = AwsClass::getS3Client();
     // $keys = $s3Client->listObjects([
@@ -95,30 +95,32 @@ use app\Model\MyCript;
 
     
 
-    class Stage extends Collection {
-        protected static $tableName = 'Stage';
-        protected static $fieldName = 'sName';
-    }
-    class Locality extends Collection {
-        protected static $tableName = 'Locality';
-        protected static $fieldName = 'lName';
-    }
-    class Category extends Collection {
-        protected static $tableName = 'Category';
-        protected static $fieldName = 'yName';
-    }
+    // class Stage extends Collection {
+    //     protected static $tableName = 'Stage';
+    //     protected static $fieldName = 'sName';
+    // }
+    // class Locality extends Collection {
+    //     protected static $tableName = 'Locality';
+    //     protected static $fieldName = 'lName';
+    // }
+    // class Category extends Collection {
+    //     protected static $tableName = 'Category';
+    //     protected static $fieldName = 'yName';
+    // }
 
-    echo "\n\nStage\n";
-    $arr = Stage::getList();
-    var_dump($arr);
+    // echo "\n\nStage\n";
+    // $arr = Stage::getList();
+    // var_dump($arr);
 
-    echo "\n\nLocality\n";
-    $arr = Locality::getList();
-    var_dump($arr);
+    // echo "\n\nLocality\n";
+    // $arr = Locality::getList();
+    // var_dump($arr);
 
-    echo "\n\nCategory\n";
-    $arr = Category::getList();
-    var_dump($arr);
+    // echo "\n\nCategory\n";
+    // $arr = Category::getList();
+    // var_dump($arr);
+
+    echo '<h3>...hi Digitalocean!</h3>'
 
 
     

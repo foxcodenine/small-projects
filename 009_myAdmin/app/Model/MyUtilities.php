@@ -19,6 +19,12 @@ class MyUtilities {
         if ($_ENV['APP_ENV'] === 'development' && gethostname() === 'Inspiron16' && php_uname('s') === 'Linux') {
             return 'develepmentHome';
         }
+
+        if ($_ENV['APP_ENV'] === 'production' && $_SERVER['SERVER_NAME'] === 'foxcode.codes') {
+            return 'productionServer';
+        }
+
+        
     }
 
     // -----------------------------------------------------------------

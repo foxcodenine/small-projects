@@ -101,7 +101,7 @@
         &:nth-of-type(2) > .image__arrow > .image__arrow--right {            
             margin-left: auto;
         }
-        &:last-of-type > .image__arrow > .image__arrow--right {            
+        &:nth-last-of-type(2) > .image__arrow > .image__arrow--right {            
             display: none;
         }
 
