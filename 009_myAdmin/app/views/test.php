@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>my CMS admin</title>
 
-    <?php // header('Content-Type: application/json'); ?>
+    <?php // header('Content-Type: application/json'); 
+    ?>
 </head>
+
 <body>
-<?php
+    <?php
 
     use app\Model\AwsClass;
     use app\Model\Cat;
@@ -21,8 +24,8 @@
     use app\Model\MyHelperClass;
     use app\Model\Project;
     use app\Model\User;
-    use Aws\S3\S3Client;
-    use Aws\Exception\AwsException;
+
+    use Aws\S3\Exception\S3Exception;
 
 
 
@@ -37,14 +40,14 @@
     // echo base64_encode('chris12aug@yahoo.com');
     // echo base64_decode(base64_encode('chrismariojimmy@yahoo.com'));
 
-        // Y2hyaXMxMmF1Z0B5YWhvby5jb20=   chris12aug@yahoo.com
+    // Y2hyaXMxMmF1Z0B5YWhvby5jb20=   chris12aug@yahoo.com
     // $wisky = new Cat('Wisky', 9);
     // echo "My cat is called {$wisky->name} and she is {$wisky->age} years old. <br>";  
-    
+
     // -----------------------------------------------------------------
     // $str = '<title>Example document: XSS Doc</title>';
     // echo MyCript::stringSanitize($str);
-   
+
 
     // $encript =  MyCript::encrypt($_ENV['AWS_ACCESS_KEY_ID']);
     // $decript =  MyCript::decrypt($encript);
@@ -76,7 +79,7 @@
     // echo php_uname('s');
 
     // -----------------------------------------------------------------
-    
+
     // $test = User::getUserById(55);
     // $test->removeNonactivatedUser();
 
@@ -93,7 +96,7 @@
     // print_r($keys);
 
 
-    
+
 
     // class Stage extends Collection {
     //     protected static $tableName = 'Stage';
@@ -120,10 +123,67 @@
     // $arr = Category::getList();
     // var_dump($arr);
 
-    echo '<h3>...hi Digitalocean!</h3>'
+    // echo '<h3>...hi Digitalocean!</h3>';
+
+    // $client = new Aws\S3\S3Client([
+    //     'version' => 'latest',
+    //     'region'      => 'us-east-1',
+    //     'endpoint' => 'https://fra1.digitaloceanspaces.com',
+    //     'credentials' => [
+    //         'key'    => 'IW7GNMRIASCNJ7JZR63O',
+    //         'secret' => 'BsDhqPSKwDVfLAPl18KrxpOzq3yzrvAGQroGykrIa+o',
+    //     ],
+    // ]);
+
+    // var_dump($client);
 
 
-    
-?>
+
+    // $client->createBucket([
+    //     'Bucket' => 'test397284m',
+    // ]);
+
+    // echo `ls` . '<br>';
+
+    // // $my_file = file_get_contents('cat.png');
+    // // echo $my_file; 
+
+    // echo `ls` .'<br><br><br>';
+
+    // // var_dump(is_file('./cat.png'));
+
+    // try {
+    //     //     $client->putObject([
+    //     //         'Bucket' => 'test397284m',
+    //     //         'Key'    => '123.txt',
+    //     //         'SourceFile'    => './cat.png',
+    //     //         'ACL'           => 'public-read', // make file 'public'
+    //     //    ]);
+
+    //     $client->putObject([
+    //         'Bucket'         => 'test397284m',
+    //         'Body'          => fopen('dog.jpg', 'rb'),
+    //         'Key'           => "dog.jpg",
+    //         'ACL'           => 'public-read', // make file 'public'
+    //     ]);
+    // } catch (S3Exception $e) {
+
+    //     $msg = "Error AwsClass uploadImage: <br>" .  $e->getMessage();
+    //     error_log($msg);
+    //     die($msg);
+    // }
+
+
+
+
+
+    // AwsClass::uploadImage($my_file, 'project');
+
+    // echo `ls`;
+
+
+
+    ?>
 </body>
+
 </html>

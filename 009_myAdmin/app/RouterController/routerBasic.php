@@ -115,3 +115,12 @@ $router->match('GET', '/table/(\w+)', function($action) {
 
 
 ////////////////////////////////////////////////////////////////////////
+
+
+$router->match('GET', '/accountActivationEmail', function() {
+
+
+    $link = 'hg';
+    include './app/views/accountActivationEmail.php';
+    exit();
+});

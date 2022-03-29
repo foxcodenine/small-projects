@@ -8,9 +8,9 @@ use Aws\S3\Exception\S3Exception;
 
 class AwsClass {
 
-    private static $s3Client;
-    private static $bucket;
-    private static $region;
+    protected static $s3Client;
+    protected static $bucket;
+    protected static $region;
 
     // __________________________________
 
@@ -66,7 +66,6 @@ class AwsClass {
                 'Bucket'        => self::$bucket,
                 'Key'           => $key,
                 'SourceFile'    => $file_Path,
-                // 'Body'          => fopen($file_Path, 'r+'),
                 'ACL'           => 'public-read', // make file 'public'
             ]);
 
