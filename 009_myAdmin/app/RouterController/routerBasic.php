@@ -24,13 +24,11 @@ $router->match('GET', '/test', function() {
 ////////////////////////////////////////////////////////////////////////
 
 
-
 $router->match('GET|POST', '/disclaimer', function() {
 
     
     if (!isset($_SESSION['currentUser'])) header('Location: ' . $_ENV['BASE_PATH'] . '/sign-up');
     $currentUser = unserialize($_SESSION['currentUser']);
-    
     
     // --------------------------------------------
 
@@ -77,13 +75,9 @@ $router->match('GET|POST', '/disclaimer', function() {
 
 
 $router->match('GET', '/terms', function() {
-
-    
-        
+            
     $pageName = 'terms'; include './app/views/_page.php';  
-
     exit;
-
 });
 
 
@@ -124,3 +118,15 @@ $router->match('GET', '/accountActivationEmail', function() {
     include './app/views/accountActivationEmail.php';
     exit();
 });
+
+////////////////////////////////////////////////////////////////////////
+
+$router->match('GET|POST', '/settings', function() {
+    
+    $pageName = 'settings'; include './app/views/_page.php';
+    
+    exit;
+
+});
+
+////////////////////////////////////////////////////////////////////////

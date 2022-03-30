@@ -85,6 +85,26 @@
             min-width: 9rem !important;
         }
     }
+
+    &__input {
+        width: 100%;
+        
+        color: currentColor;
+        font-family: $font-primary;
+        padding: 1rem;        
+        height: 3.5rem;
+        border-radius: $border-radius;
+        border: 1px solid $col-gray-1;       
+        background-color: $col-white;
+
+        margin-bottom: 1rem;
+        &:first-of-type{
+            margin-top: 1rem;
+        }
+        &:last-of-type{
+            margin-bottom: 3rem;
+        }
+    }
 }
 
 ////////////////////////////////////////////////////////////////////////

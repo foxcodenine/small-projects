@@ -54,7 +54,11 @@ require './app/views/include/viewHeader.php'; ?>
 
         case 'dashboard':   
             $pagePath = './app/views/others/viewDashboard.php';
-            break;  
+            break; 
+            
+        case 'settings':
+            $pagePath = './app/views/others/viewSettings.php';
+            break;
 
         case 'search':   
             $pagePath = './app/views/others/viewSearch.php';
@@ -106,7 +110,9 @@ require './app/views/include/viewHeader.php'; ?>
         case 'disclaimer':
         case 'terms':
             $pagePath = './app/views/sign/viewDisclaimer.php';
-            break;            
+            break;     
+
+            
     }
     ?>
     <?php include $pagePath; ?>

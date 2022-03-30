@@ -94,6 +94,8 @@ $router->match('GET', '/projects-detail-(\d+)', function($id) {
 });
 
 
+////////////////////////////////////////////////////////////////////////
+
 $router->match('POST', '/projects-detail-(\d+)', function($id) {  
     
     

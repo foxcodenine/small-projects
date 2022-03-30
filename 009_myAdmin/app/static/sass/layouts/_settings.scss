@@ -1,0 +1,83 @@
+@use '../abstracts/' as *;
+.settings {
+    color: $col-text;
+    font-family: $font-primary;
+
+    font-size: 1.4rem;
+    background-color: $col-white;
+    padding: 2rem;
+    border-radius: $border-radius;
+    border: $border-1;
+
+    margin: 0 auto;
+    max-width: calc(80vw - 15rem);
+
+    @include respond($bp-larg) {
+        max-width: calc(100vw - 15rem);
+    }
+    @include respond($bp-medium) {
+        max-width: calc(100vw - 10rem);
+    }
+
+    &__display {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;    
+    }
+
+    &__container {
+        display:  flex;
+        flex-direction: column;
+        border-top: $border-1;
+        border-bottom: $border-1;
+    }
+
+    &__group {
+        cursor: pointer;
+        display:  flex;
+        padding: 1rem 2rem;
+        font-size: 1.6rem;
+        align-items: center;
+       
+
+        &:hover {
+            background-color: lighten($col-primary, 20%)
+        }
+
+        &:active {
+            background-color: lighten($col-hover-2, 3%);
+            color: $col-red;
+
+            .settings__link {
+                color: $col-red;
+            }
+        }
+
+
+        &:not(:last-child) {
+            border-bottom: $border-1;
+        }
+
+    }
+
+    &__key {
+        flex: 0 0 30%;
+        font-size: 1.6rem;
+        font-weight: 700;
+        text-transform: capitalize;
+    }
+
+    &__value {
+        flex: 1 0 0;
+    }
+    &__link {
+        text-transform: capitalize;
+        color: $col-active-blue;
+        font-size: 1.4rem;
+
+        &:hover {
+            text-decoration: underline;
+            color: $col-red;
+        }
+    }
+}
