@@ -31,7 +31,7 @@
 
     <ul class="dropdownmenu__list">
         <li class="dropdownmenu__item">
-            <a href="#" class="dropdownmenu__link">
+            <a href="./settings" class="dropdownmenu__link">
                 <svg class="dropdownmenu__icon"><use  xlink:href="./app/static/svg/icomoon.svg#icon-gears"></use></svg>
                 Settings 
             </a>

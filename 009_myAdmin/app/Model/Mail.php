@@ -52,9 +52,17 @@ class Mail {
         $code = base64_encode($user->getPassHash());
         $link = $_ENV['BASE_URL'] . '/activate' . '/' . $user->getId() . '/' . $code; ;
         
-        include './app/templates/accountActivationEmail.php';
+        include './app/templates/tmpEmailType1.php';
         $imgUrl = './app/static/images/email_images/image-1.jpeg';
-        $content = createActivationEmail($user->getFirstUserName(), $user->getEmail(), $link, $imgUrl);
+
+        $title      = "Activation your <strong>MY</strong>Admin Account";
+        $greadings  = "Hi {$user->getFirstUserName()},";
+        $message    = "Your account has been create with <span style=\"color: #E74C3C;\">$email</span>";
+        $buttonText = "Activate Account";
+        $subMessage = "...else, by copying and pasting the following link in to your browser:";
+        $imgUrl     = "https://foxcode-project-009.s3.eu-central-1.amazonaws.com/image-1.jpeg";
+
+        $content = createEmailType1($title, $greadings, $message, $buttonText, $link, $subMessage, $imgUrl);
         $this->content('Activate You Account', $content);
         // $this->content('Activate You Account', "<a href='$link'>$link</a>");
     }

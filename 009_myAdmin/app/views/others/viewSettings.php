@@ -7,18 +7,18 @@
 
     <!-- ----------------------------------------------------------- -->
     
-    <div class="settings__container">
-        <div class="settings__group">
+    <div class="settings__container modalBtn" id="settingsContainer">
+        <div class="settings__group" data-settingsLink="name">
             <div class="settings__key">name</div>
             <div class="settings__value">Christopher Farrugia</div>
             <div class="settings__link">edit</div>
         </div>
-        <div class="settings__group">
+        <div class="settings__group" data-settingsLink="email">
             <div class="settings__key">email</div>
             <div class="settings__value">chris12aug@yahoo.com</div>
             <div class="settings__link">change</div>
         </div>
-        <div class="settings__group">
+        <div class="settings__group" data-settingsLink="password">
             <div class="settings__key">password</div>
             <div class="settings__value">********</div>
             <div class="settings__link">change</div>
@@ -31,10 +31,11 @@
 </div>
 </section>
 
-<section class="modal" style="display: grid;">
-
+<!-- <section class="modal" style="display: grid;"> -->
+<section class="modal" id="settingsModal" style="display: none;">
+    
     <form class="modal__content" style="display: none;">
-        <svg class="modal__close"><use href="./app/static/svg/icomoon.svg#icon-x-mark-thin"></use></svg>        
+            <svg class="modal__close"><use href="./app/static/svg/icomoon.svg#icon-x-mark-thin"></use></svg>        
            
             <div class="modal__title">Edit Name </div>
             
@@ -48,7 +49,7 @@
     </form>  
 
     <form class="modal__content" style="display: none;">
-        <svg class="modal__close"><use href="./app/static/svg/icomoon.svg#icon-x-mark-thin"></use></svg>        
+            <svg class="modal__close"><use href="./app/static/svg/icomoon.svg#icon-x-mark-thin"></use></svg>        
            
             <div class="modal__title">Change Email</div>
             
@@ -61,8 +62,8 @@
             </div>
     </form>  
 
-    <form class="modal__content">
-        <svg class="modal__close"><use href="./app/static/svg/icomoon.svg#icon-x-mark-thin"></use></svg>        
+    <form class="modal__content" >
+            <svg class="modal__close"><use href="./app/static/svg/icomoon.svg#icon-x-mark-thin"></use></svg>        
            
             <div class="modal__title">Change Password</div>
             

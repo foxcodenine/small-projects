@@ -10,3 +10,4 @@
 <script src="./app/javascript/scriptDisclamer.js"></script>
 <script src="./app/javascript/scriptCollections.js"></script>
 <script src="./app/javascript/scriptSearchPage.js"></script>
+<script src="./app/javascript/scriptSettingsPage.js"></script>

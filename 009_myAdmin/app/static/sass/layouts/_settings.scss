@@ -38,6 +38,22 @@
         padding: 1rem 2rem;
         font-size: 1.6rem;
         align-items: center;
+
+        @include respond(500) {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            & > * {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                flex: 0 0 min-content !important;
+                border: red 1px solid;
+                text-align: center !important;
+            }
+
+        }
+        
        
 
         &:hover {
@@ -61,19 +77,27 @@
     }
 
     &__key {
-        flex: 0 0 30%;
+        flex: 0 0 10rem;
+        margin-right: auto;
         font-size: 1.6rem;
         font-weight: 700;
         text-transform: capitalize;
+        // border: red 1px solid;
     }
 
     &__value {
-        flex: 1 0 0;
+        // flex: 0 0 20rem;
+        // border: green 1px solid;
     }
     &__link {
         text-transform: capitalize;
         color: $col-active-blue;
         font-size: 1.4rem;
+        flex: 0 0 10rem;
+        margin-left: auto;
+        // border: red 1px solid;
+        text-align: right;
+        
 
         &:hover {
             text-decoration: underline;

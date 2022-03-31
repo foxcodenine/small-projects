@@ -93,15 +93,15 @@ function modalToggle () {
 
     // ----- Elements
 
-    const sidemenu     = document.querySelector('#sidemenu');
-    const menubtn      = document.querySelector('.menu-btn');
-    const modal        = document.querySelector('.modal');
-    const modalBtns    = document.querySelectorAll('.modalBtn');
-    const modalContent = document.querySelector('.modal__content');
-    const modalCancel = document.querySelector('.modal__cancel');
-    const modalClose = document.querySelector('.modal__close');
-    const closeElements = [modalCancel, modalClose];
-    let   modalQuestion      = document.querySelector('.modal-question-js');
+    const sidemenu      = document.querySelector('#sidemenu');
+    const menubtn       = document.querySelector('.menu-btn');
+    const modal         = document.querySelector('.modal');
+    const modalBtns     = document.querySelectorAll('.modalBtn');
+    const modalContents = document.querySelectorAll('.modal__content');
+    const modalCancel   = document.querySelectorAll('.modal__cancel');
+    const modalClose    = document.querySelectorAll('.modal__close');
+    const closeElements = [...modalCancel, ...modalClose];
+    let   modalQuestion = document.querySelector('.modal-question-js');
 
     if (!modal) return;
 
@@ -110,7 +110,7 @@ function modalToggle () {
     function modalOn() {
 
         // --- properties to Fade In when displaying modal
-        modalContent.style.opacity = 1;
+        modalContents.forEach((modalContent)=>{ modalContent.style.opacity = 1; });
         modal.style['background-color'] = 'rgba(1,1,1,0.15)'.replace(/[^,]+(?=\))/, '0.15');
 
         // --- Adjusting z-indexes
@@ -127,8 +127,8 @@ function modalToggle () {
     function modalOff() {              
         
 
-        // --- properties to Fade Out before removing modal
-        modalContent.style.opacity = 0;
+        // --- properties to Fade Out before removing modal        
+        modalContents.forEach(( modalContent)=>{modalContent.style.opacity = 0; });
         modal.style['background-color'] = 'transparent';
 
         setTimeout(() => {
@@ -139,7 +139,10 @@ function modalToggle () {
             menubtn.style['pointer-events'] = 'Auto'; 
             // - Removing Modal          
             modal.style.display = 'none';
-            modalQuestion.textContent = document.querySelector('.modal-hidden-message-js').textContent;
+            if (modalQuestion) {
+                modalQuestion.textContent = document.querySelector('.modal-hidden-message-js').textContent;
+            }
+            
         }, 400);
     }
 

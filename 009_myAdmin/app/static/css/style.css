@@ -1969,6 +1969,20 @@ div_box.innerHTML = `
   font-size: 1.6rem;
   align-items: center;
 }
+@media only screen and (max-width: 31.25em) {
+  .settings__group {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .settings__group > * {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    flex: 0 0 min-content !important;
+    border: red 1px solid;
+    text-align: center !important;
+  }
+}
 .settings__group:hover {
   background-color: #c0ecff;
 }
@@ -1983,18 +1997,19 @@ div_box.innerHTML = `
   border-bottom: rgba(27, 38, 49, 0.5) 0.1rem solid;
 }
 .settings__key {
-  flex: 0 0 30%;
+  flex: 0 0 10rem;
+  margin-right: auto;
   font-size: 1.6rem;
   font-weight: 700;
   text-transform: capitalize;
-}
-.settings__value {
-  flex: 1 0 0;
 }
 .settings__link {
   text-transform: capitalize;
   color: #4e58ee;
   font-size: 1.4rem;
+  flex: 0 0 10rem;
+  margin-left: auto;
+  text-align: right;
 }
 .settings__link:hover {
   text-decoration: underline;
