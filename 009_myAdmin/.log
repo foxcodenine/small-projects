@@ -1,1 +1,13 @@
 
+[31-Mar-2022 20:07:49 Europe/Berlin] PHP Warning:  include(./app/RouterController/routerSettings): Failed to open stream: No such file or directory in /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php on line 17
+[31-Mar-2022 20:07:49 Europe/Berlin] PHP Warning:  include(): Failed opening './app/RouterController/routerSettings' for inclusion (include_path='.:/usr/share/php') in /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php on line 17
+[31-Mar-2022 20:07:49 Europe/Berlin] PHP Warning:  include(./app/RouterController/routerSettings): Failed to open stream: No such file or directory in /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php on line 17
+[31-Mar-2022 20:07:49 Europe/Berlin] PHP Warning:  include(): Failed opening './app/RouterController/routerSettings' for inclusion (include_path='.:/usr/share/php') in /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php on line 17
+[31-Mar-2022 20:07:57 Europe/Berlin] PHP Warning:  include(./app/RouterController/routerSettings): Failed to open stream: No such file or directory in /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php on line 17
+[31-Mar-2022 20:07:57 Europe/Berlin] PHP Warning:  include(): Failed opening './app/RouterController/routerSettings' for inclusion (include_path='.:/usr/share/php') in /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php on line 17
+[31-Mar-2022 20:59:48 Europe/Berlin] PHP Warning:  Undefined variable $class in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSettings.php on line 10
+[31-Mar-2022 20:59:50 Europe/Berlin] PHP Warning:  Undefined variable $class in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSettings.php on line 10
+[31-Mar-2022 20:59:54 Europe/Berlin] PHP Warning:  Undefined variable $class in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSettings.php on line 10
+[31-Mar-2022 21:00:32 Europe/Berlin] PHP Warning:  Undefined variable $class in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSettings.php on line 10
+[31-Mar-2022 21:00:34 Europe/Berlin] PHP Warning:  Undefined variable $class in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSettings.php on line 10
+[31-Mar-2022 21:16:15 Europe/Berlin] PHP Warning:  Undefined variable $email in /home/foxcodenine/projects/009_myAdmin/app/views/others/viewSettings.php on line 20

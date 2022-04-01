@@ -121,12 +121,3 @@ $router->match('GET', '/accountActivationEmail', function() {
 
 ////////////////////////////////////////////////////////////////////////
 
-$router->match('GET|POST', '/settings', function() {
-    
-    $pageName = 'settings'; include './app/views/_page.php';
-    
-    exit;
-
-});
-
-////////////////////////////////////////////////////////////////////////

@@ -14,6 +14,7 @@ include './app/RouterController/routerBasic.php';
 include './app/RouterController/routerDashboard.php';
 include './app/RouterController/routerCollection.php';
 include './app/RouterController/routerSearch.php';
+include './app/RouterController/routerSettings.php';
 
 include './app/RouterController/routerProjects.php';
 include './app/RouterController/routerProjectsAddEdit.php';

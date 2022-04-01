@@ -2015,6 +2015,10 @@ div_box.innerHTML = `
   text-decoration: underline;
   color: #E74C3C;
 }
+.settings__message {
+  padding: 0.7rem 1.5rem;
+  color: #E74C3C;
+}
 
 .dashboard__form {
   display: grid;
