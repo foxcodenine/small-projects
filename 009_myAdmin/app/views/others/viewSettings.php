@@ -56,8 +56,8 @@
            
             <div class="modal__title">Change Email</div>
             
-            <input type="text" type="password" class="modal__input" placeholder="new email">
-            <input type="text" type="password" class="modal__input" placeholder="confirm new email">
+            <input type="text" type="password" name="email1" class="modal__input" placeholder="new email">
+            <input type="text" type="password" name="email2" class="modal__input" placeholder="confirm new email">
             <input type="password" class="modal__input" name="currentPassword"  placeholder="Enter current password" >
             
             <div  class="modal__confirmation" method="POST">            

@@ -224,7 +224,7 @@
         <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
           <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px; font-family: 'Lato', sans-serif;"><strong>$greadings</strong></p>
           <!--<p style="font-size: 14px; line-height: 140%;"><br /><span style="font-size: 16px; line-height: 22.4px; font-family: 'Lato', sans-serif;">Your account has been create!</span></p>-->
-          <p style="font-size: 14px; line-height: 140%;"><span style="font-family: 'Lato', sans-serif; font-size: 14px; line-height: 19.6px;">&nbsp;</span><br /><span style="font-family: 'Lato', sans-serif; font-size: 14px; line-height: 19.6px;">$message</span><span style="font-family: 'Lato', sans-serif; font-size: 14px; line-height: 19.6px;">.&nbsp; Please activate this account by click the button below.</span><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </p>
+          <p style="font-size: 14px; line-height: 140%;"><span style="font-family: 'Lato', sans-serif; font-size: 14px; line-height: 19.6px;">&nbsp;</span><br /><span style="font-family: 'Lato', sans-serif; font-size: 14px; line-height: 19.6px;">$message</span><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </p>
         </div>
 
             </td>

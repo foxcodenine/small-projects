@@ -57,7 +57,8 @@ class Mail {
 
         $title      = "Activation your <strong>MY</strong>Admin Account";
         $greadings  = "Hi {$user->getFirstUserName()},";
-        $message    = "Your account has been create with <span style=\"color: #E74C3C;\">$email</span>";
+        $message    = "Your account has been create with <span style=\"color: #E74C3C;\">{$user->getEmail()}</span>.";
+        $message   .= "&nbsp; Please activate this account by click the button below.";
         $buttonText = "Activate Account";
         $subMessage = "...else, by copying and pasting the following link in to your browser:";
         $imgUrl     = "https://foxcode-project-009.s3.eu-central-1.amazonaws.com/image-1.jpeg";
@@ -66,7 +67,38 @@ class Mail {
         $this->content('Activate You Account', $content);
         // $this->content('Activate You Account', "<a href='$link'>$link</a>");
     }
+        // _________________________________________
 
+    public function contentChangeEmail($user, $newEmail) {
+
+
+        $userId      = $user->getId();
+        $code = base64_encode($user->getToken());
+
+        $currentDate = new \DateTimeImmutable();
+        $datePlus1hr = $currentDate->add(new \DateInterval('PT1H'));
+        $timestamp   = $datePlus1hr->getTimestamp();
+
+        $emailCode = base64_encode($newEmail);
+
+        
+        $link = "{$_ENV['BASE_URL']}/changeEmail/{$userId}/{$code}/{$timestamp}/$emailCode";
+
+        include './app/templates/tmpEmailType1.php';
+        $imgUrl = './app/static/images/email_images/image-1.jpeg';
+
+        $title      = "<strong>MY</strong>Admin Email Confirmation";
+        $greadings  = "Hi {$user->getFirstUserName()},";
+        $message    = "You have requested to update your email address to <span style=\"color: #E74C3C;\">{$newEmail}</span>.";
+        $message   .= "&nbsp; Please confirm by click the button below.";
+        $buttonText = "Confirm Email";
+        $subMessage = "...else, by copying and pasting the following link in to your browser:";
+        $imgUrl     = "https://foxcode-project-009.s3.eu-central-1.amazonaws.com/image-1.jpeg";
+
+        $content = createEmailType1($title, $greadings, $message, $buttonText, $link, $subMessage, $imgUrl);
+        $this->content('Activate You Account', $content);
+
+    }
     // _________________________________________
     
     public function send () {       
