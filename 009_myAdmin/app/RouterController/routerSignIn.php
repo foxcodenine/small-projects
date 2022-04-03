@@ -27,8 +27,9 @@ $router->match('GET|POST', '/sign-in', function() {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $email     = filter_input(INPUT_POST, 'email',      FILTER_SANITIZE_EMAIL);
-        $password  = filter_input(INPUT_POST, 'password',   FILTER_SANITIZE_STRING);  
-        $remember  = filter_input(INPUT_POST, 'remember',   FILTER_SANITIZE_STRING);
+        $password  = strip_tags($_POST['password']);  
+        $remember  = isset($_POST['remember']) ;
+
         unset($_POST); 
 
         $_SESSION['sign-in']['email'] = $email;

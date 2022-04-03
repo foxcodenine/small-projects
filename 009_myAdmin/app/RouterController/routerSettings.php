@@ -106,7 +106,7 @@ $router->match('POST', '/settings', function() {
         
         } else if ($email1 !== $email2) {
 
-            $_SESSION['settings']['message'] = 'Email address does not match!';
+            $_SESSION['settings']['message'] = 'Email confirmation does not match email address';
             $_SESSION['settings']['class']   = 'message__warning';
 
         } else if (!filter_var($email1, FILTER_VALIDATE_EMAIL)) {
@@ -137,6 +137,35 @@ $router->match('POST', '/settings', function() {
 
             $_SESSION['settings']['message'] = 'A verification link has been sent to your new email address!';
             $_SESSION['settings']['class']   = 'message__success'; 
+        }        
+    }
+
+    // _________________________________________________________________
+
+    if ($action === 'password' && !isset($_SESSION['settings']['message'])) {
+
+        $password1  = strip_tags($_POST['password1']);
+        $password2  = strip_tags($_POST['password2']);
+
+        if (!$password1 || !$password2) {
+            $_SESSION['settings']['message'] = 'Both password fields are required!';
+            $_SESSION['settings']['class']   = 'message__warning';
+            
+        } else if ($password1 !== $password2) {
+
+            $_SESSION['settings']['message'] = 'Password confirmation doesn\'t match password';
+            $_SESSION['settings']['class']   = 'message__warning';
+
+        } elseif (strlen($password1) < 6) {
+            $_SESSION['error']['errorPassword'] = 'Password is too short';
+
+        } elseif (strlen($password1) > 25) {
+            $_SESSION['error']['errorPassword'] = 'Password is too long';
+
+        } else {
+            // update password
+            // send email
+            // set message and class
         }
     }
 

@@ -163,13 +163,14 @@ function modalToggle () {
     });
 
     modal.addEventListener('click', (e) => {
+        if (closeItem.classList.contains('.doNotCloseJs')) return
         if(! Boolean(e.target.closest(".modal__content"))) {
             modalOff();
         }
     });
 
     closeElements.forEach( (closeItem) => {
-        closeItem.addEventListener('click', modalOff);
+        closeItem.addEventListener('click', modalOff);      
     })
 }
 

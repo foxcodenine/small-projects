@@ -38,7 +38,7 @@ $router->match('GET|POST', '/sign-up', function() {
         $firstname = ucwords(strtolower(filter_input(INPUT_POST, 'firstname',  FILTER_SANITIZE_STRING)));
         $lastname  = ucwords(strtolower(filter_input(INPUT_POST, 'lastname',   FILTER_SANITIZE_STRING)));
         $email     = filter_input(INPUT_POST, 'email',      FILTER_SANITIZE_EMAIL);
-        $password  = filter_input(INPUT_POST, 'password',   FILTER_SANITIZE_STRING);  
+        $password  = strip_tags($_POST['password']);  
         unset($_POST);   
         
         

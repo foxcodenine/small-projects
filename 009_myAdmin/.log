@@ -1,1 +1,5 @@
 
+[03-Apr-2022 19:48:53 Europe/Berlin] PHP Warning:  Undefined array key "remember" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSignIn.php on line 31
+[03-Apr-2022 19:49:10 Europe/Berlin] PHP Warning:  Undefined array key "remember" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSignIn.php on line 31
+[03-Apr-2022 19:49:43 Europe/Berlin] PHP Warning:  Undefined array key "remember" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSignIn.php on line 31
+[03-Apr-2022 19:53:25 Europe/Berlin] PHP Warning:  empty password in /home/foxcodenine/projects/009_myAdmin/app/Model/MyCript.php on line 61

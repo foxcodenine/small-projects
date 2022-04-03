@@ -34,7 +34,7 @@
 </section>
 
 <!-- <section class="modal" style="display: grid;"> -->
-<section class="modal" id="settingsModal" style="display: none;">
+<section class="modal doNotCloseJs" id="settingsModal" style="display: none;">
     
     <form class="modal__content" style="display: none;" data-modalSettings="name" accept="" method="POST">
             <svg class="modal__close"><use href="./app/static/svg/icomoon.svg#icon-x-mark-thin"></use></svg>        
@@ -71,9 +71,9 @@
            
             <div class="modal__title">Change Password</div>
             
-            <input type="text" class="modal__input" name="currentPassword" placeholder="current password">
-            <input type="text" class="modal__input" placeholder="new password">
-            <input type="password" class="modal__input"  placeholder="confirm new password">
+            <input type="password" class="modal__input" name="currentPassword" placeholder="current password">
+            <input type="password" class="modal__input" name="password1" placeholder="new password">
+            <input type="password" class="modal__input" name="password2" placeholder="confirm new password">
 
             
             
