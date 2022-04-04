@@ -81,7 +81,6 @@ $router->match('GET|POST', '/sign-in', function() {
 
 
                     $_SESSION['remember'] = $remember;
-
                     
 
                     header('Location: ' . $_ENV['BASE_PATH'] . '/disclaimer');
@@ -92,8 +91,7 @@ $router->match('GET|POST', '/sign-in', function() {
                     $currentUser->setLastLogin(date(DBConnect::DT_FORMAT, time()));
                     $currentUser->updateUser();
 
-                    MyUtilities::setUserInSession($currentUser);
-                    
+                    MyUtilities::setUserInSession($currentUser);                    
                     MyUtilities::setCookie($currentUser, $remember);
                     MyUtilities::checkCookieAndReturnUser();
                 }
@@ -101,8 +99,8 @@ $router->match('GET|POST', '/sign-in', function() {
                 // _____________________________________________________
 
                 session_regenerate_id();
-
-                session_write_close();        
+                session_write_close(); 
+                       
                 MyUtilities::redirect($_ENV['BASE_PATH']);
                 exit();
             }

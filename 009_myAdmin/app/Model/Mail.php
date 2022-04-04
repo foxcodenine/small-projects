@@ -100,6 +100,34 @@ class Mail {
 
     }
     // _________________________________________
+
+    public function contentPasswordHaveChanged($user) {
+
+
+        $userId      = $user->getId();
+        $code = base64_encode($user->getToken());
+
+       
+        // $link = "{$_ENV['BASE_URL']}/changeEmail/{$userId}/{$code}/{$timestamp}/$emailCode";
+        $link = "{$_ENV['BASE_URL']}";
+
+        include './app/templates/tmpEmailType2.php';
+        $imgUrl = './app/static/images/email_images/image-1.jpeg';
+
+        $title      = "Your Password was Changed";
+        $greadings  = "Hi {$user->getFirstUserName()},";
+        $message    = "The password for you My Admin account was changed. &nbsp; ";
+        $message   .= "If you didn't change it, you should ";
+        $message   .= "<a style=\"color: #E74C3C;\" href='$link'>recover your password.</a>";
+        // $buttonText = "Confirm Email";
+        $subMessage = "You can also recover your password at:";
+        $imgUrl     = "https://foxcode-project-009.s3.eu-central-1.amazonaws.com/image-1.jpeg";
+
+        $content = createEmailType1($title, $greadings, $message, $buttonText, $link, $subMessage, $imgUrl);
+        $this->content('Activate You Account', $content);
+
+    }
+    // _________________________________________
     
     public function send () {       
 

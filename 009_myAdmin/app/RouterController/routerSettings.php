@@ -163,9 +163,30 @@ $router->match('POST', '/settings', function() {
             $_SESSION['error']['errorPassword'] = 'Password is too long';
 
         } else {
-            // update password
-            // send email
-            // set message and class
+
+            $currentUser->setPassHash(MyCript::passHash($password1));
+            $currentUser->updateUser();
+
+
+                          
+                              
+            $currentUser = MyUtilities::setCookie($currentUser, true);
+
+            $_SESSION['settings']['message'] = 'Your password has been successfully updated! An email';
+            $_SESSION['settings']['class']   = 'message__success'; 
+
+
+            $firstname = $currentUser->getFirstUserName();
+            $lastname  = $currentUser->getLastUserName();
+            $email     = $currentUser->getEmail();
+
+
+            $emailMail = new Mail();
+            $emailMail->recipient($email, "$firstname $lastname");
+            $emailMail->contentPasswordHaveChanged($currentUser);
+            $emailMail->send();            
+
+
         }
     }
 

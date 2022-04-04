@@ -343,8 +343,10 @@ class MyUtilities {
 
         // --- Updating DB -------------
 
+
         $currentUser->setToken($token);
         $currentUser->updateUser();   
+
         
         // --- Updating Cookie ---------
         
@@ -359,6 +361,7 @@ class MyUtilities {
         // --- Updating Session ---------
 
         $_SESSION['currentUser'] = serialize($currentUser);
+
 
         return $currentUser;        
     }
@@ -396,8 +399,11 @@ class MyUtilities {
     public static function checkCookieAndReturnUser() {
 
         // --- fetch cookie ---------------------
-
+ 
         $cookieData = $_COOKIE['FOXCODE_IO|009|MYADMIN'] ?? false;
+        $cookieData = $_COOKIE['FOXCODE_IO|009|MYADMIN'] ?? false;
+        $cookieData = $_COOKIE['FOXCODE_IO|009|MYADMIN'] ?? false;
+        
 
         // --- fetch user from database ---------
 
@@ -405,11 +411,13 @@ class MyUtilities {
 
             $userId = MyCript::stringSanitize(json_decode($cookieData)[0]);
             $userToken = MyCript::stringSanitize(json_decode($cookieData)[1]);
-
             $currentUser = User::getUserById_Email($userId) ?? null;   
         }
+        
 
         // --- Compare database with cookie ------
+
+
 
 
         if (isset($currentUser) && !empty($currentUser) && $currentUser->getToken() === $userToken) {

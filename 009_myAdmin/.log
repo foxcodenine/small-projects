@@ -1,5 +1,260 @@
 
-[03-Apr-2022 19:48:53 Europe/Berlin] PHP Warning:  Undefined array key "remember" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSignIn.php on line 31
-[03-Apr-2022 19:49:10 Europe/Berlin] PHP Warning:  Undefined array key "remember" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSignIn.php on line 31
-[03-Apr-2022 19:49:43 Europe/Berlin] PHP Warning:  Undefined array key "remember" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSignIn.php on line 31
-[03-Apr-2022 19:53:25 Europe/Berlin] PHP Warning:  empty password in /home/foxcodenine/projects/009_myAdmin/app/Model/MyCript.php on line 61
+[04-Apr-2022 16:56:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getFirstUserName() on bool in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSettings.php:178
+Stack trace:
+#0 [internal function]: {closure}()
+#1 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#4 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(36): Bramus\Router\Router->run()
+#5 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#6 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#7 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSettings.php on line 178
+[04-Apr-2022 17:03:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on int in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php:373
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(355): app\Model\Project::updateProjectList()
+#1 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(15): app\Model\Project::getProjectList()
+#2 [internal function]: {closure}()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#6 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(36): Bramus\Router\Router->run()
+#7 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#8 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#9 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php on line 373
+[04-Apr-2022 17:12:54 Europe/Berlin] PHP Warning:  Undefined variable $currentUser in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:12:54 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getToken() on null in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:424
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/views/include/viewHeader.php(31): app\Model\MyUtilities::checkCookieAndReturnUser()
+#1 /home/foxcodenine/projects/009_myAdmin/app/views/_page.php(11): require('...')
+#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSignIn.php(116): include('...')
+#3 [internal function]: {closure}()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(36): Bramus\Router\Router->run()
+#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#10 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:12:58 Europe/Berlin] PHP Warning:  Undefined variable $currentUser in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:12:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getToken() on null in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:424
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSettings.php(14): app\Model\MyUtilities::checkCookieAndReturnUser()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(36): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:12:59 Europe/Berlin] PHP Warning:  Undefined variable $currentUser in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:12:59 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getToken() on null in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:424
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(363): app\Model\MyUtilities::checkCookieAndReturnUser()
+#1 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(355): app\Model\Project::updateProjectList()
+#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(15): app\Model\Project::getProjectList()
+#3 [internal function]: {closure}()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(36): Bramus\Router\Router->run()
+#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#10 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:13:00 Europe/Berlin] PHP Warning:  Undefined variable $currentUser in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:13:00 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getToken() on null in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:424
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSettings.php(14): app\Model\MyUtilities::checkCookieAndReturnUser()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(36): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:13:03 Europe/Berlin] PHP Warning:  Undefined variable $currentUser in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:13:03 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getToken() on null in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:424
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(363): app\Model\MyUtilities::checkCookieAndReturnUser()
+#1 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(355): app\Model\Project::updateProjectList()
+#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(15): app\Model\Project::getProjectList()
+#3 [internal function]: {closure}()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(36): Bramus\Router\Router->run()
+#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#10 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:13:08 Europe/Berlin] PHP Warning:  Undefined variable $currentUser in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:13:08 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getToken() on null in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:424
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSettings.php(14): app\Model\MyUtilities::checkCookieAndReturnUser()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(36): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:13:09 Europe/Berlin] PHP Warning:  Undefined variable $currentUser in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:13:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getToken() on null in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:424
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(363): app\Model\MyUtilities::checkCookieAndReturnUser()
+#1 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(355): app\Model\Project::updateProjectList()
+#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(15): app\Model\Project::getProjectList()
+#3 [internal function]: {closure}()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(36): Bramus\Router\Router->run()
+#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#10 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:13:09 Europe/Berlin] PHP Warning:  Undefined variable $currentUser in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:13:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getToken() on null in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:424
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(363): app\Model\MyUtilities::checkCookieAndReturnUser()
+#1 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(355): app\Model\Project::updateProjectList()
+#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(15): app\Model\Project::getProjectList()
+#3 [internal function]: {closure}()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(36): Bramus\Router\Router->run()
+#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#10 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:13:10 Europe/Berlin] PHP Warning:  Undefined variable $currentUser in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:13:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getToken() on null in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:424
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/views/include/viewHeader.php(31): app\Model\MyUtilities::checkCookieAndReturnUser()
+#1 /home/foxcodenine/projects/009_myAdmin/app/views/_page.php(11): require('...')
+#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSignIn.php(116): include('...')
+#3 [internal function]: {closure}()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(36): Bramus\Router\Router->run()
+#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#10 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:13:11 Europe/Berlin] PHP Warning:  Undefined variable $currentUser in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:13:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getToken() on null in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:424
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(363): app\Model\MyUtilities::checkCookieAndReturnUser()
+#1 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(355): app\Model\Project::updateProjectList()
+#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(15): app\Model\Project::getProjectList()
+#3 [internal function]: {closure}()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(36): Bramus\Router\Router->run()
+#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#10 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:13:11 Europe/Berlin] PHP Warning:  Undefined variable $currentUser in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:13:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getToken() on null in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:424
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/views/include/viewHeader.php(31): app\Model\MyUtilities::checkCookieAndReturnUser()
+#1 /home/foxcodenine/projects/009_myAdmin/app/views/_page.php(11): require('...')
+#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSignIn.php(116): include('...')
+#3 [internal function]: {closure}()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(36): Bramus\Router\Router->run()
+#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#10 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:13:12 Europe/Berlin] PHP Warning:  Undefined variable $currentUser in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:13:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getToken() on null in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:424
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(363): app\Model\MyUtilities::checkCookieAndReturnUser()
+#1 /home/foxcodenine/projects/009_myAdmin/app/Model/Project.php(355): app\Model\Project::updateProjectList()
+#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerDashboard.php(15): app\Model\Project::getProjectList()
+#3 [internal function]: {closure}()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(36): Bramus\Router\Router->run()
+#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#10 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:13:47 Europe/Berlin] PHP Warning:  Undefined variable $currentUser in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:13:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getToken() on null in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:424
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSignIn.php(96): app\Model\MyUtilities::checkCookieAndReturnUser()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(36): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:14:36 Europe/Berlin] PHP Warning:  Undefined variable $currentUser in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:14:36 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getToken() on null in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:424
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/views/include/viewHeader.php(31): app\Model\MyUtilities::checkCookieAndReturnUser()
+#1 /home/foxcodenine/projects/009_myAdmin/app/views/_page.php(11): require('...')
+#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSignIn.php(116): include('...')
+#3 [internal function]: {closure}()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(36): Bramus\Router\Router->run()
+#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#10 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:15:07 Europe/Berlin] PHP Warning:  Undefined variable $currentUser in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:15:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getToken() on null in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:424
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/views/include/viewHeader.php(31): app\Model\MyUtilities::checkCookieAndReturnUser()
+#1 /home/foxcodenine/projects/009_myAdmin/app/views/_page.php(11): require('...')
+#2 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSignIn.php(116): include('...')
+#3 [internal function]: {closure}()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#5 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#6 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#7 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(36): Bramus\Router\Router->run()
+#8 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#9 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#10 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:15:33 Europe/Berlin] PHP Warning:  Undefined variable $currentUser in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 17:15:33 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getToken() on null in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php:424
+Stack trace:
+#0 /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSignIn.php(96): app\Model\MyUtilities::checkCookieAndReturnUser()
+#1 [internal function]: {closure}()
+#2 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array()
+#3 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke()
+#4 /home/foxcodenine/projects/009_myAdmin/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle()
+#5 /home/foxcodenine/projects/009_myAdmin/app/RouterController/router.php(36): Bramus\Router\Router->run()
+#6 /home/foxcodenine/projects/009_myAdmin/app/_app_.php(15): require('...')
+#7 /home/foxcodenine/projects/009_myAdmin/index.php(2): require('...')
+#8 {main}
+  thrown in /home/foxcodenine/projects/009_myAdmin/app/Model/MyUtilities.php on line 424
+[04-Apr-2022 18:11:56 Europe/Berlin] PHP Warning:  Undefined variable $buttonText in /home/foxcodenine/projects/009_myAdmin/app/Model/Mail.php on line 126
+[04-Apr-2022 18:19:12 Europe/Berlin] PHP Warning:  Undefined variable $buttonText in /home/foxcodenine/projects/009_myAdmin/app/Model/Mail.php on line 126
+[04-Apr-2022 18:20:47 Europe/Berlin] PHP Warning:  Undefined variable $buttonText in /home/foxcodenine/projects/009_myAdmin/app/Model/Mail.php on line 126
+[04-Apr-2022 18:22:36 Europe/Berlin] PHP Warning:  Undefined variable $buttonText in /home/foxcodenine/projects/009_myAdmin/app/Model/Mail.php on line 126
+[04-Apr-2022 18:24:23 Europe/Berlin] PHP Warning:  Undefined variable $buttonText in /home/foxcodenine/projects/009_myAdmin/app/Model/Mail.php on line 126
