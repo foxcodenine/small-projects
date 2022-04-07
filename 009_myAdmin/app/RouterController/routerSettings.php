@@ -165,10 +165,7 @@ $router->match('POST', '/settings', function() {
         } else {
 
             $currentUser->setPassHash(MyCript::passHash($password1));
-            $currentUser->updateUser();
-
-
-                          
+            $currentUser->updateUser();                       
                               
             $currentUser = MyUtilities::setCookie($currentUser, true);
 

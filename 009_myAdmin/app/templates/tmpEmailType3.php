@@ -1,6 +1,6 @@
 <?php
-
-  function createEmailType2($title, $greadings, $message, $link, $subMessage, $imgUrl) {
+  // Password Recover Email not in database
+  function createEmailType3($title, $message, $imgUrl) {
 
 
       $markup = <<< END_MARKUP
@@ -222,9 +222,10 @@
             <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 15px;font-family:arial,helvetica,sans-serif;" align="left">
               
         <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-          <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px; font-family: 'Lato', sans-serif;"><strong>$greadings</strong></p>
-          <!--<p style="font-size: 14px; line-height: 140%;"><br /><span style="font-size: 16px; line-height: 22.4px; font-family: 'Lato', sans-serif;">Your account has been create!</span></p>-->
-          <p style="font-size: 14px; line-height: 140%;"><span style="font-family: 'Lato', sans-serif; font-size: 14px; line-height: 19.6px;">&nbsp;</span><br /><span style="font-family: 'Lato', sans-serif; font-size: 14px; line-height: 19.6px;">$message</span><br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </p>
+          <p style="font-size: 14px; line-height: 140%; text-ali; text-align: center; color: #E74C3C;;"><br />
+          <span style="font-family: 'Lato', sans-serif; font-size: 14px; line-height: 19.6px;">$message</span>
+          <br /> 
+          </p>
         </div>
 
             </td>
@@ -254,23 +255,7 @@
         <div style="width: 100% !important;">
         <!--[if (!mso)&(!IE)]><!--><div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;"><!--<![endif]-->
         
-      <table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-        <tbody>
-          <tr>
-            <td style="overflow-wrap:break-word;word-break:break-word;padding:0px 10px 10px 10px;font-family:arial,helvetica,sans-serif;" align="left">
-              
-
- 
-            <p style="font-size: 14px; line-height: 140%;">&nbsp; $subMessage<br /></p>
-      
-
-
-            </td>
-          </tr>
-        </tbody>
-      </table>
       <div style="padding: 0 10px; color: blue; margin: -30px 0 10px 0;">
-      <span  text-decoration: underline; font-size: 12px;line-height: 19.6px;  word-break:break-word;">$link</span>
 
       </div>
         <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->

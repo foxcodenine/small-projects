@@ -16,7 +16,9 @@ require './app/views/include/viewHeader.php'; ?>
 <!-- <div class="content"> -->
  
     <?php 
-    if ($pageName !== 'sign_up' && $pageName !== 'sign_in' && $pageName !== 'disclaimer' && $pageName !== 'terms') {
+    if ($pageName !== 'sign_up' && $pageName !== 'sign_in' && 
+        $pageName !== 'disclaimer' && $pageName !== 'terms' &&
+        $pageName !== 'password_recover' ) {
         
         // Checking if user is loged in;
         MyUtilities::checkCookieAndReturnUser();
@@ -105,6 +107,10 @@ require './app/views/include/viewHeader.php'; ?>
 
         case 'sign_in':
             $pagePath = './app/views/sign/viewSignIn.php';
+            break;            
+
+        case 'password_recover':
+            $pagePath = './app/views/sign/viewPassRecover.php';
             break;            
 
         case 'disclaimer':

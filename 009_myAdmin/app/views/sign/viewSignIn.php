@@ -40,7 +40,7 @@
             </div> 
 
             <div class="field__group">           
-                <a class="sign__forgot" href="#">Forgot your password?</a>
+                <a class="sign__forgot" href="<?= $_ENV['BASE_PATH'] ?>/password-recover">Forgot your password?</a>
             </div>
         </div>
 

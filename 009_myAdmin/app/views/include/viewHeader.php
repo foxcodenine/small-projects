@@ -19,7 +19,9 @@
 
 
 
-    if ($pageName !== 'sign_up' && $pageName !== 'sign_in' && $pageName !== 'disclaimer' && $pageName !== 'terms') {
+    if ($pageName !== 'sign_up' && $pageName !== 'sign_in' && 
+        $pageName !== 'disclaimer' && $pageName !== 'terms' && 
+        $pageName !== 'password_recover') {
 
         MyUtilities::checkCookieAndReturnUser();
         MyUtilities::userInSessionPage();

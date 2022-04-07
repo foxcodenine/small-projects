@@ -28,6 +28,7 @@ include './app/RouterController/routerClientsAddEdit.php';
 include './app/RouterController/routerSign.php';
 include './app/RouterController/routerSignUp.php';
 include './app/RouterController/routerSignIn.php';
+include './app/RouterController/routerSignPassRecover.php';
 
 
 
