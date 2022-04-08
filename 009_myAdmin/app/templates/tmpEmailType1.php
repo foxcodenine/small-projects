@@ -92,7 +92,7 @@
         text-decoration: none !important;
       }
 
-      table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } </style>
+      table, td { color: rgba(27, 38, 49, 0.9); } a { color: #0000ee; text-decoration: underline; } </style>
         
         
 
@@ -100,7 +100,7 @@
 
       </head>
 
-      <body class="clean-body u_body" style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #f7f7f7;color: #000000">
+      <body class="clean-body u_body" style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #f7f7f7;color: rgba(27, 38, 49, 0.9)">
         <!--[if IE]><div class="ie-container"><![endif]-->
         <!--[if mso]><div class="mso-container"><![endif]-->
         <table style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #f7f7f7;width:100%" cellpadding="0" cellspacing="0">
@@ -274,19 +274,18 @@
       <table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
         <tbody>
           <tr>
-            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 30px;font-family:arial,helvetica,sans-serif;" align="left">
+            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
               
-        <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-        <p style="font-size: 14px; line-height: 140%;">&nbsp;</p>     
-        <p style="font-size: 14px; line-height: 140%;">&nbsp; $subMessage<br /></p>
-      
-        </div>
+            <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
+              <p style="font-size: 14px; line-height: 140%;">&nbsp;</p>     
+              <p style="font-size: 14px; line-height: 140%;">&nbsp; $subMessage<br /></p>      
+            </div>
 
             </td>
           </tr>
         </tbody>
       </table>
-      <div style="padding: 0 10px; color: blue; margin: -30px 0 10px 0;">
+      <div style="padding: 0 10px 30px 10px; color: blue; margin: -30px 0 10px 0;">
       <span  text-decoration: underline; font-size: 12px;line-height: 19.6px;  word-break:break-word;">$link</span>
 
       </div>

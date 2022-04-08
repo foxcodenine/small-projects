@@ -19,13 +19,14 @@ class User {
     private $signUpDate;
     private $lastLogin;
     private $token;
+    private $code;
   
 
     // _________________________________________________________________
 
     public function __construct ($email, $passHash, 
         $id=null, $firstUserName=null, $lastUserName=null, $accountState=null, 
-        $roleGroup=null, $signUpDate=null, $lastLogin=null, $token=null) {
+        $roleGroup=null, $signUpDate=null, $lastLogin=null, $token=null, $code=null) {
 
             $this->id = $id;
             $this->email = $email;
@@ -37,6 +38,7 @@ class User {
             $this->signUpDate = $signUpDate;
             $this->lastLogin = $lastLogin;
             $this->token = $token;
+            $this->code = $code;
          
             
             if (!$this->id) { $this->addUserToDB(); }
@@ -96,7 +98,8 @@ class User {
                 roleGroup     = :roleGroup,
                 signUpDate    = :signUpDate,
                 lastLogin     = :lastLogin,
-                token         = :token
+                token         = :token,
+                code          = :code
                 WHERE id      = :id 
             ";
 
@@ -113,6 +116,7 @@ class User {
             $stmt -> bindValue(':signUpDate', $this->signUpDate);
             $stmt -> bindValue(':lastLogin', $this->lastLogin);
             $stmt -> bindValue(':token', $this->token);
+            $stmt -> bindValue(':code', $this->code);
             
             $stmt -> execute();
 
@@ -180,7 +184,8 @@ class User {
                 roleGroup: $stdClass->roleGroup,
                 signUpDate: $stdClass->signUpDate,
                 lastLogin: $stdClass->lastLogin,
-                token: $stdClass->token                
+                token: $stdClass->token,                
+                code: $stdClass->code                
             );
 
             return $user;
@@ -344,4 +349,15 @@ class User {
 		return $this;
 	}
 
+
+	/** Get the value of code */
+	public function getCode() {
+		return $this->code;
+	}
+
+	/** Set the value of code */
+	public function setCode($code) {
+		$this->code = $code;
+		return $this;
+	}
 }

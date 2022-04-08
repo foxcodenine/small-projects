@@ -26,7 +26,7 @@
         </div>
 
         
-        <button class="btn btn--primary btn--thick btn--100 mt-md" type="submit" >Sign In</button>
+        <button class="btn btn--primary btn--thick btn--100 mt-md myLoaderBtn" type="submit" >Sign In</button>
 
         <div class="sign__text">
             

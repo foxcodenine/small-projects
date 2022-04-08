@@ -17,7 +17,7 @@ class DBTables {
         signUpDate DATETIME,
         lastLogin DATETIME,
         token VARCHAR(255),
-        dashboard VARCHAR(20)
+        code VARCHAR(30)
     )ENGINE=InnoDB;';
 
     // -----------------------------------------------------------------

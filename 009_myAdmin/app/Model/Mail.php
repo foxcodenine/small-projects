@@ -57,8 +57,8 @@ class Mail {
 
         $title      = "Activation your <strong>MY</strong>Admin Account";
         $greadings  = "Hi {$user->getFirstUserName()},";
-        $message    = "Your account has been create with <span style=\"color: #E74C3C;\">{$user->getEmail()}</span>.";
-        $message   .= "&nbsp; Please activate this account by click the button below.";
+        $message    = "Your account has been create with <span style=\"color: #E74C3C;\">{$user->getEmail()}</span>. ";
+        $message   .= "Please activate this account by click the button below.";
         $buttonText = "Activate Account";
         $subMessage = "...else, by copying and pasting the following link in to your browser:";
         $imgUrl     = "https://foxcode-project-009.s3.eu-central-1.amazonaws.com/image-1.jpeg";
@@ -71,9 +71,11 @@ class Mail {
 
     public function contentChangeEmail($user, $newEmail) {
 
-
         $userId      = $user->getId();
-        $code = base64_encode($user->getToken());
+        $code        = substr(MyCript::generateKey(), 10 , 28);
+        
+        $user->setCode($code);
+        $user->updateUser();
 
         $currentDate = new \DateTimeImmutable();
         $datePlus1hr = $currentDate->add(new \DateInterval('PT1H'));
@@ -96,55 +98,57 @@ class Mail {
         $imgUrl     = "https://foxcode-project-009.s3.eu-central-1.amazonaws.com/image-1.jpeg";
 
         $content = createEmailType1($title, $greadings, $message, $buttonText, $link, $subMessage, $imgUrl);
-        $this->content('Activate You Account', $content);
+        $this->content('Update Email Address', $content);
 
     }
-        // _________________________________________
 
-    public function contentPasswordRecover($user, $newEmail) {
+    // _________________________________________
 
+    public function contentRecoverPassword($user) {
 
         $userId      = $user->getId();
-        $code = base64_encode($user->getToken());
+        $code        = substr(MyCript::generateKey(), 10 , 28);
+        
+        $user->setCode($code);
+        $user->updateUser();
 
         $currentDate = new \DateTimeImmutable();
         $datePlus1hr = $currentDate->add(new \DateInterval('PT1H'));
         $timestamp   = $datePlus1hr->getTimestamp();
 
-        $emailCode = base64_encode($newEmail);
 
-        
-        $link = "{$_ENV['BASE_URL']}/changeEmail/{$userId}/{$code}/{$timestamp}/$emailCode";
+        $link = "{$_ENV['BASE_URL']}/password-reset/{$userId}/{$code}/{$timestamp}";
 
         include './app/templates/tmpEmailType1.php';
         $imgUrl = './app/static/images/email_images/image-1.jpeg';
 
-        $title      = "<strong>MY</strong>Admin Email Confirmation";
+        $title      = "<strong>MY</strong>Admin Password Recover";
         $greadings  = "Hi {$user->getFirstUserName()},";
-        $message    = "You have requested to update your email address to <span style=\"color: #E74C3C;\">{$newEmail}</span>.";
-        $message   .= "&nbsp; Please confirm by click the button below.";
-        $buttonText = "Confirm Email";
+        $message    = "We have received a request to reset the password taht is associated with this email address ";
+        $message   .= "<span style=\"color: #E74C3C;\">{$user->getEmail()}</span>. &nbsp; ";
+        $message   .= "Please click the button below to securly reset your password.";
+        $buttonText = "Reset Password";
         $subMessage = "...else, by copying and pasting the following link in to your browser:";
         $imgUrl     = "https://foxcode-project-009.s3.eu-central-1.amazonaws.com/image-1.jpeg";
 
         $content = createEmailType1($title, $greadings, $message, $buttonText, $link, $subMessage, $imgUrl);
-        $this->content('Activate You Account', $content);
+        $this->content('Password Recovery', $content);
 
     }
     // _________________________________________
 
-    public function contentInvalidEmail() {
+    public function contentRecoverPasswordInvalidEmail() {
 
         include './app/templates/tmpEmailType3.php';
         $imgUrl = './app/static/images/email_images/image-1.jpeg';
 
         $title      = "<strong>MY</strong>Admin Password Recover";
-        $message    = "A request has been received to change the password associated with the email address. ";
-        $message   .= "However no account is associated with this email address.";
+        $message    = "A request has been received to reset the password associated with this email address. ";
+        $message   .= "However no account is associated with this email.";
         $imgUrl     = "https://foxcode-project-009.s3.eu-central-1.amazonaws.com/image-1.jpeg";
 
         $content = createEmailType3($title, $message, $imgUrl);
-        $this->content('Activate You Account', $content);
+        $this->content('Invalid Email', $content);
 
     }
     // _________________________________________
@@ -172,7 +176,7 @@ class Mail {
         $imgUrl     = "https://foxcode-project-009.s3.eu-central-1.amazonaws.com/image-1.jpeg";
 
         $content = createEmailType2($title, $greadings, $message, $link, $subMessage, $imgUrl);
-        $this->content('Activate You Account', $content);
+        $this->content('Password has been updted', $content);
 
     }
     // _________________________________________

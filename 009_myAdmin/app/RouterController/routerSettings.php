@@ -80,7 +80,7 @@ $router->match('POST', '/settings', function() {
             MyUtilities::setUserInSession($currentUser);
 
             $_SESSION['settings']['message'] = 'Your changes has been  successfully updated!';
-            $_SESSION['settings']['class']   = 'message__success';            
+            $_SESSION['settings']['class']   = 'message__primary';            
 
         } else {
             $_SESSION['settings']['message'] = 'Both firstname and lastname are required!';
@@ -91,6 +91,7 @@ $router->match('POST', '/settings', function() {
     // _________________________________________________________________
 
     if ($action === 'email' && !isset($_SESSION['settings']['message'])) { 
+
         $email1  = filter_input(INPUT_POST, 'email1',      FILTER_SANITIZE_EMAIL); 
         $email2  = filter_input(INPUT_POST, 'email2',      FILTER_SANITIZE_EMAIL);
         
@@ -136,7 +137,7 @@ $router->match('POST', '/settings', function() {
             $emailMail->send();            
 
             $_SESSION['settings']['message'] = 'A verification link has been sent to your new email address!';
-            $_SESSION['settings']['class']   = 'message__success'; 
+            $_SESSION['settings']['class']   = 'message__primary'; 
         }        
     }
 
@@ -169,8 +170,8 @@ $router->match('POST', '/settings', function() {
                               
             $currentUser = MyUtilities::setCookie($currentUser, true);
 
-            $_SESSION['settings']['message'] = 'Your password has been successfully updated! An email';
-            $_SESSION['settings']['class']   = 'message__success'; 
+            $_SESSION['settings']['message'] = 'Your password has been successfully updated!';
+            $_SESSION['settings']['class']   = 'message__primary'; 
 
 
             $firstname = $currentUser->getFirstUserName();
@@ -193,12 +194,13 @@ $router->match('POST', '/settings', function() {
 });
 
 
-$router->match('GET', '/changeEmail/(\w+)/([\w=]+)/(\d+)/([\w=]+)', function($id, $token, $timestamp, $email) {
+$router->match('GET', '/changeEmail/(\w+)/([\w=]+)/(\d+)/([\w=]+)', function($id, $code, $timestamp, $email) {
 
    
 
     $currentUser = User::getUserById_Email ((int) $id);
-    $token        =  base64_decode($token);   
+    $code        = strip_tags($code);
+    $code        = strlen($code) === 28 ?  $code : false;
     $timestamp   = (int) $timestamp;
     $email       = base64_decode($email);
     $email       = filter_var($email, FILTER_SANITIZE_EMAIL);   
@@ -206,27 +208,25 @@ $router->match('GET', '/changeEmail/(\w+)/([\w=]+)/(\d+)/([\w=]+)', function($id
     
     $emailInDb   = MyUtilities::emailInDB($email);
     
-    $validateToken = $currentUser && $currentUser->getToken() === $token;
+    $validateToken = $currentUser && $currentUser->getCode() === $code;
 
-    $currentTimestamp  = (new \DateTimeImmutable())->getTimestamp();
-    $validateTimestamp = $currentTimestamp < $timestamp;
+    $currentDate  = new \DateTimeImmutable();
+    $datePlus1hr = $currentDate->add(new \DateInterval('PT1H'));
 
-    if (!$currentUser || !$token || !$timestamp || !$email || !$validateToken || !$validateTimestamp || $emailInDb) {
+    $currentTimestamp = $currentDate->getTimestamp();
+    $timestampPlus1hr = $datePlus1hr->getTimestamp();
+
+    $validateTimestamp = $timestamp > $currentTimestamp && $timestamp < $timestampPlus1hr;
+
+    if (!$currentUser || !$code || !$timestamp || !$email || !$validateToken || !$validateTimestamp || $emailInDb) {
 
         header("location: {$_ENV['BASE_PATH']}/sign-out" );
         exit();
     }
     
 
-    // echo $currentUser->getId() . '<br>';
-    // echo $token . '<br>';
-    // echo $timestamp . '<br>';
-    // echo $email . '<br>';
-    // var_export($validateToken); echo '<br>';
-    // var_export($validateTimestamp); echo '<br>';
-
-
     $currentUser->setEmail($email);
+    $currentUser->setCode(0);
     $currentUser->updateUser();
 
 

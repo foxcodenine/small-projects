@@ -47,7 +47,7 @@
             
             <div  class="modal__confirmation" method="POST">            
                 <button class="btn btn--light modal__cancel" type="button">cancel</button>
-                <button class="btn btn--red" type="submit" name="settingsModalBtn" value="name">Confirm</button>
+                <button class="btn btn--red myLoaderBtn" type="submit" name="settingsModalBtn" value="name">Confirm</button>
             </div>
     </form>  
 
@@ -62,7 +62,7 @@
             
             <div  class="modal__confirmation" method="POST">            
                 <button class="btn btn--light modal__cancel" type="button">cancel</button>
-                <button class="btn btn--red" type="submit" name="settingsModalBtn" value="email">Change</button>
+                <button class="btn btn--red myLoaderBtn" type="submit" name="settingsModalBtn" value="email">Change</button>
             </div>
     </form>  
 
@@ -79,7 +79,7 @@
             
             <div  class="modal__confirmation" method="POST">            
                 <button class="btn btn--light modal__cancel" type="button">cancel</button>
-                <button class="btn btn--red" type="submit" name="settingsModalBtn" value="password">Change</button>
+                <button class="btn btn--red myLoaderBtn" type="submit" name="settingsModalBtn" value="password">Change</button>
             </div>
     </form>  
 
