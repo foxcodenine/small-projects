@@ -19,9 +19,8 @@
 
 
 
-    if ($pageName !== 'sign_up' && $pageName !== 'sign_in' && 
-        $pageName !== 'disclaimer' && $pageName !== 'terms' && 
-        $pageName !== 'password_recover') {
+    if (!in_array($pageName, ['sign_up', 'sign_in', 'disclaimer', 
+                    'terms', 'password_recover', 'password_reset'])) {
 
         MyUtilities::checkCookieAndReturnUser();
         MyUtilities::userInSessionPage();

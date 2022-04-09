@@ -117,7 +117,7 @@ class Mail {
         $timestamp   = $datePlus1hr->getTimestamp();
 
 
-        $link = "{$_ENV['BASE_URL']}/password-reset/{$userId}/{$code}/{$timestamp}";
+        $link = "{$_ENV['BASE_URL']}/password-reset-{$userId}-{$code}-{$timestamp}";
 
         include './app/templates/tmpEmailType1.php';
         $imgUrl = './app/static/images/email_images/image-1.jpeg';

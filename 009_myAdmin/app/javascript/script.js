@@ -269,24 +269,33 @@ function sortTableAddArrow() {
 function passwordDisplayToggle () {
 
     const svgField = document.querySelector('#svg-icon-eye');
-    const passwdField = document.querySelector('#sign-password');
+    const signPassword = document.querySelector('#sign-password');
+    const resetPassword1 = document.querySelector('#reset-password1');
+    const resetPassword2 = document.querySelector('#reset-password2');
+   
+    const passwordFields = [signPassword, resetPassword1, resetPassword2];
+
+    passwordFields.forEach(passwdField => {
+        
+        if (svgField && passwdField) {    
+            const svgIconEye = svgField.childNodes[1];
+    
+            svgField.addEventListener('click', ()=>{
+    
+                if (passwdField.getAttribute('type') === 'text') {
+                    passwdField.setAttribute('type', 'password')
+                    svgIconEye.setAttribute('xlink:href', './app/static/svg/icomoon.svg#icon-eye-slash');
+    
+                } else {
+                    passwdField.setAttribute('type', 'text')
+                    svgIconEye.setAttribute('xlink:href', './app/static/svg/icomoon.svg#icon-eye');
+                }  
+            });
+        }
+    });
     
 
-    if (svgField && passwdField) {    
-        const svgIconEye = svgField.childNodes[1];
 
-        svgField.addEventListener('click', ()=>{
-
-            if (passwdField.getAttribute('type') === 'text') {
-                passwdField.setAttribute('type', 'password')
-                svgIconEye.setAttribute('xlink:href', './app/static/svg/icomoon.svg#icon-eye-slash');
-
-            } else {
-                passwdField.setAttribute('type', 'text')
-                svgIconEye.setAttribute('xlink:href', './app/static/svg/icomoon.svg#icon-eye');
-            }  
-        });
-    }
 }
 
 //----------------------------------------------------------------------

@@ -240,6 +240,10 @@ main.pages {
 .message {
   animation: fase-in 0.2s ease;
   text-shadow: 2px 2px 2px white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .message__danger {
   background-color: #f8e9ea !important;

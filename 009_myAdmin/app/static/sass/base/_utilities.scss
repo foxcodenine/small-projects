@@ -41,6 +41,11 @@
 
     animation: fase-in .2s ease;
     text-shadow: 2px 2px 2px white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     
     
     &__danger {

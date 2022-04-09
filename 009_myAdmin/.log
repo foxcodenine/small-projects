@@ -16,3 +16,38 @@ Stack trace:
 [07-Apr-2022 17:49:42 Europe/Berlin] PHP Warning:  Undefined array key "currentUser" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSettings.php on line 234
 [07-Apr-2022 17:56:00 Europe/Berlin] PHP Warning:  Undefined array key "currentUser" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSettings.php on line 228
 [07-Apr-2022 19:03:42 Europe/Berlin] PHP Warning:  Undefined array key "currentUser" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSettings.php on line 234
+[08-Apr-2022 17:17:50 Europe/Berlin] PHP Warning:  include(./app/views/sign/viewPassRecover.php): Failed to open stream: No such file or directory in /home/foxcodenine/projects/009_myAdmin/app/views/_page.php on line 124
+[08-Apr-2022 17:17:50 Europe/Berlin] PHP Warning:  include(): Failed opening './app/views/sign/viewPassRecover.php' for inclusion (include_path='.:/usr/share/php') in /home/foxcodenine/projects/009_myAdmin/app/views/_page.php on line 124
+[08-Apr-2022 17:19:25 Europe/Berlin] PHP Warning:  include(./app/views/sign/viewPassRecover.php): Failed to open stream: No such file or directory in /home/foxcodenine/projects/009_myAdmin/app/views/_page.php on line 124
+[08-Apr-2022 17:19:25 Europe/Berlin] PHP Warning:  include(): Failed opening './app/views/sign/viewPassRecover.php' for inclusion (include_path='.:/usr/share/php') in /home/foxcodenine/projects/009_myAdmin/app/views/_page.php on line 124
+[08-Apr-2022 17:29:35 Europe/Berlin] PHP Warning:  Undefined variable $messageType in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 13
+[08-Apr-2022 17:29:35 Europe/Berlin] PHP Warning:  Undefined variable $message in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 14
+[08-Apr-2022 17:29:35 Europe/Berlin] PHP Warning:  Undefined variable $errorFirstname in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 22
+[08-Apr-2022 17:29:35 Europe/Berlin] PHP Warning:  Undefined variable $errorLastname in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 28
+[08-Apr-2022 17:29:35 Europe/Berlin] PHP Warning:  Undefined variable $errorEmail in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 37
+[08-Apr-2022 17:29:35 Europe/Berlin] PHP Warning:  Undefined variable $errorPassword in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 43
+[08-Apr-2022 17:34:35 Europe/Berlin] PHP Warning:  Undefined variable $messageType in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 13
+[08-Apr-2022 17:34:35 Europe/Berlin] PHP Warning:  Undefined variable $message in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 14
+[08-Apr-2022 17:34:35 Europe/Berlin] PHP Warning:  Undefined variable $errorFirstname in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 22
+[08-Apr-2022 17:34:35 Europe/Berlin] PHP Warning:  Undefined variable $errorLastname in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 28
+[08-Apr-2022 17:34:35 Europe/Berlin] PHP Warning:  Undefined variable $errorEmail in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 37
+[08-Apr-2022 17:34:35 Europe/Berlin] PHP Warning:  Undefined variable $errorPassword in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 43
+[08-Apr-2022 17:37:22 Europe/Berlin] PHP Warning:  Undefined variable $messageType in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 13
+[08-Apr-2022 17:37:22 Europe/Berlin] PHP Warning:  Undefined variable $message in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 14
+[08-Apr-2022 17:37:22 Europe/Berlin] PHP Warning:  Undefined variable $errorEmail in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 20
+[08-Apr-2022 17:37:22 Europe/Berlin] PHP Warning:  Undefined variable $errorPassword in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 26
+[08-Apr-2022 17:38:42 Europe/Berlin] PHP Warning:  Undefined variable $errorPassword in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 26
+[08-Apr-2022 17:39:01 Europe/Berlin] PHP Warning:  Undefined variable $errorPassword in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 26
+[08-Apr-2022 17:39:20 Europe/Berlin] PHP Warning:  Undefined variable $errorPassword in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 26
+[08-Apr-2022 17:39:23 Europe/Berlin] PHP Warning:  Undefined variable $errorPassword in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 26
+[08-Apr-2022 17:39:24 Europe/Berlin] PHP Warning:  Undefined variable $errorPassword in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 26
+[08-Apr-2022 17:39:29 Europe/Berlin] PHP Warning:  Undefined variable $errorPassword in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 26
+[08-Apr-2022 17:39:31 Europe/Berlin] PHP Warning:  Undefined variable $errorPassword in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 26
+[08-Apr-2022 17:39:32 Europe/Berlin] PHP Warning:  Undefined variable $errorPassword in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 26
+[08-Apr-2022 17:39:48 Europe/Berlin] PHP Warning:  Undefined variable $errorEmail in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 20
+[08-Apr-2022 18:21:11 Europe/Berlin] PHP Warning:  Undefined variable $email in /home/foxcodenine/projects/009_myAdmin/app/views/sign/viewPasswordReset.php on line 39
+[09-Apr-2022 17:02:47 Europe/Berlin] PHP Warning:  Undefined array key "password" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSignUp.php on line 41
+[09-Apr-2022 17:03:44 Europe/Berlin] PHP Warning:  Undefined array key "password" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSignUp.php on line 41
+[09-Apr-2022 17:28:59 Europe/Berlin] PHP Warning:  Undefined array key "error" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSignPassRecover.php on line 139
+[09-Apr-2022 17:28:59 Europe/Berlin] PHP Warning:  Undefined array key "error" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSignPassRecover.php on line 146
+[09-Apr-2022 17:29:47 Europe/Berlin] PHP Warning:  Undefined array key "error" in /home/foxcodenine/projects/009_myAdmin/app/RouterController/routerSignPassRecover.php on line 146
