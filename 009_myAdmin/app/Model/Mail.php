@@ -60,7 +60,7 @@ class Mail {
         $message    = "Your account has been create with <span style=\"color: #E74C3C;\">{$user->getEmail()}</span>. ";
         $message   .= "Please activate this account by click the button below.";
         $buttonText = "Activate Account";
-        $subMessage = "...else, by copying and pasting the following link in to your browser:";
+        $subMessage = "...or by copying and pasting the following link in to your browser:";
         $imgUrl     = "https://foxcode-project-009.s3.eu-central-1.amazonaws.com/image-1.jpeg";
 
         $content = createEmailType1($title, $greadings, $message, $buttonText, $link, $subMessage, $imgUrl);
@@ -94,7 +94,7 @@ class Mail {
         $message    = "You have requested to update your email address to <span style=\"color: #E74C3C;\">{$newEmail}</span>.";
         $message   .= "&nbsp; Please confirm by click the button below.";
         $buttonText = "Confirm Email";
-        $subMessage = "...else, by copying and pasting the following link in to your browser:";
+        $subMessage = "...or by copying and pasting the following link in to your browser:";
         $imgUrl     = "https://foxcode-project-009.s3.eu-central-1.amazonaws.com/image-1.jpeg";
 
         $content = createEmailType1($title, $greadings, $message, $buttonText, $link, $subMessage, $imgUrl);
@@ -124,11 +124,11 @@ class Mail {
 
         $title      = "<strong>MY</strong>Admin Password Recover";
         $greadings  = "Hi {$user->getFirstUserName()},";
-        $message    = "We have received a request to reset the password taht is associated with this email address ";
+        $message    = "We have received a request to reset the password that is associated with this email address ";
         $message   .= "<span style=\"color: #E74C3C;\">{$user->getEmail()}</span>. &nbsp; ";
-        $message   .= "Please click the button below to securly reset your password.";
+        $message   .= "Please click the button below to securely reset your password.";
         $buttonText = "Reset Password";
-        $subMessage = "...else, by copying and pasting the following link in to your browser:";
+        $subMessage = "...or by copying and pasting the following link in to your browser:";
         $imgUrl     = "https://foxcode-project-009.s3.eu-central-1.amazonaws.com/image-1.jpeg";
 
         $content = createEmailType1($title, $greadings, $message, $buttonText, $link, $subMessage, $imgUrl);
@@ -156,27 +156,24 @@ class Mail {
     public function contentPasswordHaveChanged($user) {
 
 
-        $userId      = $user->getId();
-        $code = base64_encode($user->getToken());
+
+        $link = "{$_ENV['BASE_URL']}/password-recover";
 
        
-        // $link = "{$_ENV['BASE_URL']}/changeEmail/{$userId}/{$code}/{$timestamp}/$emailCode";
-        $link = "{$_ENV['BASE_URL']}";
-
         include './app/templates/tmpEmailType2.php';
         $imgUrl = './app/static/images/email_images/image-1.jpeg';
 
         $title      = "Your Password was Changed";
         $greadings  = "Hi {$user->getFirstUserName()},";
-        $message    = "The password for you My Admin account was changed. &nbsp; ";
-        $message   .= "If you didn't change it, you should ";
-        $message   .= "<a style=\"color: #E74C3C;\" href='$link'>recover your password.</a>";
+        $message    = "The password for your MyAdmin account was changed. &nbsp; ";
+        $message   .= "If you require to change your password again you can click ";
+        $message   .= "<a style=\"color: #E74C3C;\" href='$link'>here</a> to submit a new request.";
         // $buttonText = "Confirm Email";
-        $subMessage = "You can also recover your password at:";
+        $subMessage = "...or by copying and pasting the following link in to your browser:";
         $imgUrl     = "https://foxcode-project-009.s3.eu-central-1.amazonaws.com/image-1.jpeg";
 
         $content = createEmailType2($title, $greadings, $message, $link, $subMessage, $imgUrl);
-        $this->content('Password has been updted', $content);
+        $this->content('Your password has been changed', $content);
 
     }
     // _________________________________________

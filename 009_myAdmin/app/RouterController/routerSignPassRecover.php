@@ -163,10 +163,15 @@ $router->match('GET|POST', '/password-reset-(\d+)-(\w+)-(\d+)', function($id, $c
             $_SESSION['message']['content'] = 'Your password has been changed successfully.'; 
 
             // code
-            
-            
+            $currentUser->setPassHash(MyCript::passHash($password1));
+            $currentUser->setCode(0);
+            $currentUser->updateUser();
 
 
+            $emailMail = new Mail();  
+            $emailMail->recipient($email, " ");
+            $emailMail->contentPasswordHaveChanged($currentUser);  
+            $emailMail->send();    
 
             header("location: {$_ENV['BASE_PATH']}/sign-in");
             exit();
