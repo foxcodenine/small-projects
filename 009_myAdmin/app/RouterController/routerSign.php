@@ -10,7 +10,7 @@ use app\Model\User;
 ////////////////////////////////////////////////////////////////////////
 
 
-$router->match('GET', '/sign-out', function() {   
+$router->match('GET', '/sign-out/([-|\w]+)|/sign-out', function($redirect=null) {   
 
     if (isset($_SESSION['currentUser'])) {
         $currentUser = unserialize($_SESSION['currentUser']);
@@ -23,7 +23,9 @@ $router->match('GET', '/sign-out', function() {
 
     
     MyUtilities::unsetCookie($currentUser);
-    MyUtilities::redirect($_ENV['BASE_PATH'] . '/sign-in');
+
+    $redirect = $redirect ?? 'sign-in';
+    MyUtilities::redirect($_ENV['BASE_PATH'] . '/' .  $redirect );
 
 });
 

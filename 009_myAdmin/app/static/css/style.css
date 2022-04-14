@@ -2717,6 +2717,7 @@ div_box.innerHTML = `
   text-decoration: none;
   color: #4f3cc9;
   cursor: pointer;
+  z-index: 142;
 }
 .sign__resend-link:hover {
   color: #7263d4;

@@ -22,7 +22,7 @@
         <div class="field__group">
             <label class="field__label" for="sign-email">Email</label>
             <div class="field__error"><?= $errorEmail; ?></div>
-            <input type="text" class="field__input" id="sign-email" name="email"  value="<?= $_SESSION['sign-in']['email'] ?? '' ;?>">
+            <input type="text" class="field__input" id="sign-email" name="email"  value="<?= $email ?? $_SESSION['sign-in']['email'] ?? '' ;?>">
         </div>
 
         

@@ -116,6 +116,7 @@
     &__resend-link {
         @include link-1;
         cursor: pointer;
+        z-index: 142;
     }
 
     &__disclaimer-text {

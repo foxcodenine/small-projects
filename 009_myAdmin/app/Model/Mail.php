@@ -155,9 +155,12 @@ class Mail {
 
     public function contentPasswordHaveChanged($user) {
 
+        $email = $user->getEmail() ?? '';
+        $codedEmail = base64_encode($email);
 
+        $link = "{$_ENV['BASE_URL']}/sign-out/password-recover";
 
-        $link = "{$_ENV['BASE_URL']}/password-recover";
+        $link = $email ? "{$link}-{$codedEmail}" : $email;
 
        
         include './app/templates/tmpEmailType2.php';
@@ -167,7 +170,7 @@ class Mail {
         $greadings  = "Hi {$user->getFirstUserName()},";
         $message    = "The password for your MyAdmin account was changed. &nbsp; ";
         $message   .= "If you require to change your password again you can click ";
-        $message   .= "<a style=\"color: #E74C3C;\" href='$link'>here</a> to submit a new request.";
+        $message   .= "<a style=\"color: blue;text-decoration: none;\" href='$link'>here</a> to submit a new request.";
         // $buttonText = "Confirm Email";
         $subMessage = "...or by copying and pasting the following link in to your browser:";
         $imgUrl     = "https://foxcode-project-009.s3.eu-central-1.amazonaws.com/image-1.jpeg";

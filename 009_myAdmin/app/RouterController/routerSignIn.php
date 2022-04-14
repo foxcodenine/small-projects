@@ -61,12 +61,12 @@ $router->match('GET|POST', '/sign-in', function() {
 
 
             if (!$email_in_db || !$pass_is_correct) {
-                $_SESSION['message']['content'] = "Your email and password do not match. <br> Please try again.";
+                $_SESSION['message']['content'] = "Your email and password do not match.  Please try again.";
                 $_SESSION['message']['type'] = 'danger';
 
             }  else if (!$user_activated) {
-                $_SESSION['message']['content'] = "You Haven't Activated Your Account Yet. <br> 
-                Kindly check your mail. <a class='sign__resend-link myLoaderBtn' href='{$_ENV['BASE_PATH']}/resend-email'>Resend email</a>";
+                $_SESSION['message']['content'] = "<span>You Haven't Activated Your Account Yet. 
+                Kindly check your mail. <a class='sign__resend-link myLoaderBtn' href='{$_ENV['BASE_PATH']}/resend-email'>Resend email</a></span>";
                 $_SESSION['message']['type'] = 'warning';
                 $_SESSION['resend-email'] = $email;               
                           
