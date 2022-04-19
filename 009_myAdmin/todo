@@ -1,28 +1,38 @@
 
-5 esc close moda
+1. OK esc close moda
 
 
-6 About
-7 Profile CV
+2. Create Landing Site Sections update Including Sections:
+
+    Hero            > Title
+                    > Text
+                    > Background images
+
+    Project         > Title 
+                    > Texr
+
+    Profile         > Title
+                    > Text
+                    > image
+
+    Contats         > Address
+                    > Email
+                    > Mobile
+                    > Map Cordinates                
 
 
-F. Add add json inteface to project  and check client project images json
+3. Add add json inteface to project  and check client project images json
 
-G. Use MyUtilities::optionInDB method 
-   in Clients and remove redundant methods from MyUtilities
+
 
 
 ------------------------------------------------------------------------
-Y. demo delete time
+
 X. create a Deploy folder
     include vitual host
 
 ------------------------------------------------------------------------
 
-
-3. Update message colors to match that of the signing image
-4. Add time and date to email body
-5. update email body
 
 
 ------------------------------------------------------------------------

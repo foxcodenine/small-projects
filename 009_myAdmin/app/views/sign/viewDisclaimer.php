@@ -6,6 +6,15 @@
     
     
     <form class="sign__form sign__transition" method="POST">
+        <div class="myadmin-ribbon-container sign__transition">
+            <div id="corner-ribbon">
+            <div>
+                <div>
+                <div></div>
+                </div>
+            </div>
+            </div>
+        </div>
    
 
         <div class="sign__side-img">
@@ -19,7 +28,7 @@
         The purpose of this application is only meant as a learning project. 
         </p>
         <p class="sign__disclaimer-text">
-        All account will be automatically deleted after 12hrs from   
+        All account will be automatically deleted after 1hrs from   
         signing-up and any material entered or uploaded will be removed.  
         </p>
         <p class="sign__disclaimer-text">
@@ -61,15 +70,6 @@
 
     </form>
 
-    <div class="myadmin-ribbon-container sign__transition">
-        <div id="corner-ribbon">
-        <div>
-            <div>
-            <div></div>
-            </div>
-        </div>
-        </div>
-    </div>
 
 </div>
 

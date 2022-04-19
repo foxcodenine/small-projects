@@ -43,9 +43,15 @@
             </a>
         </li>
         <li class="dropdownmenu__item">
+            <a href="./landing-site" class="dropdownmenu__link">
+                <svg class="dropdownmenu__icon"><use  xlink:href="./app/static/svg/icomoon.svg#icon-light-bulb-thin"></use></svg>
+                Landing Site
+            </a>
+        </li>
+        <li class="dropdownmenu__item">
             <a href="./sign-out" class="dropdownmenu__link">
                 <svg class="dropdownmenu__icon"><use  xlink:href="./app/static/svg/icomoon.svg#icon-expand"></use></svg>
-                    Logout                
+                Logout                
             </a>
         </li>
     </ul>

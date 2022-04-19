@@ -17,25 +17,18 @@
 //     }
 
     .myadmin-ribbon-container {
-        // border: red 1px solid;
-        width: 0rem;
-        height: 10rem;
+
         position: absolute;
-        margin-top:  6.95vw;
-        margin-right: calc(calc(calc(100vw - calc(46rem + var(--width-side-img))) / 2) + 18.7rem);
-        top: 0;
-        right: 0;
 
+        right: 173px;
+        top: -1px;
+        z-index: 500;
 
-        @include respond ($bp-smaller) {
-            margin-top:  1.8vw;
-            
-        }
-
-        @include respond(420) {
-            display: none;         
+        @include respond (500)    { 
+            display: none;
+         }
         
-        }
+
 
 
 
@@ -43,13 +36,13 @@
     
     /* ----- Ribbon Container ---------------------------------------*/ 
     #corner-ribbon > div > div {
-    background : transparent;
-    height     : 19rem;
-    width      : 19rem;
-    position   : absolute;
-    top        : -0.4rem;
-    left       : 0.4rem;
-    overflow   : hidden;
+        background : transparent;
+        height     : 19rem;
+        width      : 19rem;
+        position   : absolute;
+        top        : -0.4rem;
+        left       : 0.4rem;
+        overflow   : hidden;
     
     }
     
@@ -105,7 +98,7 @@
     right              : -5rem;
     z-index            : 1;
     overflow           : hidden;
-    transform          :rotate(45deg)scale(.93);
+    transform          :rotate(45deg) scale(.93);
     box-shadow         : inset 0rem 0rem 0rem .8rem rgb(45, 56, 156),inset 0rem 0rem 0rem .4rem rgba(0,0,0,0.5),inset 0rem 0rem 0rem .5rem rgba(255,255,255,0.4), 0rem 2.1rem .5rem -1.8rem rgba(0,0,0,0.8); 
     box-shadow         : inset 0rem 0rem .1rem .1rem rgba(255, 255, 255, 0.4),inset 0rem 0rem 0rem .1rem rgba(0,0,0,0.3),inset 0rem 0rem 0rem 0rem rgba(255,255,255,0.4), -.7rem 1.2rem .8rem -1.4rem rgba(0,0,0,0.8); 
 

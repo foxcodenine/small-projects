@@ -151,7 +151,6 @@ function modalImages () {
 
     const btnPressEventListener = window.addEventListener('keydown', function(e) {
         // e.preventDefault();
-        console.log(123);
 
         // if (modalState !== 'Open') return;
 

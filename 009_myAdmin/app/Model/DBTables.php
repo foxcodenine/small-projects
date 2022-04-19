@@ -228,6 +228,7 @@ class DBTables {
 
         $email = base64_encode(htmlspecialchars($email));
 
+
         $sql = <<< END_SQL
 
         SET @userID = (SELECT id FROM User WHERE email = '$email');
@@ -237,21 +238,84 @@ class DBTables {
         INSERT INTO Stage    (sName, userID) VALUES ('Complete', @userID), ('Inprogress', @userID), ('Final stage', @userID);
         INSERT INTO Category (yName, userID) VALUES ('Residential', @userID), ('Commercial', @userID), ('Public', @userID);
 
+        
+
         INSERT INTO Client (title, firstname, lastname, idCard, company, email, phone, mobile, strAddr, postcode, localityName, countryName, userID)
         VALUES 
-        ('Mr', 'James',     'Zuggo', '0544714M', 'Developer', 'jamesmiddi@ldtto.com',   NULL,       '0356 78451241', '71 Cherry Court',        'ATD0002', 'Attard',  'Malta', @userID),
-        ('Mrs','Sarah',     'Mizzi', '0024571M',  Null,       'sm1784@gmail.com',       21454514,   '0356 99665552', '83 Howard Street',       'ZQR0051', 'Zurrieq', 'Malta', @userID),
-        ('Mr', 'Luke',      'Vella', '7825412G', 'Manager',   'luke@vellagroup.com',    21568956,   NULL,            'San Lawrenz Triq ir-Rokon',  NULL,  'Victoia', 'Gozo',  @userID),
-        ('Mrs','Dorothy',   'Cassar', '124451M',  Null,         'bluehorse@gmail.com',  Null,       '78457812',      '6 St.Francis Square',     'VAL0225','Valletta','Malta', @userID);
+        ('Mr', 'James',     'Benton', '0544784M', 'Hane PLC',   'jbutt@gmail.com',        NULL,       '0356 78451241', '71 Cherry Court',        'ATD0002', 'Attard',   'Malta', @userID),
+        ('Mrs','Sarah',     'Chanay',  '0024579M', Null,         'sm1784@gmail.com',       21454514,   '0356 99665552', '83 Howard Street',       'ZQR0051', 'Zurrieq', 'Malta', @userID),
+        ('Mr', 'Luke',      'Feltz',  '7825490G', 'Rolfson Ltd', 'luke@feltzgroup.com',    21568956,    NULL,           'San Lawrenz Triq ir-Rokon',  NULL,  'Victoia', 'Gozo',  @userID),
+        ('Mrs','Dorothy',   'Foller', '0124451M',  Null,         'bluehorse@gmail.com',    Null,       '78457812',      '6 St.Francis Square',     'VAL0225','Valletta','Malta', @userID);
         
         INSERT INTO Project (projectname, strAddr, projectNo, paNo,  projectDate, cover,  hosted, localityName, stageName, categoryName, clientId, userID) 
         VALUES 
-        ('T12 Office Building',  'Tigne Point, Victoria, Gozo',     '1245', 'PA 1245/14',  '2014-4-4', NULL, NULL, 'Victoia',       'Complete',  'Commercial', NULL, @userID),
-        ('Sirens Complex', "Aquatic centre in St. Paul's Bay",      '7811', 'PA 5155/17',  '2020-2-2', NULL, NULL, "St Paul's Bay", 'Inprogress','Commercial', NULL, @userID);  
+        ('T12 Office Building',  'Tigne Point, Victoria, Gozo',     '1245', 'PA 1245/14',  '2014-4-4', 'app/static/images/samples/project101/images/378062.jpg', 1, 'Victoia', 'Complete',  'Commercial', NULL, @userID),
+        ('Sirens Complex', "Aquatic centre in St. Paul\'s Bay",     '7811', 'PA 5155/17',  '2020-2-2', 'app/static/images/samples/project102/images/550784.jpg', NULL, "St Paul\'s Bay", 'Inprogress','Commercial', NULL, @userID),  
+        ('Sample Project', "Sample Address",                        '1234', 'DNO 0012/22', '2022-1-12','app/static/images/samples/project103/images/104442.jpg', NULL, "Valletta", 'Inprogress','Commercial', NULL, @userID);  
+        
+
+        SET @project1 = (SELECT id FROM Project WHERE projectname='T12 Office Building' AND userID=@userID);
+        SET @project2 = (SELECT id FROM Project WHERE projectname='Sirens Complex' AND userID=@userID);
+        SET @project3 = (SELECT id FROM Project WHERE projectname='Sample Project' AND userID=@userID);
+
+
+
+
+        
+        INSERT INTO `ImageProject` 
+        (cover, urlPath, position, code, userID, projectID)
+        VALUES 
+        (0,'app/static/images/samples/project101/images/054899.jpg',1,'054899.jpg',@userID, @project1),
+        (0,'app/static/images/samples/project101/images/644160.jpg',2,'644160.jpg',@userID, @project1),
+        (0,'app/static/images/samples/project101/images/020731.jpg',3,'020731.jpg',@userID, @project1),
+        (0,'app/static/images/samples/project101/images/950240.jpg',4,'950240.jpg',@userID, @project1),
+        (0,'app/static/images/samples/project101/images/625148.jpg',5,'625148.jpg',@userID, @project1),        
+        (1,'app/static/images/samples/project101/images/378062.jpg',6,'378062.jpg',@userID, @project1),
+
+        (0,'app/static/images/samples/project102/images/075186.jpg',1,'075186.jpg',@userID, @project2),
+        (0,'app/static/images/samples/project102/images/499864.jpg',2,'499864.jpg',@userID, @project2),
+        (0,'app/static/images/samples/project102/images/918718.jpg',3,'918718.jpg',@userID, @project2),
+        (0,'app/static/images/samples/project102/images/639158.jpg',4,'639158.jpg',@userID, @project2),
+        (0,'app/static/images/samples/project102/images/041131.jpg',5,'041131.jpg',@userID, @project2),
+        (0,'app/static/images/samples/project102/images/766073.jpg',6,'766073.jpg',@userID, @project2),
+        (0,'app/static/images/samples/project102/images/503906.jpg',7,'503906.jpg',@userID, @project2),
+        (0,'app/static/images/samples/project102/images/717661.jpg',8,'717661.jpg',@userID, @project2),
+        (0,'app/static/images/samples/project102/images/323007.jpg',9,'323007.jpg',@userID, @project2),
+        (0,'app/static/images/samples/project102/images/985612.jpg',10,'985612.jpg',@userID, @project2),
+        (1,'app/static/images/samples/project102/images/550784.jpg',11,'550784.jpg',@userID, @project2),
+        
+        (0,'app/static/images/samples/project103/images/953205.jpg',1,'953205.jpg',@userID, @project3),
+        (0,'app/static/images/samples/project103/images/073340.jpg',2,'073340.jpg',@userID, @project3),
+        (0,'app/static/images/samples/project103/images/598901.jpg',3,'598901.jpg',@userID, @project3),
+        (0,'app/static/images/samples/project103/images/893381.jpg',4,'893381.jpg',@userID, @project3),
+        (0,'app/static/images/samples/project103/images/892466.jpg',5,'892466.jpg',@userID, @project3),
+        (0,'app/static/images/samples/project103/images/776567.jpg',6,'776567.jpg',@userID, @project3),
+        (0,'app/static/images/samples/project103/images/591484.jpg',7,'591484.jpg',@userID, @project3),
+        (0,'app/static/images/samples/project103/images/442999.jpg',8,'442999.jpg',@userID, @project3),
+        (0,'app/static/images/samples/project103/images/920862.jpg',9,'920862.jpg',@userID, @project3),
+        (0,'app/static/images/samples/project103/images/173258.jpg',10,'173258.jpg',@userID, @project3),
+        (0,'app/static/images/samples/project103/images/053001.jpg',11,'053001.jpg',@userID, @project3),
+        (0,'app/static/images/samples/project103/images/978298.jpg',12,'978298.jpg',@userID, @project3),
+        (0,'app/static/images/samples/project103/images/026486.jpg',13,'026486.jpg',@userID, @project3),
+        (0,'app/static/images/samples/project103/images/927012.jpg',14,'927012.jpg',@userID, @project3),
+        (0,'app/static/images/samples/project103/images/799443.jpg',15,'799443.jpg',@userID, @project3),
+        (0,'app/static/images/samples/project103/images/742528.jpg',16,'742528.jpg',@userID, @project3),
+        (0,'app/static/images/samples/project103/images/317455.jpg',17,'317455.jpg',@userID, @project3),
+        (0,'app/static/images/samples/project103/images/010937.jpg',18,'010937.jpg',@userID, @project3),
+        (0,'app/static/images/samples/project103/images/130245.jpg',19,'130245.jpg',@userID, @project3),
+        (0,'app/static/images/samples/project103/images/986108.jpg',20,'986108.jpg',@userID, @project3),
+        (0,'app/static/images/samples/project103/images/995934.jpg',21,'995934.jpg',@userID, @project3),
+        (0,'app/static/images/samples/project103/images/150164.jpg',22,'150164.jpg',@userID, @project3),
+        (0,'app/static/images/samples/project103/images/140498.jpg',23,'140498.jpg',@userID, @project3),
+        (1,'app/static/images/samples/project103/images/104442.jpg',24,'104442.jpg',@userID, @project3);
+        
         
         END_SQL;
 
         DBConnect::execSql($sql);  
+
+
+        
 
 
     }

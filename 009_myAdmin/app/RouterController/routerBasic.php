@@ -121,3 +121,13 @@ $router->match('GET', '/accountActivationEmail', function() {
 
 ////////////////////////////////////////////////////////////////////////
 
+$router->match('GET', '/landing-site', function() {
+
+    $message = '';
+    $classMessage = '';
+    
+    $pageName = 'landing_site'; include './app/views/_page.php'; 
+    exit();
+});
+
+////////////////////////////////////////////////////////////////////////

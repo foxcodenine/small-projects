@@ -2,6 +2,15 @@
 <div class="sign ">        
         
     <form class="sign__form sign__form--up sign__transition" method="POST" action="" autocomplete="off">
+        <div class="myadmin-ribbon-container sign__transition">
+            <div id="corner-ribbon">
+            <div>
+                <div>
+                <div></div>
+                </div>
+            </div>
+            </div>
+        </div>
 
         <div class="sign__side-img">
             <img src="<?= MyUtilities::fetchSignImage() ?>" alt="">
@@ -40,14 +49,6 @@
 
     </form>
 
-    <div class="myadmin-ribbon-container sign__transition">
-        <div id="corner-ribbon">
-        <div>
-            <div>
-            <div></div>
-            </div>
-        </div>
-        </div>
-    </div>
+
 </div>
 

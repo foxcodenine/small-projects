@@ -61,6 +61,10 @@ require './app/views/include/viewHeader.php'; ?>
         case 'settings':
             $pagePath = './app/views/others/viewSettings.php';
             break;
+            
+        case 'landing_site':
+            $pagePath = './app/views/others/viewLandingSite.php';
+            break;
 
         case 'search':   
             $pagePath = './app/views/others/viewSearch.php';

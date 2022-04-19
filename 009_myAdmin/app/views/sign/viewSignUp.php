@@ -2,6 +2,16 @@
 <div class="sign ">        
         
     <form class="sign__form sign__form--up sign__transition" method="POST" action="<?= $_ENV['BASE_PATH'] ?>/sign-up" autocomplete="off">
+        
+        <div class="myadmin-ribbon-container sign__transition">
+            <div id="corner-ribbon">
+            <div>
+                <div>
+                <div></div>
+                </div>
+            </div>
+            </div>
+        </div>
 
         <div class="sign__side-img">
             <img src="<?= MyUtilities::fetchSignImage() ?>" alt="">
@@ -57,14 +67,5 @@
         </div>
     </form>
 
-    <div class="myadmin-ribbon-container sign__transition">
-        <div id="corner-ribbon">
-        <div>
-            <div>
-            <div></div>
-            </div>
-        </div>
-        </div>
-    </div>
 </div>
 

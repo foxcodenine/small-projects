@@ -11,6 +11,7 @@
     padding: 5vw;
     padding: 7vw;
     
+    
 
     @include respond ($bp-smaller) { padding: 2vw; }
 
@@ -30,6 +31,10 @@
         position: absolute;
         top: 0; left: 0;
 
+        overflow: hidden;
+        border-top-left-radius: $border-radius;
+        border-bottom-left-radius: $border-radius;
+
 
         img {
             height: 100%;
@@ -48,7 +53,11 @@
         // border: red dashed 2px;
 
         position: relative;
-        overflow: hidden;
+        // overflow: hidden;
+    }
+
+    &__ribbion {
+        position: absolute;
     }
 
     &__title {

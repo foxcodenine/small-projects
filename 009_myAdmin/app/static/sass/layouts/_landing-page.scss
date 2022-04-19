@@ -1,0 +1,179 @@
+@use '../abstracts/' as *;
+
+.landing {
+
+    &__display {
+        color: $col-text;
+        font-family: $font-primary;
+    
+        color: $col-text;
+        font-family: $font-primary;
+    
+        font-size: 1.4rem;
+        background-color: $col-white;
+        padding: 2rem;
+        border-radius: $border-radius;
+        border: $border-1;
+    
+        max-width: calc(100vw - 15rem);
+    
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows:   4rem 1rem 7.5rem  auto  1fr;
+        gap: 2rem; 
+        
+        margin-bottom: 2rem;
+    
+        @include respond($bp-medium) {
+            max-width: calc(100vw - 10rem);
+        }
+    }
+
+    &__tabs {
+        display: flex;
+        gap: 4rem;
+        border-bottom: $border-1;  
+        
+        @include respond($bp-smaller) {
+            gap: 2rem;
+        }
+    }
+    &__tab, &__tab:link, &__tab:visited {
+        
+        color: $col-text;
+        text-decoration: none;
+        font-size: 2.3rem;
+        font-weight: 600;
+        padding: .6rem 0rem;
+        cursor: pointer !important;   
+        
+        @include respond($bp-smaller) {
+            font-size: 1.6rem;
+        }
+        
+    }
+
+    &__tab--active, &__tab--active:link, &__tab--active:visited  {    
+        color: $col-active-blue !important;
+        border-bottom: .5rem currentColor solid !important;
+    }
+
+    &__group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    &__input {
+        border: $border-1;
+        border-left: none;
+        border-right: none;
+        
+
+        color: currentColor;
+        font-family: $font-primary;
+        padding: 1rem;        
+        height: 3.5rem;
+
+        flex: 1;
+        position: relative;
+
+        &--1 {
+            
+        }
+        &--2 {
+            @include respond($bp-medium) {
+                flex: 0 0 100%;
+            }
+        }
+        
+
+        &::file-selector-button {
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            top: -.5px;
+            bottom: -.5px;
+            margin: 0;
+            border: $border-1;
+            background-color: none;
+            padding: .5rem 2rem;
+            background-color: $col-bg-y;
+            border-right: none;
+            width: 12rem;         
+        }
+    }
+    &__btn {
+        @include respond($bp-small) {
+            flex: 1 0 100% !important;
+            height: 3.5rem;
+            order: 4;
+        }
+    }
+    &__img {
+        border: $border-1;
+        flex: 0 0 12rem;
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .landing__link:visited, .landing__link:link {
+        color: #4f3cc9;
+        text-decoration: none;
+        display: inline-block;
+    }
+    
+}
+
+.landing__textarea {
+    flex: 1 !important;
+    .cke_chrome {
+        border: $border-1 !important;
+        overflow: hidden !important;
+        border-left: none !important;
+        border-right: none !important;
+        border-radius: 0 !important;
+        
+
+        & > * > *{
+            border-color: $col-border-1 !important;
+            border-width: .5px;
+        }
+    }
+
+    .cke_button_icon {
+        margin: 0 .5rem !important;
+
+        @include respond(1380) {
+            margin: 0 .3rem !important;
+        }
+        @include respond(1300) {
+            margin: 0 .2rem !important;
+        }
+        @include respond(1260) {
+            margin: 0 .1rem !important;
+        }
+        @include respond(1220) {
+            margin: 0 0 !important;
+            padding: 0;
+            // width: 1rem;
+        }
+
+        .cke_button {
+            padding: 2px !important;
+        }
+    }
+
+
+}
+
+.cke_button.cke_button__link {
+    background-size: 5px !important;
+    fill: red !important;
+    color: red !important;
+}

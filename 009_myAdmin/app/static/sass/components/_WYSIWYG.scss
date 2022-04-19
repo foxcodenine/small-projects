@@ -4,7 +4,7 @@
     grid-column: 1 / -1;
     border-radius: $border-radius  !important;
     box-shadow: none !important;
-    border-color: none;
+    // border-color: $col-border-1 !important;
 
 
 }
@@ -42,9 +42,10 @@
     margin: 0 1rem !important;
 }
 
-// .cke {
-
-// }
+.cke_chrome {
+    // border: $border-1 !important;
+    overflow: hidden !important;
+}
 
 
 

@@ -172,6 +172,15 @@ function modalToggle () {
     closeElements.forEach( (closeItem) => {
         closeItem.addEventListener('click', modalOff);      
     })
+
+    window.addEventListener('keydown', function(e) {
+
+        switch (e.key) {
+            case 'Escape':
+                modalOff();
+                break;              
+        }
+    });
 }
 
 
