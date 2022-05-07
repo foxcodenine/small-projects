@@ -1,11 +1,11 @@
 ## ------ Sites --------------------------------------------------------
-https://packagist.org/ 
+https://packagist.org/
 
 https://www.toptal.com/designers/htmlarrows/symbols/
 
 https://www.flaticon.com/search?word=eye&type=icon
 
-https://iconmonstr.com/ 
+https://iconmonstr.com/
 https://iconmonstr.com/checkbox-3-svg/
 https://dev.w3.org/html5/html-author/charref
 
@@ -99,26 +99,32 @@ https://www.youtube.com/watch?v=jE74DEsjmlQ&t=599s
 
 To recursively give directories read&execute privileges:
 
-    $ find /path/to/base/dir -type d -print0 | xargs -0 chmod 755 
+    $ find /path/to/base/dir -type d -print0 | xargs -0 chmod 755
     $ find /path/to/base/dir -type f -print0 | xargs -0 chmod 644
 
 ## ------ Apache -------------------------------------------------------
 
 ### Enable htaccess in Apache
 
+
+
 First enable rewrite using this command:
 
     $ sudo a2enmod rewrite
+
+Enable the vhost
+
+    $ sudo a2ensite YOUR_VHOST.com.conf
 
 Restart apache2:
 
     $ sudo service apache2 restart
 
-Then go into the sites-available folder: 
+Then go into the sites-available folder:
 
     /etc/apache2/sites-available
 
-And add the following to your virtual host (default vh: 000-default.conf)
+And add the following to your virtual host (default vh: 000-default.conf or in your vh)
 
         <Directory />
             AllowOverride none
@@ -132,7 +138,7 @@ And add the following to your virtual host (default vh: 000-default.conf)
 
 And:    $ sudo service apache2 restart
 
-note: 
+note:
 In the first part we are restricting access  from to / foward.
 And granting from  /var/www/html onwards.
 
@@ -220,10 +226,10 @@ https://www.youtube.com/watch?v=eVwH3VL1EsA
 
     $ npm install swup
 
-…or include the file from the dist folder… 
+…or include the file from the dist folder…
 
     <script src="./dist/swup.js"></script>
- 
+
     or directly from unpkg
     <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>   -->
 
@@ -266,8 +272,8 @@ Load the CKEditor 4 script from CDN:
 #### vanillajs-datepicker
 
 
-You can find the script in 'static/js/vanillajs-datepicker/datepicker-full.min.js' 
-& my'formatDateInput()' function in 'static/js/script.js' 
+You can find the script in 'static/js/vanillajs-datepicker/datepicker-full.min.js'
+& my'formatDateInput()' function in 'static/js/script.js'
 
 And the css style file in  static/css/datepicker.min.css
 
@@ -286,8 +292,8 @@ and  follow:
 #### tippyJS
 
 
-You can find the script in 'static/js/tippy-js/...' 
-& my'formatDateInput()' function in 'static/js/script.js' 
+You can find the script in 'static/js/tippy-js/...'
+& my'formatDateInput()' function in 'static/js/script.js'
 
 else include:
 
