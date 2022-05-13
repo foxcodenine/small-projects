@@ -100,12 +100,16 @@
         flex-direction: column;
         align-items: center;
         gap: .5rem;
-
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 1rem 0;
     }
 
-    &__icon {
-        width: 3.5rem;
-        height: 3.5rem;
+    &__logo {
+        margin-top: .5rem;
+        width: 2.5rem;
+        height: 2.5rem;
         fill: lighten($color-gray-dark-2, 5%) !important;
         filter: drop-shadow($shodow-2);
     }
@@ -116,3 +120,4 @@
         text-shadow: $shodow-3;
     }
 }
+
