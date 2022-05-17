@@ -1,12 +1,12 @@
 <template>
-    <nav class="nav-bar">
+    <nav class="nav-bar" id="home">
 
         <ul class="top-links">
-            <li class="top-links__item top-links__item--active"><a class="top-links__link" href="#">Home</a></li>
-            <li class="top-links__item"><a class="top-links__link" href="#">Projects</a></li>
-            <li class="top-links__item"><a class="top-links__link" href="#">Linkdin</a></li>
-            <li class="top-links__item"><a class="top-links__link" href="#">Facebook</a></li>
-            <li class="top-links__item"><a class="top-links__link" href="#">Contacts</a></li>
+            <li class="top-links__item"><a class="top-links__link" href="#home">Home</a></li>
+            <li class="top-links__item"><a class="top-links__link" href="#projects">Projects</a></li>
+            <li class="top-links__item"><a class="top-links__link" href="https://www.linkedin.com/in/christopher-farrugia-3a51184b/" target="_blank">Linkdin</a></li>
+            <li class="top-links__item"><a class="top-links__link" href="https://www.facebook.com/chrisfarrugia12/" target="_blank">Facebook</a></li>
+            <li class="top-links__item top-links__item--active"><a class="top-links__link" href="#contacts">Contact me</a></li>
         </ul>
     </nav>
 </template>
@@ -22,23 +22,25 @@ export default {
 <!--------------------------------------------------------------------->
 
 <style lang="scss" scoped>
-@use '../../sass/abstracts/' as *;
+@use '../sass/abstracts/' as *;
 
 .nav-bar {
+	grid-column: 2 / -2;
+	grid-row: 1 / 2;
+	z-index: 10;
+	// border: 1px solid black;
+
 	color: lighten($col-dark, 5%);
     background-color: transparent; 
-    padding: 6rem 10rem;
-	position: absolute;
-	z-index: 100;
-	@include respond ($bp-large) { 
-    padding: 6rem 8rem
-    };
+    padding: 6rem 0rem 4rem 0rem;
+
+	z-index: 10;
+
     
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
 	width: 100%;
-
 }
 
 
@@ -46,12 +48,20 @@ export default {
 .top-links {
 	list-style: none;
 	display: flex;
+	justify-content: flex-end;
+	// border: 1px solid black;
+	
 	gap: 2rem;
-	margin-left: auto;
+
+	@include respond (900) {
+	justify-content: space-between;
+	width: 100%;
+	}
+
 
 	&__item {
 		cursor: pointer;
-		padding: .5rem 2rem;
+		
 		border-radius: $border-radius;
 		font-weight: 500;
 		font-size: 1.6rem;
@@ -77,6 +87,8 @@ export default {
 	}
 	
 	&__link:link, &__link:visited {
+		padding: .3rem 2rem;
+		display: block;
 		color: currentColor;
 		text-decoration: none;
 	}

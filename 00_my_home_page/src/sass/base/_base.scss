@@ -1,0 +1,85 @@
+@use '../abstracts/' as *;
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    outline: none;
+
+    // -ms-overflow-style: none;
+    // scrollbar-width: none; /* Firefox */
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;  
+    scroll-behavior: smooth; 
+
+    @include respond (824) {
+        font-size: 55%;
+    }
+
+    /* Scrollbars */
+    // -ms-overflow-style: none;
+    // scrollbar-width: none; /* Firefox */
+    // scrollbar-color: rgba(90, 90, 90)  rgba(0, 0, 0, 0.01);
+    // scrollbar-width: 6px;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: $font-text;
+    height: 100vh;
+    
+    min-width: 80.9rem;
+
+    background-color: $col-light;
+    
+
+    padding: 0 2rem;
+
+    @include respond (1300) { 
+        background-color: $col-white; 
+        padding: 0;
+    };
+
+
+
+    /* Scrollbars */
+    overflow: auto;
+    overflow-y: overlay;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+    &::-webkit-scrollbar-track {
+        background: $col-white
+    }
+    &::-webkit-scrollbar-thumb {
+        background: $col-light-2
+    }
+
+    ::-moz-selection { /* Code for Firefox */
+        // color: red;
+        background: $col-tertiary;
+      }
+      
+      ::selection {
+        // color: red;
+        background: $col-tertiary;
+      }
+
+      
+}
+
+.hightlighted {
+    background-color: $col-tertiary;
+}
+
+
+
+
+
+
+

@@ -1,7 +1,7 @@
 <template>
     
     <button class="btn" v-bind:class="btnClass">
-        <a v-bind:href="myLink"></a>
+        <a v-bind:href="myLink" target="_blank"></a>
         <slot></slot>        
     </button>
     
@@ -29,7 +29,7 @@ export default {
 <!--------------------------------------------------------------------->
 
 <style lang="scss" scoped>
-@use '../../../sass/abstracts/' as *;
+@use '../../sass/abstracts/' as *;
 
 .btn {
     
