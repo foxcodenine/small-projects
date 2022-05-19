@@ -12,9 +12,12 @@
 			<the-technologies></the-technologies>			
 			<the-projects></the-projects>
 			<the-footer></the-footer>
+			<the-arrow></the-arrow>
 		</div>
 		
+		
 	</div>
+	
 </template>
 
 <!--------------------------------------------------------------------->
@@ -26,6 +29,8 @@ import TheProfileImage from './components/TheProfileImage.vue';
 import TheTechnologies from './components/TheTechnologies.vue'
 import TheProjects from './components/TheProjects.vue'
 import TheFooter from './components/TheFooter.vue';
+import TheArrow from './components/TheArrow.vue';
+
 
 export default {
 	components: {
@@ -34,8 +39,12 @@ export default {
 		TheProfileImage,
 		TheTechnologies,
 		TheProjects,
-		TheFooter
-	}
+		TheFooter,
+		TheArrow
+	},    
+	mounted() {
+
+    },
 }
 </script>
 
@@ -119,10 +128,9 @@ export default {
 	&::before {
 		content: '';
 		background-position-y: 0rem;
-			@include respond (600) {
-				background-position-y: 20rem;
-				// background-repeat: 10rem;
-			};
+		@include respond (600) {
+			background-position-y: 20rem;
+		};
 	}
 }
 

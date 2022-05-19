@@ -1,7 +1,7 @@
 <template>
     <ul class="technologies">
         <span class="technologies__item technologies__item--space" ></span>
-        <svg class="technologies__item"><use href="../assets/svg/sprite.svg#icon-php"></use></svg>
+        <svg class="technologies__item"><use href="../assets/svg/sprite.svg#icon-php" ></use></svg>
         <svg class="technologies__item"><use href="../assets/svg/sprite.svg#icon-laravel"></use></svg>
         <svg class="technologies__item"><use href="../assets/svg/sprite.svg#icon-mysql"></use></svg>
         <svg class="technologies__item"><use href="../assets/svg/sprite.svg#icon-javascript"></use></svg>
@@ -19,7 +19,11 @@
 <!--------------------------------------------------------------------->
 
 <script>
+// eslint-disable-next-line
+
 export default {
+
+
 
 }
 </script>

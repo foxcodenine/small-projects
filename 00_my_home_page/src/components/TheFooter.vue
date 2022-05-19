@@ -97,7 +97,7 @@ export default {
     &__right {
         grid-column: -6 / -2;
         display: flex;
-        justify-content: end;
+        justify-content: flex-end;
         gap: 2rem;
     }
 
