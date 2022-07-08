@@ -1,13 +1,12 @@
 <template>
     <div class="arrow__container">
 
-        <div class="arrow__hide" >Hide</div>
+        <div class="arrow__pos-top" >.</div>
 
         <a class="arrow arrow__remove">
             <svg><use href="../assets/svg/sprite.svg#icon-arrow-14" ></use></svg>
         </a>
 
-        <div class="arrow__show">Show</div>
     </div>
 </template>
 
@@ -18,27 +17,20 @@ export default {
     mounted() {
      
         const arrow = document.querySelector(".arrow");
-        const arrowHide = document.querySelector(".arrow__hide");
-        const arrowShow = document.querySelector(".arrow__show");
+        const arrowTop = document.querySelector(".arrow__pos-top");
 
-        let observerShow = new IntersectionObserver(function(entries) {
-            if(entries[0].isIntersecting === true) {
-                arrow.classList.remove('arrow__remove');
-                arrow.setAttribute('href', '#home')
-            }                 
-        }, { threshold: [1] });
-
-        observerShow.observe(arrowShow);
 
         let observerHide = new IntersectionObserver(function(entries) {
             if(entries[0].isIntersecting === true) {
                 arrow.classList.add('arrow__remove');
                 arrow.removeAttribute('href')
-            }                
+            } else {
+                arrow.classList.remove('arrow__remove');
+                arrow.setAttribute('href', '#home')
+            }               
         }, { threshold: [1] });
 
-        observerHide.observe(arrowHide);
-
+        observerHide.observe(arrowTop);
         
     }
 }
@@ -60,22 +52,20 @@ export default {
     &__container {
         // border: 1px dashed crimson;
         position: absolute;
-        height: 100%;
+        height: calc(100% - 1rem);
         width: 3rem;
         z-index: 200;
         right: 1rem;
-
-
     }
 
-    &__show, &__hide {
+    &__pos-top {
         position: absolute;
         top: 105vh;
-        color: transparent;
+        top: 10rem;
+        opacity: 0;
     }
-    &__hide {
-        top: 0;
-    }
+
+
     
     z-index: 100;
     position: fixed;
@@ -87,7 +77,7 @@ export default {
     border-radius: $border-radius;
     width: 3rem;
     height: 3rem;
-    bottom: 3.3rem;
+    bottom: 2.5rem;
     color: #F5F5FA;
     transition: all .2s ease;
     
@@ -97,7 +87,6 @@ export default {
     }
     &:focus{
         color: lighten($col-secondary, 0%);
-        // transform: translateY(0)rotate(-90deg) !important;
     }
 
     svg {

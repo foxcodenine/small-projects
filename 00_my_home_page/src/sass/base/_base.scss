@@ -38,6 +38,8 @@ body {
 
     padding: 0 2rem;
 
+    // border: 1px dashed blue;
+
     @include respond (1300) { 
         background-color: $col-white; 
         padding: 0;

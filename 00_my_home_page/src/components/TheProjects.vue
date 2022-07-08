@@ -80,39 +80,39 @@ import 'tippy.js/dist/tippy.css';
 export default {
     mounted() {
         tippy('.tippy-myadmin', {
-            content: `It is a CMS site design for an Architect to load and manage its project and provide a rest APIs for a font-end.
+            content: `It is a CMS site design for an Architect to load and manage its project, and provide a rest APIs for a font-end.
                       It is built using PHP, SASS, JavaScript and Bash scripting. It also stores images on AWS S3 storage system.`,
         });
 
         tippy('.tippy-arch', {
-            content: `Is meant to be the front-end to MyAdmin app. It is still in progress and is built in Vue/NUXT.`,
+            content: `It is meant to be the front-end to MyAdmin App. It is built in Vue/NUXT and is still in progress.`,
         });
 
         tippy('.tippy-forkify', {
-            content: `Is a JavaScript App built during a course I took. It uses REST to fetches and load recipes
-                        though GET and POST requests, using a 3rd party API.`,
+            content: `Is a JavaScript App, built during a course I have taken. It uses REST to fetches and load recipes
+                     though GET and POST requests, using a 3rd party API.`,
         });
 
         tippy('.tippy-natours', {
-            content: `I built this page during a course on Advanced CSS and SASS, main feature was css animation.`,
+            content: `I have built this page during a course on Advanced CSS and SASS, it's main intent was, in using CSS animation.`,
         });
 
         tippy('.tippy-trillo', {
-            content: `I built this page during a course on Advanced CSS and SASS, main feature was using css flexbox.`,
+            content: `I have built this page during a course on Advanced CSS and SASS, it's main intent was, in using CSS flexbox.`,
         });
 
         tippy('.tippy-nexter', {
-            content: `I built this page during a course on Advanced CSS and SASS, main feature was using css grid system.`,
+            content: `I have built this page during a course on Advanced CSS and SASS, it's main intent was, in using CSS grid system.`,
         });
 
         tippy('.tippy-trava', {
-            content: `My first personal project. It is a Text to Speech app. Originally it was a JS app which I
-                      rebuilt in Vue/NUXT. I also added a back-end in Python-Flask and MySQL. It connects to AWS to store 
-                      and delete images on S3 storage system.`,
+            content: `Is my first personal project. It is a Text to Speech App. Originally it was a JavaScript App which I
+                      rebuilt in Vue/NUXT, and also added a back-end in Python and MySQL using Flask. It also connects to 
+                      AWS to store and delete images on S3 storage system.`,
         });
 
         tippy('.tippy-icemalta', {
-            content: `Icemalta PHP Course practical / tasks.`,
+            content: `These were some small task, we had at Icemalta (PHP Course), which led to the PHP Zend certificate.`,
         });
     }
 }
@@ -170,9 +170,8 @@ export default {
       
         &:hover {        
             transform: translateY(-1.5rem)scale(1.05);            
-            transform: translateY(-.7rem); 
-            filter: sepia(0%);
-            transform: scale(1.05); 
+            // transform: translateY(-.7rem); 
+            // transform: scale(1.05); 
 
             .projects__image {
                 transform: scale(.95); 

@@ -6,13 +6,19 @@
 			<div class="top__bg"></div>
 			<div class="middle__bg"></div>
 	
-			<the-navbar></the-navbar>
+			<the-navbar v-on:openCertifications="openCertifications"></the-navbar>
 			<the-hero></the-hero>
 			<the-profile-image></the-profile-image>
 			<the-technologies></the-technologies>			
 			<the-projects></the-projects>
 			<the-footer></the-footer>
 			<the-arrow></the-arrow>
+			<transition name="fade" mode="in" appear>
+				<the-certifications 
+					v-on:closeCertifications="showCertification = false" 
+					:certification="image" v-if="showCertification">
+				</the-certifications>
+			</transition>
 		</div>
 		
 		
@@ -30,6 +36,7 @@ import TheTechnologies from './components/TheTechnologies.vue'
 import TheProjects from './components/TheProjects.vue'
 import TheFooter from './components/TheFooter.vue';
 import TheArrow from './components/TheArrow.vue';
+import TheCertifications from './components/TheCertifications.vue';
 
 
 export default {
@@ -40,10 +47,20 @@ export default {
 		TheTechnologies,
 		TheProjects,
 		TheFooter,
-		TheArrow
-	},    
-	mounted() {
-
+		TheArrow,
+		TheCertifications
+	},  
+	data() {
+		return {
+			showCertification: false,
+			image:''
+		}
+	},
+	methods: {
+		openCertifications($c) {
+			this.image = $c;	
+			this.showCertification = true;
+		}
     },
 }
 </script>
@@ -63,9 +80,11 @@ export default {
     padding: 1rem;
 
     min-height: 100rem;
-    margin-bottom: 10rem;
+    // margin-bottom: 10rem;
     background-color: $col-white; 	
 	position: relative;
+
+	// border: 1px dashed green;
 
 }
 
@@ -133,6 +152,14 @@ export default {
 		};
 	}
 }
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .4s linear;
+}
 
+.fade-enter-from ,
+.fade-leave-to {
+  opacity: 0;
+}
 </style>
 

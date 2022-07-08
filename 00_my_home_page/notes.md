@@ -21,3 +21,24 @@ https://www.blobmaker.app/
 https://www.producthunt.com/alternatives/get-waves
 https://getwaves.io/
 https://www.youtube.com/watch?v=3owx2vJHkv4
+
+
+
+### tippy
+https://atomiks.github.io/tippyjs/v5/getting-started/
+
+install:
+
+    $ npm i tippy.js
+
+import in file: 
+
+    import tippy from 'tippy.js';
+    import 'tippy.js/dist/tippy.css';
+
+
+use:
+
+    // tippy('.select-item', {
+    //     content: `text to display`,
+    // });

@@ -8,9 +8,9 @@
         <div class="hero__text">
             Hi! I'm Chris. I'm a PHP Developer and Zend Certified. 
             I'm skilled in PHP, Laravel, JavaScript, Vue, SQL,  SASS... 
-            I'm also handy with Linux, <span style="display:none">( 
-            being certified by the Linux Professional Institute), </span>
-            and in Cloud Services, as AWS and Digital Ocean, 
+            I'm also handy with Linux, 
+            being certified by the Linux Professional Institute,
+            and knowledge in Cloud Services, as AWS and Digital Ocean, 
             where I deploy and manage most of my projects.                
         </div>
 

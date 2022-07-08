@@ -1,29 +1,66 @@
 <template>
-    <ul class="technologies">
+    <ul class="technologies ">
         <span class="technologies__item technologies__item--space" ></span>
-        <svg class="technologies__item"><use href="../assets/svg/sprite.svg#icon-php" ></use></svg>
-        <svg class="technologies__item"><use href="../assets/svg/sprite.svg#icon-laravel"></use></svg>
-        <svg class="technologies__item"><use href="../assets/svg/sprite.svg#icon-mysql"></use></svg>
-        <svg class="technologies__item"><use href="../assets/svg/sprite.svg#icon-javascript"></use></svg>
-        <svg class="technologies__item"><use href="../assets/svg/sprite.svg#icon-vue-dot-js"></use></svg>
-        <img class="technologies__item" src="../assets/svg/bash.svg">
-        <svg class="technologies__item"><use href="../assets/svg/sprite.svg#icon-git"></use></svg>
-        <svg class="technologies__item"><use href="../assets/svg/sprite.svg#icon-aws"></use></svg>
-        <svg class="technologies__item"><use href="../assets/svg/sprite.svg#icon-html"></use></svg>
-        <svg class="technologies__item"><use href="../assets/svg/sprite.svg#icon-css"></use></svg>
-        <svg class="technologies__item"><use href="../assets/svg/sprite.svg#icon-sass"></use></svg>
-        <svg class="technologies__item"><use href="../assets/svg/sprite.svg#icon-apache"></use></svg>
+        <svg class="technologies__item tippy-php"><use href="../assets/svg/sprite.svg#icon-php" ></use></svg>
+        <svg class="technologies__item tippy-laravel"><use href="../assets/svg/sprite.svg#icon-laravel"></use></svg>
+        <svg class="technologies__item tippy-mysql"><use href="../assets/svg/sprite.svg#icon-mysql"></use></svg>
+        <svg class="technologies__item tippy-js"><use href="../assets/svg/sprite.svg#icon-javascript"></use></svg>
+        <svg class="technologies__item tippy-vue"><use href="../assets/svg/sprite.svg#icon-vue-dot-js"></use></svg>
+        <img class="technologies__item tippy-bash" src="../assets/svg/bash.svg">
+        <svg class="technologies__item tippy-git"><use href="../assets/svg/sprite.svg#icon-git"></use></svg>
+        <svg class="technologies__item tippy-aws"><use href="../assets/svg/sprite.svg#icon-aws"></use></svg>
+        <svg class="technologies__item tippy-html"><use href="../assets/svg/sprite.svg#icon-html"></use></svg>
+        <svg class="technologies__item tippy-css"><use href="../assets/svg/sprite.svg#icon-css"></use></svg>
+        <svg class="technologies__item tippy-sass"><use href="../assets/svg/sprite.svg#icon-sass"></use></svg>
+        <svg class="technologies__item tippy-apache"><use href="../assets/svg/sprite.svg#icon-apache"></use></svg>
     </ul>
 </template>
 
 <!--------------------------------------------------------------------->
 
 <script>
-// eslint-disable-next-line
-
+// import tippy from 'tippy.js';
+// import 'tippy.js/dist/tippy.css';
 export default {
 
-
+    mounted() {
+        // tippy('.tippy-php', {
+        //     content: `★ ★ ★ ★ ☆`,
+        // });
+        // tippy('.tippy-laravel', {
+        //     content: `★ ★ ⯪ ☆ ☆`,
+        // });
+        // tippy('.tippy-mysql', {
+        //     content: `★ ★ ⯪ ☆ ☆`,
+        // });
+        // tippy('.tippy-js', {
+        //     content: `★ ★ ★ ⯪ ☆`,
+        // });
+        // tippy('.tippy-vue', {
+        //     content: `★ ★ ★ ★ ☆`,
+        // });
+        // tippy('.tippy-git', {
+        //     content: `★ ★ ☆ ☆ ☆`,
+        // });
+        // tippy('.tippy-bash', {
+        //     content: `★ ★ ⯪ ☆ ☆`,
+        // });
+        // tippy('.tippy-aws', {
+        //     content: `★ ★ ☆ ☆ ☆`,
+        // });
+        // tippy('.tippy-html', {
+        //     content: `★ ★ ★ ⯪ ☆`,
+        // });
+        // tippy('.tippy-css', {
+        //     content: `★ ★ ★ ⯪ ☆`,
+        // });
+        // tippy('.tippy-sass', {
+        //     content: `★ ★ ★ ★ ☆`,
+        // });
+        // tippy('.tippy-apache', {
+        //     content: `★ ★ ☆ ☆ ☆`,
+        // });
+    }
 
 }
 </script>
