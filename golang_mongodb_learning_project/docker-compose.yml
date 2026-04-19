@@ -1,0 +1,20 @@
+services:
+  mongodb:
+    image: mongodb/mongodb-community-server:8.0-ubi8
+    container_name: go-mongo-user-api__mongodb
+    # restart: unless-stopped
+    ports:
+      - "27027:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_DB_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_DB_PASSWORD}
+      - MONGO_INITDB_DATABASE=${MONGO_DB_NAME}
+    volumes:
+    - ./docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      # - type: bind
+      #   source: /srv/docker/bind-mounts/go-mongo-user-api/mongodb/data
+      #   target: /data/db
+      # - type: bind
+      #   source: ./mongo-init.js
+      #   target: /docker-entrypoint-initdb.d/mongo-init.js
+      #   read_only: true

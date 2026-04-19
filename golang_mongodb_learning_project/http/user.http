@@ -1,0 +1,27 @@
+
+
+GET http://127.0.0.1:3000/api/user
+Content-Type: application/json
+
+###
+GET http://127.0.0.1:3000/api/user/email/chris@example.com
+Content-Type: application/json
+
+###
+
+POST http://127.0.0.1:3000/api/user
+Content-Type: application/json
+
+{
+    "email" : "chris12aug@yahoo.com",
+    "password": "helloworld"
+}
+
+###
+
+DELETE http://127.0.0.1:3000/api/user/email
+Content-Type: application/json
+
+{
+    "email" : "chris@example.com"
+}
